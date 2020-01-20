@@ -1,0 +1,23 @@
+@import "./variables";
+@import "./utils";
+@import "./mediaqueries";
+@import "./buttons";
+@import "./mixins";
+@import "./button";
+
+//* Home Page
+.home {
+  background: url("../images/backgroundimagebg-image.png");
+  @include pictureConfig(100vh);
+}
+
+//* Side Nav
+
+.side-nav {
+  height: 100vh;
+  background: $menu;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 7%;
+}
