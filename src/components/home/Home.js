@@ -7,6 +7,9 @@ const Home = () => {
     <div className="home">
       <Logo />
       <SideNav />
+      <a href="" className="btn btn-pri">
+        DownLoad CV
+      </a>
     </div>
   );
 };
