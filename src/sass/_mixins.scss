@@ -4,3 +4,8 @@
   background-position: center;
   height: $height;
 }
+
+@mixin height_width($height, $width) {
+  height: $height;
+  width: $width;
+}

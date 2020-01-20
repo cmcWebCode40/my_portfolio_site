@@ -11,6 +11,12 @@
   @include pictureConfig(100vh);
 }
 
+.logo {
+  img {
+    @include height_width(100px, 100px);
+  }
+}
+
 //* Side Nav
 
 .side-nav {
