@@ -1,10 +1,12 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavItem = ({ link, title }) => {
+const NavItem = ({ link, title, icon }) => {
   return (
-    <div>
+    <div className="side-bar">
       <ul>
-        <li>
+        <li className="move move-btn">
+          <FontAwesomeIcon icon={icon} size="3x" color="#fff" />
           <a href={link}>{title}</a>
         </li>
       </ul>
