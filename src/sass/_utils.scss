@@ -4,12 +4,14 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   font-size: 85%;
 }
 
 body {
+  background: url("../images/backgroundimagebg-image.png");
   line-height: 1.7;
   font-family: Arial, Helvetica, sans-serif;
+  background-size: contain;
+  //   @include pictureConfig(70vh);
 }

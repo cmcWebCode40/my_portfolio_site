@@ -4,6 +4,7 @@ import Layouts from "./layouts/Layouts";
 import "./sass/styles.scss";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
+
 import {
   faHome,
   faProjectDiagram,
@@ -12,7 +13,8 @@ import {
   faUser,
   faCode,
   faFileDownload,
-  faDownload
+  faDownload,
+  faHeart
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -23,7 +25,8 @@ library.add(
   faFileDownload,
   faBlog,
   faUser,
-  faCode
+  faCode,
+  faHeart
 );
 
 const App = () => {
