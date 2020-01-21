@@ -10,10 +10,21 @@ import {
   faPhone,
   faBlog,
   faUser,
-  faCode
+  faCode,
+  faFileDownload,
+  faDownload
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faHome, faProjectDiagram, faPhone, faBlog, faUser, faCode);
+library.add(
+  faDownload,
+  faHome,
+  faProjectDiagram,
+  faPhone,
+  faFileDownload,
+  faBlog,
+  faUser,
+  faCode
+);
 
 const App = () => {
   return (

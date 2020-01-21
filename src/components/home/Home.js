@@ -1,5 +1,6 @@
 import React from "react";
 import Buttons from "../../shared/buttons/Button";
+
 const Home = () => {
   return (
     <div className="home">
@@ -12,7 +13,7 @@ const Home = () => {
           <span> PROJECT MANAGER</span>
           from <span>Nigeria...</span>
         </p>
-        <Buttons name={"Download CV"} />
+        <Buttons name={"Download CV"} icon={"download"} />
       </div>
     </div>
   );
