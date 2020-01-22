@@ -6,10 +6,6 @@
 @import "./mediaqueries";
 
 //* Home Page
-.layout {
-  //   @include pictureConfig(100vh);
-  //   background-size: contain;
-}
 
 .logo {
   margin: 0rem 0 0 1.4rem;
@@ -81,14 +77,44 @@
   }
 }
 
+
+  .available {
+    svg {
+      position: absolute;
+      top: -5%;
+      height: 400px;
+      width: 300px;
+      left: 60%;
+      z-index:2;
+    }
+  }
+
+#board {
+  position: absolute;
+  animation: 2s rope infinite  ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: 1s ease all;
+}
+
+@keyframes rope {
+  from {
+    transform: rotateY(360deg);
+      transition: 3s ease;
+  }
+  to {
+    transform: rotateY(0deg);
+      transition: 3s ease ;
+  }
+}
+
 //* footer
 
 .footer {
   position: relative;
-  //   top: 85%;
   display: flex;
-  justify-content: space-between;
-  margin: 13rem 0 0 0;
+  justify-content: space-around;
+  margin: 14rem 0 0 0;
 
   &-name {
     color: $white;
@@ -98,9 +124,8 @@
   }
 
   &-socials {
-    margin: 1.4rem 10rem 0 0;
     a {
-      margin-left: 1.3rem;
+      margin: 0 1rem;
     }
   }
 }

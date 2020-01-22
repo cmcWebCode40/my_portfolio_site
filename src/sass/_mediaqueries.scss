@@ -26,6 +26,20 @@
     }
   }
 
+  //* available
+.home {
+  .available {
+    svg {
+      position: absolute;
+      top: -5%;
+      height: 200px;
+      width: 100px;
+      left: 60%;
+      z-index:2;
+    }
+  }
+}
+
   .footer {
     flex-wrap: wrap-reverse;
 

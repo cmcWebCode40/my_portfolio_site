@@ -14,7 +14,8 @@ import {
   faCode,
   faFileDownload,
   faDownload,
-  faHeart
+  faHeart,
+  faHamburger
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -26,7 +27,8 @@ library.add(
   faBlog,
   faUser,
   faCode,
-  faHeart
+  faHeart,
+  faHamburger
 );
 
 const App = () => {
