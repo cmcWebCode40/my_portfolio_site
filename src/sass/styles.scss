@@ -26,6 +26,96 @@
   width: 7%;
 }
 
+//* Hamburger Menu
+
+.menu {
+  height: 50px;
+  width: 30px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 2rem 1rem 0 1rem;
+  cursor: pointer;
+  z-index: 3;
+
+  span {
+    display: block;
+    position: relative;
+    margin: 0 0 0.3rem 0;
+    height: 5px;
+    width: 100%;
+    background-color: $white;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  span:nth-child(2) {
+    width: 63%;
+  }
+
+  .close {
+    span {
+      height: 3.5px;
+      transition: 0.4s ease-out;
+      &:nth-child(1) {
+        transform: rotate(48deg);
+        top: 6px;
+      }
+      &:nth-child(3) {
+        transform: rotate(-48deg);
+        bottom: 3px;
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+
+.hamb {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 2;
+
+  .wrapper {
+    background: $menu;
+    height: 100vh;
+    width: 100%;
+
+    ul {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      list-style-type: none;
+      li {
+        padding: 1.4rem 0;
+
+        &:hover {
+          border-bottom: 2px solid $pri-color;
+          transform: scale(1.3);
+          a {
+            color: $pri-color;
+          }
+
+          // transform: skewX(15deg);
+        }
+
+        a {
+          text-decoration: none;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .close {
+    position: absolute;
+    display: none;
+  }
+}
+
 .side-bar {
   margin: 3rem auto;
   @include center_with_flex();
@@ -61,6 +151,14 @@
     font-size: 1.3rem;
     color: $blue;
   }
+  //     span {
+  //       display: block;
+  //       color: $pri-color;
+  //       height: 4px;
+  //       width: 4px;
+  //     }
+  //   }
+
   .line {
     color: $pri-color;
   }
@@ -77,21 +175,20 @@
   }
 }
 
-
-  .available {
-    svg {
-      position: absolute;
-      top: -5%;
-      height: 400px;
-      width: 300px;
-      left: 60%;
-      z-index:2;
-    }
+.available {
+  svg {
+    position: absolute;
+    top: -5%;
+    height: 400px;
+    width: 300px;
+    left: 60%;
+    z-index: 1;
   }
+}
 
-#board {
+#sling {
   position: absolute;
-  animation: 2s rope infinite  ease;
+  animation: 2.5s rope infinite ease;
   transform-origin: center;
   transform-box: fill-box;
   transition: 1s ease all;
@@ -100,11 +197,11 @@
 @keyframes rope {
   from {
     transform: rotateY(360deg);
-      transition: 3s ease;
+    transition: 3s ease;
   }
   to {
     transform: rotateY(0deg);
-      transition: 3s ease ;
+    transition: 3s ease;
   }
 }
 
@@ -115,6 +212,7 @@
   display: flex;
   justify-content: space-around;
   margin: 14rem 0 0 0;
+  z-index: 2;
 
   &-name {
     color: $white;

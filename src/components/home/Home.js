@@ -66,7 +66,6 @@ const Home = () => {
                 stroke-width="3"
               />
             </g>
-
           </g>
         </svg>
       </div>
