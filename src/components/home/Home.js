@@ -37,7 +37,7 @@ const Home = () => {
                   transform="rotate(-44.0515 4.76404 376.735)"
                   fill="#C4C4C4"
                   stroke="black"
-                  stroke-width="4"
+                  strokeWidth="4"
                 />
                 <rect
                   id="Rectangle 1"
@@ -63,7 +63,7 @@ const Home = () => {
                 x2="102.417"
                 y2="286.416"
                 stroke="black"
-                stroke-width="3"
+                strokeWidth="3"
               />
             </g>
           </g>

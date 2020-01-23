@@ -9,7 +9,7 @@ const Layouts = () => {
   return (
     <div className="layout">
       <Logo />
-      <Hamburger className="close" />
+      <Hamburger />
       <SideNav />
       <Home />
       <Footer />
