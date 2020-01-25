@@ -147,20 +147,14 @@
 //* Landing page content
 .content {
   margin: 2rem 0 0 2.5em;
-  em {
-    font-size: 1.3rem;
-    color: $blue;
+
+  h2 {
+    color: $pri-color;
   }
-  //     span {
-  //       display: block;
-  //       color: $pri-color;
-  //       height: 4px;
-  //       width: 4px;
-  //     }
-  //   }
 
   .line {
     color: $pri-color;
+    font-size: 32px;
   }
   p {
     font-size: 2.4rem;
@@ -205,6 +199,99 @@
   }
 }
 
+//* Contact Page
+
+.contact {
+  margin: -3rem auto;
+  h2 {
+    color: $pri-color;
+    text-align: center;
+    font-size: 25px;
+    span {
+      font-size: 30px;
+    }
+  }
+  &-page {
+    background-color: $menu;
+    height: 500px;
+    width: 400px;
+    border-radius: 0.9rem;
+
+    margin: auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem 0 0 0;
+    }
+
+    .form-group {
+      margin: 1.5rem 0 0 0;
+      label {
+        display: block;
+        color: $pri-color;
+        font-size: 1.3rem;
+        margin: 0.2rem 0;
+      }
+
+      input {
+        padding: 6px 27px;
+        border-radius: 0.5rem;
+        border: none;
+        width: 100%;
+        color: $white;
+        background: rgba(rgb(247, 247, 247), 0.5);
+
+        &:focus {
+          border: $pri-color;
+          outline: none;
+        }
+      }
+      textarea {
+        margin: 0 0 1.3rem 0;
+        color: $white;
+        background: rgba(rgb(247, 247, 247), 0.5);
+      }
+    }
+  }
+}
+//* ABout Page
+
+.about {
+  margin: 0rem 1.5rem;
+  &-page {
+    h2 {
+      color: $pri-color;
+      font-size: 26px;
+      text-align: center;
+      span {
+        font-size: 32px;
+      }
+    }
+    .profile {
+      div:nth-child(2) {
+        background-color: $menu;
+        border-radius: 12px;
+
+        h4 {
+          border-bottom: 2px $blue solid;
+          color: $pri-color;
+          padding: 7px 3px;
+          font-size: 20px;
+        }
+        p {
+          padding: 7px;
+          color: $white;
+        }
+      }
+
+      div:nth-child(1) {
+        text-align: center;
+      }
+    }
+  }
+}
 //* footer
 
 .footer {

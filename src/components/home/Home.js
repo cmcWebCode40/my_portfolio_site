@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <div className="home">
       <div className="content">
-        <em>
-          Hello <span className="line"> ------------</span>
-        </em>
+        <h2>
+          Hello <span className="line">😎</span>
+        </h2>
         <p>
           My Name is Michael , <br /> I'm a <span>DEVELOPER </span>&& <br /> A{" "}
           <span> PROJECT MANAGER</span>
