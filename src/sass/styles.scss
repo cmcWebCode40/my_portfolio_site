@@ -2,8 +2,8 @@
 @import "./buttons";
 @import "./mixins";
 @import "./buttons";
-@import "./utils";
 @import "./mediaqueries";
+@import "./utils";
 
 //* Home Page
 
@@ -37,7 +37,7 @@
   margin: 2rem 1rem 0 1rem;
   cursor: pointer;
   z-index: 3;
-
+  transform: rotateY(180deg);
   span {
     display: block;
     position: relative;
@@ -51,6 +51,9 @@
   span:nth-child(2) {
     width: 63%;
   }
+  span:nth-child(3) {
+    width: 43%;
+  }
 
   .close {
     span {
@@ -58,11 +61,13 @@
       transition: 0.4s ease-out;
       &:nth-child(1) {
         transform: rotate(48deg);
+        width: 100%;
         top: 6px;
       }
       &:nth-child(3) {
         transform: rotate(-48deg);
         bottom: 3px;
+        width: 100%;
       }
       &:nth-child(2) {
         display: none;
@@ -80,7 +85,7 @@
 
   .wrapper {
     background: $menu;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
 
     ul {
@@ -259,8 +264,11 @@
 //* ABout Page
 
 .about {
-  margin: 0rem 1.5rem;
+  margin: 0rem 1.5rem -6rem 1.5rem;
   &-page {
+    .skills {
+      text-align: center;
+    }
     h2 {
       color: $pri-color;
       font-size: 26px;
@@ -270,9 +278,14 @@
       }
     }
     .profile {
+      // display: flex;
+      align-items: center;
+      // flex-direction: column;
+      justify-content: center;
+
       div:nth-child(2) {
-        background-color: $menu;
-        border-radius: 12px;
+        // background-color: $menu;
+        border: none;
 
         h4 {
           border-bottom: 2px $blue solid;

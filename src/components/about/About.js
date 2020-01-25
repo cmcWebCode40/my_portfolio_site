@@ -7,7 +7,10 @@ const About = () => {
     <div className="about">
       <div className="about-page">
         <h2>
-          ABOUT ME <span>🤵</span>
+          ABOUT ME{" "}
+          <span role="img" aria-label="emoji">
+            🤵
+          </span>
         </h2>
         <div className="profile">
           <div>

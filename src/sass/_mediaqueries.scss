@@ -70,7 +70,11 @@
 @media (min-width: 768px) {
   //* ABout page
   .profile {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
+
+    div {
+      width: 300px;
+      margin: 0 0.6rem;
+    }
   }
 }

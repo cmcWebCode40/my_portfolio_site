@@ -15,3 +15,20 @@ body {
   background-size: contain;
   //   @include pictureConfig(70vh);
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $blue;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $pri-color;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $pri-color;
+}

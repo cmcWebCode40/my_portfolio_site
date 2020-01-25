@@ -7,7 +7,10 @@ const Home = () => {
     <div className="home">
       <div className="content">
         <h2>
-          Hello <span className="line">😎</span>
+          Hello{" "}
+          <span className="line" role="img" aria-label="emoji">
+            😎
+          </span>
         </h2>
         <p>
           My Name is Michael , <br /> I'm a <span>DEVELOPER </span>&& <br /> A{" "}
