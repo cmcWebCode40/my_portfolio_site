@@ -15,16 +15,13 @@ const About = () => {
 
   useEffect(() => {
     gsap.from([line], {
-      duration: 2,
-      scale: 0.5,
+      duration: 3,
+      scale: 0.8,
       opacity: 0,
       delay: 1,
       stagger: 0.2,
       ease: "elastic",
-      force3D: true,
-      stagger: {
-        amount: 0.5
-      }
+      force3D: true
     });
   }, [line]);
 
