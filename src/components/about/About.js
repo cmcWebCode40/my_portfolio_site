@@ -16,7 +16,7 @@ const About = () => {
         <h2>
           ABOUT ME{" "}
           <span role="img" aria-label="emoji">
-            🤵
+            👨‍💻
           </span>
         </h2>
         <div className="profile">

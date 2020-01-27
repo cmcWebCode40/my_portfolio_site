@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import { gasp } from "gsap";
 
 import Home from "../components/home/Home";
 import Logo from "../components/logo/Logo";
@@ -18,6 +20,12 @@ const routes = [
 ];
 
 const Layouts = () => {
+  const onEnter = node => {
+    console.log(node);
+  };
+  const onExit = node => {
+    console.log(node);
+  };
   return (
     <div className="layouts">
       <div className="header">
@@ -27,10 +35,21 @@ const Layouts = () => {
       <SideNav />
       <Router>
         {routes.map(({ path, Component, name }) => (
-          <Route key={name} exact path={path}>
-            <div>
-              <Component />
-            </div>
+          <Route key={name} path={path} exact>
+            {({ match }) => (
+              <CSSTransition
+                in={match != null}
+                timeout={1200}
+                classNames="page"
+                unmountOnExit
+                onExit={onExit}
+                onEnter={onEnter}
+              >
+                <div>
+                  <Component />
+                </div>
+              </CSSTransition>
+            )}
           </Route>
         ))}
       </Router>
@@ -38,17 +57,5 @@ const Layouts = () => {
     </div>
   );
 };
-
-// <Router>
-// <Route path="/" component={Home} exact />
-// <Route path="/contact" component={Contact} />
-// <Route path="/about-me" component={About} />
-// <Route path="/projects" component={Projects} />
-// </Router>
-// {routes.map(({ path, Component }) => (
-//         <Route key="name" path={path} exact>
-//           <Component />
-//         </Route>
-//       ))}
 
 export default Layouts;

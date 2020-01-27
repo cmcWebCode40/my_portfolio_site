@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { gsap } from "gsap";
 import Buttons from "../../shared/buttons/Button";
 import "../../images/available.svg";
 
 const Home = () => {
+  let line1 = useRef(null);
+  let line2 = useRef(null);
+
+  useEffect(() => {
+    gsap.from([line1], 0.8, {
+      delay: 0.8,
+      ease: "power3.out",
+      y: 64,
+      stagger: {
+        amount: 0.25
+      }
+    });
+  }, [line1]);
+
   return (
     <div className="home">
       <div className="content">
-        <h2>
+        <h2 ref={e => (line1 = e)}>
           Hello
           <span className="line" role="img" aria-label="emoji">
             😎
           </span>
         </h2>
-        <p>
-          My Name is Michael , <br /> I'm a <span>DEVELOPER </span>&& <br /> A
-          <span> PROJECT MANAGER</span>
-          from <span>Nigeria...</span>
-        </p>
-        <Buttons name={"Download CV"} icon={"download"} />
+        <div>
+          <p>
+            My Name is Michael , <br /> I'm a <span>DEVELOPER </span>&& <br /> A
+            <span> PROJECT MANAGER</span>
+            from <span>Nigeria...</span>
+          </p>
+          <Buttons name={"Download CV"} icon={"download"} />
+        </div>
       </div>
       <div className="available">
         <svg
