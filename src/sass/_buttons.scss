@@ -1,13 +1,14 @@
 .btn {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 35px;
+  padding: 12px 30px;
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
   position: relative;
   border: none;
   cursor: pointer;
+  z-index: 1;
   box-shadow: 3px 2px 3px 0px rgb(19, 19, 19);
 
   &:link,
@@ -34,7 +35,7 @@
     font-weight: bold;
 
     &::after {
-      background: #33df67;
+      background: $primary;
     }
   }
 

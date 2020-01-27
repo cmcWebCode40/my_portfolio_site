@@ -5,7 +5,7 @@ const Hamburger = () => {
   const [opened, setIsOpened] = useState(true);
 
   return (
-    <>
+    <div className="side-menu">
       <div className="menu">
         <div
           className={opened ? "" : "close"}
@@ -21,22 +21,22 @@ const Hamburger = () => {
           <div className="wrapper">
             <ul>
               <li>
-                <a href="www.notin.com">Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a href="www.notin.com">About</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="www.notin.com">Projects</a>
+                <a href="/projects">Projects</a>
               </li>
               <li>
-                <a href="www.notin.com">Contact</a>
+                <a href="/contact">Contact</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

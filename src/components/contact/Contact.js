@@ -4,9 +4,8 @@ import Button from "../../shared/buttons/Button";
 const Contact = () => {
   return (
     <div className="contact">
-      <input type="text" placeholder="Subject" />
       <h2>
-        DROP A MESSAGE{" "}
+        DROP A MESSAGE
         <span role="img" aria-label="emoji">
           🚀
         </span>

@@ -1,18 +1,24 @@
 @import "./variables";
-@import "./buttons";
 @import "./mixins";
-@import "./buttons";
 @import "./mediaqueries";
 @import "./utils";
+@import "./buttons";
 
 //* Home Page
 
 .logo {
+  position: fixed;
+  top: 0;
   margin: 0rem 0 0 1.4rem;
   padding: -2rem 0 0 0;
   img {
     @include height_width(100px, 100px);
   }
+}
+
+.header {
+  position: relative;
+  margin: 1rem 0 10rem 0;
 }
 
 //* Side Nav
@@ -77,23 +83,25 @@
 }
 
 .hamb {
-  position: absolute;
-  top: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: 2;
+  position: fixed;
+  top: 20%;
+  right: 0;
+  height: 40%;
+  width: 30%;
 
   .wrapper {
     background: $menu;
-    height: 110vh;
+    height: 100%;
     width: 100%;
+    z-index: 0;
 
     ul {
       position: absolute;
-      top: 30%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       list-style-type: none;
+      //  border-bottom: 1px solid $blue;
       li {
         padding: 1.4rem 0;
 
@@ -103,8 +111,6 @@
           a {
             color: $pri-color;
           }
-
-          // transform: skewX(15deg);
         }
 
         a {
@@ -118,6 +124,10 @@
   .close {
     position: absolute;
     display: none;
+
+    .side-menu {
+      visibility: hidden;
+    }
   }
 }
 
@@ -207,22 +217,22 @@
 //* Contact Page
 
 .contact {
-  margin: -3rem auto;
+  margin: -3rem auto 0 auto;
   h2 {
     color: $pri-color;
     text-align: center;
     font-size: 25px;
+
     span {
       font-size: 30px;
     }
   }
   &-page {
     background-color: $menu;
-    height: 500px;
-    width: 400px;
+    height: 480px;
+    width: 350px;
     border-radius: 0.9rem;
-
-    margin: auto;
+    margin: 0 auto;
 
     form {
       display: flex;
@@ -235,9 +245,14 @@
       margin: 1.5rem 0 0 0;
       label {
         display: block;
+
         color: $pri-color;
         font-size: 1.3rem;
         margin: 0.2rem 0;
+      }
+
+      ::placeholder {
+        color: $white;
       }
 
       input {
@@ -246,7 +261,7 @@
         border: none;
         width: 100%;
         color: $white;
-        background: rgba(rgb(247, 247, 247), 0.5);
+        background: rgba(rgba(29, 27, 27, 0.959), 0.5);
 
         &:focus {
           border: $pri-color;
@@ -256,7 +271,7 @@
       textarea {
         margin: 0 0 1.3rem 0;
         color: $white;
-        background: rgba(rgb(247, 247, 247), 0.5);
+        background: rgba(rgba(29, 27, 27, 0.959), 0.5);
       }
     }
   }
@@ -268,23 +283,32 @@
   &-page {
     .skills {
       text-align: center;
+      margin-top: 0.6rem;
+      display: flex;
+      align-items: center;
+      & > div {
+        margin-right: 0.6rem;
+      }
     }
+
     h2 {
       color: $pri-color;
       font-size: 26px;
       text-align: center;
+      margin: 0rem 0 1rem 0;
       span {
         font-size: 32px;
       }
     }
     .profile {
-      // display: flex;
       align-items: center;
-      // flex-direction: column;
       justify-content: center;
 
+      img {
+        border-radius: 50%;
+      }
+
       div:nth-child(2) {
-        // background-color: $menu;
         border: none;
 
         h4 {
@@ -296,11 +320,67 @@
         p {
           padding: 7px;
           color: $white;
+          font-size: 1.2rem;
         }
       }
 
       div:nth-child(1) {
         text-align: center;
+      }
+    }
+  }
+}
+
+//* Project
+.project {
+  h2 {
+    color: $pri-color;
+    font-size: 1.9rem;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &-content {
+    background-color: $menu;
+    border-radius: 1rem;
+    padding: 6px 0;
+    width: 350px;
+    margin: 1.2rem auto;
+
+    .card-image {
+      width: 350px;
+      height: 300px;
+      border-radius: 1rem;
+
+      img {
+        @include pictureConfig(80%);
+      }
+    }
+    .card {
+      &-body {
+        margin: -3.4rem 0 0 0;
+        padding: 0 0.5rem;
+        h3 {
+          color: $pri-color;
+        }
+        p {
+          color: $white;
+        }
+        &-link {
+          display: flex;
+          justify-content: space-around;
+          margin: 0.4rem 0 0 0;
+          cursor: pointer;
+
+          a {
+            color: $pri-color;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Button = ({ name, icon }) => {
   return (
     <div>
-      <button href="#!" className="btn btn-pri">
+      <a href="#!" className="btn btn-pri">
         {name}
         <FontAwesomeIcon
           style={{ marginLeft: ".5rem" }}
@@ -12,7 +12,7 @@ const Button = ({ name, icon }) => {
           size="1x"
           color="#fff"
         />
-      </button>
+      </a>
     </div>
   );
 };

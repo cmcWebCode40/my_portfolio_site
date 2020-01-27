@@ -1,6 +1,13 @@
 import React from "react";
 import img from "../../images/Capture.PNG";
-import pic from "../../images/stylish fitness trainer.svg";
+import html from "../../images/html5.svg";
+import css from "../../images/css-3.svg";
+import sass from "../../images/sass.svg";
+import js from "../../images/javascript.svg";
+import react from "../../images/react.svg";
+import node from "../../images/nodejs.svg";
+import boot from "../../images/Bootstrap_logo.svg.png";
+import git from "../../images/github-logo.svg";
 
 const About = () => {
   return (
@@ -27,7 +34,30 @@ const About = () => {
           </div>
         </div>
         <div className="skills">
-          <img src={pic} height="200" width="200" alt="skills" />
+          <div>
+            <img src={html} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={css} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={js} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={sass} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={boot} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={git} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={react} height="35" width="35" alt="" />
+          </div>
+          <div>
+            <img src={node} height="35" width="35" alt="" />
+          </div>
         </div>
       </div>
     </div>
