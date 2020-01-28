@@ -1,0 +1,10 @@
+.root {
+  background-color: #fff;
+  height: 100vh;
+}
+
+.root > p {
+  height: 30px;
+  width: 100%;
+  background-color: #d4d4d4;
+}

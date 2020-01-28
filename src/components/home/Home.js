@@ -1,27 +1,15 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
+import React from "react";
+import Typed from "react-typed";
 import Buttons from "../../shared/buttons/Button";
 import "../../images/available.svg";
 
 const Home = () => {
-  let line1 = useRef(null);
-  let line2 = useRef(null);
-
-  useEffect(() => {
-    gsap.from([line1], 0.8, {
-      delay: 0.8,
-      ease: "power3.out",
-      y: 64,
-      stagger: {
-        amount: 0.25
-      }
-    });
-  }, [line1]);
+  const textLines = [`Frontend Developer`, `Project Manager`];
 
   return (
     <div className="home">
-      <div className="content">
-        <h2 ref={e => (line1 = e)}>
+      <div className="content ">
+        <h2>
           Hello
           <span className="line" role="img" aria-label="emoji">
             😎
@@ -29,9 +17,16 @@ const Home = () => {
         </h2>
         <div>
           <p>
-            My Name is Michael , <br /> I'm a <span>DEVELOPER </span>&& <br /> A
-            <span> PROJECT MANAGER</span>
+            My Name is Michael , <br /> I'm a{" "}
+            <span>
+              <Typed strings={textLines} typeSpeed={60} backSpeed={50} loop />
+            </span>
             from <span>Nigeria...</span>
+            <br />
+            <small>
+              I build things for the web ,<br /> Always open to to learning and
+              Teamwork
+            </small>
           </p>
           <Buttons name={"Download CV"} icon={"download"} />
         </div>

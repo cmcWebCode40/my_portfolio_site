@@ -1,7 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
-import { gasp } from "gsap";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import Home from "../components/home/Home";
 import Logo from "../components/logo/Logo";
@@ -20,12 +18,6 @@ const routes = [
 ];
 
 const Layouts = () => {
-  const onEnter = node => {
-    console.log(node);
-  };
-  const onExit = node => {
-    console.log(node);
-  };
   return (
     <div className="layouts">
       <div className="header">
@@ -35,22 +27,25 @@ const Layouts = () => {
       <SideNav />
       <Router>
         {routes.map(({ path, Component, name }) => (
-          <Route key={name} path={path} exact>
-            {({ match }) => (
+          <Switch>
+            <Route key={name} path={path} exact>
+              {/*({ match }) => (
               <CSSTransition
                 in={match != null}
                 timeout={1200}
                 classNames="page"
                 unmountOnExit
-                onExit={onExit}
-                onEnter={onEnter}
               >
                 <div>
                   <Component />
                 </div>
               </CSSTransition>
-            )}
-          </Route>
+            )*/}
+              <div>
+                <Component />
+              </div>
+            </Route>
+          </Switch>
         ))}
       </Router>
       <Footer />

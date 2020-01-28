@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import img from "../../images/Capture.PNG";
 import html from "../../images/html5.svg";
 import css from "../../images/css-3.svg";
@@ -8,23 +8,8 @@ import react from "../../images/react.svg";
 import node from "../../images/nodejs.svg";
 import boot from "../../images/Bootstrap_logo.svg.png";
 import git from "../../images/github-logo.svg";
-import { gsap } from "gsap";
 
 const About = () => {
-  let line = useRef(null);
-
-  useEffect(() => {
-    gsap.from([line], {
-      duration: 3,
-      scale: 0.8,
-      opacity: 0,
-      delay: 1,
-      stagger: 0.2,
-      ease: "elastic",
-      force3D: true
-    });
-  }, [line]);
-
   return (
     <div className="about">
       <div className="about-page">
@@ -48,30 +33,32 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="skills" id="box" ref={e => (line = e)}>
-          <div>
-            <img src={html} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={css} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={js} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={sass} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={boot} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={git} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={react} height="35" width="35" alt="" />
-          </div>
-          <div>
-            <img src={node} height="35" width="35" alt="" />
+        <div className="box">
+          <div className="skills">
+            <div>
+              <img src={html} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={css} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={js} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={sass} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={boot} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={git} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={react} height="35" width="35" alt="" />
+            </div>
+            <div>
+              <img src={node} height="35" width="35" alt="" />
+            </div>
           </div>
         </div>
       </div>

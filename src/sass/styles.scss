@@ -182,6 +182,10 @@
       margin: 0 0.6rem 0 0.4rem;
       font-weight: 700;
     }
+    small {
+      font-size: 1.6rem;
+      line-height: 1.6;
+    }
   }
 }
 
@@ -282,6 +286,12 @@
 .about {
   margin: 0rem 1.5rem -6rem 1.5rem;
   &-page {
+    .box {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      margin: 1rem 0;
+    }
     .skills {
       text-align: center;
       margin-top: 0.6rem;
@@ -296,7 +306,7 @@
       color: $pri-color;
       font-size: 26px;
       text-align: center;
-      margin: 0rem 0 1rem 0;
+      margin: -3rem 0 1rem 0;
       span {
         font-size: 32px;
       }
@@ -342,7 +352,7 @@
 
   .grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   &-content {

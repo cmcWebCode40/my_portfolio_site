@@ -5,10 +5,10 @@ import NavItem from "./NavItem";
 const NavItems = () => {
   return (
     <div>
-      <NavItem link={"contact"} title={"Home"} icon={"home"} />
-      <NavItem link={"#"} title={"About"} icon={"user"} />
-      <NavItem link={"#"} title={"Projects"} icon="code" />
-      <NavItem link={"#"} title={"Contact"} icon={"phone"} />
+      <NavItem link={"/"} title={"Home"} icon={"home"} />
+      <NavItem link={"/about"} title={"About"} icon={"user"} />
+      <NavItem link={"/projects"} title={"Projects"} icon="code" />
+      <NavItem link={"/contact"} title={"Contact"} icon={"phone"} />
     </div>
   );
 };
