@@ -24,8 +24,8 @@ const Home = () => {
             from <span>Nigeria...</span>
             <br />
             <small>
-              I build things for the web ,<br /> Always open to to learning and
-              Teamwork
+              I build things for the web ,<br /> Always open to learning and I
+              love TeamWork.
             </small>
           </p>
           <Buttons name={"Download CV"} icon={"download"} />

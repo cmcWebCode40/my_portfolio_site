@@ -1,10 +1,40 @@
 .root {
-  background-color: #fff;
-  height: 100vh;
+  margin: 2rem auto;
 }
 
-.root > p {
-  height: 30px;
+.head {
+  height: 100px;
   width: 100%;
-  background-color: #d4d4d4;
+  background-color: #f4f4f4;
+  margin: 4rem 0 2rem 0;
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
+}
+
+.block > div {
+  height: 125px;
+  width: 85%;
+  background-color: #f4f4f4;
+  border-radius: 13px;
+  margin: 0.4rem 0.5rem;
+}
+
+.foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 50vh;
+  position: fixed;
+  bottom: 0;
+}
+
+.foot > div {
+  margin: 2rem 0.6rem 0 0;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: #f4f4f4;
 }

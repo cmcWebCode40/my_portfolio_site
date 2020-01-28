@@ -1,6 +1,5 @@
 import React from "react";
 import NavItem from "./NavItem";
-// <NavItem link={"#"} title={"Blog"} icon={"blog"} />
 
 const NavItems = () => {
   return (
