@@ -23,16 +23,34 @@ const Footer = () => {
         </small>
       </div>
       <div className="footer-socials">
-        <a href="www.notin.com" className="facebook social">
+        <a
+          href="https://web.facebook.com/chinweikemichael.chinonso"
+          className="facebook social"
+          target="_blanck"
+        >
           <FontAwesomeIcon icon={faFacebook} color="white" size="3x" />
         </a>
-        <a href="www.notin.com" className="twitter social">
+        <a
+          href="twitter.com/Mr_Cmc1?s=08"
+          className="twitter social"
+          target="_blanck"
+        >
           <FontAwesomeIcon icon={faTwitter} color="white" size="3x" />
         </a>
-        <a href="www.notin.com" color="white" className="instagram social">
+        <a
+          href="https://github.com/cmcWebCode40"
+          color="white"
+          className="instagram social"
+          target="_blanck"
+        >
           <FontAwesomeIcon color="white" icon={faGithub} size="3x" />
         </a>
-        <a href="www.notin.com" color="white" className="instagram social">
+        <a
+          href="https://www.linkedin.com/in/michael-infinity-467360a8/"
+          color="white"
+          className="instagram social"
+          target="_blanck"
+        >
           <FontAwesomeIcon icon={faLinkedin} color="white" size="3x" />
         </a>
       </div>
