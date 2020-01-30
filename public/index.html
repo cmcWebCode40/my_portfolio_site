@@ -5,7 +5,7 @@
     <link rel="icon" href="./images/icons/icon-152x152.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#2196f3" />
-    <meta name="description" content="Chinweike Portfolio" />
+    <meta name="description" content="Chinweike Michael Portfolio" />
     <link
       href="https://fonts.googleapis.com/css?family=Raleway&display=swap"
       rel="stylesheet"
@@ -63,5 +63,28 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then(
+              registration => {
+                console.log(
+                  ("worker registration successful", registration.scope)
+                );
+              },
+              function(err) {
+                console.log("worker reg failed", err);
+              }
+            )
+            .catch(err => {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("services Worker is not supported by brower");
+      }
+    </script>
   </body>
 </html>

@@ -61,15 +61,12 @@
   }
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 768px) {
   //* hamburger
   .side-menu {
     display: none;
     z-index: 0;
   }
-}
-
-@media (min-width: 768px) {
   //* ABout page
   .profile {
     display: flex;
@@ -77,6 +74,14 @@
     div {
       width: 300px;
       margin: 0 0.6rem;
+    }
+  }
+
+  //* Project
+  .project {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
   }
 }

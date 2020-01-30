@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 // import Nav from "../navbar/NavItems";
 
 const Hamburger = () => {
@@ -20,18 +22,51 @@ const Hamburger = () => {
         <div className={opened ? "close" : "hamb"}>
           <div className="wrapper">
             <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/projects">Projects</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
+              <Link to="/">
+                <li>
+                  {" "}
+                  <FontAwesomeIcon
+                    icon="home"
+                    size="1x"
+                    style={{ marginRight: "1rem" }}
+                    color="#fff"
+                  />
+                  Home
+                </li>
+              </Link>
+              <Link to="/about">
+                <li>
+                  <FontAwesomeIcon
+                    icon="user"
+                    size="1x"
+                    style={{ marginRight: "1rem" }}
+                    color="#fff"
+                  />{" "}
+                  About
+                </li>
+              </Link>
+              <Link to="/projects">
+                <li>
+                  <FontAwesomeIcon
+                    icon="code"
+                    size="1x"
+                    style={{ marginRight: "1rem" }}
+                    color="#fff"
+                  />{" "}
+                  Projects
+                </li>
+              </Link>
+              <Link to="/contact">
+                <li>
+                  <FontAwesomeIcon
+                    icon="phone"
+                    size="1x"
+                    style={{ marginRight: "1rem" }}
+                    color="#fff"
+                  />{" "}
+                  Contact
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

@@ -1,13 +1,14 @@
 import React from "react";
 import logo from "../../images/newLogo.svg";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
   return (
-    <a href="/">
+    <Link to="/">
       <div className="logo">
         <img src={logo} alt="site logo" />
       </div>
-    </a>
+    </Link>
   );
 };
 

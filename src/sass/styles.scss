@@ -7,18 +7,10 @@
 //* Home Page
 
 .logo {
-  position: fixed;
-  top: 0;
   margin: 0rem 0 0 1.4rem;
-  padding: -2rem 0 0 0;
   img {
     @include height_width(100px, 100px);
   }
-}
-
-.header {
-  position: relative;
-  margin: 1rem 0 10rem 0;
 }
 
 //* Side Nav
@@ -104,13 +96,14 @@
       //  border-bottom: 1px solid $blue;
       li {
         padding: 1.4rem 0;
+        text-decoration: none;
+        color: $white;
+        display: flex;
 
         &:hover {
           border-bottom: 2px solid $pri-color;
-          transform: scale(1.3);
-          a {
-            color: $pri-color;
-          }
+
+          color: $pri-color;
         }
 
         a {
@@ -131,6 +124,10 @@
   }
 }
 
+.active {
+  color: $pri-color;
+}
+
 .side-bar {
   margin: 3rem auto;
   @include center_with_flex();
@@ -138,13 +135,11 @@
   ul {
     li {
       list-style-type: none;
-      display: block;
       cursor: pointer;
       &:hover {
         transform: scale(1.2);
-        //    box-shadow: 2px 2px 4px $pri-color;
-        border-bottom: 3px solid $pri-color;
         border-radius: 2px;
+        // background-color: $pri-color;
       }
 
       a {
@@ -222,11 +217,11 @@
 //* Contact Page
 
 .contact {
-  margin: -3rem auto 0 auto;
+  margin: -2rem auto 0 auto;
   h2 {
     color: $pri-color;
     text-align: center;
-    font-size: 25px;
+    font-size: 2rem;
 
     span {
       font-size: 30px;
@@ -346,13 +341,8 @@
 .project {
   h2 {
     color: $pri-color;
-    font-size: 1.9rem;
+    font-size: 2rem;
     text-align: center;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
   }
 
   &-content {

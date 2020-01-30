@@ -7,47 +7,25 @@ import SideNav from "../shared/sidenav/SideNav";
 import Hamburger from "../shared/hamburger/Hamburger";
 import Contact from "../components/contact/Contact";
 import About from "../components/about/About";
-import Projects from "../components/projects/ProjectList";
+import Projects from "../components/projects/Project";
 import Footer from "../shared/footer/Footer";
-
-const routes = [
-  { path: "/", name: "Home", Component: Home },
-  { path: "/about", name: "About", Component: About },
-  { path: "/projects", name: "Projects", Component: Projects },
-  { path: "/contact", name: "Contact", Component: Contact }
-];
 
 const Layouts = () => {
   return (
-    <div className="layouts">
-      <div className="header">
-        <Logo />
-        <Hamburger />
+    <Router>
+      <div className="layouts">
+        <div className="header">
+          <Logo />
+          <Hamburger />
+        </div>
+        <SideNav />
+        <Route path="/" exact component={Home} />
+        <Route path="/about" exact component={About} />
+        <Route path="/projects" exact component={Projects} />
+        <Route path="/contact" exact component={Contact} />
+        <Footer />
       </div>
-      <SideNav />
-      <Router>
-        {routes.map(({ path, Component, name }) => (
-          <Route key={name} path={path} exact>
-            {/*({ match }) => (
-              <CSSTransition
-                in={match != null}
-                timeout={1200}
-                classNames="page"
-                unmountOnExit
-              >
-                <div>
-                  <Component />
-                </div>
-              </CSSTransition>
-            )*/}
-            <div>
-              <Component />
-            </div>
-          </Route>
-        ))}
-      </Router>
-      <Footer />
-    </div>
+    </Router>
   );
 };
 

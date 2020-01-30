@@ -26,10 +26,10 @@ const About = () => {
           <div>
             <h4>Profile</h4>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro
-              rerum eligendi recusandae minus fugit distinctio assumenda autem
-              earum voluptate. Perspiciatis tempora possimus rerum esse ipsa sit
-              assumenda quaerat harum nam.
+              I'm Michael a frontend Developer and a Project Manager, <br />I
+              build things for the web and users of the web , i also love
+              learning new technologies and working with teams. <br />
+              At my spare time i do music ..
             </p>
           </div>
         </div>

@@ -19,14 +19,10 @@ const Home = () => {
           <p>
             My Name is Michael , <br /> I'm a{" "}
             <span>
-              <Typed strings={textLines} typeSpeed={60} backSpeed={50} loop />
-            </span>
-            from <span>Nigeria...</span>
+              <Typed strings={textLines} typeSpeed={80} backSpeed={50} loop />
+            </span>{" "}
             <br />
-            <small>
-              I build things for the web ,<br /> Always open to learning and I
-              love TeamWork.
-            </small>
+            from <span>Nigeria...</span>
           </p>
           <Buttons name={"Download CV"} icon={"download"} />
         </div>
