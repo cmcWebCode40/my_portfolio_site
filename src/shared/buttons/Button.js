@@ -1,10 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Button = ({ name, icon }) => {
+const Button = ({ name, icon, link }) => {
   return (
     <div>
-      <a href="#!" className="btn btn-pri">
+      <a href={link} className="btn btn-pri" target="_blanck">
         {name}
         <FontAwesomeIcon
           style={{ marginLeft: ".5rem" }}
