@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../images/Capture.PNG";
+import img from "../../images/IMG_20181221_105731.jpg";
 import html from "../../images/html5.svg";
 import css from "../../images/css-3.svg";
 import sass from "../../images/sass.svg";
@@ -26,10 +26,14 @@ const About = () => {
           <div>
             <h4>Profile</h4>
             <p>
-              I'm Michael a frontend Developer and a Project Manager, <br />I
-              build things for the web and users of the web , i also love
+              I'm l a{" "}
+              <strong style={{ color: "#58c376" }}>frontend Developer</strong>{" "}
+              and a{" "}
+              <strong style={{ color: "#58c376" }}> Project Manager,</strong>{" "}
+              <br />
+              I build things for the web and users of the web , i also love
               learning new technologies and working with teams. <br />
-              At my spare time i do music ..
+              At my spare time i do music ...
             </p>
           </div>
         </div>
