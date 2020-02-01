@@ -11,7 +11,7 @@ const Contact = () => {
         </span>
       </h2>
       <div className="contact-page">
-        <form>
+        <form name="contact" method="POST" data-netlify="true">
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input type="text" placeholder="Enter your Name" />
