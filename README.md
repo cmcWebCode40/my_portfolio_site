@@ -1,6 +1,6 @@
-## my_portfolio_site
+# Chinweike Michael Chinonso
 
-# Chinweike Michael Chinonso😃
+## my_portfolio_site 😃
 
 - This Website is my Personnal Website That showcases my Profile and my works..🔥
 
@@ -14,7 +14,7 @@
 
 - This web App is hosted on [netlify.com](netlify.com)
 
-- This is my WebApp link [michael](www.chinweikemichael.tech)
+- This is my WebApp link michael](www.chinweikemichael.tech)
 
 ## Contact
 
