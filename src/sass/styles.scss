@@ -4,6 +4,16 @@
 @import "./utils";
 @import "./buttons";
 
+//*  loader
+
+.loader {
+  background-color: $menu;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
 //* Home Page
 
 .logo {
@@ -358,12 +368,12 @@
       border-radius: 1rem;
 
       img {
-        @include pictureConfig(80%);
+        @include pictureConfig(60%);
       }
     }
     .card {
       &-body {
-        margin: -3.4rem 0 0 0;
+        margin: -6.4rem 0 0 0;
         padding: 0 0.5rem;
         h3 {
           color: $pri-color;
