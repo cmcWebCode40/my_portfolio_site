@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-// import Nav from "../navbar/NavItems";
+import { Context } from "../contextApi/Context";
 
 const Hamburger = () => {
-  const [opened, setIsOpened] = useState(true);
-
+  const [opened, setIsOpened] = useContext(Context);
+  const close = () => {
+    setIsOpened(!opened);
+  };
   return (
     <div className="side-menu">
       <div className="menu">
-        <div
-          className={opened ? "" : "close"}
-          onClick={() => setIsOpened(!opened)}
-        >
+        <div className={opened ? "" : "close"} onClick={close}>
           <span></span>
           <span></span>
           <span></span>

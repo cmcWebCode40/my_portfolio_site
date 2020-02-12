@@ -1,6 +1,6 @@
 import React from "react";
 import Layouts from "./layouts/Layouts";
-// import StateProvider from "./shared/contextApi/StateProvider";
+import ContextProvider from "./shared/contextApi/Context";
 
 import "./sass/styles.scss";
 
@@ -36,9 +36,11 @@ library.add(
 
 const App = () => {
   return (
-    <div>
-      <Layouts />
-    </div>
+    <ContextProvider>
+      <div>
+        <Layouts />
+      </div>
+    </ContextProvider>
   );
 };
 
