@@ -1,4 +1,6 @@
 {
+  "name": " Chinweike Portfolio",
+  "short_name": " cmc",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",

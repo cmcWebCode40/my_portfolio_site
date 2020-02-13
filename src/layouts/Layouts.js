@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useContext } from "react";
+import React, { lazy, Suspense, useContext, useEffect } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,18 +14,28 @@ const Projects = lazy(() => import("../components/projects/Project"));
 const Contact = lazy(() => import("../components/contact/Contact"));
 
 const Layouts = () => {
-  const [opened, setIsOpened] = useContext(Context);
-  const collapseAll = () => {
-    setIsOpened(!opened);
-    console.log("here");
-  };
+  // const [opened, setIsOpened] = useContext(Context);
+  // const collapseAll = () => {
+  //   // setIsOpened(!opened);
+  //   // console.log("here");
+  // };
+
+  // useEffect(() => {
+  //   const revertState = () => {
+  //     setIsOpened(true);
+  //     console.log("mount");
+  //   };
+  //   revertState();
+  //   //eslint-disable-next-line
+  // }, [opened]);
+
   return (
     <Router>
+      <Hamburger />
       <div className="layouts">
-        <div onClick={collapseAll}>
+        <div>
           <div className="header">
             <Logo />
-            <Hamburger />
           </div>
           <SideNav />
           <Route path="/" exact component={Home} />
