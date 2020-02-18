@@ -8,6 +8,7 @@ const Hamburger = () => {
   const close = () => {
     setIsOpened(!opened);
   };
+
   return (
     <div className="side-menu">
       <div className="menu">
