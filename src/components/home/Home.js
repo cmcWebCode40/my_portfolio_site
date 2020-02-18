@@ -27,7 +27,7 @@ const Home = () => {
           <Buttons
             name={"Download CV"}
             link={
-              "https://drive.google.com/file/d/1j4QIjrUFQv3n68U4zVIVuAf3y6JhPAIo/view?usp=sharing"
+              "https://drive.google.com/open?id=1rRoNpyWpTErddRCVPJjSfWEyb6-NVU01"
             }
             icon={"download"}
           />

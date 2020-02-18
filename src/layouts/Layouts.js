@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useContext, useEffect } from "react";
+import React, { lazy, Suspense, useContext } from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,52 +14,48 @@ const Projects = lazy(() => import("../components/projects/Project"));
 const Contact = lazy(() => import("../components/contact/Contact"));
 
 const Layouts = () => {
-  // const [opened, setIsOpened] = useContext(Context);
-  // const collapseAll = () => {
-  //   // setIsOpened(!opened);
-  //   // console.log("here");
-  // };
-
-  // useEffect(() => {
-  //   const revertState = () => {
-  //     setIsOpened(true);
-  //     console.log("mount");
-  //   };
-  //   revertState();
-  //   //eslint-disable-next-line
-  // }, [opened]);
+  const [opened, setIsOpened] = useContext(Context);
+  const collapseAll = () => {
+    if (opened) {
+      return;
+    } else {
+      setIsOpened(!opened);
+    }
+  };
 
   return (
-    <Router>
-      <Hamburger />
-      <div className="layouts">
-        <div>
-          <div className="header">
-            <Logo />
+    <div onClick={collapseAll}>
+      <Router>
+        <Hamburger />
+        <div className="layouts">
+          <div>
+            <div className="header">
+              <Logo />
+            </div>
+            <SideNav />
+            <Route path="/" exact component={Home} />
+            <Suspense
+              fallback={
+                <div className="loader">
+                  <FontAwesomeIcon
+                    style={{ marginRight: "0.7rem" }}
+                    icon="spinner"
+                    size="3x"
+                    color="#e3c214"
+                    spin
+                  />
+                </div>
+              }
+            >
+              <Route path="/about" exact component={About} />
+              <Route path="/projects" exact component={Projects} />
+              <Route path="/contact" exact component={Contact} />
+            </Suspense>
+            <Footer />
           </div>
-          <SideNav />
-          <Route path="/" exact component={Home} />
-          <Suspense
-            fallback={
-              <div className="loader">
-                <FontAwesomeIcon
-                  style={{ marginRight: "0.7rem" }}
-                  icon="spinner"
-                  size="3x"
-                  color="#e3c214"
-                  spin
-                />
-              </div>
-            }
-          >
-            <Route path="/about" exact component={About} />
-            <Route path="/projects" exact component={Projects} />
-            <Route path="/contact" exact component={Contact} />
-          </Suspense>
-          <Footer />
         </div>
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 };
 

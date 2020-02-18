@@ -41,7 +41,7 @@ const Project = () => {
       img:
         "https://res.cloudinary.com/cmcwebcode/image/upload/v1580724567/todo_dszi9f.png",
       source: "https://github.com/cmcWebCode40/simple_todo_list",
-      website: "https://www.todolistwebapp.netlify.com"
+      website: "https://todolistwebapp.netlify.com"
     },
     {
       id: 5,
