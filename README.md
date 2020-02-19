@@ -12,9 +12,11 @@
 
 ## Website
 
-- This web App is hosted on [netlify.com](netlify.com)
+- This web App is hosted on [netlify.com]
+(https://www.netlify.com)
 
-- This is my WebApp link [michael](www.chinweikemichael.tech)
+- This is my WebApp link [michael] 
+(https://www.chinweikemichael.tech)
 
 ## Contact
 
