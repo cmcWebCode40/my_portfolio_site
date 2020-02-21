@@ -17,11 +17,11 @@ const Project = () => {
       id: 2,
       title: "Editorial Info Site",
       description:
-        "A Web App for providing corpers informations in saki-west LGA Nigeria, built with html5,css3,sass react js ",
+        "A Web App for providing corpers informations in saki-west LGA Nigeria, I was responsible for developing the FRONTEND/UI of the project and also consuming the rest APi's built by the backend developer built with html5,css3,sass react js ",
       img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1580347399/editor_hqkbrm.png",
+        "https://res.cloudinary.com/cmcwebcode/image/upload/v1582291967/editorial_qdl9yd.png",
       source: "https://github.com/cmcWebCode40/Editorial_fullStack",
-      website: "http://editorialfullstack.herokuapp.com/"
+      website: "http://editorialcdsgroup.live/"
     },
     {
       id: 3,
