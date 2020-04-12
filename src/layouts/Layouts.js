@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Home from "../components/home/Home";
 import Logo from "../components/logo/Logo";
 import SideNav from "../shared/sidenav/SideNav";
+import Footer from "../shared/footer/Footer";
 import Hamburger from "../shared/hamburger/Hamburger";
 import { Context } from "../shared/contextApi/Context";
 
-import Footer from "../shared/footer/Footer";
+
 const About = lazy(() => import("../components/about/About"));
 const Projects = lazy(() => import("../components/projects/Project"));
 const Contact = lazy(() => import("../components/contact/Contact"));
+const ProjectDetails = lazy(() => import("../components/projects/ProjectDetails"));
 
 const Layouts = () => {
   const [opened, setIsOpened] = useContext(Context);
@@ -24,7 +26,7 @@ const Layouts = () => {
   };
 
   return (
-    <div onClick={collapseAll}>
+    <div className="container" onClick={collapseAll}>
       <Router>
         <Hamburger />
         <div className="layouts">
@@ -50,6 +52,7 @@ const Layouts = () => {
               <Route path="/about" exact component={About} />
               <Route path="/projects" exact component={Projects} />
               <Route path="/contact" exact component={Contact} />
+              <Route path="/project-details/:id" exact component={ProjectDetails} />
             </Suspense>
             <Footer />
           </div>
