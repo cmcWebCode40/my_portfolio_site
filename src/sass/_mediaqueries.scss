@@ -1,3 +1,4 @@
+@import './mixins';
 @media (max-width: 765px) {
   .side-nav {
     display: none;
@@ -79,9 +80,22 @@
 
   //* Project
   .project {
+    &-content {
+      @include center_with_flex;
+    }
+    
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .project-details {
+     width: 600px;
+    &-body {
+      background:$menu;
+      border-bottom:  5px $pri-color solid;
+      width: 600px;
     }
   }
 }

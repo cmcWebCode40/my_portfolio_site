@@ -7,15 +7,19 @@
 //*  loading
 
 .loader {
-z-index:0;
-  height: 100%;
+  z-index:0;
+  height: 100vh;
   width: 100%;
+  @include center_with_flex;
   text-align: center;
   margin: auto;
+ 
 }
 
-//* Home Page
 
+
+
+//* Home Page
 .logo {
   margin: 0rem 0 0 1.4rem;
   img {
@@ -32,6 +36,7 @@ z-index:0;
   right: 0;
   top: 0;
   width: 7%;
+  box-shadow: 2px 2px 3px 4px rgb(41, 40, 40);
 }
 
 //* Hamburger Menu
@@ -90,13 +95,12 @@ z-index:0;
   right: 0;
   height: 40%;
   width: 30%;
+  z-index: 3;
 
   .wrapper {
     background: $menu;
     height: 100%;
     width: 100%;
-    z-index: 0;
-
     ul {
       position: absolute;
       top: 50%;
@@ -149,7 +153,6 @@ z-index:0;
       &:hover {
         transform: scale(1.2);
         border-radius: 2px;
-        // background-color: $pri-color;
       }
 
       a {
@@ -227,7 +230,7 @@ z-index:0;
 //* Contact Page
 
 .contact {
-  margin: -2rem auto 0 auto;
+ 
   h2 {
     color: $pri-color;
     text-align: center;
@@ -252,36 +255,37 @@ z-index:0;
     }
 
     .form-group {
-      margin: 1.5rem 0 0 0;
-      label {
-        display: block;
-
-        color: $pri-color;
-        font-size: 1.3rem;
-        margin: 0.2rem 0;
-      }
+      margin: 3.5rem 0 0 0;
+      text-align: center;
+     
 
       ::placeholder {
         color: $white;
       }
 
       input {
-        padding: 6px 27px;
+        height: 34px;
         border-radius: 0.5rem;
+        padding: .3rem ;
         border: none;
-        width: 100%;
+        width: 250px;
         color: $white;
         background: rgba(rgba(29, 27, 27, 0.959), 0.5);
 
         &:focus {
-          border: $pri-color;
+          border: 1px solid $pri-color;
           outline: none;
         }
       }
       textarea {
         margin: 0 0 1.3rem 0;
+        border-radius: 0.5rem;
         color: $white;
         background: rgba(rgba(29, 27, 27, 0.959), 0.5);
+        &:focus {
+          border: 1px solid $pri-color;
+          outline: none;
+        }
       }
     }
   }
@@ -289,7 +293,9 @@ z-index:0;
 //* ABout Page
 
 .about {
-  margin: 0rem 1.5rem -6rem 1.5rem;
+ 
+  padding-bottom: .5rem ;
+  height: 100vh;
   &-page {
     .box {
       display: flex;
@@ -309,7 +315,7 @@ z-index:0;
 
     h2 {
       color: $pri-color;
-      font-size: 26px;
+      font-size: 2rem ;
       text-align: center;
       margin: -3rem 0 1rem 0;
       span {
@@ -348,7 +354,9 @@ z-index:0;
 }
 
 //* Project
+
 .project {
+  
   h2 {
     color: $pri-color;
     font-size: 2rem;
@@ -356,25 +364,52 @@ z-index:0;
   }
 
   &-content {
-    background-color: $menu;
-    border-radius: 1rem;
-    padding: 6px 0;
-    width: 350px;
-    margin: 1.2rem auto;
+    position: relative;
+    margin: 1.5rem;
 
-    .card-image {
-      width: 350px;
-      height: 300px;
-      border-radius: 1rem;
+    &:hover {
+      .card-image {
+      filter:blur(.5px);
+    
 
       img {
-        @include pictureConfig(60%);
+      transform: scale(0.9);
+      transition: transform .2s ease-in-out;
+      border: 3px $menu solid;
+      opacity: .8;
       }
+      }
+      .card-btn {
+        display: block;
+      }
+
+    }
+    .card-image {
+     z-index: 0;
+      border-radius: .7rem;
+
+      img {
+        object-fit:fill;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 350px;
+        height: 230px;
+      }
+      
+
+    
     }
     .card {
+        @include center_with_flex;
+        margin: 0 auto;
+        &-btn {
+          position: absolute;
+          top:50%;
+          display: none
+          ;
+        }
       &-body {
-        margin: -6.4rem 0 0 0;
-        padding: 0 0.5rem;
         h3 {
           color: $pri-color;
         }
@@ -394,6 +429,63 @@ z-index:0;
         }
       }
     }
+  }
+}
+
+//*Project  Desccrition 
+.project-wrap {
+ 
+}
+.project-details {
+  margin: auto;
+  text-align: center;
+  img {
+    height: 300px;
+    width: 500px;
+  }
+
+  h3 {
+    color:$white;
+    font-size: 2rem  ;
+  }
+
+  &-body {
+    background:$menu;
+    border-bottom:  5px $pri-color solid;
+    margin: 0 .7rem  ;
+     .para {
+       padding:.2rem  1rem  ;
+       color: $white;
+       word-break: break-all;
+       text-align: left;
+       display: block;
+       word-spacing: .3rem ;
+       span {
+         font-size: 1.4rem ;
+       }
+       
+       
+     }
+
+     &-link {
+       display: flex;
+       & > div {
+         margin: .7rem ;
+         padding: .4rem ;
+
+         a {
+           border: 2px solid $white;
+           padding: .4rem .7rem ;
+           text-decoration: none;
+           color: $white; 
+           &:hover {
+             background: $pri-color;
+             color: $white;
+           }
+         }
+       }
+     }
+   
   }
 }
 //* footer

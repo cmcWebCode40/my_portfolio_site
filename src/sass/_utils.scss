@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-size: 85%;
 }
@@ -13,7 +14,10 @@ body {
   line-height: 1.7;
   font-family: "Raleway", sans-serif;
   background-size: contain;
-  //   @include pictureConfig(70vh);
+}
+
+a {
+  text-decoration: none;
 }
 
 ::-webkit-scrollbar {
