@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import ProjectList from "./ProjectList";
-const Project = () => {
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
+const ProjectDetails = ({ match }) => {
+  const [project, setProject] = useState("")
   const [items] = useState([
     {
       id: 1,
@@ -53,29 +56,50 @@ const Project = () => {
       website: "https://pixelartdrawings.netlify.com/"
     }
   ]);
+
+  const getProject = (id, data) => {
+    data.filter(state =>
+      state.title === id ? setProject(state) : null
+    )
+  }
+  useEffect(() => {
+    getProject(match.params.id, items)
+  }, [items])
   return (
-    <div className="project" >
-      <h2>
-        Projects
-        <span role="img" aria-label="emoji">
-          🔥🔥
-        </span>
-      </h2>
-      <div className="grid">
-        {items.map(item => (
-          <div key={item.id}>
-            <ProjectList
-              title={item.title}
-              description={item.description}
-              img={item.img}
-              source={item.source}
-              website={item.website}
-            />
+    <div className="project-wrap">
+      <div className="project-details">
+        <h3>{project.title}</h3>
+        <img src={project.img} alt="project shot" />
+        <div className="project-details-body">
+
+          <p className="para"> <span role="img" aria-label="emoji">
+            👉
+              </span>{project.description}</p>
+          <div className="project-details-body-link">
+            <div>
+              <FontAwesomeIcon
+                style={{ marginRight: "0.7rem" }}
+                icon={faGithub}
+                size="1x"
+                color="#f4f4f4"
+              />
+              <a href={project.source} target="_blanck">
+                View Source
+              </a>
+            </div>
+            <div>
+              <span role="img" aria-label="emoji">
+                🚀
+              </span>
+              <a href={project.website} target="_blanck">
+                View Project
+              </a>
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Project;
+export default ProjectDetails
