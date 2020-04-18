@@ -1,39 +1,35 @@
 import React from "react";
 import img from "../../images/IMG_20181221_105731.jpg";
-// import html from "../../images/html5.svg";
-// import css from "../../images/css-3.svg";
-// import sass from "../../images/sass.svg";
-// import js from "../../images/javascript.svg";
-import react from "../../images/reactt.jpeg";
-// import node from "../../images/nodejs.svg";
-// import boot from "../../images/Bootstrap_logo.svg.png";
-// import git from "../../images/github-logo.svg";
+import about from '../../images/about.png'
+import react from "../../images/react.svg";
+import ts from '../../images/ts.png'
 
 const About = () => {
   return (
     <div className="about">
       <div className="about-page">
+
         <h2>
-          About Me
-          <span role="img" aria-label="emoji">
-            👨‍💻
-          </span>
+          <img src={about} height="200" width="200" alt="about me" />
         </h2>
         <div className="profile">
           <div>
-            <img src={img} height="150" width="150" alt="Chinweike Michael Chinonso" />
+            <img src={img} height="300" width="300" alt="Chinweike Michael Chinonso" />
           </div>
           <div>
             <h4>Profile</h4>
             <p>
               I'm a{" "}
               <strong style={{ color: "#58c376" }}>frontend Developer</strong>{" "}
-              and a{" "}
-              <strong style={{ color: "#58c376" }}> Project Manager,</strong>{" "}
+              and also a guy who is so much passionate about 
+              <strong style={{ color: "#58c376" }}> Project Management,</strong>{" "}
               <br />
-              I build web Apps and very much interested in a good user experience for clients, i also love
-              learning new technologies and working with teams. <br />
-              At my spare time i do music ...
+              I build web Apps (Client-side) and very much interested in delivering good user experience(UX) for clients, i also love
+              learning new technologies and working with teams.
+             <em> "one of my personal goal is to put smile on people's face using
+              softwares". </em>
+              <br />
+              At my spare time i do music (A Pianoist) .
             </p>
           </div>
         </div>
@@ -89,7 +85,7 @@ const About = () => {
             </div>
             <div>
               <img
-              src={react}
+                src={react}
                 // src="https://res.cloudinary.com/cmcwebcode/image/upload/v1580725420/react_an9ci0.png"
                 height="35"
                 width="35"
@@ -102,6 +98,14 @@ const About = () => {
                 height="35"
                 width="35"
                 alt="node js"
+              />
+            </div>
+            <div>
+              <img
+                src={ts}
+                height="35"
+                width="35"
+                alt="typedscript js"
               />
             </div>
           </div>

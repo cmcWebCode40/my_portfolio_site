@@ -1,65 +1,55 @@
 import React, { useState } from "react";
 import ProjectList from "./ProjectList";
+import projectImg from '../../images/projects.png';
 const Project = () => {
   const [items] = useState([
     {
       id: 1,
-      title: "Weight Trakker App",
+      title: "Editorial Community Service Website",
       description:
-        "A Progressive Web App for tracking your weight daily (PWA) built with reactjs and firebase for authentication",
+        `A Web Application  basically built for updating our host communities about all events happening around them organized by corps member (A service group). I fully developed the UI (Frontend) and also consumed the different api (REST) endpoints developed by the backend engineer
+        This app was built with HTML,CSS/SASS & REACTjs`,
       img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1580347382/bodyweight_mmloie.png",
-      source: "https://github.com/cmcWebCode40/Body_Weight_Tracker_ReactJs",
-      website: "https://bodyweighttrackker.netlify.com/"
+        "https://res.cloudinary.com/cmcwebcode/image/upload/v1587170307/soft3_xaapbw.png",
+      source: "https://github.com/cmcWebCode40/Editorial_fullStack",
+      website: "http://editorialcdsgroup.live/"
     },
     {
       id: 2,
-      title: "Editorial Info Site",
+      title: "Soft Soundz Music Zone",
       description:
-        "A Web App for providing corpers informations in saki-west LGA Nigeria, I was responsible for developing the FRONTEND/UI of the project and also consuming the rest APi's built by the backend developer built with html5,css3,sass react js ",
+        `A Web App built for music  downloads and updates on current celebrity news world wide developer built with HTML5,CSS3/SASS REACTjs,TYPEDSCRIPT & GRAPHQL NB:"the admin dashboard is still in progress"`,
       img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1582291967/editorial_qdl9yd.png",
-      source: "https://github.com/cmcWebCode40/Editorial_fullStack",
-      website: "http://editorialcdsgroup.live/"
+        "https://res.cloudinary.com/cmcwebcode/image/upload/v1587170296/soft1_jiv0id.png",
+      source: "https://github.com/cmcWebCode40/musical_crew_website/",
+      website: "https://soft-soundz.netlify.app/"
     },
     {
       id: 3,
       title: "My Portfolio Website",
       description:
-        "A Progressive Web App (PWA), just to display all my works and coming up blog posts built with reactjs ",
+        "A Progressive Web App (PWA), just to display all my works and coming up blog posts built with Reactjs ",
       img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1580347416/portfolio_blor3p.png",
+        "https://res.cloudinary.com/cmcwebcode/image/upload/v1587170282/soft4_su7dkv.png",
       source: "https://github.com/cmcWebCode40/my_portfolio_site",
       website: "https://chinweikemichael.tech"
     },
     {
       id: 4,
-      title: "PWA TodoList ",
+      title: "Developers Quiz App ",
       description:
-        "A Progressive Web App (PWA) TodoList that helps you record your daily Task. this app is built with html5, css3, js and workbox for the PWA ",
+        `A Progressive Web App (PWA) Built for that a user take a quick HTML quiz just for fun. This app was an internship task from (investa Ng) , built with HTML5, CSS3, JAVASCRIPT and workbox for the PWA `,
       img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1580724567/todo_dszi9f.png",
+        "https://res.cloudinary.com/cmcwebcode/image/upload/v1587170269/soft2_k9saon.png",
       source: "https://github.com/cmcWebCode40/simple_todo_list",
-      website: `https://todolistwebapp.netlify.com`
+      website: "https://cmcwebcode40.github.io/Quiz_app_investa_task/"
     },
-    {
-      id: 5,
-      title: "Pixel Art Maker PWA",
-      description:
-        "A Progressive Web App (PWA) used for making pixel arts jus for fun. built with html5, css3,js ",
-      img:
-        "https://res.cloudinary.com/cmcwebcode/image/upload/v1580724540/pixel_sp2w77.png",
-      source: "https://github.com/cmcWebCode40/pixel_art_maker",
-      website: "https://pixelartdrawings.netlify.com/"
-    }
+
   ]);
   return (
     <div className="project" >
       <h2>
-        Projects
-        <span role="img" aria-label="emoji">
-          🔥🔥
-        </span>
+        <img src={projectImg} height="200" width="200" alt="about me" />
       </h2>
       <div className="grid">
         {items.map(item => (

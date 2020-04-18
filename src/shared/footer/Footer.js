@@ -31,7 +31,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faFacebook} color="white" size="3x" />
         </a>
         <a
-          href="twitter.com/Mr_Cmc1?s=08"
+          href="https://twitter.com/cmcWebCode?s=07"
           className="twitter social"
           target="_blanck"
         >
