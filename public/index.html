@@ -93,12 +93,11 @@
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
-          .register("worker.js")
+          .register("./worker.js")
           .then(
             registration => {},
           )
           .catch(err => {
-            console.log(err);
           });
       });
     };

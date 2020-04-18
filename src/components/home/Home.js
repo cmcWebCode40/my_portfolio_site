@@ -25,15 +25,19 @@ const Home = () => {
             <br />
             from <span>Nigeria...</span>
           </p>
-          <Buttons
-            name={"Download CV"}
-            link={
-              "https://drive.google.com/file/d/1EBsSPodj2dVEO1Kw57sv9vFEmHUaUvdb/view?usp=sharing"
-            }
-            icon={"download"}
-          />
         </div>
+       
       </div>
+    <div className="home-btn">
+    <Buttons
+          name={"Download CV"}
+          link={
+            "https://drive.google.com/file/d/1EBsSPodj2dVEO1Kw57sv9vFEmHUaUvdb/view?usp=sharing"
+          }
+          icon={"download"}
+        />
+    </div>
+     
       <div className="available">
         <svg
           width="202"

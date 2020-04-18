@@ -163,9 +163,12 @@
 }
 
 //* Landing page content
+.home-btn {
+  margin: .4rem 2rem ;
+}
 .content {
   margin: 4rem 0 0 2.5em;
-  // z-index: -1;
+  z-index: -1;
   position: relative;
 
   h2 {
