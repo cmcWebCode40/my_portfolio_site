@@ -5,10 +5,9 @@
   <meta charset="utf-8" />
   <link rel="icon" href="./images/icons/icon-192x192.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#2196f3" />
+  <meta name="theme-color" content="#17426d" />
   <meta name="description" content="Chinweike Michael Portfolio" />
   <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./appshell.css" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
   <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -25,6 +24,47 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>Chinweike Michael Chinonso</title>
+  <style>
+    .full-page-loader {
+      background-color: #17426d;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .full-page-loader>img {
+      animation: 2.3s infinite cmc;
+    }
+
+    @keyframes cmc {
+      0% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.05);
+      }
+
+      50% {
+        transform: scale(1);
+      }
+
+      75% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -35,27 +75,8 @@
     <textarea name="message"></textarea>
   </form>
   <div id="root">
-    <div class="root">
-      <div class="head"></div>
-      <div class="block">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="block">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <div class="foot">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div class="full-page-loader">
+      <img src="./images/icons/icon-512x512.png" alt="content meaning ful page">
     </div>
   </div>
   <!--
@@ -74,22 +95,13 @@
         navigator.serviceWorker
           .register("worker.js")
           .then(
-            registration => {
-              console.log(
-                ("worker registration successful", registration.scope)
-              );
-            },
-            function (err) {
-              console.log("worker reg failed", err);
-            }
+            registration => {},
           )
           .catch(err => {
             console.log(err);
           });
       });
-    } else {
-      console.log("services Worker is not supported by brower");
-    }
+    };
   </script>
 </body>
 
