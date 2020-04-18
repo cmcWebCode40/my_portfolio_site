@@ -80,18 +80,26 @@
 
   //* Project
   .project {
+    width: 850px;
     &-content {
-      @include center_with_flex;
+    margin:  .3rem;
     }
-    
+    .card-image {
+      z-index: 0;
+      border-radius: 0.7rem;
+    }
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: .2fr .2fr;
     }
   }
 
   .project-details {
      width: 600px;
+     img {
+       height: 300px !important;
+       width: 600px !important;
+     }
     &-body {
       background:$menu;
       border-bottom:  5px $pri-color solid;

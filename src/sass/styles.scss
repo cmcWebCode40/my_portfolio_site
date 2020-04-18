@@ -7,17 +7,13 @@
 //*  loading
 
 .loader {
-  z-index:0;
-  height: 100vh;
+  z-index: 0;
+  height: 75vh;
   width: 100%;
   @include center_with_flex;
   text-align: center;
-  margin: auto;
- 
+  margin:-2rem auto;
 }
-
-
-
 
 //* Home Page
 .logo {
@@ -116,7 +112,6 @@
 
         &:hover {
           border-bottom: 2px solid $pri-color;
-
           color: $pri-color;
         }
 
@@ -167,19 +162,45 @@
   }
 }
 
+.line {
+  color: $pri-color;
+  position: absolute;
+  top: -3%;
+  font-size: 32px;
+  animation: 1.8s forwards hand;
+  transform-origin: center;
+  transition: all .4s ease-in-out;
+}
+
+@keyframes hand {
+  0% {
+    transform: translateY(7px);
+    transition: transform .4s ease-in-out;
+  }
+  50% {
+    transition: transform .4s ease-in-out;
+  }
+  75% {
+    transform: translateY(-3px);
+    transition: transform 1.4s ease-in-out;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
 //* Landing page content
 .content {
-  margin: 2rem 0 0 2.5em;
+  margin: 4rem 0 0 2.5em;
   z-index: -1;
+  position: relative;
 
   h2 {
     color: $pri-color;
+    margin: -.5rem 0;
   }
 
-  .line {
-    color: $pri-color;
-    font-size: 32px;
-  }
+ 
   p {
     font-size: 2.4rem;
     color: $white;
@@ -230,12 +251,11 @@
 //* Contact Page
 
 .contact {
- 
+  margin: -8rem 0;
   h2 {
     color: $pri-color;
     text-align: center;
     font-size: 2rem;
-
     span {
       font-size: 30px;
     }
@@ -257,8 +277,6 @@
     .form-group {
       margin: 3.5rem 0 0 0;
       text-align: center;
-     
-
       ::placeholder {
         color: $white;
       }
@@ -266,7 +284,7 @@
       input {
         height: 34px;
         border-radius: 0.5rem;
-        padding: .3rem ;
+        padding: 0.3rem;
         border: none;
         width: 250px;
         color: $white;
@@ -293,15 +311,13 @@
 //* ABout Page
 
 .about {
- 
-  padding-bottom: .5rem ;
-  height: 100vh;
+  margin: -2rem 0;
   &-page {
     .box {
       display: flex;
       align-items: center;
       flex-direction: column;
-      margin: 1rem 0;
+      // margin: 1rem 0;
     }
     .skills {
       text-align: center;
@@ -315,9 +331,9 @@
 
     h2 {
       color: $pri-color;
-      font-size: 2rem ;
+      font-size: 2rem;
       text-align: center;
-      margin: -3rem 0 1rem 0;
+      margin: -8rem 0 1rem 0;
       span {
         font-size: 32px;
       }
@@ -325,22 +341,17 @@
     .profile {
       align-items: center;
       justify-content: center;
-
-      img {
-        border-radius: 50%;
-      }
-
       div:nth-child(2) {
         border: none;
 
         h4 {
           border-bottom: 2px $blue solid;
           color: $pri-color;
-          padding: 7px 3px;
+          padding: 8px;
           font-size: 20px;
         }
         p {
-          padding: 7px;
+          padding: 7px 13px;
           color: $white;
           font-size: 1.2rem;
         }
@@ -356,59 +367,50 @@
 //* Project
 
 .project {
-  
+  margin: -8rem auto;
+  text-align: center;
   h2 {
     color: $pri-color;
     font-size: 2rem;
     text-align: center;
   }
-
   &-content {
     position: relative;
-    margin: 1.5rem;
+    // margin: .5rem ;
 
     &:hover {
       .card-image {
-      filter:blur(.5px);
-    
-
-      img {
-      transform: scale(0.9);
-      transition: transform .2s ease-in-out;
-      border: 3px $menu solid;
-      opacity: .8;
-      }
+        filter: blur(0.5px);
+        img {
+          transform: scale(0.9);
+          transition: transform 0.2s ease-in-out;
+          border: 3px $menu solid;
+          opacity: 0.8;
+        }
       }
       .card-btn {
         display: block;
       }
-
     }
     .card-image {
-     z-index: 0;
-      border-radius: .7rem;
-
+      z-index: 0;
+      border-radius: 0.7rem;
       img {
-        object-fit:fill;
-        background-repeat: no-repeat;
-        background-size: cover;
+        // background-size: 100% 100%;
         background-position: center;
-        width: 350px;
-        height: 230px;
+        width: 400px;
+        height: 200px;
+        margin: 0 .3rem ;
       }
-      
-
-    
     }
     .card {
-        @include center_with_flex;
-        margin: 0 auto;
-        &-btn {
-          position: absolute;
-          top:50%;
-          display: none
-          ;
-        }
+      @include center_with_flex;
+      margin: 0 auto;
+      &-btn {
+        position: absolute;
+        top: 50%;
+        display: none;
+      }
       &-body {
         h3 {
           color: $pri-color;
@@ -432,60 +434,57 @@
   }
 }
 
-//*Project  Desccrition 
-.project-wrap {
- 
-}
+//*Project  Desccrition
 .project-details {
   margin: auto;
   text-align: center;
   img {
-    height: 300px;
-    width: 500px;
+    height: 250px;
+    width: 400px;
+    background-size: contain;
+    margin: 0 auto ;
+    padding: .5rem ;
   }
 
   h3 {
-    color:$white;
-    font-size: 2rem  ;
+    color: $white;
+    font-size: 2rem;
   }
 
   &-body {
-    background:$menu;
-    border-bottom:  5px $pri-color solid;
-    margin: 0 .7rem  ;
-     .para {
-       padding:.2rem  1rem  ;
-       color: $white;
-       word-break: break-all;
-       text-align: left;
-       display: block;
-       word-spacing: .3rem ;
-       span {
-         font-size: 1.4rem ;
-       }
-       
-       
-     }
+    background: $menu;
+    border-bottom: 5px $pri-color solid;
+    margin: 0 0.7rem;
+    .para {
+      padding: 0.2rem .5rem;
+      color: $white;
+      // word-break: break-all;
+      text-align: left;
+      display: block;
+      word-spacing: 0.3rem;
+      span {
+        font-size: 1.4rem;
+      }
+    }
 
-     &-link {
-       display: flex;
-       & > div {
-         margin: .7rem ;
-         padding: .4rem ;
+    &-link {
+      display: flex;
+      & > div {
+        margin: 0.7rem;
+        padding: 0.4rem;
 
-         a {
-           border: 2px solid $white;
-           padding: .4rem .7rem ;
-           text-decoration: none;
-           color: $white; 
-           &:hover {
-             background: $pri-color;
-             color: $white;
-           }
-         }
-       }
-     }
-   
+        a {
+          border: 2px solid $white;
+          padding: 0.4rem 0.7rem;
+          text-decoration: none;
+          color: $white;
+          &:hover {
+            background: $pri-color;
+            color: $white;
+          }
+        }
+      }
+    }
   }
 }
 //* footer
@@ -509,23 +508,4 @@
       margin: 0 1rem;
     }
   }
-}
-
-//* Animations.....
-.page-enter {
-  opacity: 0;
-}
-
-.page-enter-active {
-  opacity: 1;
-  transition: opacity 400ms;
-  transition-delay: 600ms;
-}
-.page-exit {
-  opacity: 1;
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 400ms;
 }
