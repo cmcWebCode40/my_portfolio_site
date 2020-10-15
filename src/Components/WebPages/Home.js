@@ -20,11 +20,12 @@ export default Home;
 const StyledDiv = styled.div`
     Height: 100vh;
     .div-welcome{
-        margin-top: 20%;
+        margin-top: 12%;
 
         h3{
             text-align: center;
             font-size: 30px;
+            margin-bottom: 30px;
         }
 
         .coop{
