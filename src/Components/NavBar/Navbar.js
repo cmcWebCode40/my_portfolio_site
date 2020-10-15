@@ -15,7 +15,7 @@ export default function Navbar(props) {
                 <div className="container-fluid d-none d-md-block">
                     <div className="row">
                         <div className="col-lg-6 col-xl-6 col-md-6 custom_nav">
-                            <h5 className="p-3">Coop<span id="lag">LAG</span></h5>
+                            <h5 className="p-3"><NavLink to="/">Coop<span id="lag">LAG</span></NavLink></h5>
                         </div>
                         <div className="col-lg-6 col-xl-6 col-md-6 pt-3 custom_login">
                             <NavLink to="/register"> <span id="signup">Sign Up</span> </NavLink>
@@ -33,6 +33,12 @@ const StyledDiv = styled.div`
         margin-bottom: 50px;
     }
 
+    h5{
+        cursor:pointer;
+        a{
+            text-decoration: none;
+        }
+    }
     .custom_nav{
         padding-right: 0px
         display: flex;
@@ -47,7 +53,6 @@ const StyledDiv = styled.div`
         a{
             margin: 2px 5px;
             text-decoration: none;
-            color: black;
             padding: 3px 6px;
             border-radius: 5px;
         }
