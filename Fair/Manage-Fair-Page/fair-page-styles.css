@@ -46,6 +46,10 @@
     margin-left: 40px;
 }
 
+#active-logo-page{
+    border-right: forestgreen 4px solid;
+}
+
 .logo-new-span{
     color: white;
     background-color: forestgreen;
