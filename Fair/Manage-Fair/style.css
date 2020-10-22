@@ -30,7 +30,7 @@
     padding-bottom: 50px;
 }
 #manage-fair-drops{
-    border-right: royalblue 4px solid;
+    border-right: forestgreen 4px solid;
 }
 .dashboard-body{
     display: flex;
@@ -298,10 +298,16 @@ span{
 
 #vend-input{
     width: 60%;
+    font-size: 14px;
+    height: 26px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 #vend-select{
     width: 55%;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 .vend-form-body{
     width: 70%;
@@ -327,7 +333,9 @@ p{
     margin-top: 2px;
     margin-bottom: 2px;
 }
-
+.vend-name{
+    margin-top: 10px;
+}
 /*=================== CSS FOR BOOTH SETTING ==================*/
 
 .span-booth{
@@ -355,6 +363,62 @@ p{
     width: 10%;
     text-align: center;
     cursor: pointer;
+}
+
+/*=============== CSS FOR ADVERT MANAGEMENT ===============*/
+
+#advert-form{
+    margin-top: 5%;
+    margin-left: 30px;
+}
+
+.advert-label{
+    width: 20%;
+    color: #4169E1;
+}
+
+#advert-input{
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 200px;
+    font-size: 14px;
+    height: 26px;
+}
+.advert-price-range-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    width: 98%;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.span-advert-cat{
+    padding: 5px 7px;
+    background-color: forestgreen;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#advert-range-input{
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 250px;
+    font-size: 14px;
+    height: 26px;
+}
+#advert-price-input{
+    border: 1px solid gray;
+    border-radius: 7px;
+    width: 150px;
+    font-size: 14px;
+    height: 26px;
+}
+#advert-price-range-label{
+    color:black;
+    /* color: #4169E1; */
 }
 
 /*=============== CSS FOR EVENT MANAGEMENT ===============*/
