@@ -356,3 +356,29 @@ p{
     text-align: center;
     cursor: pointer;
 }
+
+/*=============== CSS FOR EVENT MANAGEMENT ===============*/
+
+.span-event{
+    width: 17%;
+}
+.span-event-dec{
+    width: 25%;
+}
+.span-event-fee{
+    width: 6%;
+}
+.span-event-type{
+    width: 10%;
+}
+.span-event-url{
+    width: 30%;
+}
+.span-event-edit{
+    width: 7%;
+    cursor: pointer;
+}
+
+#title-content-div{
+    margin-top: -2px;
+}
