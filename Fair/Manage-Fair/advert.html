@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../Awesome/all.min.css">
+    <link rel="stylesheet" href="../../Awesome/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booth Setting</title>
+    <title>Advert</title>
 </head>
 
 <body>
@@ -49,9 +49,9 @@
                 <div class="create-sidenav-par">
                     <p class="side-bar-par">Create Speakers</p>
                     <p class="side-bar-par">Setup Vendor's Signup</p>
-                    <p id="create-spreaker">Booth Setting</p>
-                    <p class="side-bar-par">Advert Setting</p>
-                    <p class="side-bar-par">Rattle</p>
+                    <p class="side-bar-par">Booth Setting</p>
+                    <p id="create-spreaker">Advert Setting</p>
+                    <p class="side-bar-par">Raffle</p>
                     <p class="side-bar-par">Event</p>
 
                 </div>
@@ -59,46 +59,54 @@
             <div id="create-body-content">
                 <div class="speaker-body">
                     <div class="speaker">
-                        <h5 class="speaker-cat">Booth Category</h5>
-                        <span class="speaker-span">+ New Category</span>
+                        <h5 class="speaker-cat">Advert Settings</h5>
                     </div>
-                    <div class="speaker-header-div">
-                        <span id="trash-vendor"></span>
-                        <div class="table-header">
-                            <span class="span-booth">Category</span>
-                            <span class="span-both-fee">Fee</span>
-                            <span class="span-booth-feat">Feature</span>
-                            <span class="span-columns-temp">Boot Template</span>
-                            <span class="span-columns-stats">Status</span>
-                            <span class="span-booth-edit">....</span>
+                    <form id="advert-form">
+                        <div>
+                            <label class="advert-label">Ads Per Booth</label>
+                            <input placeholder="Enter Amount" id="advert-input">
                         </div>
-                    </div>
-                    <div class="create-inner-div-2" id="title-content-div">
-                        <div class="speaker-header-div">
-                            <div id="trash-vendor"><i class="fas fa-trash-alt"></i></div>
-                            <div class="table-header">
-                                <span class="span-booth" id="speaker-span-content">Basic</span>
-                                <span class="span-both-fee" id="speaker-span-content">$1000</span>
-                                <span class="span-booth-feat" id="speaker-span-content">Edit Features</span>
-                                <span class="span-columns-temp" id="speaker-span-content">Template 1</span>
-                                <span class="span-columns-stats" id="speaker-span-content">Active</span>
-                                <span class="span-booth-edit" id="speaker-span-content">Edit</span>
+                        <div>
+                            <label class="advert-label">Ads Per Stories</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div>
+                            <label class="advert-label">Ads Per Banner</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div>
+                            <label class="advert-label">Stage Ads</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div>
+                            <label class="advert-label">Booth Position</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div class="advert-price-range-div">
+                            <div>
+                                <div><label id="advert-price-range-label">Price</label></div>
+                                <input placeholder="Enter Amount" id="advert-price-input">
                             </div>
-                        </div>
-                        <div class="speaker-header-div">
-                            <div id="trash-vendor"><i class="fas fa-trash-alt"></i></div>
-                            <div class="table-header">
-                                <span class="span-booth" id="speaker-span-content">Basic</span>
-                                <span class="span-both-fee" id="speaker-span-content">$1000</span>
-                                <span class="span-booth-feat" id="speaker-span-content">Edit Features</span>
-                                <span class="span-columns-temp" id="speaker-span-content">Template 1</span>
-                                <span class="span-columns-stats" id="speaker-span-content">Active</span>
-                                <span class="span-booth-edit" id="speaker-span-content">Edit</span>
+                            <div>
+                                <div><label id="advert-price-range-label">Range</label></div>
+                                <input placeholder="Enter Booth Number Range" id="advert-range-input">
                             </div>
+                            <div><span class="span-advert-cat">+ New Category</span></div>
                         </div>
-                    </div>
+                        <div>
+                            <label class="advert-label">Pane Page Ads</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div>
+                            <label class="advert-label">Lead Generations</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                        <div>
+                            <label class="advert-label">Attendants</label>
+                            <input placeholder="Enter Amount" id="advert-input">
+                        </div>
+                    </form>
                 </div>
-
             </div>
 
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -110,7 +118,7 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
                 integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
                 crossorigin="anonymous"></script>
-            <script src="../Awesome/all.min.js"></script>
+            <script src="../../Awesome/all.min.js"></script>
 
 </body>
 
