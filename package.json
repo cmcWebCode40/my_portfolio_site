@@ -21,7 +21,7 @@
     "react-scripts": "3.4.4"
   },
   "scripts": {
-    "start": "set PORT=3001 && set HTTPS=true && react-scripts start",
+    "start": "set PORT=3006 && set HTTPS=true && react-scripts start",
     "build": "react-scripts build && cp _redirects build/_redirects",
     "build:staging": "env-cmd -f .env.staging npm run build && cp _redirects build/_redirects",
     "lint": "eslint . --ext .ts,.tsx,.js --cache --ignore-pattern .gitignore",
