@@ -8,17 +8,13 @@ const cartActions = createSlice({
   initialState,
   reducers: {
     addToCart(state, action) {
-      const { id, quantity } = action.payload;
-      const cartItems = state.cart.filter(
-        (item) => item.id === id,
-      );
+      const { id } = action.payload;
+      state.cart.filter((item) => item.id === id);
       return state;
     },
   },
 });
 
-export const {
-  addToCart,
-} = cartActions.actions;
+export const { addToCart } = cartActions.actions;
 
 export default cartActions.reducer;

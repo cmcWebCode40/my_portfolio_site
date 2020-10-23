@@ -25,6 +25,7 @@
     "no-console": "warn",
     "arrow-body-style": "off",
     "linebreak-style": "off",
+    "comma-dangle": "off",
     "no-unused-vars": "warn",
     "no-underscore-dangle": "off",
     "import/no-named-as-default-member": "off",
