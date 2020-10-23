@@ -1,0 +1,44 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": ["react"],
+  "extends": [
+    "eslint:recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    // "plugin:react-hooks/recommended",
+    "airbnb",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "arrow-body-style": "off",
+    "linebreak-style": "off",
+    "comma-dangle": "off",
+    "no-unused-vars": "warn",
+    "no-underscore-dangle": "off",
+    "import/no-named-as-default-member": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "import/prefer-default-export": "off",
+    "react/forbid-prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-shadow": "off",
+    "no-param-reassign": "off",
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/aria-role": "off",
+    "react/jsx-fragments": "off"
+  }
+}
