@@ -1,14 +1,20 @@
 const theme = {
   colors: {
     primary: '#229cff',
-    bodyColor: '#2e7ef0',
+    gray: '#ccc',
+    danger: 'red',
     bodyDark: '#7a92d6',
-    bodyLight: '#7b92d0',
+    light: '#ddd',
     textColor: '#333',
     whiteColor: '#fff',
-    shadowColor: 'rgba(0,0,0,.2)'
   },
-
+  styles: {
+    borderRadius: '.5rem',
+    borderRadiusRounded: '3rem',
+    boxShadow: ` 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 6px 8px rgba(0, 0, 0, 0.11),
+    0 8px 16px rgba(0, 0, 0, 0.11)`
+  },
   mediaQueries: {
     smallest: '(max-width :25em)',
     iphone4: '(max-width :320px)',

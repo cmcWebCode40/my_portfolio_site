@@ -5,12 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import './icons/fontawesome';
 import './sass/main.scss';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'jquery';
+import 'popper.js';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-
   document.getElementById('root')
 );
 
