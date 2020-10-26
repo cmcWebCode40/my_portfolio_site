@@ -1,15 +1,39 @@
 import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const Row = styled.nav.attrs({
+  className: 'row'
+})`
+  display:none;
+  @media ${(props) => props.theme.mediaQueries.medium} {
+    display:flex;
+  }
+  .nav-link{
+    display:block;
+    color:'red';
+  }
+`;
 
 const Mobile = () => {
   return (
-    <div className="row">
+    <Row>
       <div className="col">
-        1 of 2
+        <h2>
+          {' '}
+          Coop
+          {' '}
+          <strong>LAG</strong>
+        </h2>
       </div>
       <div className="col">
-        2 of 2
+
+        <a className="nav-link" href="##">
+          Cart
+          <FontAwesomeIcon icon={['fa', 'shopping-cart']} color="#555" />
+        </a>
       </div>
-    </div>
+    </Row>
   );
 };
 
