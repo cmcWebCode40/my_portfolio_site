@@ -1,5 +1,15 @@
 @import './theme/theme.scss';
 
+*{
+  a{
+    text-decoration: none;
+  }
+}
+
+.smallboy{
+  display: none;
+}
+
 
 //overriding bootstrap styles.
 @import '~bootstrap/scss/bootstrap.scss';

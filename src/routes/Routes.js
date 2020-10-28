@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Loader from '../components/Loaders/Loader';
 import Layouts from '../layouts/Layouts';
-import { routesList } from './routesList';
+import PrivateRoute from '../layouts/PrivateRoute';
+import { routesList, VENDOR_ROUTES } from './routesList';
 
 const Routes = () => {
   return (
@@ -10,6 +11,24 @@ const Routes = () => {
       <Suspense fallback={<Loader />}>
         <Switch>
           {routesList.map(({ layout, path, component }) => (
+            <Layouts
+              exact
+              path={path}
+              key={path}
+              layout={layout}
+              component={component}
+            />
+          ))}
+          {VENDOR_ROUTES.map(({ layout, path, component }) => (
+            <Layouts
+              exact
+              path={path}
+              key={path}
+              layout={layout}
+              component={component}
+            />
+          ))}
+          {PrivateRoute.map(({ layout, path, component }) => (
             <Layouts
               exact
               path={path}
