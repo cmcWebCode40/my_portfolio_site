@@ -46,19 +46,19 @@ export default function UserSignUp(props) {
                 <h3 className="Details">Enter Details Below</h3>
                 <div className="input-field">
                     <label htmlFor="name"></label>
-                    <input type="text" name='username' placeholder="Enter Username" onChange={handleChange} value={signUp.username} required />
+                    <input type="text" name='username' placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
                 </div>
                 <div className="input-field">
                     <label htmlFor="name"></label>
-                    <input type="text" name='firstname' placeholder="Enter Firstname" onChange={handleChange} value={signUp.firstname} required />
+                    <input type="text" name='firstname' placeholder=" Enter Firstname" onChange={handleChange} value={signUp.firstname} required />
                 </div>
                 <div className="input-field">
                     <label htmlFor="name"></label>
-                    <input type="text" name='lastname' placeholder="Enter Lastname" onChange={handleChange} value={signUp.lastname} required />
+                    <input type="text" name='lastname' placeholder=" Enter Lastname" onChange={handleChange} value={signUp.lastname} required />
                 </div>
                 <div className="input-field">
                     <label htmlFor="password"></label>
-                    <input type="password" name='password' placeholder="Enter Password" onChange={handleChange} value={signUp.password} required />
+                    <input type="password" name='password' placeholder=" Enter Password" onChange={handleChange} value={signUp.password} required />
                 </div>
                 <div className="input-field">
                     <label htmlFor="name"></label>
