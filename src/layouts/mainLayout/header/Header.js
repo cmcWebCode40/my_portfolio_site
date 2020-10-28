@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header>
-      <span>CooLang</span>
+      <span>CoopLag</span>
     </header>
   );
 };
