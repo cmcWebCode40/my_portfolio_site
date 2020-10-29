@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import Loader from '../components/Loaders/Loader';
 import Layouts from '../layouts/Layouts';
 import PrivateRoute from '../layouts/PrivateRoute';
-import { routesList, VENDOR_ROUTES } from './routesList';
+import { privateRoutes, routesList, VENDOR_ROUTES } from './routesList';
 
 const Routes = () => {
   return (
@@ -28,8 +28,8 @@ const Routes = () => {
               component={component}
             />
           ))}
-          {PrivateRoute.map(({ layout, path, component }) => (
-            <Layouts
+          {privateRoutes.map(({ layout, path, component }) => (
+            <PrivateRoute
               exact
               path={path}
               key={path}
