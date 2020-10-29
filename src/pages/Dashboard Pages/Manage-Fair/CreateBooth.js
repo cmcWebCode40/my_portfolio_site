@@ -1,0 +1,126 @@
+import React from "react"
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
+
+
+export default function CreateBooth() {
+    return (
+        <StyledDiv>
+            <div class="booth">
+                <h5 class="booth-cat">Booth Category</h5>
+                <span class="booth-span">+ New Category</span>
+            </div>
+            <div class="booth-header-div">
+                <span className="trash-booth"></span>
+                <div class="table-header">
+                    <span class="span-booth">Category</span>
+                    <span class="span-both-fee">Fee</span>
+                    <span class="span-booth-feat">Feature</span>
+                    <span class="span-columns-stats">Status</span>
+                    <span class="span-booth-edit">....</span>
+                </div>
+            </div>
+            <div class="booth-inner-div" id="title-content-div">
+                <div class="booth-header-div">
+                    <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
+                    <div class="table-header">
+                        <span class="span-booth" id="booth-span-content">Basic</span>
+                        <span class="span-both-fee" id="booth-span-content">$1000</span>
+                        <span class="span-booth-feat" id="booth-span-content">Edit Features</span>
+                        <span class="span-columns-stats" id="booth-span-content">Active</span>
+                        <span class="span-booth-edit" id="booth-span-content">Edit</span>
+                    </div>
+                </div>
+                <div class="booth-header-div">
+                    <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
+                    <div class="table-header">
+                        <span class="span-booth" id="booth-span-content">Basic</span>
+                        <span class="span-both-fee" id="booth-span-content">$1000</span>
+                        <span class="span-booth-feat" id="booth-span-content">Edit Features</span>
+                        <span class="span-columns-stats" id="booth-span-content">Active</span>
+                        <span class="span-booth-edit" id="booth-span-content">Edit</span>
+                    </div>
+                </div>
+            </div>
+        </StyledDiv>
+    )
+}
+
+const StyledDiv = styled.div`
+
+background: white;
+box-shadow: 1px 3px 5px #e0e0e0;
+padding-bottom: 50px;
+
+.booth{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 50px;
+}
+.booth-cat{
+    font-size: 18px;
+    font-weight: 600;
+    color: #4169E1;
+    margin-left: 40px;
+}
+.booth-header-div{
+    display: flex;
+    align-items: baseline;
+}
+
+.booth-span{
+    color: white;
+    background-color: forestgreen;
+    padding: 3px 7px;
+    border-radius: 5px;
+    margin-right: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.trash-booth{
+    font-size: 14px;
+    color: red;
+    width: 40px;
+    cursor: pointer;
+}
+
+.table-header{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 95%;
+}
+.span-booth{
+    width: 20%;
+}
+
+.span-both-fee{
+    width: 15%;
+}
+.span-booth-feat{
+    width: 25%;
+    cursor: pointer;
+}
+
+.span-columns-stats{
+    width: 15%;
+}
+
+.span-booth-edit{
+    width: 15%;
+    text-align: center;
+    cursor: pointerbooth;
+    color: #4169E1; 
+}
+
+#title-content-div{
+    margin-top: -2px;
+}
+#event-span-content{
+    color: #4169E1; 
+}
+`;
