@@ -1,80 +1,6 @@
 import React, { useState } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import axios from 'axios';
-
-export default function UserSignUp(props) {
-
-    const credentials = {
-        username: '',
-        lastname: '',
-        firstname: '',
-        password: '',
-        email: '',
-        phoneNumber: ''
-    }
-
-    const [signUp, setSignUp] = useState(credentials)
-
-    const handleChange = (e) => {
-        e.persist();
-        setSignUp({
-            ...signUp,
-            [e.target.name]: e.target.value
-        })
-        console.log(signUp)
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(signUp)
-        axios
-            .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
-            .then(res => {
-                if (res.data.status === "success")
-                    props.history.push("/login")
-                else {
-                    console.log(res.data)
-                }
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    };
-    return (
-        <StyledDiv>
-            <form onSubmit={handleSubmit} className="form">
-                <h3 className="Details">Enter Details Below</h3>
-                <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="text" name='username' placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="text" name='firstname' placeholder=" Enter Firstname" onChange={handleChange} value={signUp.firstname} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="text" name='lastname' placeholder=" Enter Lastname" onChange={handleChange} value={signUp.lastname} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="password"></label>
-                    <input type="password" name='password' placeholder=" Enter Password" onChange={handleChange} value={signUp.password} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="email" name='email' placeholder="Enter Email" onChange={handleChange} value={signUp.email} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="text" name='phoneNumber' placeholder="Enter Phone Number (eg: +2348000000001)" onChange={handleChange} value={signUp.phoneNumber} required />
-                </div>
-                <div className="input-field">
-                    <button className='button-submit'>Submit</button>
-                </div>
-            </form>
-        </StyledDiv>
-    );
-};
 
 const StyledDiv = styled.div`
     max-width: 1300px;
@@ -113,3 +39,71 @@ const StyledDiv = styled.div`
        }
 `;
 
+export default function UserSignUp(props) {
+  const credentials = {
+    username: '',
+    lastname: '',
+    firstname: '',
+    password: '',
+    email: '',
+    phoneNumber: ''
+  };
+
+  const [signUp, setSignUp] = useState(credentials);
+
+  const handleChange = (e) => {
+    e.persist();
+    setSignUp({
+      ...signUp,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
+      .then((res) => {
+        if (res.data.status === 'success') {
+          props.history.push('/login');
+        } else {
+        }
+      })
+      .catch((error) => {
+      });
+  };
+  return (
+    <StyledDiv>
+      <form onSubmit={handleSubmit} className="form">
+        <h3 className="Details">Enter Details Below</h3>
+        <div className="input-field">
+          <label htmlFor="name" />
+          <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="name" />
+          <input type="text" name="firstname" placeholder=" Enter Firstname" onChange={handleChange} value={signUp.firstname} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="name" />
+          <input type="text" name="lastname" placeholder=" Enter Lastname" onChange={handleChange} value={signUp.lastname} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="password" />
+          <input type="password" name="password" placeholder=" Enter Password" onChange={handleChange} value={signUp.password} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="name" />
+          <input type="email" name="email" placeholder="Enter Email" onChange={handleChange} value={signUp.email} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="name" />
+          <input type="text" name="phoneNumber" placeholder="Enter Phone Number (eg: +2348000000001)" onChange={handleChange} value={signUp.phoneNumber} required />
+        </div>
+        <div className="input-field">
+          <button className="button-submit">Submit</button>
+        </div>
+      </form>
+    </StyledDiv>
+  );
+}
