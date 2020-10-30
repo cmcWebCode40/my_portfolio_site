@@ -57,7 +57,7 @@ padding-bottom: 50px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .booth-cat{
     font-size: 18px;
@@ -85,6 +85,7 @@ padding-bottom: 50px;
     color: red;
     width: 40px;
     cursor: pointer;
+    text-align: center;
 }
 
 .table-header{

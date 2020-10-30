@@ -25,11 +25,11 @@ function Dashboard() {
                             Manage Fair
                             </p>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <NavLink to="/dashboard-managefair"><a className="dropdown-item" >Manage Fair</a></NavLink>
-                            <NavLink to="/dashboard-managefair/speaker"><a className="dropdown-item" >Manage Speaker</a></NavLink>
-                            <NavLink to="/dashboard-managefair/vendor"><a className="dropdown-item" >Manage Vendor</a></NavLink>
-                            <NavLink to="/dashboard-managefair/booth"><a className="dropdown-item" >Manage Booth</a></NavLink>
-                            <NavLink to="/dashboard-managefair/advert"><a className="dropdown-item" >Manage Advert</a></NavLink>
+                            <NavLink to="/dashboard-managefair" className="dropdown-item">Manage Fair</NavLink>
+                            <NavLink to="/dashboard-managefair/speaker" className="dropdown-item">Manage Speaker</NavLink>
+                            <NavLink to="/dashboard-managefair/vendor" className="dropdown-item">Manage Vendor</NavLink>
+                            <NavLink to="/dashboard-managefair/booth" className="dropdown-item">Manage Booth</NavLink>
+                            <NavLink to="/dashboard-managefair/advert" className="dropdown-item">Manage Advert</NavLink>
                         </div>
                     </div>
                     <div className="dropdown">

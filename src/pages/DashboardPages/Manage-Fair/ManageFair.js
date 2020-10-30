@@ -6,7 +6,7 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
 export default function ManageFair() {
     return (
         <StyledDiv>
-            <div class="manage-body">
+            <div className="manage-body">
                 <div className="fair-name-bar"></div>
                 <div className="manage-body-content">
                     <div className="manage-fair">

@@ -68,7 +68,7 @@ padding-left: 10px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .advert-cat{
     font-size: 18px;

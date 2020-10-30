@@ -69,8 +69,13 @@ justify-content: space-between;
 background: #F8F8FF;
 padding: 30px 20px;
 
+a{
+    text-decoration: none;
+    color: royalblue;
+}
+
 .create-side-body{
-    margin: 50px 1px 50px 50px;
+    margin: 20px 5px 50px 5px;
      width: 19.8%;
      background-color: white;
      box-shadow: 3px 4px 15px #e0e0e0;

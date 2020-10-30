@@ -7,7 +7,6 @@ import { lazy } from 'react';
 import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayouts";
-// import Sidebar from "../pages/DashboardPages/Manage-Fair/ManageFairSideBar";
 
 
 const Home = lazy(() => import('../pages/Home'));
@@ -31,7 +30,37 @@ export const routesList = [
     layout: DashboardLayout,
   },
   {
+    path: '/dashboard/shops',
+    component: DashboardPages,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard/fairevents',
+    component: DashboardPages,
+    layout: DashboardLayout,
+  },
+  {
     path: '/dashboard-managefair',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-managefair/booth',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-managefair/vendor',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-managefair/advert',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-managefair/speaker',
     component: ManageFairSidebar,
     layout: DashboardLayout,
   },

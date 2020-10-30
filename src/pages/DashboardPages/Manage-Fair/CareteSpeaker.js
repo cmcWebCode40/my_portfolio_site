@@ -69,70 +69,15 @@ background: white;
 box-shadow: 1px 3px 5px #e0e0e0;
 padding-bottom: 50px;
 
-.create-body{
-    background-color: #F8F8FF;
-}
-
-.create-side-body{
-    margin: 50px 1px 50px 50px;
-     width: 19.8%;
-     background-color: white;
-     box-shadow: 3px 4px 15px #e0e0e0;
-     padding-bottom: 50px;
-}
-.create-inner-body{
-    display: flex;
-    justify-content: space-between;
-}
-.create-sidenav{
-    margin: 8px 20px;
-}
-.create-titles{
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 3px;
-}
-
-.create-sidenav-div{
-    margin-top: -5px;
-    margin-bottom: 10px;
-}
-
-.create-span{
-    color: #4169E1;
-}
-
-.create-sidenav-par{
-    margin-top: 50px;
-}
-
-#create-spreaker{
-    border-right: forestgreen 4px solid;
-    padding: 6px 0 6px 20px;
-    color: royalblue;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-#create-body-content{
-    width: 80%;
-    background-color: white;
-    margin: 50px 50px 50px 1px;
-    box-shadow: 3px 4px 15px #e0e0e0;
-}
-
 .speaker-body{
     margin: 20px;
 }
-.speaker-header-div{
-    display: flex;
-    align-items: baseline;
-}
+
 .speaker{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .speaker-cat{
     font-size: 18px;
@@ -150,11 +95,18 @@ padding-bottom: 50px;
     margin-top: 20px;
     cursor: pointer;
 }
+
 .create-inner-div{
     width: 60%;
     margin-top: 10px;
     margin-left: 10px;
 }
+
+.speaker-header-div{
+    display: flex;
+    align-items: baseline;
+}
+
 .span-create{
     width: 40%;
 }

@@ -11,7 +11,7 @@ export default function CreateVendor() {
                     <h5 className="vendor-cat">Vendor's Category</h5>
                     <span className="vendor-span">+ New Category</span>
                 </div>
-                <div class="vendor-header-div">
+                <div className="vendor-header-div">
                     <span id="trash-vendor"></span>
                     <div className="table-header">
                         <span className="span-create-vend">Category</span>
@@ -111,7 +111,7 @@ text-align: left;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .vendor-cat{
     font-size: 18px;
