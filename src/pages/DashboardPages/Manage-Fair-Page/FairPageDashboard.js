@@ -6,7 +6,7 @@ import LogoPage from "./LogoPage";
 export default function FairPageDashboard() {
     return (
         <StyledDiv>
-            <div class="logo-side-body">
+            <div className="logo-side-body">
                 <div className="logo-sidenav-div" id="active-logo-page">
                     <span className="logo-sidenav-span">Change Logo</span>
                 </div>

@@ -4,10 +4,10 @@ import styled from "styled-components";
 export default function LogoPage() {
     return (
         <StyledDiv>
-            <div class="logo-content-body">
-                <div class="logo">
-                    <h5 class="logo-cat">Logo</h5>
-                    <span class="logo-new-span">+ New Event</span>
+            <div className="logo-content-body">
+                <div className="logo">
+                    <h5 className="logo-cat">Logo</h5>
+                    <span className="logo-new-span">+ New Event</span>
                 </div>
             </div>
         </StyledDiv>

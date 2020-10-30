@@ -7,31 +7,31 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
 export default function CreateEvent() {
     return (
         <StyledDiv>
-            <div class="event">
-                <h5 class="event-cat">Manage Events</h5>
-                <span class="event-span">+ New Event</span>
+            <div className="event">
+                <h5 className="event-cat">Manage Events</h5>
+                <span className="event-span">+ New Event</span>
             </div>
-            <div class="event-header-div">
+            <div className="event-header-div">
                 <span id="trash-event" className="trash-event"></span>
-                <div class="table-header">
-                    <span class="span-event">Events</span>
-                    <span class="span-event-dec">Description</span>
-                    <span class="span-event-fee">Fee</span>
-                    <span class="span-event-type">Type</span>
-                    <span class="span-event-url">URL</span>
-                    <span class="span-event-edit">....</span>
+                <div className="table-header">
+                    <span className="span-event">Events</span>
+                    <span className="span-event-dec">Description</span>
+                    <span className="span-event-fee">Fee</span>
+                    <span className="span-event-type">Type</span>
+                    <span className="span-event-url">URL</span>
+                    <span className="span-event-edit">....</span>
                 </div>
             </div>
-            <div class="create-inner-div-2" id="title-content-div">
-                <div class="event-header-div">
+            <div className="create-inner-div-2" id="title-content-div">
+                <div className="event-header-div">
                     <div className="trash-event"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                    <div class="table-header">
-                        <span class="span-event" id="event-span-content">Power Of Money</span>
-                        <span class="span-event-dec" id="event-span-content">Enough details coming in</span>
-                        <span class="span-event-fee" id="event-span-content">$10</span>
-                        <span class="span-event-type" id="event-span-content">Conference</span>
-                        <span class="span-event-url" id="event-span-content">www.visitagain.com</span>
-                        <span class="span-event-edit" id="event-span-content">Edit</span>
+                    <div className="table-header">
+                        <span className="span-event" id="event-span-content">Power Of Money</span>
+                        <span className="span-event-dec" id="event-span-content">Enough details coming in</span>
+                        <span className="span-event-fee" id="event-span-content">$10</span>
+                        <span className="span-event-type" id="event-span-content">Conference</span>
+                        <span className="span-event-url" id="event-span-content">www.visitagain.com</span>
+                        <span className="span-event-edit" id="event-span-content">Edit</span>
                     </div>
                 </div>
             </div>

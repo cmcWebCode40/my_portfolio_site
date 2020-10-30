@@ -7,39 +7,39 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
 export default function CreateBooth() {
     return (
         <StyledDiv>
-            <div class="booth">
-                <h5 class="booth-cat">Booth Category</h5>
-                <span class="booth-span">+ New Category</span>
+            <div className="booth">
+                <h5 className="booth-cat">Booth Category</h5>
+                <span className="booth-span">+ New Category</span>
             </div>
-            <div class="booth-header-div">
+            <div className="booth-header-div">
                 <span className="trash-booth"></span>
-                <div class="table-header">
-                    <span class="span-booth">Category</span>
-                    <span class="span-both-fee">Fee</span>
-                    <span class="span-booth-feat">Feature</span>
-                    <span class="span-columns-stats">Status</span>
-                    <span class="span-booth-edit">....</span>
+                <div className="table-header">
+                    <span className="span-booth">Category</span>
+                    <span className="span-both-fee">Fee</span>
+                    <span className="span-booth-feat">Feature</span>
+                    <span className="span-columns-stats">Status</span>
+                    <span className="span-booth-edit">....</span>
                 </div>
             </div>
-            <div class="booth-inner-div" id="title-content-div">
-                <div class="booth-header-div">
+            <div className="booth-inner-div" id="title-content-div">
+                <div className="booth-header-div">
                     <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                    <div class="table-header">
-                        <span class="span-booth" id="booth-span-content">Basic</span>
-                        <span class="span-both-fee" id="booth-span-content">$1000</span>
-                        <span class="span-booth-feat" id="booth-span-content">Edit Features</span>
-                        <span class="span-columns-stats" id="booth-span-content">Active</span>
-                        <span class="span-booth-edit" id="booth-span-content">Edit</span>
+                    <div className="table-header">
+                        <span className="span-booth" id="booth-span-content">Basic</span>
+                        <span className="span-both-fee" id="booth-span-content">$1000</span>
+                        <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
+                        <span className="span-columns-stats" id="booth-span-content">Active</span>
+                        <span className="span-booth-edit" id="booth-span-content">Edit</span>
                     </div>
                 </div>
-                <div class="booth-header-div">
+                <div className="booth-header-div">
                     <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                    <div class="table-header">
-                        <span class="span-booth" id="booth-span-content">Basic</span>
-                        <span class="span-both-fee" id="booth-span-content">$1000</span>
-                        <span class="span-booth-feat" id="booth-span-content">Edit Features</span>
-                        <span class="span-columns-stats" id="booth-span-content">Active</span>
-                        <span class="span-booth-edit" id="booth-span-content">Edit</span>
+                    <div className="table-header">
+                        <span className="span-booth" id="booth-span-content">Basic</span>
+                        <span className="span-both-fee" id="booth-span-content">$1000</span>
+                        <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
+                        <span className="span-columns-stats" id="booth-span-content">Active</span>
+                        <span className="span-booth-edit" id="booth-span-content">Edit</span>
                     </div>
                 </div>
             </div>

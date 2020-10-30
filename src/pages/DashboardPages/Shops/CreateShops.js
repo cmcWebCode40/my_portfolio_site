@@ -7,57 +7,57 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
 export default function CreateShops() {
     return (
         <StyledDiv>
-            <div class="manage-body">
+            <div className="manage-body">
                 <div className="fair-name-bar"></div>
                 <div className="manage-body-content">
-                    <div class="manage-fair">
-                        <h5 class="manage">Shops</h5>
-                        <span class="manage-span">+ New Category</span>
+                    <div className="manage-fair">
+                        <h5 className="manage">Shops</h5>
+                        <span className="manage-span">+ New Category</span>
                     </div>
-                    <div class="shop-header-div-title">
+                    <div className="shop-header-div-title">
                         <span id="trash"></span>
-                        <div class="shop-header-title">
-                            <span class="shop-cat-title">Category</span>
-                            <span class="shop-brand-title">Brand</span>
+                        <div className="shop-header-title">
+                            <span className="shop-cat-title">Category</span>
+                            <span className="shop-brand-title">Brand</span>
                         </div>
                     </div>
-                    <div class="shop-header-div">
+                    <div className="shop-header-div">
                         <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div class="shop-header">
-                            <span class="shop-cat" id="manage-span-content">Electronics</span>
-                            <span class="shop-brand" id="manage-span-content">LG</span>
-                            <span class="shop-manage">Manage</span>
+                        <div className="shop-header">
+                            <span className="shop-cat" id="manage-span-content">Electronics</span>
+                            <span className="shop-brand" id="manage-span-content">LG</span>
+                            <span className="shop-manage">Manage</span>
                         </div>
                     </div>
-                    <div class="upload">
-                        <span class="single">Single Upload</span><span class="Bulk">Bulk Upload</span>
-                        <p class="upload-par"><span class="download-excel">Download</span> Excel Template for Bulk
+                    <div className="upload">
+                        <span className="single">Single Upload</span><span className="Bulk">Bulk Upload</span>
+                        <p className="upload-par"><span className="download-excel">Download</span> Excel Template for Bulk
                             Upload
                         </p>
                     </div>
-                    <div class="shop-header-item-div">
+                    <div className="shop-header-item-div">
                         <span id="trash"></span>
-                        <div class="item-header">
-                            <span class="item-prod">Product</span>
-                            <span class="item-QA">QA</span>
-                            <span class="item-price">Price</span>
-                            <span class="item-disc">Discount</span>
-                            <span class="item-desc">Description</span>
-                            <span class="item-media">Media</span>
-                            <span class="item-edit">....</span>
+                        <div className="item-header">
+                            <span className="item-prod">Product</span>
+                            <span className="item-QA">QA</span>
+                            <span className="item-price">Price</span>
+                            <span className="item-disc">Discount</span>
+                            <span className="item-desc">Description</span>
+                            <span className="item-media">Media</span>
+                            <span className="item-edit">....</span>
                         </div>
                     </div>
-                    <div class="shop-table-holder">
-                        <div class="shop-header-item-div">
+                    <div className="shop-table-holder">
+                        <div className="shop-header-item-div">
                             <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                            <div class="item-header">
-                                <span class="item-prod" id="shop-content">42"TV</span>
-                                <span class="item-QA" id="shop-content">22</span>
-                                <span class="item-price" id="shop-content">NGN 32,000</span>
-                                <span class="item-disc" id="shop-content">5%</span>
-                                <span class="item-desc" id="shop-content">Black 42" LG with one year...</span>
+                            <div className="item-header">
+                                <span className="item-prod" id="shop-content">42"TV</span>
+                                <span className="item-QA" id="shop-content">22</span>
+                                <span className="item-price" id="shop-content">NGN 32,000</span>
+                                <span className="item-disc" id="shop-content">5%</span>
+                                <span className="item-desc" id="shop-content">Black 42" LG with one year...</span>
                                 <span id="item-media-2">Manage</span>
-                                <span class="item-edit" id="shop-content">Edit</span>
+                                <span className="item-edit" id="shop-content">Edit</span>
                             </div>
                         </div>
                     </div>

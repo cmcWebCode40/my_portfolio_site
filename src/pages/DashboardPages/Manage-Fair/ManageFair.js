@@ -9,30 +9,30 @@ export default function ManageFair() {
             <div class="manage-body">
                 <div className="fair-name-bar"></div>
                 <div className="manage-body-content">
-                    <div class="manage-fair">
-                        <h5 class="manage">Manage Fair</h5>
-                        <span class="manage-span">+ New Fair</span>
+                    <div className="manage-fair">
+                        <h5 className="manage">Manage Fair</h5>
+                        <span className="manage-span">+ New Fair</span>
                     </div>
-                    <div class="table-header-div">
+                    <div className="table-header-div">
                         <span id="trash"></span>
-                        <div class="table-header">
-                            <span class="span-fair">Fair</span>
-                            <span class="span-columns">Date Created</span>
-                            <span class="span-columns">Template </span>
-                            <span class="span-columns">Status</span>
-                            <span class="span-columns">Package</span>
-                            <span class="span-edit">....</span>
+                        <div className="table-header">
+                            <span className="span-fair">Fair</span>
+                            <span className="span-columns">Date Created</span>
+                            <span className="span-columns">Template </span>
+                            <span className="span-columns">Status</span>
+                            <span className="span-columns">Package</span>
+                            <span className="span-edit">....</span>
                         </div>
                     </div>
-                    <div class="table-header-div">
+                    <div className="table-header-div">
                         <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div class="table-header">
-                            <span class="span-fair" id="manage-span-content">Cooplag 2020</span>
-                            <span class="span-columns" id="manage-span-content">01/09/2020 9:40am</span>
-                            <span class="span-columns" id="manage-span-content">Outdoor#20 </span>
-                            <span class="span-columns" id="manage-span-content">active</span>
-                            <span class="span-columns" id="manage-span-content">Standard</span>
-                            <span class="span-edit" id="manage-span-content">Edit</span>
+                        <div className="table-header">
+                            <span className="span-fair" id="manage-span-content">Cooplag 2020</span>
+                            <span className="span-columns" id="manage-span-content">01/09/2020 9:40am</span>
+                            <span className="span-columns" id="manage-span-content">Outdoor#20 </span>
+                            <span className="span-columns" id="manage-span-content">active</span>
+                            <span className="span-columns" id="manage-span-content">Standard</span>
+                            <span className="span-edit" id="manage-span-content">Edit</span>
                         </div>
                     </div>
                 </div>
