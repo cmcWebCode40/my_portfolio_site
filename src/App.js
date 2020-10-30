@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import store from './redux/store';
 import Routes from './routes/Routes';
 import theme from './theme/theme';
+import './libs/imageUploader';
 
 const App = () => {
   return (
