@@ -27,6 +27,8 @@
     "linebreak-style": "off",
     "comma-dangle": "off",
     "no-unused-vars": "warn",
+  "camelcase":"off",
+    "consistent-return":"off",
     "no-underscore-dangle": "off",
     "import/no-named-as-default-member": "off",
     "import/no-extraneous-dependencies": "off",

@@ -9,7 +9,7 @@ const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={(props) => (token
+      render={(props) => (!token
         ? (
           <Layout>
             <Component {...props} />

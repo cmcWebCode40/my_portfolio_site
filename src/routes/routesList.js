@@ -6,8 +6,10 @@ import { lazy } from 'react';
 
 import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
+import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
 
 const Home = lazy(() => import('../pages/Home'));
+const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
 const VendorLandingPage = lazy(() => import('../pages/vendorshop/Vendor'));
 const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
@@ -23,13 +25,18 @@ export const routesList = [
   {
     path: '/register',
     component: Register,
-    // layout: MainLayouts,
+    layout: MainLayouts,
   },
 ];
 
 export const privateRoutes = [
   {
     path: '/dashboard',
+    component: CreateFair,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard',
     component: Home,
     layout: MainLayouts,
   },

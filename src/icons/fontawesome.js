@@ -18,7 +18,9 @@ import {
   faInfoCircle,
   faShoppingBasket,
   faCaretRight,
-  faCaretLeft
+  faCaretLeft,
+  faBars,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons';
 
 // add icons to your working library/
@@ -39,5 +41,7 @@ library.add(
   faInfoCircle,
   faShoppingBasket,
   faCaretRight,
-  faCaretLeft
+  faCaretLeft,
+  faBars,
+  faTrash
 );
