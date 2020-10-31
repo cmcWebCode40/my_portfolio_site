@@ -7,16 +7,18 @@ import { lazy } from 'react';
 import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayouts";
-
+import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
 
 const Home = lazy(() => import('../pages/Home'));
+const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
 const VendorLandingPage = lazy(() => import('../pages/vendorshop/Vendor'));
 const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
 const CartView = lazy(() => import('../pages/cartView/CartView'));
 const ManageFairSidebar = lazy(() => import("../pages/DashboardPages/Manage-Fair/ManageFairSideBar"))
 const FairPageDashboard = lazy(() => import("../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard"))
-// const Register = lazy(() => import('../pages/Register'));
+const SignIn = lazy(() => import("../pages/SignIn"))
+const Register = lazy(() => import('../pages/Register'));
 const DashboardPages = lazy(() => import("../pages/DashboardPages/Dashboard"))
 
 export const routesList = [
@@ -50,6 +52,17 @@ export const routesList = [
     component: ManageFairSidebar,
     layout: DashboardLayout,
   },
+
+  {
+    path: '/register',
+    component: Register,
+    layout: MainLayouts,
+  },
+  {
+    path: '/sign-in',
+    component: SignIn,
+    layout: MainLayouts,
+  },
   {
     path: '/dashboard-managefair/vendor',
     component: ManageFairSidebar,
@@ -80,6 +93,12 @@ export const routesList = [
 export const privateRoutes = [
   {
     path: '/dashboard-p',
+    path: '/dashboard',
+    component: CreateFair,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard',
     component: Home,
     layout: MainLayouts,
   },

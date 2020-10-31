@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from "react-router-dom"
 import Button from '../button';
 
 function Navbar() {
@@ -25,7 +26,7 @@ function Navbar() {
               </div>
             </div>
             <div className="col-lg-1">
-              <Button label="Sign In" />
+              <NavLink to="/sign-in"><Button label="Sign In" /></NavLink>
             </div>
           </div>
         </div>
@@ -46,5 +47,8 @@ const StyledDiv = styled.div`
   }
   .custom_nav-link {
     color: var(--primary-color);
+  }
+  a{
+    text-decoration: none;
   }
 `;
