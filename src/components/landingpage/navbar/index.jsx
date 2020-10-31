@@ -10,7 +10,7 @@ function Navbar() {
         <div className="container-fluid">
           <div className="row navbar navbar-expand-lg navbar-light">
             <div className="navbar-brand col-1 logo-box">
-              <a href="index.html" className="logo-link">
+              <a href="/" className="logo-link">
                 fair
                 <span className="font-weight-bolder text-success">Square</span>
               </a>
@@ -18,7 +18,7 @@ function Navbar() {
             <div className="collapse navbar-collapse">
               <div className="col col-lg-auto m-auto">
                 <ul className="navbar-nav">
-                  <li className="px-3 font-weight-bolder custom_nav-link">Home</li>
+                  <li className="px-3 font-weight-bolder custom_nav-link"><NavLink to="/">Home</NavLink></li>
                   <li className="px-3 font-weight-bolder custom_nav-link">About</li>
                   <li className="px-3 font-weight-bolder custom_nav-link">Features</li>
                   <li className="px-3 font-weight-bolder custom_nav-link">Pricing</li>
@@ -58,6 +58,7 @@ const StyledDiv = styled.div`
   }
   a{
     text-decoration: none;
+    color: var(--primary-color);
   }
   .register-login{
     display: flex;
