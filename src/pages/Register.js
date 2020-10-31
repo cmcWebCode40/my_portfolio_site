@@ -19,12 +19,13 @@ const StyledDiv = styled.div`
 
       .button-submit{
         width: 30%;
-        margin-top: 3px;
-        margin-bottom: 5%;
+        margin-top: 7px;
+        margin-bottom: 3%;
         border :1px solid dodgerblue;
         border-radius: 5px;
         padding: 5px 7px;
-        background: lawngreen;
+        background: forestgreen;
+        color: white;
        }
        
        .button-submit:hover{
