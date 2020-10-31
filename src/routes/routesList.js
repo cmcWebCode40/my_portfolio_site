@@ -70,6 +70,11 @@ export const routesList = [
     component: FairPageDashboard,
     layout: DashboardLayout,
   },
+  {
+    path: '/dashboard/construction',
+    component: DashboardPages,
+    layout: DashboardLayout,
+  }
 ];
 
 export const privateRoutes = [
