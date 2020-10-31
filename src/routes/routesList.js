@@ -70,6 +70,11 @@ export const routesList = [
     layout: DashboardLayout,
   },
   {
+    path: '/dashboard-managefair/construction',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
     path: '/dashboard-fairpage',
     component: FairPageDashboard,
     layout: DashboardLayout,
@@ -106,7 +111,6 @@ export const routesList = [
 export const privateRoutes = [
   {
     path: '/dashboard-p',
-    path: '/dashboard',
     component: CreateFair,
     layout: DashBoardLayoutFair,
   },

@@ -6,6 +6,7 @@ import CreateAdvert from "./CreateAdvert";
 import CreateBooth from "./CreateBooth";
 import CreateVendor from "./CreateVendor";
 import CreateSpeaker from "./CareteSpeaker";
+import CreateRaffle from "./CreateRaffle";
 
 export default function SideBar() {
     return (
@@ -56,7 +57,7 @@ export default function SideBar() {
                         <NavLink to="/dashboard-managefair/advert" activeClassName="is-active"><span>Advert Setting</span></NavLink>
                     </li>
                     <li>
-                        <NavLink to="/dashboard-managefair/raffle" activeClassName="is-active"><span>Raffle</span></NavLink>
+                        <NavLink to="/dashboard-managefair/construction" activeClassName="is-active"><span>Raffle</span></NavLink>
                     </li>
                     <li>
                         <NavLink exact to="/dashboard-managefair" activeClassName="is-active"><span>Manage Events</span></NavLink>
@@ -69,6 +70,7 @@ export default function SideBar() {
                 <Route exact path="/dashboard-managefair/vendor" component={CreateVendor} />
                 <Route exact path="/dashboard-managefair/booth" component={CreateBooth} />
                 <Route exact path="/dashboard-managefair/advert" component={CreateAdvert} />
+                <Route exact path="/dashboard-managefair/construction" component={CreateRaffle} />
             </div>
         </StyledDiv>
     )

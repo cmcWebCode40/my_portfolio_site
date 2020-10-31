@@ -19,7 +19,7 @@ function Dashboard() {
                     <div className="font-bar"><FontAwesomeIcon icon={faBars} size="2x" /></div>
                 </div>
                 <div className="side-bar">
-                    <p className="side-bar-header">FAIR</p>
+                    <p className="side-bar-header" id="fair-par">FAIR</p>
 
                     <div className="dropdown" id="Sidebar-dropdown-div">
                         <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
@@ -245,6 +245,9 @@ const StyledDiv = styled.div`
             color: royalblue;
             margin-top: 8px;
             margin-left: 20px;
+        }
+        #fair-par{
+            margin-left:20px;
         }
 
     }
