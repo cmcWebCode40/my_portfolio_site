@@ -26,7 +26,7 @@ const Home = () => {
             <h2 className="banner-header">World First 3D Virtual Experience Fair Platform</h2>
             <p>Create a virtual exhibition fair in less than 5 minutes.</p>
             <div className="row">
-              <div className="col-4">
+              <div className="col-lg-4">
                 <Button label="Create Fair" />
               </div>
             </div>
