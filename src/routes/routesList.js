@@ -19,6 +19,8 @@ const ManageFairSidebar = lazy(() => import("../pages/DashboardPages/Manage-Fair
 const FairPageDashboard = lazy(() => import("../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard"))
 const SignIn = lazy(() => import("../pages/SignIn"))
 const Register = lazy(() => import('../pages/Register'));
+const VerificationRequest = lazy(() => import('../pages/VerificationRequest'))
+const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'))
 const DashboardPages = lazy(() => import("../pages/DashboardPages/Dashboard"))
 
 export const routesList = [
@@ -52,22 +54,6 @@ export const routesList = [
     component: ManageFairSidebar,
     layout: DashboardLayout,
   },
-
-  {
-    path: '/register',
-    component: Register,
-    layout: MainLayouts,
-  },
-  {
-    path: '/sign-in',
-    component: SignIn,
-    layout: MainLayouts,
-  },
-  {
-    path: '/dashboard-managefair/vendor',
-    component: ManageFairSidebar,
-    layout: DashboardLayout,
-  },
   {
     path: '/dashboard-managefair/advert',
     component: ManageFairSidebar,
@@ -75,6 +61,11 @@ export const routesList = [
   },
   {
     path: '/dashboard-managefair/speaker',
+    component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-managefair/vendor',
     component: ManageFairSidebar,
     layout: DashboardLayout,
   },
@@ -87,7 +78,29 @@ export const routesList = [
     path: '/dashboard/construction',
     component: DashboardPages,
     layout: DashboardLayout,
-  }
+  },
+
+  {
+    path: '/register',
+    component: Register,
+    layout: MainLayouts,
+  },
+  {
+    path: '/login',
+    component: SignIn,
+    layout: MainLayouts,
+  },
+  {
+    path: '/verify-confirm',
+    component: VerificationConfirm,
+    layout: MainLayouts,
+  },
+  {
+    path: '/verify-request',
+    component: VerificationRequest,
+    layout: MainLayouts,
+  },
+
 ];
 
 export const privateRoutes = [

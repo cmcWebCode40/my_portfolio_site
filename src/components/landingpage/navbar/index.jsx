@@ -25,8 +25,16 @@ function Navbar() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-1">
-              <NavLink to="/sign-in"><Button label="Sign In" /></NavLink>
+            <div className="register-login">
+              <div>
+                <NavLink to="/register"><span id="register">Sign up</span></NavLink>
+              </div>
+              <div >
+                <NavLink to="/login"><Button label="Sign In" /></NavLink>
+              </div>
+              {/* <div className="col-lg-1">
+                <NavLink to="/sign-in"><Button label="Sign In" /></NavLink>
+              </div> */}
             </div>
           </div>
         </div>
@@ -51,4 +59,26 @@ const StyledDiv = styled.div`
   a{
     text-decoration: none;
   }
+  .register-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  #register{
+    background: white;
+    color: var(--primary-color);
+    margin-right: 10px;
+    padding: 7.5px 10px;
+    border-radius: 5px;
+
+    @media only screen and (max-width: 400px){
+      display: none;
+    }
+  }
+  #register:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+
 `;
