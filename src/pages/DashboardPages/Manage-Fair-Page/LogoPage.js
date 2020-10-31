@@ -4,31 +4,24 @@ import styled from "styled-components";
 export default function LogoPage() {
     return (
         <StyledDiv>
-            <div className="logo-content-body">
-                <div className="logo">
-                    <h5 className="logo-cat">Logo</h5>
-                    <span className="logo-new-span">+ New Event</span>
-                </div>
+            <div className="logo">
+                <h5 className="logo-cat">Logo</h5>
+                <span className="logo-new-span">+ New Event</span>
             </div>
         </StyledDiv>
     )
 }
 
 const StyledDiv = styled.div`
-
 background: white;
 box-shadow: 1px 3px 5px #e0e0e0;
 padding-bottom: 50px;
-
-.logo-content-body{
-    margin: 20px;
-}
 
 .logo{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .logo-cat{
     font-size: 18px;
@@ -37,7 +30,7 @@ padding-bottom: 50px;
     margin-left: 40px;
 }
 
-.logo-new-span{
+.logo-span{
     color: white;
     background-color: forestgreen;
     padding: 3px 7px;

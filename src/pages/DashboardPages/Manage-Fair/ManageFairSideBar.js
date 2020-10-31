@@ -42,14 +42,26 @@ export default function SideBar() {
                         <span className="create-span">Outdoor#20</span>
                     </div>
                 </div>
-                <div className="create-sidenav-par">
-                    <p className="side-bar-par"><NavLink to="/dashboard-managefair/speaker">Create Speakers</NavLink></p>
-                    <p className="side-bar-par"><NavLink to="/dashboard-managefair/vendor">Setup Vendor's Signup</NavLink></p>
-                    <p className="side-bar-par"><NavLink to="/dashboard-managefair/booth">Booth Setting</NavLink></p>
-                    <p className="side-bar-par"><NavLink to="/dashboard-managefair/advert">Advert Setting</NavLink></p>
-                    <p className="side-bar-par">Raffle</p>
-                    <p id="create-spreaker"><NavLink to="/dashboard-managefair">Manage Events</NavLink></p>
-                </div>
+                <ul>
+                    <li>
+                        <NavLink to="/dashboard-managefair/speaker" activeClassName="is-active"><span>Create Speakers</span></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard-managefair/vendor" activeClassName="is-active"><span>Setup Vendor's Signup</span></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard-managefair/booth" activeClassName="is-active"><span>Booth Setting</span></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard-managefair/advert" activeClassName="is-active"><span>Advert Setting</span></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/dashboard-managefair/raffle" activeClassName="is-active"><span>Raffle</span></NavLink>
+                    </li>
+                    <li>
+                        <NavLink exact to="/dashboard-managefair" activeClassName="is-active"><span>Manage Events</span></NavLink>
+                    </li>
+                </ul>
             </div>
             <div className="manage-fair-main-content">
                 <Route exact path="/dashboard-managefair" component={CreateEvent} />
@@ -100,22 +112,31 @@ a{
     color: #4169E1;
 }
 
-.create-sidenav-par{
-    margin-top: 50px;
-}
+ul {
 
-.side-bar-par{
-    cursor: pointer;
-    color: royalblue;
-    margin-top: 8px;
-    margin-left: 20px;
-}
-#create-spreaker{
-    border-right: forestgreen 4px solid;
-    padding: 6px 0 6px 20px;
-    color: royalblue;
-    margin-bottom: 5px;
-    cursor: pointer;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 20px;
+
+    li{
+        padding: 3px 0;
+        color: royalblue;
+        margin-bottom: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        a{
+            width: 100%;
+            margin-right: 0px;
+
+            &.is-active {
+                border-right: forestgreen 4px solid;
+            }
+        }
+    }
+
 }
 
 .manage-fair-main-content{

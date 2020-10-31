@@ -53,7 +53,7 @@ padding: 30px 20px;
 text-align: left;
 
 .logo-side-body{
-    margin: 50px 1px 50px 50px;
+    margin: 20px 5px 50px 5px;
      width: 19.8%;
      background-color: white;
      box-shadow: 3px 4px 15px #e0e0e0;
@@ -76,23 +76,6 @@ text-align: left;
     background-color: white;
     margin: 50px 50px 50px 1px;
     box-shadow: 3px 4px 15px #e0e0e0;
-}
-
-.logo-content-body{
-    margin: 20px;
-}
-
-.logo{
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-top: 50px;
-}
-.logo-cat{
-    font-size: 18px;
-    font-weight: 600;
-    color: #4169E1;
-    margin-left: 40px;
 }
 
 #active-logo-page{

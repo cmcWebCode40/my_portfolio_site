@@ -19,87 +19,166 @@ function Dashboard() {
                 </div>
                 <div className="side-bar">
                     <p className="side-bar-header">FAIR</p>
-                    <div className="dropdown" id="active-page">
+
+                    <div className="dropdown" id="Sidebar-dropdown-div">
                         <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Manage Fair
                             </p>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <NavLink to="/dashboard-managefair" className="dropdown-item">Manage Fair</NavLink>
-                            <NavLink to="/dashboard-managefair/speaker" className="dropdown-item">Manage Speaker</NavLink>
-                            <NavLink to="/dashboard-managefair/vendor" className="dropdown-item">Manage Vendor</NavLink>
-                            <NavLink to="/dashboard-managefair/booth" className="dropdown-item">Manage Booth</NavLink>
-                            <NavLink to="/dashboard-managefair/advert" className="dropdown-item">Manage Advert</NavLink>
-                        </div>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-managefair" activeClassName="is-active"><span>Manage Fair</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-managefair/speaker" activeClassName="is-active"><span>Manage Speaker</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-managefair/vendor" activeClassName="is-active"><span>Manage Vendor</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-managefair/booth" activeClassName="is-active"><span>Manage Booth</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-managefair/advert" activeClassName="is-active"><span>Manage Advert</span></NavLink>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="dropdown">
+                    <div className="dropdown" id="Sidebar-dropdown-div">
                         <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Manage Fair Page
-                            </p>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href="#">Action -1</a>
-                            <a className="dropdown-item" href="#">Action -2</a>
-                            <a className="dropdown-item" href="#">Action -3</a>
-                        </div>
+                        </p>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-fairpage" activeClassName="is-active"><span>Manage Logo</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active" ><span>Action -2</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active" ><span>Action -3</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Action -4</span></NavLink>
+                            </li>
+                        </ul>
                     </div>
-                    <div className="dropdown">
+                    <div className="dropdown" id="Sidebar-dropdown-div">
                         <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Booth Setting
-                            </p>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a className="dropdown-item" href="#">Action -1</a>
-                            <a className="dropdown-item" href="#">Action -2</a>
-                            <a className="dropdown-item" href="#">Action -3</a>
-                        </div>
+                        </p>
+                        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Manage Logo</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Action -2</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Action -3</span></NavLink>
+                            </li>
+                            <li className="dropdown-item">
+                                <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Action -4</span></NavLink>
+                            </li>
+                        </ul>
                     </div>
-                    <p className="side-bar-par">Pricing</p>
-                    <p className="side-bar-par">Manage Vendor</p>
-                    <p className="side-bar-par"><NavLink exact to="/dashboard/fairevents">Fair Events</NavLink></p>
-                    <p className="side-bar-par">Vendor's Registration</p>
-                    <p className="side-bar-header">TRANSACTION</p>
-                    <p className="side-bar-par">Fair Transaction</p>
-                    <p className="side-bar-par">Vendor's Transaction</p>
-                    <p className="side-bar-header">SHOPS</p>
-                    <p className="side-bar-par">Fair Transaction</p>
-                    <p className="side-bar-par">Vendor's Transaction</p>
-                    <p className="side-bar-par"><NavLink exact to="/dashboard/shops">Product</NavLink></p>
-                    <p className="side-bar-par">Shop Ad Banners</p>
-                    <p className="side-bar-header">ADS</p>
-                    <p className="side-bar-par">Fair Ads</p>
-                    <p className="side-bar-par">Vendor's Ads</p>
-                    <p className="side-bar-par">General Ads</p>
-                    <p className="side-bar-header">TEAMS</p>
-                    <p className="side-bar-par">Fair Team</p>
-                    <p className="side-bar-par">Vendor's Team</p>
-                    <p className="side-bar-par">Platform Team</p>
-                    <p className="side-bar-header">PAYMENT OPTION </p>
-                    <p className="side-bar-par">Fair Payment</p>
-                    <p className="side-bar-par">Vendor's Payment</p>
-                    <p className="side-bar-par">Platform Payment</p>
-                    <p className="side-bar-par">Bank Details</p>
-                    <p className="side-bar-header">SETTLEMENT</p>
-                    <p className="side-bar-par">Fair Settlement</p>
-                    <p className="side-bar-par">Vendor's Sttlement</p>
-                    <p className="side-bar-header">LOGISTICS</p>
-                    <p className="side-bar-par">All Logistics</p>
-                    <p className="side-bar-header">VISITORS</p>
-                    <p className="side-bar-par">Fair Visitors</p>
-                    <p className="side-bar-par">Vendor's Visitors</p>
-                    <p className="side-bar-header">WALLET</p>
-                    <p className="side-bar-par">Fair Wallet</p>
-                    <p className="side-bar-par">Vendor's Wallet</p>
-                    <p className="side-bar-header">DEALS</p>
-                    <p className="side-bar-par">Fair Deals</p>
-                    <p className="side-bar-par">Vendor's Deals</p>
-                    <p className="side-bar-header">SYSTEM Config</p>
-                    <p className="side-bar-par">Fair Config</p>
-                    <p className="side-bar-par">Vendor's Config</p>
-                    <p className="side-bar-header">USHERS</p>
-                    <p className="side-bar-par">Fair Ushers</p>
-                    <p className="side-bar-par">Vendor's Usher</p>
-                    <p className="side-bar-par">General Ushers</p>
+                    <ul>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Pricing</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Manage Vendor</span></NavLink></li>
+                        <li>
+                            <NavLink exact to="/dashboard/fairevents">Fair Events</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Registration</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>TRANSACTION</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Transaction</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Transaction</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>SHOPS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Transaction</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Transaction</span></NavLink></li>
+                        <li>
+                            <NavLink exact to="/dashboard/shops" activeClassName="is-active"><span>Product</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Shop Ad Banners</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>ADS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Ads</span></NavLink></li>
+                        <li className="side-bar-par">
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Ads</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>General Ads</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>TEAMS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Team</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Team</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Platform Team</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>PAYMENT OPTION </span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Payment</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Payment</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Platform Payment</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Bank Details</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>SETTLEMENT</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Settlement</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Sttlement</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>LOGISTICS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>All Logistics</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>VISITORS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Visitors</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Visitors</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>WALLET</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Wallet</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Wallet</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>DEALS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Deals</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Deals</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>SYSTEM Config</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Config</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Config</span></NavLink></li>
+                        <li className="side-bar-header">
+                            <span>USHERS</span></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Fair Ushers</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>Vendor's Usher</span></NavLink></li>
+                        <li>
+                            <NavLink to="/dashboard-construction" activeClassName="is-active"><span>General Ushers</span></NavLink></li>
+                    </ul>
+
                 </div>
             </div>
             <div className="Manage-body">
@@ -150,26 +229,52 @@ const StyledDiv = styled.div`
             padding-bottom: 50px;
             text-align: left;
             margin-top: -10px;
+            cursor: pointer;
         }
 
         .side-bar-header{
-            margin: 20px 20px 10px 20px;
+            margin: 20px 20px 10px 2px;
             color: grey;
+            text-align: left;
         } 
 
-        .side-bar-par{
+        #Sidebar-dropdown-div{
             cursor: pointer;
             color: royalblue;
             margin-top: 8px;
             margin-left: 20px;
         }
 
-        #active-page{
-            border-right: forestgreen 4px solid;
-        }
     }
 
     .Manage-body{
         width: 80%;
+    }
+
+    ul {
+
+        list-style-type: none;
+        margin: 0;
+        padding-left: 20px;
+    
+        li{
+            padding: 3px 0;
+            color: royalblue;
+            margin-bottom: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            width: 100%;
+    
+            a{
+                width: 100%;
+                margin-right: 0px;
+    
+                &.is-active {
+                    border-right: forestgreen 4px solid;
+                }
+            }
+        }
+    
     }
 `

@@ -15,6 +15,7 @@ const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
 const CartView = lazy(() => import('../pages/cartView/CartView'));
 const ManageFairSidebar = lazy(() => import("../pages/DashboardPages/Manage-Fair/ManageFairSideBar"))
+const FairPageDashboard = lazy(() => import("../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard"))
 // const Register = lazy(() => import('../pages/Register'));
 const DashboardPages = lazy(() => import("../pages/DashboardPages/Dashboard"))
 
@@ -62,6 +63,11 @@ export const routesList = [
   {
     path: '/dashboard-managefair/speaker',
     component: ManageFairSidebar,
+    layout: DashboardLayout,
+  },
+  {
+    path: '/dashboard-fairpage',
+    component: FairPageDashboard,
     layout: DashboardLayout,
   },
 ];
