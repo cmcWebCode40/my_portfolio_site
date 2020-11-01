@@ -13,4 +13,5 @@ export default Footer;
 
 const StyledDiv = styled.div`
   text-align: center;
+  margin-top: 20px;
 `;
