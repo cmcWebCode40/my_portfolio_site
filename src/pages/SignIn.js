@@ -38,17 +38,17 @@ export default function UserSignIn(props) {
     return (
         <StyledDiv>
             <form onSubmit={handleSubmit} className="form">
-                <h3 className="Details">Enter Sign In Details Below</h3>
+                <h3 className="Details">Sign In</h3>
                 <div className="input-field">
-                    <label htmlFor="name"></label>
-                    <input type="email" name='email' placeholder="Enter Email" onChange={handleChange} value={signIn.email} required />
+                    <label htmlFor="name">Email</label>
+                    <input type="email" name='email' onChange={handleChange} value={signIn.email} required />
                 </div>
                 <div className="input-field">
-                    <label htmlFor="password"></label>
-                    <input type="password" name='password' placeholder="Enter Password" onChange={handleChange} value={signIn.password} required />
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name='password' onChange={handleChange} value={signIn.password} required />
                 </div>
-                <div className="input-field">
-                    <button className='button-submit'>Submit</button>
+                <div>
+                    <button className='button-submit'>Sign In</button>
                 </div>
             </form>
         </StyledDiv>
@@ -56,40 +56,57 @@ export default function UserSignIn(props) {
 };
 
 const StyledDiv = styled.div`
-    max-width: 1300px;
-    height: 100vh;
+  height: 100vh;
+  width: 100%;
+  padding: 30px;
+
+  .form{
+    max-width: 400px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    text-align: left; 
+    padding: 30px;
+    box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  }
+
+  .button-submit{
     width: 100%;
+    // max-width: 250px;
+    margin-top: 7px;
+    margin-bottom: 3%;
+    border :1px solid #317fc8;
+    border-radius: 5px;
+    padding: 5px 7px;
+    background: #317fc8;
+    color: white;
+  }
+  
+  .button-submit:hover{
+    background: dodgerblue;
+  }
 
-    .form{
-        margin-top: 10%;
-        text-align: center;
-        margin-left: 15%;
-        margin-right: 15%; 
-        padding-top: 3%;
-        box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
-     0 2px 4px rgba(0, 0, 0, 0.24);
-      }
+  input{
+    width: 100%;
+    height: 25px;
+    border: none;
+  }
 
-      .button-submit{
-        width: 30%;
-        margin-top: 7px;
-        margin-bottom: 3%;
-        border :1px solid dodgerblue;
-        border-radius: 5px;
-        padding: 5px 7px;
-        background: forestgreen;
-        color: white;
-       }
-       
-       .button-submit:hover{
-         background: dodgerblue;
-       
-       }
+  label {
+    font-size: .6rem;
+  }
 
-       input{
-           width: 70%;
-           margin: 2px;
-           height: 25px;
-       }
+  .input-field {
+    margin-bottom: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.24);
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+
+  .Details {
+    font-weight: 700;
+    color: #317fc8;
+  }
 `;
 
