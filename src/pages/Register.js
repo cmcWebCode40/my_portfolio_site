@@ -40,6 +40,10 @@ const StyledDiv = styled.div`
     border: none;
   }
 
+  input:focus {
+    outline: none;
+  }
+
   label {
     font-size: .6rem;
   }
@@ -49,6 +53,10 @@ const StyledDiv = styled.div`
     border: 2px solid rgba(0, 0, 0, 0.24);
     border-radius: 5px;
     padding: 0 10px;
+  }
+
+  .input-field:active {
+    border: 2px solid blue;
   }
 
   .Details {
