@@ -10,6 +10,11 @@ import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
 
 const Home = lazy(() => import('../pages/Home'));
 const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
+const FairDetails = lazy(() => import('../pages/createfair/FairDetails'));
+const FairSpeakers = lazy(() => import('../pages/createfair/FairSpeakers'));
+const FairPricing = lazy(() => import('../pages/createfair/FairPricingPlans'));
+const VendorSetting = lazy(() => import('../pages/createfair/VendorSetting'));
+const FairPlans = lazy(() => import('../pages/createfair/FairPlans'));
 const VendorLandingPage = lazy(() => import('../pages/vendorshop/Vendor'));
 const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
@@ -31,8 +36,33 @@ export const routesList = [
 
 export const privateRoutes = [
   {
-    path: '/dashboard',
+    path: '/fair/dashboard-overview',
     component: CreateFair,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId',
+    component: FairDetails,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-speaker',
+    component: FairSpeakers,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-pricing-plan',
+    component: FairPricing,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-plans',
+    component: FairPlans,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-vendor-requirements',
+    component: VendorSetting,
     layout: DashBoardLayoutFair,
   },
   {

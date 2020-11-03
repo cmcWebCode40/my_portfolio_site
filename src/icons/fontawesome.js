@@ -20,7 +20,9 @@ import {
   faCaretRight,
   faCaretLeft,
   faBars,
-  faTrash
+  faTrash,
+  faSpinner,
+  faPlusCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 // add icons to your working library/
@@ -43,5 +45,7 @@ library.add(
   faCaretRight,
   faCaretLeft,
   faBars,
-  faTrash
+  faTrash,
+  faSpinner,
+  faPlusCircle
 );
