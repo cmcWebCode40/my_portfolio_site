@@ -1,47 +1,70 @@
 import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CreateFair from '../../components/createfairdashboard/forms/createfair/CreateFair';
 import FairPlans from '../../components/createfairdashboard/forms/fairplans/FairPlans';
 import FairPricing from '../../components/createfairdashboard/forms/fairpricing/FairPricing';
 import FairSpeaker from '../../components/createfairdashboard/forms/fairSpeaker/FairSpeaker';
 import Vendor from '../../components/createfairdashboard/forms/vendor/Vendor';
-// import Table from '../../components/createfairdashboard/table/Table';
 import ModalDialog from '../../components/modal/Modal';
+import Overview from '../../components/createfairdashboard/fairoverview/Overview';
 
 function getSteps() {
-  return ['Fair Information', 'Fair Plans', 'Fair Pricing', 'Fair Speaker', 'Vendor Setting'];
-}
-
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return <CreateFair />;
-    case 1:
-      return <FairPlans />;
-    case 2:
-      return <FairPricing />;
-    case 3:
-      return <FairSpeaker />;
-    case 4:
-      return <Vendor />;
-    default:
-      return 'Unknown stepIndex';
-  }
+  return [' Information', ' Pricing', ' Speaker', ' Plans', 'Vendor Setting'];
 }
 
 const CreateFairView = () => {
   const [open, setOpen] = useState(false);
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [fairId, setFairId] = useState(true);
+  const [activeStep, setActiveStep] = useState(0);
 
   const allSteps = getSteps();
+  function getStepContent(stepIndex) {
+    switch (stepIndex) {
+      case 0:
+        return (
+          <CreateFair
+            setFairId={setFairId}
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        );
+      case 1:
+        return (
+          <FairPricing
+            fairId={fairId}
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        );
+      case 2:
+        return (
+          <FairSpeaker
+            fairId={fairId}
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        );
+      case 3:
+        return (
+          <FairPlans
+            fairId={fairId}
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        );
+      case 4:
+        return (
+          <Vendor
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        );
+      default:
+        return 'Unknown stepIndex';
+    }
+  }
 
   const onOpenModal = () => setOpen(true);
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   useEffect(() => {
 
@@ -50,7 +73,12 @@ const CreateFairView = () => {
   return (
     <div className="">
       <h3>Hi Charles</h3>
-      <button type="button" onClick={onOpenModal}>Open modal</button>
+      <button type="button" className="btn btn-primary" onClick={onOpenModal}>
+        Create Fair
+        {' '}
+        <FontAwesomeIcon icon={['fa', 'plus-circle']} className="text-white" />
+        {' '}
+      </button>
       <ModalDialog open={open} setOpen={setOpen}>
         <div>
           <div className="p-2">
@@ -65,20 +93,12 @@ const CreateFairView = () => {
           <div>
             {getStepContent(activeStep)}
           </div>
-          <div>
-            <button
-              disabled={activeStep === 0}
-              onClick={handleBack}
-              type="button"
-            >
-              Back
-            </button>
-            <button type="button" variant="contained" color="primary" onClick={handleNext}>
-              {activeStep === allSteps.length - 1 ? 'Finish' : 'Next'}
-            </button>
-          </div>
         </div>
       </ModalDialog>
+      <div>
+        {/* <Table /> */}
+        <Overview />
+      </div>
     </div>
   );
 };
