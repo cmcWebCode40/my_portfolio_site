@@ -2,9 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink, useParams } from 'react-router-dom';
 import Header from '../mainLayout/header/Header';
 
 const AppBar = styled.div`
+  .bars{
+    margin:-1rem -.5rem 0 -.6rem;
+  }
+
   #wrapper {
       padding-left: 0;
       -webkit-transition: all 0.5s ease;
@@ -61,6 +66,8 @@ const AppBar = styled.div`
     .sidebar-nav li {
       text-indent: 20px;
       line-height: 40px;
+      margin:1rem 0;
+      border-bottom :1px solid ${(props) => props.theme.colors.gray};
     }
 
     .sidebar-nav li a {
@@ -124,10 +131,34 @@ const AppBar = styled.div`
     }`;
 
 const DashBoardLayout = ({ children }) => {
+  const params = useParams();
   const toggleModal = () => {
     const wrapper = document.querySelector('#wrapper');
     wrapper.classList.toggle('toggled');
   };
+  let navLinks;
+
+  if (params && params.fairId) {
+    const { fairId } = params;
+    navLinks = [
+      {
+        name: 'Fair Speaker',
+        path: `/fair/dashboard-overview/${fairId}/fair-speaker`
+      },
+      {
+        name: 'Fair pricing Plan',
+        path: `/fair/dashboard-overview/${fairId}/fair-pricing-plan`
+      },
+      {
+        name: 'Fair Plans',
+        path: `/fair/dashboard-overview/${fairId}/fair-plans`
+      },
+      {
+        name: 'Vendor Requirements',
+        path: `/fair/dashboard-overview/${fairId}/fair-vendor-requirements`
+      },
+    ];
+  }
 
   return (
     <AppBar>
@@ -135,40 +166,22 @@ const DashBoardLayout = ({ children }) => {
       <div id="wrapper">
         <div id="sidebar-wrapper">
           <ul className="sidebar-nav">
-            {/* <li className="sidebar-brand">
-              <a href="##">
-                Start Bootstrap
-              </a>
-            </li> */}
             <li>
-              <a href="##">Dashboard</a>
+              <NavLink activeStyle={{ color: 'red' }} to="/fair/dashboard-overview">Create Fair</NavLink>
             </li>
-            <li>
-              <a href="##">Shortcuts</a>
-            </li>
-            <li>
-              <a href="##">Overview</a>
-            </li>
-            <li>
-              <a href="##">Events</a>
-            </li>
-            <li>
-              <a href="##">About</a>
-            </li>
-            <li>
-              <a href="##">Services</a>
-            </li>
-            <li>
-              <a href="##">Contact</a>
-            </li>
+            {params && params.fairId && navLinks.map((links) => (
+              <li key={links.name}>
+                <NavLink activeStyle={{ color: 'red' }} to={links.path}>{links.name}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div id="page-content-wrapper">
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-12">
-                <a href="#menu-toggle" onClick={toggleModal} className="btn btn-default" id="menu-toggle">
-                  <FontAwesomeIcon icon={['fa', 'bars']} />
+                <a href="#menu-toggle" onClick={toggleModal} className="btn btn-default bars" id="menu-toggle">
+                  <FontAwesomeIcon size="1x" icon={['fa', 'bars']} />
                 </a>
                 <main>
                   {children}

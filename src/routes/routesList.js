@@ -6,22 +6,27 @@ import { lazy } from 'react';
 
 import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
-import DashboardLayout from "../layouts/DashboardLayout/DashboardLayouts";
+import DashboardLayout from '../layouts/DashboardLayout/DashboardLayouts';
 import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
 
 const Home = lazy(() => import('../pages/Home'));
 const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
+const FairDetails = lazy(() => import('../pages/createfair/FairDetails'));
+const FairSpeakers = lazy(() => import('../pages/createfair/FairSpeakers'));
+const FairPricing = lazy(() => import('../pages/createfair/FairPricingPlans'));
+const VendorSetting = lazy(() => import('../pages/createfair/VendorSetting'));
+const FairPlans = lazy(() => import('../pages/createfair/FairPlans'));
 const VendorLandingPage = lazy(() => import('../pages/vendorshop/Vendor'));
 const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
 const CartView = lazy(() => import('../pages/cartView/CartView'));
-const ManageFairSidebar = lazy(() => import("../pages/DashboardPages/Manage-Fair/ManageFairSideBar"))
-const FairPageDashboard = lazy(() => import("../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard"))
-const SignIn = lazy(() => import("../pages/SignIn"))
+const ManageFairSidebar = lazy(() => import('../pages/DashboardPages/Manage-Fair/ManageFairSideBar'));
+const FairPageDashboard = lazy(() => import('../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard'));
+const SignIn = lazy(() => import('../pages/SignIn'));
 const Register = lazy(() => import('../pages/Register'));
-const VerificationRequest = lazy(() => import('../pages/VerificationRequest'))
-const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'))
-const DashboardPages = lazy(() => import("../pages/DashboardPages/Dashboard"))
+const VerificationRequest = lazy(() => import('../pages/VerificationRequest'));
+const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'));
+const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
 
 export const routesList = [
   {
@@ -110,8 +115,33 @@ export const routesList = [
 
 export const privateRoutes = [
   {
-    path: '/dashboard-p',
+    path: '/fair/dashboard-overview',
     component: CreateFair,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId',
+    component: FairDetails,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-speaker',
+    component: FairSpeakers,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-pricing-plan',
+    component: FairPricing,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-plans',
+    component: FairPlans,
+    layout: DashBoardLayoutFair,
+  },
+  {
+    path: '/fair/dashboard-overview/:fairId/fair-vendor-requirements',
+    component: VendorSetting,
     layout: DashBoardLayoutFair,
   },
   {
