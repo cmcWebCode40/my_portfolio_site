@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
+import Nav from "../MobileNav";
 
 export default function ManageFair() {
     return (
         <StyledDiv>
             <div className="manage-body">
-                <div className="fair-name-bar"></div>
                 <div className="manage-body-content">
                     <div className="manage-fair">
                         <h5 className="manage">Manage Fair</h5>
@@ -17,10 +17,9 @@ export default function ManageFair() {
                         <span id="trash"></span>
                         <div className="table-header">
                             <span className="span-fair">Fair</span>
-                            <span className="span-columns">Date Created</span>
-                            <span className="span-columns">Template </span>
-                            <span className="span-columns">Status</span>
-                            <span className="span-columns">Package</span>
+                            <span className="span-columns-date">Date Created</span>
+                            <span className="span-columns-status">Status</span>
+                            <span className="span-columns-package">Package</span>
                             <span className="span-edit">....</span>
                         </div>
                     </div>
@@ -28,10 +27,9 @@ export default function ManageFair() {
                         <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
                         <div className="table-header">
                             <span className="span-fair" id="manage-span-content">Cooplag 2020</span>
-                            <span className="span-columns" id="manage-span-content">01/09/2020 9:40am</span>
-                            <span className="span-columns" id="manage-span-content">Outdoor#20 </span>
-                            <span className="span-columns" id="manage-span-content">active</span>
-                            <span className="span-columns" id="manage-span-content">Standard</span>
+                            <span className="span-columns-date" id="manage-span-content">01/09/2020 9:40am</span>
+                            <span className="span-columns-status" id="manage-span-content">active</span>
+                            <span className="span-columns-package" id="manage-span-content">Standard</span>
                             <span className="span-edit" id="manage-span-content">Edit</span>
                         </div>
                     </div>
@@ -46,16 +44,6 @@ const StyledDiv = styled.div`
 .manage-body{
      background: white;
     background-color: #F8F8FF;
-}
-
-.fair-name-bar{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    box-shadow: 1px 3px 5px #e0e0e0;
-    padding: 3px 10px;
-    background: white;
-    height: 45px;
 }
 
 .manage-body-content{
@@ -99,10 +87,25 @@ const StyledDiv = styled.div`
     width: 95%;
 }
 
-.span-columns{
-    width: 180px;
+.span-fair{
+    width: 25%;
+}
+.span-edit{
+    margin-right: 15%;
+    width: 50px;
     text-align: center;
-    /* color: #4169E1; */
+}
+.span-columns-date{
+    width: 27%;
+    text-align: center;
+}
+.span-columns-status{
+    width: 10%;
+    text-align: center;
+}
+.span-columns-package{
+    width: 21%;
+    text-align: center;
 }
 
 #manage-span-content{
@@ -114,14 +117,6 @@ const StyledDiv = styled.div`
     text-align: center;
     color: red;
     cursor: pointer;
-}
-.span-fair{
-    width: 100px;
-}
-.span-edit{
-    margin-right: 20px;
-    width: 50px;
-    text-align: center;
 }
 
 `;

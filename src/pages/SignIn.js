@@ -5,54 +5,53 @@ import Cookies from 'universal-cookie';
 
 export default function UserSignIn(props) {
 
-    const credentials = {
-        password: '',
-        email: '',
-    }
+  const credentials = {
+    password: '',
+    email: '',
+  }
 
-    const [signIn, setSignIn] = useState(credentials)
+  const [signIn, setSignIn] = useState(credentials)
 
-    const handleChange = (e) => {
-        e.persist();
-        setSignIn({
-            ...signIn,
-            [e.target.name]: e.target.value
-        })
-    };
+  const handleChange = (e) => {
+    e.persist();
+    setSignIn({
+      ...signIn,
+      [e.target.name]: e.target.value
+    })
+  };
 
-    const cookies = new Cookies();
+  const cookies = new Cookies();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios
-            .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
-            .then(res => {
-                // localStorage.setItem('coop_token', res.data.data.token);
-                cookies.set('JWT', `${res.data.data.token}`, { path: '/' });
-                props.history.push('/dashboard');
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    };
-    return (
-        <StyledDiv>
-            <form onSubmit={handleSubmit} className="form">
-                <h3 className="Details">Sign In</h3>
-                <div className="input-field">
-                    <label htmlFor="name">Email</label>
-                    <input type="email" name='email' onChange={handleChange} value={signIn.email} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name='password' onChange={handleChange} value={signIn.password} required />
-                </div>
-                <div>
-                    <button className='button-submit'>Sign In</button>
-                </div>
-            </form>
-        </StyledDiv>
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
+      .then(res => {
+        cookies.set('JWT', `${res.data.data.token}`, { path: '/' });
+        props.history.push('/fair/dashboard-overview');
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  };
+  return (
+    <StyledDiv>
+      <form onSubmit={handleSubmit} className="form">
+        <h3 className="Details">Sign In</h3>
+        <div className="input-field">
+          <label htmlFor="name">Email</label>
+          <input type="email" name='email' onChange={handleChange} value={signIn.email} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="password">Password</label>
+          <input type="password" name='password' onChange={handleChange} value={signIn.password} required />
+        </div>
+        <div>
+          <button className='button-submit'>Sign In</button>
+        </div>
+      </form>
+    </StyledDiv>
+  );
 };
 
 const StyledDiv = styled.div`
