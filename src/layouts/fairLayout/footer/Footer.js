@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <StyledDiv>
-      <footer>&copy; virtual fair 2020 Footer</footer>
+      <footer className="py-4">Powered by <span>FairSquare  &copy; 2020</span></footer>
     </StyledDiv>
   )
 };
@@ -13,5 +13,13 @@ export default Footer;
 
 const StyledDiv = styled.div`
   text-align: center;
-  margin-top: 20px;
+
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  span {
+    font-weight: 600;
+  }
 `;

@@ -7,10 +7,10 @@ const Header = () => {
       <header className="header">
         <div className="container-fluid">
           <div className="row navbar navbar-expand-lg navbar-light">
-            <div className="navbar-brand w-100 logo-box">
+            <div className="navbar-brand logo-box">
               <a href="/" className="logo-link mr-auto">Coop<span className="font-weight-bolder text-uppercase">lag</span></a>
             </div>
-            <div className="collapse navbar-collapse w-100">
+            <div className="collapse navbar-collapse">
               <div className="col col-lg-auto ml-auto">
                 <ul className="navbar-nav">
                   <li className="px-3 font-weight-bolder custom_nav-link">About Cooplag</li>
