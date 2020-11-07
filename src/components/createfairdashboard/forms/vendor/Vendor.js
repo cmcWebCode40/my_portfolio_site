@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { coopLagApi } from '../../../../services/services';
+import { toast } from 'react-toastify';
 import { RequestLoaderIcon } from '../../../Loaders/Loader';
-import { getUserToken } from '../../../../utils/authToken';
-import { errorHandler } from '../../../../error/ErrorHandler';
+import useApi from '../../../../hooks/Api/useApi';
 
 const FairWrapper = styled.div`
 
@@ -54,9 +53,16 @@ const FairWrapper = styled.div`
 const Vendor = ({ activeStep, setActiveStep, fairId }) => {
   const [formValues, setFormValues] = useState('');
   const [partners] = useState([]);
-  const [error, setError] = useState('');
-  const [loading, setloading] = useState(false);
-  const headers = getUserToken();
+  const {
+    loading,
+    error,
+    postData,
+    postResponseData
+  } = useApi();
+
+  if (postResponseData) {
+    toast.success(postResponseData.message, { toastId: 'fair' });
+  }
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -71,16 +77,14 @@ const Vendor = ({ activeStep, setActiveStep, fairId }) => {
     const data = {
       requirements: [{ name, description }]
     };
-
-    setloading(true);
-    try {
-      await coopLagApi.post(`/fairs/${fairId}/requirements`, data, { headers });
+    const postValues = {
+      url: `/fairs/${fairId}/requirements`,
+      data
+    };
+    await postData(postValues);
+    if (activeStep) {
       setActiveStep(activeStep + 1);
-    } catch (error) {
-      const { data } = errorHandler(error);
-      setError({ message: data.message, class: 'alert alert-danger' });
     }
-    setloading(false);
   };
 
   useEffect(() => {
