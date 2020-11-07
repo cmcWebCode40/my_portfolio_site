@@ -7,6 +7,7 @@ import FairSpeaker from '../../components/createfairdashboard/forms/fairSpeaker/
 import Vendor from '../../components/createfairdashboard/forms/vendor/Vendor';
 import ModalDialog from '../../components/modal/Modal';
 import Overview from '../../components/createfairdashboard/fairoverview/Overview';
+import { getUserData } from '../../utils/functions/userAuth';
 
 function getSteps() {
   return [' Information', ' Pricing', ' Speaker', ' Plans', 'Vendor Setting'];
@@ -16,6 +17,7 @@ const CreateFairView = () => {
   const [open, setOpen] = useState(false);
   const [fairId, setFairId] = useState(true);
   const [activeStep, setActiveStep] = useState(0);
+  const useName = getUserData('firstname');
 
   const allSteps = getSteps();
   function getStepContent(stepIndex) {
@@ -72,12 +74,15 @@ const CreateFairView = () => {
 
   return (
     <div className="">
-      <h3>Hi Charles</h3>
+      <h3>
+        Hi
+        {' '}
+        {useName}
+      </h3>
       <button type="button" className="btn btn-primary" onClick={onOpenModal}>
         Create Fair
         {' '}
         <FontAwesomeIcon icon={['fa', 'plus-circle']} className="text-white" />
-        {' '}
       </button>
       <ModalDialog open={open} setOpen={setOpen}>
         <div>
@@ -85,7 +90,14 @@ const CreateFairView = () => {
             <ul className="nav nav-tabs">
               <li className="nav-item row">
                 {allSteps.map((step, index) => (
-                  <a key={step} href="##" className={index === activeStep ? 'nav-link active col' : 'nav-link col'}>{step}</a>
+                  <a
+                    key={step}
+                    href="##"
+                    className={index === activeStep ? 'nav-link active col' : 'nav-link col'}
+                  >
+                    {step}
+
+                  </a>
                 ))}
               </li>
             </ul>

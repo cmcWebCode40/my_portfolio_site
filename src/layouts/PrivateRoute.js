@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import Cookies from 'universal-cookie';
+import { authContextApi } from '../context/authContext';
+import { getUserToken } from '../utils/functions/userAuth';
 
 const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => {
-  const cookies = new Cookies();
-  const token = cookies.get('JWT', { path: '/' });
+  const { isUserAuth, } = useContext(authContextApi);
+  const isLoggedIn = getUserToken();
+
+  useEffect(() => {
+
+  }, [isUserAuth]);
 
   return (
     <Route
       {...rest}
-      render={(props) => (!token
-        ? (
-          <Layout>
-            <Component {...props} />
-          </Layout>
-        )
-        : (
-          <Redirect to={{
-            pathname: '/login',
-            state: props.location
-          }}
-          />
-        )
+      render={(props) => (
+        isLoggedIn
+          ? (
+            <Layout>
+              <Component {...props} />
+            </Layout>
+          )
+          : (
+            <Redirect to={{
+              pathname: '/login',
+              state: props.location
+            }}
+            />
+          )
       )}
     />
   );

@@ -1,59 +1,66 @@
-import React, { useState } from 'react';
-import styled from "styled-components";
+import React, { useContext, useState } from 'react';
+import styled from 'styled-components';
 import axios from 'axios';
-import Cookies from 'universal-cookie';
+import {
+  PLATFORM_ADMIN,
+  saveAuthToken,
+  saveUserDetails
+} from '../utils/functions/userAuth';
+import { authContextApi } from '../context/authContext';
 
-export default function UserSignIn(props) {
+export default function UserSignIn({ history }) {
+  const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
+  const credentials = {
+    password: '',
+    email: '',
+  };
 
-    const credentials = {
-        password: '',
-        email: '',
-    }
+  const [signIn, setSignIn] = useState(credentials);
 
-    const [signIn, setSignIn] = useState(credentials)
+  const handleChange = (e) => {
+    e.persist();
+    setSignIn({
+      ...signIn,
+      [e.target.name]: e.target.value
+    });
+  };
 
-    const handleChange = (e) => {
-        e.persist();
-        setSignIn({
-            ...signIn,
-            [e.target.name]: e.target.value
-        })
-    };
-
-    const cookies = new Cookies();
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios
-            .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
-            .then(res => {
-                // localStorage.setItem('coop_token', res.data.data.token);
-                cookies.set('JWT', `${res.data.data.token}`, { path: '/' });
-                props.history.push('/dashboard');
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    };
-    return (
-        <StyledDiv>
-            <form onSubmit={handleSubmit} className="form">
-                <h3 className="Details">Sign In</h3>
-                <div className="input-field">
-                    <label htmlFor="name">Email</label>
-                    <input type="email" name='email' onChange={handleChange} value={signIn.email} required />
-                </div>
-                <div className="input-field">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name='password' onChange={handleChange} value={signIn.password} required />
-                </div>
-                <div>
-                    <button className='button-submit'>Sign In</button>
-                </div>
-            </form>
-        </StyledDiv>
-    );
-};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
+      .then((res) => {
+        const { data } = res.data;
+        setIsUserAuth(!isUserAuth);
+        saveUserDetails(data);
+        saveAuthToken(data.token);
+        if (data.role === PLATFORM_ADMIN) {
+          history.replace('/dashboard');
+        } else {
+          history.replace('/fair/dashboard-overview');
+        }
+      })
+      .catch(() => { });
+  };
+  return (
+    <StyledDiv>
+      <form onSubmit={handleSubmit} className="form">
+        <h3 className="Details">Sign In</h3>
+        <div className="input-field">
+          <label htmlFor="name">Email</label>
+          <input type="email" name="email" onChange={handleChange} value={signIn.email} required />
+        </div>
+        <div className="input-field">
+          <label htmlFor="password">Password</label>
+          <input type="password" name="password" onChange={handleChange} value={signIn.password} required />
+        </div>
+        <div>
+          <button className="button-submit">Sign In</button>
+        </div>
+      </form>
+    </StyledDiv>
+  );
+}
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -117,4 +124,3 @@ const StyledDiv = styled.div`
     color: #317fc8;
   }
 `;
-

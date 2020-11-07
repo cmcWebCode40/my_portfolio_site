@@ -1,10 +1,9 @@
 import React from 'react';
+import FairPreset from '../../components/createfairdashboard/table/fairpreset/FairPreset';
 
-const FairPlans = () => {
+const FairPlans = (props) => {
   return (
-    <div>
-      sdms,d,m,
-    </div>
+    <FairPreset {...props} />
   );
 };
 
