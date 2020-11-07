@@ -27,12 +27,18 @@ const Register = lazy(() => import('../pages/Register'));
 const VerificationRequest = lazy(() => import('../pages/VerificationRequest'));
 const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'));
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
+const Fileupload = lazy(() => import("../pages/VendorOnboarding/RequiredCredentials"))
 
 export const routesList = [
   {
     path: '/',
     component: Home,
     layout: MainLayouts,
+  },
+  {
+    path: '/requiredfiles',
+    component: Fileupload,
+    layout: DashboardLayout,
   },
   {
     path: '/dashboard',

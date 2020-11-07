@@ -91,40 +91,43 @@ export default function UserSignUp(props) {
       .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
       .then((res) => {
         if (res.data.status === 'success') {
+          console.log(res.data)
           props.history.push('/login');
         } else {
+          console.log(res.data)
         }
       })
       .catch((error) => {
+        console.log(error)
       });
   };
   return (
     <StyledDiv>
       <form onSubmit={handleSubmit} className="form">
         <h3 className="Details">Create Account</h3>
-        {/* <div className="input-field">
+        <div className="input-field">
           <label htmlFor="name">Full Name</label>
           <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
-        </div> */}
+        </div>
         <div className="input-field">
           <label htmlFor="name">First Name</label><br />
-          <input type="text" name="firstname"  onChange={handleChange} value={signUp.firstname} required />
+          <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} required />
         </div>
         <div className="input-field">
           <label htmlFor="name">Last Name</label><br />
-          <input type="text" name="lastname"  onChange={handleChange} value={signUp.lastname} required />
+          <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} required />
         </div>
         <div className="input-field">
           <label htmlFor="password">Create Password</label><br />
-          <input type="password" name="password"  onChange={handleChange} value={signUp.password} required />
+          <input type="password" name="password" onChange={handleChange} value={signUp.password} required />
         </div>
         <div className="input-field">
           <label htmlFor="name">Email</label><br />
-          <input type="email" name="email"  onChange={handleChange} value={signUp.email} required />
+          <input type="email" name="email" onChange={handleChange} value={signUp.email} required />
         </div>
         <div className="input-field">
           <label htmlFor="name">Phone Number</label><br />
-          <input type="text" name="phoneNumber"  onChange={handleChange} value={signUp.phoneNumber} required />
+          <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} required />
         </div>
         <div>
           <button className="button-submit">Create Account</button>

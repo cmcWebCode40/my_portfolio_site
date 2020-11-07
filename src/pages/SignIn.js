@@ -27,6 +27,8 @@ export default function UserSignIn(props) {
     axios
       .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
       .then(res => {
+        console.log(res)
+        localStorage.setItem('JWT', res.data.data.token);
         cookies.set('JWT', `${res.data.data.token}`, { path: '/' });
         props.history.push('/fair/dashboard-overview');
       })

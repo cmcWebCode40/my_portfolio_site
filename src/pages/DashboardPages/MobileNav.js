@@ -20,11 +20,14 @@ function Nav() {
             <div className="menu-button" onClick={handleMenuButton}><FontAwesomeIcon icon={faBars} size="2x" /></div>
             <nav className={`nav ${isSidebarOpen ? 'show' : ''}`}>
                 <div className="mobile-header">
-                    <div >Coop<span id="Cooplag">LAG</span></div>
-                    <div className="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
+                    <div >
+                        <h5>Coop<span id="Cooplag">LAG</span></h5>
+                    </div>
+                    <div id="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
                 </div>
                 <div className="menu-items">
-                    <div className="menu-list" onClick={autocloseMenu}>
+                    {/* <div className="menu-list" onClick={autocloseMenu}> */}
+                    <div className="menu-list">
                         <p className="side-bar-header">FAIR</p>
                         <div className="dropdown" id="Sidebar-dropdown-div">
                             <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
@@ -98,49 +101,66 @@ function Nav() {
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Manage Vendor</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink exact to="/dashboard/fairevents">Fair Events</NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Registration</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">TRANSACTION</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Transaction</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Transaction</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">SHOPS</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Transaction</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Transaction</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink exact to="/dashboard/shops" activeClassName="is-active"><span>Product</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Shop Ad Banners</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">ADS</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Ads</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Ads</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>General Ads</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">TEAMS</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Team</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Team</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Platform Team</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Platform Team</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">PAYMENT OPTION </p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Payment</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Payment</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Platform Payment</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Bank Details</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">SETTLEMENT</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Settlement</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Sttlement</span></NavLink></div>
+                    <div id="grouped"></div>
                     <p className="side-bar-header">LOGISTICS</p>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>All Logistics</span></NavLink></div>
                     <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Visitors</span></NavLink></div>
-                    <p className="side-bar-header">WALLET</p>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Visitors</span></NavLink></div>
-                    <p className="side-bar-header">VISITORS</p>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Wallet</span></NavLink></div>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Wallet</span></NavLink></div>
-                    <p className="side-bar-header">DEALS</p>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Deals</span></NavLink></div>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Deals</span></NavLink></div>
-                    <p className="side-bar-header">SYSTEM Config</p>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Config</span></NavLink></div>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Config</span></NavLink></div>
-                    <p className="side-bar-header">USHERS</p>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Ushers</span></NavLink></div>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Usher</span></NavLink></div>
-                    <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>General Ushers</span></NavLink></div>
+                    <div id="grouped">
+                        <p className="side-bar-header">WALLET</p>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Visitors</span></NavLink></div>
+                    </div>
+                    <div id="grouped">
+                        <p className="side-bar-header">VISITORS</p>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Wallet</span></NavLink></div>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Wallet</span></NavLink></div>
+                    </div>
+                    <div id="grouped">
+                        <p className="side-bar-header">DEALS</p>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Deals</span></NavLink></div>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Deals</span></NavLink></div>
+                    </div>
+                    <div id="grouped">
+                        <p className="side-bar-header">SYSTEM Config</p>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Config</span></NavLink></div>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Config</span></NavLink></div>
+                    </div>
+                    <div id="grouped">
+                        <p className="side-bar-header">USHERS</p>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Fair Ushers</span></NavLink></div>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>Vendor's Usher</span></NavLink></div>
+                        <div className="menu-list" onClick={autocloseMenu}><NavLink to="/dashboard/construction" activeClassName="is-active"><span>General Ushers</span></NavLink></div>
+                    </div>
                 </div>
             </nav>
         </StyledDiv>
@@ -170,8 +190,12 @@ a{
     color: royalblue;
     display: flex;
     padding: 2px 5px;
-    border-bottom: 0.5px solid gray;
     margin-top: 2px;
+}
+
+#grouped{
+    border-bottom: 0.5px solid gray;
+    margin-top: 3px;
 }
 
 a:hover {
@@ -182,19 +206,27 @@ a:hover {
 .mobile-header{
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
     width: 100%;
     padding: 5px;
     font-size: 18px;
     margin-bottom: 10px;
-    border-bottom: 2px solid gray;
+    border-bottom: 1px dashed gray;
+
+    h5{
+        text-shadow: 3px 5px 2px gray, 
+    }
+    #close {
+        font-weight: 400;
+        color: black;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    #Cooplag{
+        font-weight: 600;
+    }
   }
 
-.close {
-    font-weight: 600;
-}
-#Cooplag{
-    font-weight: 600;
-}
 
 .nav {
     width: 25vw;
@@ -219,6 +251,7 @@ a:hover {
     color: grey;
     text-align: left;
     margin-bottom: 3px;
+    margin-top: 5px;
 }
 .side-bar-par{
     color: royalblue;
