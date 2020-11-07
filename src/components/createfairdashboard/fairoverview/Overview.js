@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { errorHandler } from '../../../error/ErrorHandler';
+import useApi from '../../../hooks/Api/useApi';
 import { coopLagApi } from '../../../services/services';
 import { getUserToken } from '../../../utils/authToken';
 import Table from '../table/Table';
@@ -15,28 +16,17 @@ const TabWrapper = styled.div.attrs({
 `;
 
 const Overview = () => {
-  const [error, setError] = useState('');
-  const [loading, setloading] = useState(false);
-  const [data, setData] = useState([]);
-  const headers = getUserToken();
-
-  const getAllFairs = async () => {
-    setloading(true);
-    try {
-      const res = await coopLagApi.get('/fairs', { headers });
-      setData(res.data.data);
-    } catch (error) {
-      if (error && error.response) {
-        const { data } = errorHandler(error);
-        setError({ message: data.message, class: 'alert alert-danger' });
-      }
-    }
-    setloading(false);
-  };
+  const [reload, setreload] = useState('');
+  const {
+    data,
+    error,
+    loading,
+    getData,
+  } = useApi();
 
   useEffect(() => {
-    getAllFairs();
-  }, []);
+    getData('/fairs');
+  }, [reload]);
 
   return (
     <TabWrapper>
@@ -44,6 +34,8 @@ const Overview = () => {
         data={data}
         error={error}
         loading={loading}
+        setreload={setreload}
+        // reload
       />
     </TabWrapper>
   );

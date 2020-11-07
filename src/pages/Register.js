@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { authContextApi } from '../context/authContext';
+import {
+  PLATFORM_ADMIN,
+  saveAuthToken, saveUserDetails
+} from '../utils/functions/userAuth';
 
 const StyledDiv = styled.div`
   height: 100vh;
@@ -65,7 +70,7 @@ const StyledDiv = styled.div`
   }
 `;
 
-export default function UserSignUp(props) {
+export default function UserSignUp({ history }) {
   const credentials = {
     username: '',
     lastname: '',
@@ -76,6 +81,7 @@ export default function UserSignUp(props) {
   };
 
   const [signUp, setSignUp] = useState(credentials);
+  const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
 
   const handleChange = (e) => {
     e.persist();
@@ -90,11 +96,16 @@ export default function UserSignUp(props) {
     axios
       .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
       .then((res) => {
-        if (res.data.status === 'success') {
-          console.log(res.data)
-          props.history.push('/login');
-        } else {
-          console.log(res.data)
+        const { data, status } = res.data;
+        if (status === 'success') {
+          setIsUserAuth(!isUserAuth);
+          saveUserDetails(data);
+          saveAuthToken(data.token);
+          if (data.role === PLATFORM_ADMIN) {
+            history.replace('/dashboard');
+          } else {
+            history.replace('/fair/dashboard-overview');
+          }
         }
       })
       .catch((error) => {
@@ -110,23 +121,28 @@ export default function UserSignUp(props) {
           <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
         </div>
         <div className="input-field">
-          <label htmlFor="name">First Name</label><br />
+          <label htmlFor="name">First Name</label>
+          <br />
           <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} required />
         </div>
         <div className="input-field">
-          <label htmlFor="name">Last Name</label><br />
+          <label htmlFor="name">Last Name</label>
+          <br />
           <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} required />
         </div>
         <div className="input-field">
-          <label htmlFor="password">Create Password</label><br />
+          <label htmlFor="password">Create Password</label>
+          <br />
           <input type="password" name="password" onChange={handleChange} value={signUp.password} required />
         </div>
         <div className="input-field">
-          <label htmlFor="name">Email</label><br />
+          <label htmlFor="name">Email</label>
+          <br />
           <input type="email" name="email" onChange={handleChange} value={signUp.email} required />
         </div>
         <div className="input-field">
-          <label htmlFor="name">Phone Number</label><br />
+          <label htmlFor="name">Phone Number</label>
+          <br />
           <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} required />
         </div>
         <div>

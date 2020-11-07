@@ -7,9 +7,11 @@ import Header from '../mainLayout/header/Header';
 
 const AppBar = styled.div`
   .bars{
+    position:relative;
+    top:.8rem;
     margin:-1rem -.5rem 0 -.6rem;
+    z-index:999
   }
-
   #wrapper {
       padding-left: 0;
       -webkit-transition: all 0.5s ease;
@@ -45,6 +47,7 @@ const AppBar = styled.div`
       width: 100%;
       position: absolute;
       padding: 15px;
+      /* margin: 4rem 0 0 0 ; */
     }
 
     #wrapper.toggled #page-content-wrapper {
@@ -130,6 +133,13 @@ const AppBar = styled.div`
       }
     }`;
 
+const activeStyles = {
+  color: 'blue',
+  background: '#fff',
+  borderRadius: '2rem',
+  margin: '.2rem',
+  padding: '0 .4rem'
+};
 const DashBoardLayout = ({ children }) => {
   const params = useParams();
   const toggleModal = () => {
@@ -167,23 +177,38 @@ const DashBoardLayout = ({ children }) => {
         <div id="sidebar-wrapper">
           <ul className="sidebar-nav">
             <li>
-              <NavLink activeStyle={{ color: 'red' }} to="/fair/dashboard-overview">Create Fair</NavLink>
+              <NavLink
+                activeStyle={activeStyles}
+                to="/fair/dashboard-overview"
+              >
+                Create Fair
+              </NavLink>
             </li>
             {params && params.fairId && navLinks.map((links) => (
               <li key={links.name}>
-                <NavLink activeStyle={{ color: 'red' }} to={links.path}>{links.name}</NavLink>
+                <NavLink
+                  activeStyle={activeStyles}
+                  to={links.path}
+                >
+                  {links.name}
+                </NavLink>
               </li>
             ))}
           </ul>
         </div>
         <div id="page-content-wrapper">
           <div className="container-fluid">
-            <div className="row">
+            <div className="row mt-4">
               <div className="col-lg-12">
-                <a href="#menu-toggle" onClick={toggleModal} className="btn btn-default bars" id="menu-toggle">
-                  <FontAwesomeIcon size="1x" icon={['fa', 'bars']} />
-                </a>
-                <main>
+                <main className="mt-5">
+                  <a
+                    href="#menu-toggle"
+                    onClick={toggleModal}
+                    className="btn btn-default bars"
+                    id="menu-toggle"
+                  >
+                    <FontAwesomeIcon size="1x" icon={['fa', 'bars']} />
+                  </a>
                   {children}
                 </main>
               </div>

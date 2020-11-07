@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom"
+import { NavLink } from 'react-router-dom';
 import Button from '../button';
 
 function Navbar() {
   return (
     <StyledDiv>
-      <div className="header shadow-sm">
+      <div className="header  shadow-sm">
         <div className="container-fluid">
           <div className="row navbar navbar-expand-lg navbar-light">
             <div className="navbar-brand col-1 logo-box">
@@ -29,7 +29,7 @@ function Navbar() {
               <div>
                 <NavLink to="/register"><span id="register">Sign up</span></NavLink>
               </div>
-              <div >
+              <div>
                 <NavLink to="/login"><Button label="Sign In" /></NavLink>
               </div>
               {/* <div className="col-lg-1">
@@ -46,6 +46,12 @@ function Navbar() {
 export default Navbar;
 
 const StyledDiv = styled.div`
+  position:fixed;
+  width:100%;
+  z-index:999;
+  background: white;
+  margin: 0 0 2rem 0;
+
   .logo-box {
     font-size: 30px;
   }

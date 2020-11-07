@@ -22,7 +22,8 @@ import {
   faBars,
   faTrash,
   faSpinner,
-  faPlusCircle
+  faPlusCircle,
+  faEdit
 } from '@fortawesome/free-solid-svg-icons';
 
 // add icons to your working library/
@@ -47,5 +48,6 @@ library.add(
   faBars,
   faTrash,
   faSpinner,
-  faPlusCircle
+  faPlusCircle,
+  faEdit
 );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FilePond } from 'react-filepond';
 import { coopLagApi } from '../../../../services/services';
 import { RequestLoaderIcon } from '../../../Loaders/Loader';
-import { getUserToken } from '../../../../utils/authToken';
+import { getUserToken } from '../../../../utils/functions/userAuth';
 import { errorHandler } from '../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`
@@ -107,20 +107,72 @@ const SpeakerFair = ({ activeStep, setActiveStep, fairId }) => {
               />
             </div>
             <div>
-              <textarea type="text" placeholder="Title" name="title" onChange={handleChange} rows="2" required />
+              <textarea
+                type="text"
+                placeholder="Title"
+                name="title"
+                onChange={handleChange}
+                rows="2"
+                required
+              />
             </div>
             <div>
-              <textarea type="text" placeholder="facebook details" name="facebook" onChange={handleChange} rows="2" required />
+              <label htmlFor="facebook">
+                Facebook Link
+                {' '}
+                <input
+                  name="facebook"
+                  onChange={handleChange}
+                  rows="2"
+                  required
+                  type="url"
+                  id="url"
+                  placeholder="https://example.com"
+                  pattern="https://.*"
+                  size="30"
+                />
+
+              </label>
+
             </div>
             <div>
-              <textarea type="text" placeholder="LinkedIn details" name="linkedIn" onChange={handleChange} rows="2" required />
+              <label htmlFor="linkedIn">
+                LinkedIn Link
+                {' '}
+                <input
+                  name="linkedIn"
+                  onChange={handleChange}
+                  rows="2"
+                  required
+                  type="url"
+                  id="url"
+                  placeholder="https://example.com"
+                  pattern="https://.*"
+                  size="30"
+                />
+
+              </label>
+
             </div>
             <div>
-              <textarea type="text" placeholder="Instagram details" name="instagram" onChange={handleChange} rows="2" required />
+              <label htmlFor="instagram">
+                Instagram Link
+                {' '}
+                <input
+                  name="instagram"
+                  onChange={handleChange}
+                  rows="2"
+                  required
+                  type="url"
+                  id="url"
+                  placeholder="https://example.com"
+                  pattern="https://.*"
+                  size="30"
+                />
+              </label>
             </div>
           </div>
           <div className="col-md-6 form-div">
-
             <div>
               <textarea type="text" placeholder="profession" name="profession" onChange={handleChange} rows="2" required />
             </div>
