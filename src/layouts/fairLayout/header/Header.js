@@ -6,9 +6,9 @@ const Header = () => {
     <StyledDiv>
       <header className="header">
         <div className="container-fluid">
-          <div className="row navbar navbar-expand-lg navbar-light">
+          <div className="row navbar navbar-expand-lg navbar-light p-lg-4">
             <div className="navbar-brand logo-box">
-              <a href="/" className="logo-link mr-auto">Coop<span className="font-weight-bolder text-uppercase">lag</span></a>
+              <a href="/" className="logo-link mr-auto ml-lg-5">Coop<span className="font-weight-bolder text-uppercase">lag</span></a>
             </div>
             <div className="collapse navbar-collapse">
               <div className="col col-lg-auto ml-auto">
