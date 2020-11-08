@@ -38,7 +38,7 @@ export const routesList = [
   {
     path: '/requiredfiles',
     component: Fileupload,
-    layout: DashboardLayout,
+    layout: MainLayouts,
   },
   {
     path: '/dashboard',
