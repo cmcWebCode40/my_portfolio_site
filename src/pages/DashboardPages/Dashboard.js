@@ -216,9 +216,6 @@ const StyledDiv = styled.div`
         width: 20%;
 
         .fair-name-bar{
-            // display: flex;
-            // justify-content: space-between;
-            // flex-direction: row;
             box-shadow: 1px 3px 5px #e0e0e0;
             padding: 3px 5px;
             height: 45px;

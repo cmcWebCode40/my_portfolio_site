@@ -36,6 +36,7 @@ export const routesList = [
     layout: MainLayouts,
   },
   {
+    // path: '/requiredfiles/:id',
     path: '/requiredfiles',
     component: Fileupload,
     layout: MainLayouts,

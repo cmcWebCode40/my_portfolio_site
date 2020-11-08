@@ -26,7 +26,6 @@ function Nav() {
                     <div id="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
                 </div>
                 <div className="menu-items">
-                    {/* <div className="menu-list" onClick={autocloseMenu}> */}
                     <div className="menu-list">
                         <p className="side-bar-header">FAIR</p>
                         <div className="dropdown" id="Sidebar-dropdown-div">
@@ -168,6 +167,7 @@ function Nav() {
     )
 }
 
+
 export default Nav;
 
 const StyledDiv = styled.div`
@@ -207,6 +207,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    width: 25vw;
     width: 100%;
     padding: 5px;
     font-size: 18px;
@@ -229,7 +230,7 @@ a:hover {
 
 
 .nav {
-    width: 25vw;
+    width: 130px;
     border-width: 1px 1px 1px 0;
     border-style: solid;
     border-color: #888;
@@ -237,7 +238,7 @@ a:hover {
     top: 0;
     z-index: 999;
     background-color: #fff;
-    left: -27vw;
+    left: -135px;
     -webkit-transition: left 0.3s ease-in;
     -o-transition: left 0.3s ease-in;
     transition: left 0.3s ease-in;
@@ -266,6 +267,7 @@ a:hover {
 
 @media only screen and (max-width: 700px){
     display: block;
+    width: 50px;
   }
 
 `

@@ -1,29 +1,34 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import styled from "styled-components";
 import axios from "axios";
 import { useForm } from "react-hook-form"
 import { getUserToken } from '../../utils/functions/userAuth';
 
-export default function RequiredFiles() {
+
+export default function RequiredFiles(props) {
     const { register, handleSubmit, errors } = useForm()
     const [clickAction, setclickAction] = useState(true)
+
+    // const test_id1 = useParams.id
+    // const test_id2 = props.match.params.id
+    // console.log(test_id)
 
     const Clicked = () => {
         setclickAction(!clickAction)
     }
 
     const onSubmit = (data) => {
-        const fair_id = `5f90322b2bb0c600179cea67`
+        const fair_id = `5f9032692bb0c600179cea69`
         const token = getUserToken();
 
-        // console.log(token)
-        // console.log(data)
+        console.log(token)
 
         axios
             .post(`https://cooplagfair.herokuapp.com/api/v1/fairs/${fair_id}/vendor-credentials`, data,
                 {
-                    headers: {
+                    Headers: {
+                        // withCredentials: true,
                         token
                     }
                 }
@@ -84,7 +89,7 @@ export default function RequiredFiles() {
                         </div>
                         <div>
                             <input type="number" name='delivery_duration' placeholder=" Enter Delivery Duration here..." ref={register({ required: true })} />
-                            {errors.business_city && <p className="error-para">Plaese input a duration as an interger</p>}
+                            {errors.business_city && <p className="error-para">Plaese input duration as an interger</p>}
                         </div>
                         <div>
                             <input type="email" name='business_email' placeholder=" Enter Business Email Address here..." ref={register({ required: true })} />
@@ -103,7 +108,7 @@ display: flex;
 justify-content: center;
 width: 100%;
 padding: 10px;
-height: 110vh;
+height: 115vh;
 overflow: hidden;
 
 @media only screen and (max-width: 580px){
