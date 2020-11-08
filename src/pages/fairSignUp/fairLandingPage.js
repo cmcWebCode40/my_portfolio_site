@@ -102,86 +102,86 @@ const fairLandingPage = () => {
             <h3 className="container pb-5">Pricing</h3>
           </div>
           <div className="row mx-auto">
-            <div className="pricing-box col-lg-4 mx-auto my-4">
-              <div>Starter</div>
-              <div>
+            <div className="pricing-box col-lg-3 mx-auto my-4">
+              <div className="pricing-category">Starter</div>
+              <div className="price-offerings">
                 <div className="row">
-                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
+                  <div>Ads</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
+                  <div>Products</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMark /></div>
                 </div>
               </div>
-              <div>$1,000</div>
+              <div className="price">$1,000</div>
             </div>
-            <div className="pricing-box col-lg-4 mx-auto my-4">
-              <div>Business</div>
-              <div>
+            <div className="pricing-box col-lg-3 mx-auto my-4">
+              <div className="pricing-category">Business</div>
+              <div className="price-offerings">
                 <div className="row">
-                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
+                  <div>Ads</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
+                  <div>Products</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMark /></div>
                 </div>
               </div>
-              <div>$5,000</div>
+              <div className="price">$5,000</div>
             </div>
-            <div className="pricing-box col-lg-4 mx-auto my-4">
-              <div>Professional</div>
-              <div>
+            <div className="pricing-box col-lg-3 mx-auto my-4">
+              <div className="pricing-category">Professional</div>
+              <div className="price-offerings">
                 <div className="row">
-                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
+                  <div>Ads</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
+                  <div>Products</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMark /></div>
                 </div>
                 <div className="row">
-                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMark /></div>
                 </div>
               </div>
-              <div>$15,000</div>
+              <div className="price">$15,000</div>
             </div>
           </div>
         </section>
@@ -281,8 +281,22 @@ const StyledDiv = styled.div`
     }
 
     .pricing-box {
-      width: 200px;
+      width: 400px;
       background-color: var(--tint);
       border-radius: 20px;
+    }
+
+    .pricing-category, .price {
+      color: var(--primary-color);
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .price-offerings .row {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
     }
 `;
