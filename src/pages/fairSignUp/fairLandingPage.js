@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../../components/button';
-import CheckMark from '../../components/checkMark';
+import CheckMarkSuccess from '../../components/checkMark/checkMarkSuccess';
+import CheckMarkCancel from '../../components/checkMark/checkMarkCancel';
 import testImg from '../../assets/images/00.jpg';
 import kpmg from '../../assets/images/kpmg.png';
 import gtb from '../../assets/images/gtb.jpg';
@@ -106,25 +107,25 @@ const fairLandingPage = () => {
               <div className="pricing-category">Starter</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMark /></div>
+                  <div>Booth</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMark /></div>
+                  <div>Ads</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMark /></div>
+                  <div>Products</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$1,000</div>
@@ -133,25 +134,25 @@ const fairLandingPage = () => {
               <div className="pricing-category">Business</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMark /></div>
+                  <div>Booth</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMark /></div>
+                  <div>Ads</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMark /></div>
+                  <div>Products</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$5,000</div>
@@ -160,25 +161,25 @@ const fairLandingPage = () => {
               <div className="pricing-category">Professional</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMark /></div>
+                  <div>Booth</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMark /></div>
+                  <div>Ads</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMark /></div>
+                  <div>Vendors</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMark /></div>
+                  <div>Speakers</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMark /></div>
+                  <div>Products</div><div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMark /></div>
+                  <div>Logistics</div><div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMark /></div>
+                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$15,000</div>

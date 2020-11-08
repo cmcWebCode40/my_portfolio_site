@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function CheckMark() {
+function CheckMarkSuccess() {
   return (
     <StyledDiv>
       <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -11,11 +11,10 @@ function CheckMark() {
   )
 }
 
-export default CheckMark;
+export default CheckMarkSuccess;
 
 const StyledDiv = styled.div`
 svg {
   fill: green;
 }
-
 `
