@@ -282,9 +282,15 @@ const StyledDiv = styled.div`
     }
 
     .pricing-box {
-      width: 400px;
+      width: 100%;
       background-color: var(--tint);
       border-radius: 20px;
+    }
+
+    @media screen and (min-width: 920px) {
+      .pricing-box {
+        width: 400px;
+      }
     }
 
     .pricing-category, .price {
