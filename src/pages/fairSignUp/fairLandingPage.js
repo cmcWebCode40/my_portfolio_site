@@ -97,91 +97,91 @@ const fairLandingPage = () => {
         </section>
 
         {/* Section 4 */}
-        <section className="row pricing-section mx-auto">
+        <section className="row pricing-section mx-auto jumbotron w-100">
           <div className="col-lg-12">
             <h3 className="container pb-5">Pricing</h3>
           </div>
           <div className="row mx-auto">
-            <div className="pricing-box col-lg-4">
+            <div className="pricing-box col-lg-4 mx-auto my-4">
               <div>Starter</div>
               <div>
-                <div>
-                  <div>Booth</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Ads</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Vendors</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Speakers</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Products</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Logistics</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Booth template</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
                 </div>
               </div>
-              <div>1000 Dollars</div>
+              <div>$1,000</div>
             </div>
-            <div className="pricing-box col-lg-4">
+            <div className="pricing-box col-lg-4 mx-auto my-4">
               <div>Business</div>
               <div>
-                <div>
-                  <div>Booth</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Ads</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Vendors</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Speakers</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Products</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Logistics</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Booth template</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
                 </div>
               </div>
-              <div>1000 Dollars</div>
+              <div>$5,000</div>
             </div>
-            <div className="pricing-box col-lg-4">
+            <div className="pricing-box col-lg-4 mx-auto my-4">
               <div>Professional</div>
               <div>
-                <div>
-                  <div>Booth</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Ads</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Ads</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Vendors</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Vendors</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Speakers</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Speakers</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Products</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Products</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Logistics</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Logistics</div><div className="col-6"><CheckMark /></div>
                 </div>
-                <div>
-                  <div>Booth template</div><div><CheckMark /></div>
+                <div className="row">
+                  <div className="col-6">Booth Template</div><div className="col-6"><CheckMark /></div>
                 </div>
               </div>
-              <div>1000 Dollars</div>
+              <div>$15,000</div>
             </div>
           </div>
         </section>
@@ -282,7 +282,7 @@ const StyledDiv = styled.div`
 
     .pricing-box {
       width: 200px;
-      background-color: var(--primary-color);
+      background-color: var(--tint);
       border-radius: 20px;
     }
 `;
