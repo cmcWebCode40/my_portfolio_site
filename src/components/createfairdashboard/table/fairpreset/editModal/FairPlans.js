@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { coopLagApi } from '../../../../services/services';
-import { RequestLoaderIcon } from '../../../Loaders/Loader';
-import { fairPlanCategory } from '../../../../utils/list/createfair';
-import { getUserToken } from '../../../../utils/functions/userAuth';
-import { errorHandler } from '../../../../error/ErrorHandler';
+import { coopLagApi } from '../../../../../services/services';
+import { RequestLoaderIcon } from '../../../../Loaders/Loader';
+import { fairPlanCategory } from '../../../../../utils/list/createfair';
+import { getUserToken } from '../../../../../utils/functions/userAuth';
+import { errorHandler } from '../../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`
 
@@ -139,7 +139,9 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
     setloading(true);
     try {
       await coopLagApi.post(`/fairs/${fairId}/preset-plans`, data, { headers });
-      setActiveStep(activeStep + 1);
+      if (activeStep) {
+        setActiveStep(activeStep + 1);
+      }
     } catch (error) {
       if (error && error.response) {
         const { data } = errorHandler(error);
@@ -155,7 +157,13 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
 
   return (
     <FairWrapper>
-      {loading && <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />}
+      {loading && (
+      <RequestLoaderIcon
+        size="3x"
+        label="Please wait"
+        className="text-primary bg-mid-gray"
+      />
+      )}
       <form onSubmit={(createFairHandler)}>
         {error && (
         <div className={error.class} role="alert">
@@ -372,7 +380,6 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </form>

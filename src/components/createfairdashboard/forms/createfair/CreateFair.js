@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { coopLagApi } from '../../../../services/services';
 import { RequestLoaderIcon } from '../../../Loaders/Loader';
 import { category, fairType, paymentOptions } from '../../../../utils/list/createfair';
-import { getUserToken } from '../../../../utils/authToken';
+import { getUserToken } from '../../../../utils/functions/userAuth';
 import { errorHandler } from '../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`

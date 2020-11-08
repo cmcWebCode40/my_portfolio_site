@@ -1,11 +1,12 @@
 import React from 'react';
+import VendorSetting from '../../components/createfairdashboard/table/vendor/Table';
 
-const VendorSetting = () => {
+const VendorPage = (props) => {
   return (
     <div>
-      sskdjksjdk
+      <VendorSetting {...props} />
     </div>
   );
 };
 
-export default VendorSetting;
+export default VendorPage;

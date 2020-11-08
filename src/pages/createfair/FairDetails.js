@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FilePond } from 'react-filepond';
 import moment from 'moment';
-import { getUserToken } from '../../utils/authToken';
+import { toast } from 'react-toastify';
+import { getUserToken } from '../../utils/functions/userAuth';
 import { errorHandler } from '../../error/ErrorHandler';
 import { coopLagApi } from '../../services/services';
 import { RequestLoaderIcon } from '../../components/Loaders/Loader';
+import { maxImageSize } from '../../constant/ImageSize';
 
 const FairWrapper = styled.div`
 
@@ -37,12 +39,14 @@ const FairWrapper = styled.div`
     .filepond-image{
       padding:5rem ;
       width:100%;
+      height:40%;
       border-radius:${(props) => props.theme.styles.borderRadiusRounded};
       background-color:${(props) => props.theme.colors.light};
     }
     .form-div{
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0 ;
+        /* height:40%; */
       }
     }
   }
@@ -50,20 +54,24 @@ const FairWrapper = styled.div`
 `;
 
 const FairDetails = ({ match }) => {
-  const [formValues, setFormValues] = useState('');
   const [partners] = useState([]);
   const [banner, setBanner] = useState({ files: '' });
-  const [logo] = useState({ files: '' });
   const [data, setData] = useState('');
   const [error, setError] = useState('');
   const [loading, setloading] = useState(false);
+  const [reload, setreload] = useState('');
   const [checkboxValues, setcheckboxValues] = useState({
-    booth_ad: false,
-    banner_ad: false,
-    pane_page_ad: false,
-    story_ad: false,
-    stage_ad: false,
-    lead_generation: false
+    paystack: false,
+    fusepay: false,
+    Indoor: false,
+    Outdoor: false,
+  });
+  const [formValues, setFormValues] = useState({
+    about_event: '',
+    end_date: '',
+    name: '',
+    start_date: '',
+    imageUrl: ''
   });
   const headers = getUserToken();
   const { fairId } = match.params;
@@ -71,39 +79,68 @@ const FairDetails = ({ match }) => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
+
+  const updateImage = async () => {
+    const { imageUrl } = formValues;
+    const formData = new FormData();
+    if (imageUrl) formData.append('url', imageUrl);
+    formData.append('banner', banner.files.file);
+    setloading(true);
+    try {
+      const res = await coopLagApi.patch(`/fairs/${fairId}/fair-images/update`, formData, { headers });
+      toast.success(res.data.message);
+      setreload(res);
+    } catch (error) {
+      if (error && error.response) {
+        const { data } = errorHandler(error);
+        setError({
+          message: data.message,
+          class: 'alert alert-danger'
+        });
+      }
+    }
+    setloading(false);
+  };
+
   const createFairHandler = async (e) => {
     e.preventDefault();
-    if (!partners.length) {
-      return setError({ message: 'Please all fields are required', class: 'alert alert-danger' });
-    }
     const {
       about_event,
-      category,
       end_date,
-      fair_env,
-      fair_type,
       name,
-      // payment_options,
       start_date,
-      total_expected_vendors
     } = formValues;
+
+    const {
+      Indoor, Outdoor, paystack, fusepay
+    } = checkboxValues;
+
+    const getEventTypes = () => {
+      if (Indoor && Outdoor) return ['Indoor', 'Outdoor'];
+      if (Indoor && !Outdoor) return ['Indoor'];
+      if (!Indoor && Outdoor) return ['Outdoor'];
+      return ['Indoor'];
+    };
+    const getPaymentTypes = () => {
+      if (paystack && fusepay) return ['paystack', 'fusepay'];
+      if (paystack && !fusepay) return ['paystack'];
+      if (!paystack && fusepay) return ['fusepay'];
+      return ['paystack'];
+    };
+
     const formData = new FormData();
-    formData.append('banner', banner.files.file);
-    formData.append('logo', logo.files.file);
-    formData.append('about_event', about_event);
-    formData.append('end_date', end_date);
-    formData.append('fair_env', fair_env);
-    formData.append('category', category);
-    formData.append('fair_type', fair_type);
-    formData.append('name', name);
-    formData.append('start_date', start_date);
-    // formData.append('payment_options', 'Futterwave');
-    formData.append('total_expected_vendors', total_expected_vendors);
-    formData.append('partners', JSON.stringify(partners));
+    formData.append('event_types ', getEventTypes());
+    formData.append('end_date', end_date || data.start_date);
+    formData.append('about_event', about_event || data.about_event);
+    formData.append('payment_options', getPaymentTypes() || data.payment_options);
+    formData.append('name', name || data.name);
+    formData.append('start_date', start_date || data.start_date);
 
     setloading(true);
     try {
-      await coopLagApi.post('/fairs', formData, { headers });
+      const res = await coopLagApi.patch(`/fairs/${fairId}`, formData, { headers });
+      toast.success(res.data.message);
+      setreload(res);
     } catch (error) {
       if (error && error.response) {
         const { data } = errorHandler(error);
@@ -126,12 +163,18 @@ const FairDetails = ({ match }) => {
   const getAllFairs = async () => {
     setloading(true);
     try {
-      const res = await coopLagApi.get(`/fairs/${fairId}`, { headers });
+      const res = await coopLagApi.get(
+        `/fairs/${fairId}`,
+        { headers }
+      );
       setData(res.data.data);
     } catch (error) {
       if (error && error.response) {
         const { data } = errorHandler(error);
-        setError({ message: data.message, class: 'alert alert-danger' });
+        setError({
+          message: data.message,
+          class: 'alert alert-danger'
+        });
       }
     }
     setloading(false);
@@ -139,7 +182,7 @@ const FairDetails = ({ match }) => {
 
   useEffect(() => {
     getAllFairs();
-  }, []);
+  }, [reload]);
 
   useEffect(() => {
 
@@ -171,7 +214,6 @@ const FairDetails = ({ match }) => {
                     placeholder="Name"
                     name="name"
                     defaultValue={data.name}
-                    required
                     onChange={handleChange}
                   />
                 </div>
@@ -183,7 +225,6 @@ const FairDetails = ({ match }) => {
                     defaultValue={data.about_event}
                     onChange={handleChange}
                     rows="7"
-                    required
                   />
                 </div>
 
@@ -200,7 +241,7 @@ const FairDetails = ({ match }) => {
                       name="start_date"
                       value={data.start_date}
                       placeholder="Start date"
-                      required
+
                     />
                   </label>
                 </div>
@@ -218,7 +259,7 @@ const FairDetails = ({ match }) => {
                       name="end_date"
                       value={data.end_date}
                       placeholder="Start date"
-                      required
+
                     />
                   </label>
                 </div>
@@ -226,50 +267,50 @@ const FairDetails = ({ match }) => {
                   <div className="col">
                     <h6>Payment Options</h6>
                     <div className="checkbox">
-                      <label htmlFor="booth_ad">
+                      <label htmlFor="paystack">
                         <input
                           type="checkbox"
                           onChange={handleCheckbox}
-                          name="booth_ad"
-                          id="booth_ad"
+                          name="paystack"
+                          id="paystack"
                         />
-                        <span>Booth Ad</span>
+                        <span>Paystack</span>
                       </label>
                     </div>
                     <div className="checkbox">
-                      <label htmlFor="booth_ad">
+                      <label htmlFor="fusepay">
                         <input
                           type="checkbox"
                           onChange={handleCheckbox}
-                          name="booth_ad"
-                          id="booth_ad"
+                          name="fusepay"
+                          id="fusepay"
                         />
-                        <span>Booth Ad</span>
+                        <span>Fuse pay</span>
                       </label>
                     </div>
                   </div>
                   <div className="col">
                     <h6>Event Type</h6>
                     <div className="checkbox">
-                      <label htmlFor="booth_ad">
+                      <label htmlFor="Indoor">
                         <input
                           type="checkbox"
                           onChange={handleCheckbox}
-                          name="booth_ad"
-                          id="booth_ad"
+                          name="Indoor"
+                          id="Indoor"
                         />
-                        <span>Booth Ad</span>
+                        <span>Indoor</span>
                       </label>
                     </div>
                     <div className="checkbox">
-                      <label htmlFor="booth_ad">
+                      <label htmlFor="Outdoor">
                         <input
                           type="checkbox"
                           onChange={handleCheckbox}
-                          name="booth_ad"
-                          id="booth_ad"
+                          name="Outdoor"
+                          id="Outdoor"
                         />
-                        <span>Booth Ad</span>
+                        <span>Out door</span>
                       </label>
                     </div>
                   </div>
@@ -282,22 +323,41 @@ const FairDetails = ({ match }) => {
                     className="filepond-image"
                     labelIdle="Upload your fair banner"
                     allowFileSizeValidation
-                    maxFileSize="500KB"
+                    maxFileSize={maxImageSize}
                     allowMultiple={false}
                     maxFiles={1}
-                    required
                     onupdatefiles={setBannerHandler}
-                    labelMaxFileSize="Maximum file size is 500KB"
+                    labelMaxFileSize={`Maximum file size is ${maxImageSize}`}
+                  />
+                  {' '}
+                  <img
+                    height="20"
+                    className="img-thumbnail w-25 h-25"
+                    // width="50"
+                    src={data.fair_banner}
+                    alt={data.name}
                   />
                 </div>
                 <div>
                   <input
-                    type="text"
-                    placeholder="image url"
+                    type="url"
                     name="imageUrl"
-                    required
+                    id="url"
+                    placeholder="https://example.com"
+                    pattern="https://.*"
+                    size="30"
                     onChange={handleChange}
                   />
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    disabled={loading}
+                    className="btn btn-primary"
+                    onClick={updateImage}
+                  >
+                    update image
+                  </button>
                 </div>
               </div>
             </div>
@@ -307,7 +367,7 @@ const FairDetails = ({ match }) => {
                 className="btn btn-primary"
                 type="submit"
               >
-                Submit
+                Save Details
               </button>
             </div>
           </form>
