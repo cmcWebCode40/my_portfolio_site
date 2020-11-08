@@ -64,7 +64,7 @@ const StyledDiv = styled.div`
   }
   #register:hover {
     background: var(--primary-color);
-    color: white;
+    color: var(--tint);
   }
 
 `;

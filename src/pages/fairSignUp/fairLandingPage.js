@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import Button from '../../components/landingpage/button';
+import Button from '../../components/button';
+import CheckMark from '../../components/checkMark';
 import testImg from '../../assets/images/00.jpg';
 import kpmg from '../../assets/images/kpmg.png';
 import gtb from '../../assets/images/gtb.jpg';
@@ -29,8 +30,8 @@ const fairLandingPage = () => {
             <div>
               <h3>Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
-              <button>Sign up</button>
-              <button>Sign in</button>
+              <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
+              <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
             </div>
           </div>
           <div className="w-100 container p-5">
@@ -96,8 +97,93 @@ const fairLandingPage = () => {
         </section>
 
         {/* Section 4 */}
-        <section className="row pricing-section">
-
+        <section className="row pricing-section mx-auto">
+          <div className="col-lg-12">
+            <h3 className="container pb-5">Pricing</h3>
+          </div>
+          <div className="row mx-auto">
+            <div className="pricing-box col-lg-4">
+              <div>Starter</div>
+              <div>
+                <div>
+                  <div>Booth</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Ads</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Vendors</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Speakers</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Products</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Logistics</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Booth template</div><div><CheckMark /></div>
+                </div>
+              </div>
+              <div>1000 Dollars</div>
+            </div>
+            <div className="pricing-box col-lg-4">
+              <div>Business</div>
+              <div>
+                <div>
+                  <div>Booth</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Ads</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Vendors</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Speakers</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Products</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Logistics</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Booth template</div><div><CheckMark /></div>
+                </div>
+              </div>
+              <div>1000 Dollars</div>
+            </div>
+            <div className="pricing-box col-lg-4">
+              <div>Professional</div>
+              <div>
+                <div>
+                  <div>Booth</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Ads</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Vendors</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Speakers</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Products</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Logistics</div><div><CheckMark /></div>
+                </div>
+                <div>
+                  <div>Booth template</div><div><CheckMark /></div>
+                </div>
+              </div>
+              <div>1000 Dollars</div>
+            </div>
+          </div>
         </section>
 
         {/* Section 5 */}
@@ -107,8 +193,8 @@ const fairLandingPage = () => {
             <p>Exploring Digitalization in Oil & Gas</p>
           </div>
           <div>
-            <button>Sign up</button>
-            <button>Sign in</button>
+            <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
+            <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
           </div>
         </section>
       </div>
@@ -124,7 +210,7 @@ const StyledDiv = styled.div`
     }
 
     h3 {
-      color: var(--primary);
+      color: var(--primary-color);
       font-weight: 700;
     }
 
@@ -192,5 +278,11 @@ const StyledDiv = styled.div`
 
     .speaker-details {
       padding: 10px;
+    }
+
+    .pricing-box {
+      width: 200px;
+      background-color: var(--primary-color);
+      border-radius: 20px;
     }
 `;
