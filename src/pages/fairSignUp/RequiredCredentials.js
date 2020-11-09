@@ -20,17 +20,12 @@ export default function RequiredFiles(props) {
 
     const onSubmit = (data) => {
         const fair_id = `5f9032692bb0c600179cea69`
-        const token = getUserToken();
-
-        console.log(token)
+        const headers = getUserToken();
 
         axios
             .post(`https://cooplagfair.herokuapp.com/api/v1/fairs/${fair_id}/vendor-credentials`, data,
                 {
-                    Headers: {
-                        // withCredentials: true,
-                        token
-                    }
+                    headers
                 }
             )
             .then(res => {
