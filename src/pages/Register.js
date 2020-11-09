@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { authContextApi } from '../context/authContext';
 import {
   PLATFORM_ADMIN,
@@ -83,6 +84,24 @@ export default function UserSignUp({ history }) {
   const [signUp, setSignUp] = useState(credentials);
   const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
 
+
+  const warning = () => {
+    toast.warn("Please all inputs details are required", { autoClose: 5000 }, {
+      position: toast.POSITION.BOTTOM_LEFT
+    });
+  }
+
+  const errormessage = () => {
+    toast.error("Details Contain errors!", { autoClose: 6000 }, {
+      position: toast.POSITION.TOP_LEFT
+    });
+  }
+  const information = () => {
+    toast.info("Please Holdon, Submitting Details! ....", { autoClose: 4000 }, {
+      position: toast.POSITION.BOTTOM_CENTER
+    });
+  };
+
   const handleChange = (e) => {
     e.persist();
     setSignUp({
@@ -93,24 +112,31 @@ export default function UserSignUp({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
-      .then((res) => {
-        const { data, status } = res.data;
-        if (status === 'success') {
-          setIsUserAuth(!isUserAuth);
-          saveUserDetails(data);
-          saveAuthToken(data.token);
-          if (data.role === PLATFORM_ADMIN) {
-            history.replace('/dashboard');
-          } else {
-            history.replace('/fair/dashboard-overview');
+    if (signUp.phoneNumber === "" || signUp.email === "" || signUp.firstname === "" || signUp.lastname == "" || signUp.username === "" || signUp.password === "") {
+      warning()
+    } else {
+      information()
+      axios
+        .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
+        .then((res) => {
+          const { data, status } = res.data;
+          if (status === 'success') {
+            setIsUserAuth(!isUserAuth);
+            saveUserDetails(data);
+            saveAuthToken(data.token);
+            if (data.role === PLATFORM_ADMIN) {
+              history.replace('/dashboard');
+            } else {
+              history.replace('/fair/dashboard-overview');
+            }
           }
-        }
-      })
-      .catch((error) => {
-        console.log(error)
-      });
+        })
+        .catch((error) => {
+          errormessage(error)
+          console.log(error)
+        });
+    }
+
   };
   return (
     <StyledDiv>
@@ -118,32 +144,32 @@ export default function UserSignUp({ history }) {
         <h3 className="Details">Create Account</h3>
         <div className="input-field">
           <label htmlFor="name">Full Name</label>
-          <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} required />
+          <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} />
         </div>
         <div className="input-field">
           <label htmlFor="name">First Name</label>
           <br />
-          <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} required />
+          <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} />
         </div>
         <div className="input-field">
           <label htmlFor="name">Last Name</label>
           <br />
-          <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} required />
+          <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} />
         </div>
         <div className="input-field">
           <label htmlFor="password">Create Password</label>
           <br />
-          <input type="password" name="password" onChange={handleChange} value={signUp.password} required />
+          <input type="password" name="password" onChange={handleChange} value={signUp.password} />
         </div>
         <div className="input-field">
           <label htmlFor="name">Email</label>
           <br />
-          <input type="email" name="email" onChange={handleChange} value={signUp.email} required />
+          <input type="email" name="email" onChange={handleChange} value={signUp.email} />
         </div>
         <div className="input-field">
           <label htmlFor="name">Phone Number</label>
           <br />
-          <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} required />
+          <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} />
         </div>
         <div>
           <button className="button-submit">Create Account</button>
