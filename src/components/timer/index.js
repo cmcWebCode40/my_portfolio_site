@@ -64,22 +64,25 @@ class Timer extends Component {
     }
     return (
       <StyledDiv>
-        <div className="timer">
+        <div className="timer mb-lg-5">
           <div>
             {days}
-            <div>days</div>
+            <div className="timer-label">Days</div>
           </div>
+          <div> : </div>
           <div>
             {hours}
-            <div>hours</div>
+            <div className="timer-label">Hours</div>
           </div>
+          <div> : </div>
           <div>
             {minutes}
-            <div>minutes</div>
+            <div className="timer-label">Minutes</div>
           </div>
+          <div> : </div>
           <div>
             {seconds}
-            <div>seconds</div>
+            <div className="timer-label">Seconds</div>
           </div>
         </div>
       </StyledDiv>
@@ -92,25 +95,21 @@ const StyledDiv = styled.div`
 .timer {
   display: flex;
   font-size: 12px;
-  justify-content: center;
+  padding: 20px 0;
 }
 .timer > div {
-  padding: 10px;
-  // background: #444;
   color: var(--primary-color);
-  font-size: 12px;
+  font-size: 30px;
   margin-right: 2px;
   width: 100px;
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
 }
-.timer > div > span {
-  text-transform: uppercase;
-  color: #999;
+
+.timer-label {
   font-size: 12px;
-  display: flex;
-  align-items: center;
 }
+
 .expired {
   font-size: 20px;
   color: rgb(126, 49, 49);

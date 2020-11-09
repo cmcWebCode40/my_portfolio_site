@@ -17,7 +17,7 @@ import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
 const fairLandingPage = () => {
-  const startDate = new Date().getTime() + 3153600000; // 1 year (Milliseconds Unit)
+  const startDate = new Date().getTime() + 1296000000;
   return (
     <StyledDiv>
       <div className="container-fluid">
