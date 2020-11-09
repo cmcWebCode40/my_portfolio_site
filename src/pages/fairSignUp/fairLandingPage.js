@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Button from '../../components/button';
+import Timer from '../../components/timer';
 import CheckMarkSuccess from '../../components/checkMark/checkMarkSuccess';
 import CheckMarkCancel from '../../components/checkMark/checkMarkCancel';
 import testImg from '../../assets/images/00.jpg';
 import kpmg from '../../assets/images/kpmg.png';
 import gtb from '../../assets/images/gtb.jpg';
+import cooplag from '../../assets/images/cooplag-logo.png';
 import nlng from '../../assets/images/nlng.png';
 import shell from '../../assets/images/shell.png';
 import total from '../../assets/images/total.png';
@@ -15,6 +17,7 @@ import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
 const fairLandingPage = () => {
+  const startDate = new Date().getTime() + 3153600000; // 1 year (Milliseconds Unit)
   return (
     <StyledDiv>
       <div className="container-fluid">
@@ -27,7 +30,7 @@ const fairLandingPage = () => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div>Countdown Timer</div>
+            <div><Timer startDate={startDate} /></div>
             <div>
               <h3>Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
@@ -51,7 +54,7 @@ const fairLandingPage = () => {
         <section className="row about-section">
           <div className="about-section-title mx-auto text-center order-lg-last col-lg-4">
             <h3>About CoopLAG</h3>
-            <div className="about-section-image-box p-5 mx-auto"><img src={gtb} /></div>
+            <div className="about-section-image-box p-5 mx-auto"><img src={cooplag} /></div>
           </div>
           <div className="about-section-content p-5 col-lg-8">
             <p>
@@ -189,13 +192,17 @@ const fairLandingPage = () => {
 
         {/* Section 5 */}
         <section className="row pre-footer-section mx-auto">
-          <div>
-            <h3>Welcome to Cooplag 2020</h3>
-            <p>Exploring Digitalization in Oil & Gas</p>
-          </div>
-          <div>
-            <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
-            <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6">
+                <h3>Welcome to Cooplag 2020</h3>
+                <p>Exploring Digitalization in Oil & Gas</p>
+              </div>
+              <div className="col-lg-6">
+                <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
+                <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+              </div>
+            </div>
           </div>
         </section>
       </div>

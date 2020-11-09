@@ -31,6 +31,7 @@ export default Button;
 const StyledDiv = styled.div`
 .btn {
   padding: 8px 20px;
+  margin-bottom: 20px;
   border-radius: 2px;
   outline: none;
   border: none;
