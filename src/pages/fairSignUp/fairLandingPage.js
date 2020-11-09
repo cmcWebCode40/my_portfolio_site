@@ -17,9 +17,7 @@ import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
-const fairLandingPage = (props) => {
-  const startDate = new Date().getTime() + 1296000000;
-  // const id = props.match.params.id;
+const fairLandingPage = () => {
   return (
     <StyledDiv>
       <div className="container-fluid">
@@ -32,7 +30,7 @@ const fairLandingPage = (props) => {
             </div>
           </div>
           <div className="col-lg-4">
-            <div><Timer startDate={startDate} /></div>
+            <div><Timer /></div>
             <div>
               <h3>Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
