@@ -8,6 +8,7 @@ import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
 import DashboardLayout from '../layouts/DashboardLayout/DashboardLayouts';
 import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
+import FairLayout from '../layouts/fairLayout/FairLayout';
 
 const Home = lazy(() => import('../pages/Home'));
 const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
@@ -27,6 +28,7 @@ const Register = lazy(() => import('../pages/Register'));
 const VerificationRequest = lazy(() => import('../pages/VerificationRequest'));
 const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'));
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
+const fairLandingPage = lazy(() => import('../pages/fairSignUp/fairLandingPage'));
 
 export const routesList = [
   {
@@ -109,6 +111,11 @@ export const routesList = [
     path: '/verify-request',
     component: VerificationRequest,
     layout: MainLayouts,
+  },
+  {
+    path: '/fair-landing-page',
+    component: fairLandingPage,
+    layout: FairLayout,
   },
 
 ];

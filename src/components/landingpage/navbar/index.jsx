@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import Button from '../button';
+import { NavLink } from "react-router-dom"
+import Button from '../../button';
 
 function Navbar() {
   return (
@@ -29,8 +29,8 @@ function Navbar() {
               <div>
                 <NavLink to="/register"><span id="register">Sign up</span></NavLink>
               </div>
-              <div>
-                <NavLink to="/login"><Button label="Sign In" /></NavLink>
+              <div >
+                <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
               </div>
               {/* <div className="col-lg-1">
                 <NavLink to="/sign-in"><Button label="Sign In" /></NavLink>
@@ -78,6 +78,7 @@ const StyledDiv = styled.div`
     margin-right: 10px;
     padding: 7.5px 10px;
     border-radius: 5px;
+    height: 100%;
 
     @media only screen and (max-width: 400px){
       display: none;
