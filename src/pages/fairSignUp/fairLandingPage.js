@@ -32,7 +32,7 @@ const fairLandingPage = () => {
           <div className="col-lg-4">
             <div><Timer /></div>
             <div>
-              <h3>Welcome to Cooplag</h3>
+              <h3 className="banner-heading">Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
               {/* <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large"><Link to={`/requiredfiles/${id}`}>Sign Up</Link></Button> */}
               <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
@@ -196,7 +196,7 @@ const fairLandingPage = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
-                <h3>Welcome to Cooplag 2020</h3>
+                <h3 className="banner-heading">Welcome to Cooplag 2020</h3>
                 <p>Exploring Digitalization in Oil & Gas</p>
               </div>
               <div className="col-lg-6">
@@ -221,6 +221,10 @@ const StyledDiv = styled.div`
     h3 {
       color: var(--primary-color);
       font-weight: 700;
+    }
+
+    .banner-heading {
+      font-size: 35px;
     }
 
     h4 {

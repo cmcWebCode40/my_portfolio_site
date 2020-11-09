@@ -61,13 +61,17 @@ const ClockWrapper = styled.div`
   }
 
   .clock div {
-    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+    margin-right: 30px;
     color: var(--primary-color);
     font-size: 30px;
+    font-weight: 700;
   }
 
   .time-name {
     font-size: 12px !important;
+    margin: -10px 0 !important;
   }
 `;
 export default Clock;
