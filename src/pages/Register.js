@@ -86,13 +86,13 @@ export default function UserSignUp({ history }) {
 
 
   const warning = () => {
-    toast.warn("Please all inputs details are required", { autoClose: 5000 }, {
+    toast.warn("All inputs details are required", { autoClose: 6000 }, {
       position: toast.POSITION.BOTTOM_LEFT
     });
   }
 
-  const errormessage = () => {
-    toast.error("Details Contain errors!", { autoClose: 6000 }, {
+  const errormessage = (message) => {
+    toast.error(message, { autoClose: 7000 }, {
       position: toast.POSITION.TOP_LEFT
     });
   }
@@ -127,13 +127,13 @@ export default function UserSignUp({ history }) {
             if (data.role === PLATFORM_ADMIN) {
               history.replace('/dashboard');
             } else {
-              history.replace('/fair/dashboard-overview');
+              history.replace('/login');
+              // history.replace('/fair/dashboard-overview');
             }
           }
         })
         .catch((error) => {
-          errormessage(error)
-          console.log(error)
+          errormessage(error.response.data.message)
         });
     }
 
