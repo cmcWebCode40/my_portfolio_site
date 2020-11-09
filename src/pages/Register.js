@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { coopLagApi } from "../services/services"
 import { toast } from 'react-toastify';
 import { authContextApi } from '../context/authContext';
 import {
@@ -116,8 +116,7 @@ export default function UserSignUp({ history }) {
       warning()
     } else {
       information()
-      axios
-        .post('https://cooplagfair.herokuapp.com/api/v1/users/register', signUp)
+      coopLagApi.post('/users/register', signUp)
         .then((res) => {
           const { data, status } = res.data;
           if (status === 'success') {
