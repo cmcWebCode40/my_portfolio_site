@@ -45,10 +45,10 @@ class Clock extends Component {
     return (
       <ClockWrapper>
         <div className="clock">
-          <div>{this.leadingZero(this.state.days)} <div>days</div></div>
-          <div>{this.leadingZero(this.state.hours)} <div>hours</div></div>
-          <div>{this.leadingZero(this.state.minutes)} <div>minutes</div></div>
-          <div>{this.leadingZero(this.state.seconds)} <div>seconds</div></div>
+          <div>{this.leadingZero(this.state.days)} <div className="time-name">days</div></div>
+          <div>{this.leadingZero(this.state.hours)} <div className="time-name">hours</div></div>
+          <div>{this.leadingZero(this.state.minutes)} <div className="time-name">minutes</div></div>
+          <div>{this.leadingZero(this.state.seconds)} <div className="time-name">seconds</div></div>
         </div>
       </ClockWrapper>
     );
@@ -58,7 +58,16 @@ class Clock extends Component {
 const ClockWrapper = styled.div`
   .clock {
     display: flex;
-    justify-content: space-evenly;
+  }
+
+  .clock div {
+    margin-right: 20px;
+    color: var(--primary-color);
+    font-size: 30px;
+  }
+
+  .time-name {
+    font-size: 12px !important;
   }
 `;
 export default Clock;
