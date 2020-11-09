@@ -56,6 +56,10 @@ background: #F8F8FF;
 padding: 30px 20px;
 text-align: left;
 
+@media only screen and (max-width: 700px){
+  padding: 0px 0px;
+}
+
 
 .logo-side-body{
     margin: 20px 5px 50px 5px;
@@ -108,16 +112,25 @@ span{
 
 .manage-fairpage-main-content{
     width: 80%;
+    @media only screen and (max-width: 700px){
+      width: 98%;
+      margin: auto 0;
+    }
 }
 
 .fair-name-bar-2{
-  display: flex;
+  display: none;
   justify-content: space-between;
   flex-direction: row;
   box-shadow: 1px 3px 5px #e0e0e0;
   padding: 3px 0px;
   background: white;
   height: 45px;
+
+  
+  @media only screen and (max-width: 700px){
+    display: flex;
+  }
 }
 
 `;

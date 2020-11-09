@@ -26,35 +26,52 @@ function Nav() {
                     <div id="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
                 </div>
                 <div className="menu-items" onClick={autocloseMenu}>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Change Logo</span>
+                    <p className="create-titles">Status</p>
+                    <div className="create-sidenav-div">
+                        <span>Active</span>
+                        <span className="logo-sidenav-span">Published</span>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Page Name</span>
+                        <p className="create-titles">Fair</p>
+                        <div className="create-sidenav-div">
+                            <span className="logo-sidenav-span">Cooplag 2020</span>
+                        </div>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Menu</span>
+                        <p className="create-titles">Date Created</p>
+                        <div className="create-sidenav-div">
+                            <span className="logo-sidenav-span">01/09/2020 9:40am</span>
+                        </div>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Slider</span>
+                        <p className="create-titles">Package</p>
+                        <div className="create-sidenav-div">
+                            <span className="logo-sidenav-span">Standard</span>
+                        </div>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Slider Content</span>
+                        <p className="create-titles">Template</p>
+                        <div className="create-sidenav-div">
+                            <span className="logo-sidenav-span">Outdoor#20</span>
+                        </div>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Sponsors</span>
+                        <NavLink to="/dashboard-managefair/speaker" className="logo-sidenav-span"><span>Create Speakers</span></NavLink>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">About Us</span>
+                        <NavLink to="/dashboard-managefair/vendor" className="logo-sidenav-span"><span>Setup Vendor's Signup</span></NavLink>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Speakers</span>
+                        <NavLink to="/dashboard-managefair/booth" className="logo-sidenav-span"><span>Booth Setting</span></NavLink>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Pricing</span>
+                        <NavLink to="/dashboard-managefair/advert" className="logo-sidenav-span"><span>Advert Setting</span></NavLink>
                     </div>
                     <div className="menu-list">
-                        <span className="logo-sidenav-span">Footer</span>
+                        <NavLink to="/dashboard-managefair/construction" className="logo-sidenav-span"><span>Raffle</span></NavLink>
+                    </div>
+                    <div className="menu-list">
+                        <NavLink exact to="/dashboard-managefair" className="logo-sidenav-span"><span>Manage Events</span></NavLink>
                     </div>
                 </div>
             </nav>
@@ -145,9 +162,21 @@ display: none;
     left: 0;
 }
 
+.create-titles{
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 3px;
+}
+
+.create-sidenav-div{
+    margin-top: -5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
 @media only screen and (max-width: 700px){
     display: block;
-    width: 50px;
   }
 
 `
