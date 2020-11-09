@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { toast } from 'react-toastify';
+import { coopLagApi } from "../services/services"
 import {
   PLATFORM_ADMIN,
   saveAuthToken,
@@ -49,8 +49,7 @@ export default function UserSignIn({ history }) {
       warning()
     } else {
       information()
-      axios
-        .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
+      coopLagApi.post('/users/login', signIn)
         .then((res) => {
           const { data } = res.data;
           setIsUserAuth(!isUserAuth);

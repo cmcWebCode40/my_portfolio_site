@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useForm } from "react-hook-form"
 import { getUserToken } from '../../utils/functions/userAuth';
+import { coopLagApi } from "../../services/services"
 
 
 export default function RequiredFiles(props) {
@@ -22,12 +23,11 @@ export default function RequiredFiles(props) {
         const fair_id = `5f9032692bb0c600179cea69`
         const headers = getUserToken();
 
-        axios
-            .post(`https://cooplagfair.herokuapp.com/api/v1/fairs/${fair_id}/vendor-credentials`, data,
-                {
-                    headers
-                }
-            )
+        coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data,
+            {
+                headers
+            }
+        )
             .then(res => {
                 console.log(res)
             })
