@@ -3,22 +3,21 @@ import styled from "styled-components";
 
 
 export default function Construction() {
-    return (
-        <StyeldDiv>
-            <div className="manage-body">
-                <div className="fair-name-bar"></div>
-                <div className="manage-body-content">
-                    <div className="manage-fair">
-                        <h5 className="manage">New Title</h5>
-                        <span className="manage-span">+ New </span>
-                    </div>
-                    <div>
-                        <h1>Oop!.... Still Under Construction.</h1>
-                    </div>
-                </div>
+   return (
+      <StyeldDiv>
+         <div className="manage-body">
+            <div className="manage-body-content">
+               <div className="manage-fair">
+                  <h5 className="manage">New Title</h5>
+                  <span className="manage-span">+ New </span>
+               </div>
+               <div>
+                  <h1>Oop!.... Still Under Construction.</h1>
+               </div>
             </div>
-        </StyeldDiv>
-    )
+         </div>
+      </StyeldDiv>
+   )
 }
 
 const StyeldDiv = styled.div`
@@ -30,16 +29,6 @@ const StyeldDiv = styled.div`
 h1{
     text-align: center;
     margin-top: 15%;
-}
-
-.fair-name-bar{
-   display: flex;
-   justify-content: space-between;
-   flex-direction: row;
-   box-shadow: 1px 3px 5px #e0e0e0;
-   padding: 3px 10px;
-   background: white;
-   height: 45px;
 }
 
 .manage-body-content{
