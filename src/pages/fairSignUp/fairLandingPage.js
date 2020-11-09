@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from "react-router-dom"
 
 import Button from '../../components/button';
 import Timer from '../../components/timer';
@@ -16,8 +17,9 @@ import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
-const fairLandingPage = () => {
+const fairLandingPage = (props) => {
   const startDate = new Date().getTime() + 1296000000;
+  // const id = props.match.params.id;
   return (
     <StyledDiv>
       <div className="container-fluid">
@@ -34,7 +36,8 @@ const fairLandingPage = () => {
             <div>
               <h3>Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
-              <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
+              {/* <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large"><Link to={`/requiredfiles/${id}`}>Sign Up</Link></Button> */}
+              <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
               <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
             </div>
           </div>
@@ -75,7 +78,7 @@ const fairLandingPage = () => {
               <div className="speaker-details">
                 <h4>Andy Crestodina</h4>
                 <p className="speaker-position">Founder & Strategic Director</p>
-                <hr/>
+                <hr />
                 <p className="speaker-company">Orbit Media Studios</p>
               </div>
             </div>
@@ -84,7 +87,7 @@ const fairLandingPage = () => {
               <div className="speaker-details">
                 <h4>Ardath Albee</h4>
                 <p className="speaker-position">CEO</p>
-                <hr/>
+                <hr />
                 <p className="speaker-company">Marketing Interactions Inc</p>
               </div>
             </div>
@@ -93,7 +96,7 @@ const fairLandingPage = () => {
               <div className="speaker-details">
                 <h4>Jay Acunzo</h4>
                 <p className="speaker-position">VP of Marketing</p>
-                <hr/>
+                <hr />
                 <p className="speaker-company">NextView</p>
               </div>
             </div>
@@ -199,7 +202,7 @@ const fairLandingPage = () => {
                 <p>Exploring Digitalization in Oil & Gas</p>
               </div>
               <div className="col-lg-6">
-                <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button>
+                <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
                 <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
               </div>
             </div>
@@ -226,7 +229,6 @@ const StyledDiv = styled.div`
       font-weight: 600;
       color: var(--dark-grey);
     }
-
     p {
       font-size: 20px;
     }

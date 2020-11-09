@@ -7,6 +7,7 @@ import CreateBooth from "./CreateBooth";
 import CreateVendor from "./CreateVendor";
 import CreateSpeaker from "./CareteSpeaker";
 import CreateRaffle from "./CreateRaffle";
+import Nav from "./ManageFairMobileNav";
 
 export default function SideBar() {
     return (
@@ -65,6 +66,9 @@ export default function SideBar() {
                 </ul>
             </div>
             <div className="manage-fair-main-content">
+                <div className="fair-name-bar-2">
+                    <Nav />
+                </div>
                 <Route exact path="/dashboard-managefair" component={CreateEvent} />
                 <Route exact path="/dashboard-managefair/speaker" component={CreateSpeaker} />
                 <Route exact path="/dashboard-managefair/vendor" component={CreateVendor} />
@@ -83,6 +87,11 @@ justify-content: space-between;
 background: #F8F8FF;
 padding: 30px 20px;
 
+
+@media only screen and (max-width: 700px){
+    padding: 30px 0px;
+  }
+
 a{
     text-decoration: none;
     color: royalblue;
@@ -95,6 +104,11 @@ a{
      box-shadow: 3px 4px 15px #e0e0e0;
      padding-bottom: 50px;
      text-align: left;
+
+     
+    @media only screen and (max-width: 700px){
+        display: none;
+      }
 }
 .create-sidenav{
     margin: 8px 20px;
@@ -143,5 +157,22 @@ ul {
 
 .manage-fair-main-content{
     width: 80%;
+    @media only screen and (max-width: 700px){
+        width: 98%;
+        margin: auto 0;
+      }
 }
+.fair-name-bar-2{
+    display: none;
+    justify-content: space-between;
+    flex-direction: row;
+    box-shadow: 1px 3px 5px #e0e0e0;
+    padding: 3px 0px;
+    background: white;
+    height: 45px;
+
+    @media only screen and (max-width: 700px){
+        display: flex;
+      }
+  }
 `;
