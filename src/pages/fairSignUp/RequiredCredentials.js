@@ -70,6 +70,7 @@ export default function RequiredFiles(props) {
                   placeholder="Name of Business"
                   ref={register({ required: true })}
                 />
+                {errors.business_name && <p className="error-para">Business name is required</p>}
               </div>
               <div className="form-row">
                 <input
@@ -80,6 +81,9 @@ export default function RequiredFiles(props) {
                   placeholder="Business Address"
                   ref={register({ required: true })}
                 />
+                {errors.business_address && (
+                  <p className="error-para">Business address is required</p>
+                )}
               </div>
               <div className="form-row">
                 <input
@@ -90,6 +94,7 @@ export default function RequiredFiles(props) {
                   placeholder="City"
                   ref={register({ required: true })}
                 />
+                {errors.business_city && <p className="error-para">Please input your city</p>}
               </div>
               <div className="form-row">
                 <input
@@ -100,6 +105,7 @@ export default function RequiredFiles(props) {
                   placeholder="State"
                   ref={register({ required: true })}
                 />
+                {errors.business_state && <p className="error-para">Please put in your state</p>}
               </div>
               <div className="form-row">
                 <input
@@ -110,17 +116,19 @@ export default function RequiredFiles(props) {
                   placeholder="Phone Number"
                   ref={register({ required: true })}
                 />
+                {errors.business_tel && <p className="error-para">Phone number is required</p>}
               </div>
               <div className="form-row">
                 <input
                   type="text"
-                  name="your_email"
+                  name="business_email"
                   id="your_email"
                   className="input-text"
                   ref={register({ required: true })}
                   pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
                   placeholder="Your Email"
                 />
+                {errors.business_email && <p className="error-para">Business email is required</p>}
               </div>
               <div className="form-row">
                 <input
@@ -130,7 +138,7 @@ export default function RequiredFiles(props) {
                   ref={register({ required: true })}
                   id="input-file"
                 />
-                {errors.business_city && <p className="error-para">Please upload files</p>}
+                {errors.requirements && <p className="error-para">Please upload an image</p>}
               </div>
               <div className="form-checkbox">
                 <label className="container">
@@ -211,6 +219,12 @@ const StyledDiv = styled.div`
 
   .prerequisites-paragraph {
     padding: 33px 50px 0px 60px;
+  }
+
+  .error-para {
+    color: #efefef;
+    font-style: italic;
+    font-size: 12px;
   }
 
   .signIn-link {
