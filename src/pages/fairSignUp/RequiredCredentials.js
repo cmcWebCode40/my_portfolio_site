@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom"
 import styled from "styled-components";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 import { getUserToken } from '../../utils/functions/userAuth';
 import { coopLagApi } from '../../services/services';
 
@@ -24,6 +25,13 @@ export default function RequiredFiles(props) {
             })
             .then((res) => {
                 console.log(res);
+                // const { data, status } = res.data;
+                // if (status === 'success') {
+                //   saveVendorDetails(data);
+                //     history.replace('/vendorprofile');
+                // }else {
+                //     history.replace('/....');
+                // }
             })
             .catch((error) => {
                 errorAlert(error.response.data.message);
