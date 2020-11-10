@@ -1,319 +1,566 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { useForm } from "react-hook-form"
 import { getUserToken } from '../../utils/functions/userAuth';
-import { coopLagApi } from "../../services/services"
-
+import { coopLagApi } from '../../services/services';
 
 export default function RequiredFiles(props) {
-    const { register, handleSubmit, errors } = useForm()
-    const [clickAction, setclickAction] = useState(true)
-    // const [upload, setUpload] = useState([])
+    const { register, handleSubmit, errors } = useForm();
 
     const fair_id = props.match.params.id
 
-    const Clicked = () => {
-        setclickAction(!clickAction)
+    const errorAlert = (message) => {
+        toast.error(message, { autoClose: 5000 }, {
+            position: toast.POSITION.TOP_LEFT
+        });
     }
-
-    // useEffect(() => {
-    //     const id2 = props.match.params.id;
-
-    //     coopLagApi .get(`/fairs/${fair_id}/requirements/${requirements_id}`)
-    //       .then(response => {
-    //         setFamily(response.data.members);
-    //       })
-    //       .catch(error => {
-    //         console.error(error);
-    //       });
-
-    //   }, [props.match.params.id]);
-
     const onSubmit = (data) => {
         const headers = getUserToken();
 
-        coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data,
-            {
-                headers
-            }
-        )
-            .then(res => {
-                console.log(res)
+        coopLagApi
+            .post(`/fairs/${fair_id}/vendor-credentials`, data, {
+                headers,
             })
-            .catch(error => {
-                console.log(error)
+            .then((res) => {
+                console.log(res);
             })
-
-    }
+            .catch((error) => {
+                errorAlert(error.response.data.message);
+            });
+    };
     return (
         <StyledDiv>
-            <div className="credential-main-body">
-                <div className="left-side">
-                    <h2>Quick Check</h2>
-                    <div className="information-content">
-                        <p>Not a registered user? <span><Link to="/register" className="signIn-link">... Do so Here</Link></span> </p>
-                        <p>Or sign into your <span><Link to="/login" className="signIn-link"> account  Here</Link></span> </p>
-                        <p>Below are information required of a vendor by this fair</p>
-                        <p>Requirement listed here- 1</p>
-                        <p>Requirement listed here- 2</p>
-                        <p>Requirement listed here- 3</p>
-                    </div>
+            <div className="page-content">
+                <div className="form-v10-content">
+                    <form className="form-detail" method="post" id="myform" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-left">
+                            <h2>Prerequisites</h2>
+                            <p className="prerequisites-paragraph">
+                                To use this form, you must already be a registered user.{' '}
+                                <div>
+                                    Register{' '}
+                                    <Link to="/register" className="signIn-link">
+                                        Here
+                  </Link>
+                                </div>
+                            </p>
+                            <p className="prerequisites-paragraph">
+                                Already have an account?{' '}
+                                <div>
+                                    Login{' '}
+                                    <Link to="/register" className="signIn-link">
+                                        Here
+                  </Link>
+                                </div>
+                            </p>
+                        </div>
+                        <div className="form-right">
+                            <h2>Business Details</h2>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_name"
+                                    className="company"
+                                    id="company"
+                                    placeholder="Name of Business"
+                                    ref={register({ required: true })}
+                                />
+                                {errors.business_name && <p className="error-para">Business name is required</p>}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_address"
+                                    className="company"
+                                    id="company"
+                                    placeholder="Business Address"
+                                    ref={register({ required: true })}
+                                />
+                                {errors.business_address && (
+                                    <p className="error-para">Business address is required</p>
+                                )}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_city"
+                                    className="company"
+                                    id="company"
+                                    placeholder="City"
+                                    ref={register({ required: true })}
+                                />
+                                {errors.business_city && <p className="error-para">Please input your city</p>}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_state"
+                                    className="company"
+                                    id="company"
+                                    placeholder="State"
+                                    ref={register({ required: true })}
+                                />
+                                {errors.business_state && <p className="error-para">Please put in your state</p>}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_tel"
+                                    className="phone"
+                                    id="phone"
+                                    placeholder="Phone Number"
+                                    ref={register({ required: true })}
+                                />
+                                {errors.business_tel && <p className="error-para">Phone number is required</p>}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="text"
+                                    name="business_email"
+                                    id="your_email"
+                                    className="input-text"
+                                    ref={register({ required: true })}
+                                    pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                                    placeholder="Your Email"
+                                />
+                                {errors.business_email && <p className="error-para">Business email is required</p>}
+                            </div>
+                            <div className="form-row">
+                                <input
+                                    type="file"
+                                    multiple
+                                    name="requirements"
+                                    ref={register({ required: true })}
+                                    id="input-file"
+                                />
+                                {errors.requirements && <p className="error-para">Please upload an image</p>}
+                            </div>
+                            <div className="form-checkbox">
+                                <label className="container">
+                                    <p>
+                                        I accept the{' '}
+                                        <a href="#" className="text">
+                                            Terms and Conditions
+                    </a>{' '}
+                    of your fair.
+                  </p>
+                                    <input type="checkbox" name="checkbox" />
+                                    <span className="checkmark"></span>
+                                </label>
+                            </div>
+                            <div className="form-row-last">
+                                <input
+                                    type="submit"
+                                    name="register"
+                                    className="register"
+                                    value="Register for Fair"
+                                />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div className={`${clickAction ? 'information' : 'credential-open'}`} >
-                    <p className={`${clickAction ? 'open' : 'close'}`}>For fair requirements</p>
-                    <div>
-                        <p className="special-para" id="top-para">Requirement listed here -1</p>
-                        <p className="special-para">Requirement listed here -2</p>
-                        <p className="special-para">Requirement listed here -3</p>
-                    </div>
-                    <span className="expandable" onClick={Clicked}>Click here</span>
-                </div>
-                <form onSubmit={handleSubmit(onSubmit)} className="right-side">
-                    <h4>Enter's Required Credentials</h4>
-                    <div id="credential-form">
-                        <div>
-                            <input type="text" name='business_name' placeholder=" Enter Business Name here..." ref={register({ required: true })} />
-                        </div>
-                        <div>
-                            <input type="text" name='business_city' placeholder=" Enter Business City here..." ref={register({ required: true })} />
-                        </div>
-                        <div>
-                            <input type="text" name='business_state' placeholder=" Enter Business State here..." ref={register({ required: true })} />
-                        </div>
-                        <div>
-                            <input type="file" multiple name='requirements' ref={register({ required: true })} id="input-file" />
-                            {errors.business_city && <p className="error-para">Plaese upload files</p>}
-                        </div>
-                        <div>
-                            <input type="text" name='business_tel' placeholder=" Enter Phone Number (+12381234567890)" ref={register({ required: true })} />
-                            {errors.business_city && <p className="error-para">Plaese input a valid Number (eg: +1238123456709)</p>}
-                        </div>
-                        <div>
-                            <input type="text" name='business_address' placeholder=" Enter Business Address  here..." ref={register({ required: true })} />
-                        </div>
-                        <div>
-                            <input type="number" name='delivery_duration' placeholder=" Enter Delivery Duration here..." ref={register({ required: true })} />
-                            {errors.business_city && <p className="error-para">Plaese input duration as an interger</p>}
-                        </div>
-                        <div>
-                            <input type="email" name='business_email' placeholder=" Enter Business Email Address here..." ref={register({ required: true })} />
-                        </div>
-                        <button className="button">Submit</button>
-                    </div>
-                </form>
             </div>
         </StyledDiv>
-    )
+    );
 }
 
 const StyledDiv = styled.div`
-text-align: center;
-display: flex;
-justify-content: center;
-width: 100%;
-padding: 10px;
-height: 115vh;
-overflow: hidden;
-
-@media only screen and (max-width: 580px){
-    overflow: auto;
-}
-
-.credential-main-body{
+  .page-content {
+    width: 100%;
+    margin: 0 auto;
+    // background: #ccc;
     display: flex;
+    display: -webkit-flex;
     justify-content: center;
-    max-width: 800px;
-    width: 90%;
-    margin: 7% Auto;
-    border-radius: 20px;
-    box-shadow: 3 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
-    0 2px 4px rgba(0, 0, 0, 0.24);
+    -o-justify-content: center;
+    -ms-justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -o-align-items: center;
+    -ms-align-items: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+  }
+  .form-v10-content {
+    background: #fff;
+    width: 1100px;
+    border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    margin: 95px 0;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .form-v10-content .form-detail {
+    position: relative;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+  }
+  .form-v10-content .form-detail h2 {
+    font-weight: 500;
+    font-size: 25px;
+    margin-bottom: 34px;
+    padding: 33px 50px 0px 60px;
+  }
 
-    @media only screen and (max-width: 1100px){
-        margin-top: 10%;
+  .prerequisites-paragraph {
+    padding: 33px 50px 0px 60px;
+  }
+
+  .error-para {
+    color: #efefef;
+    font-style: italic;
+    font-size: 12px;
+  }
+
+  .signIn-link {
+    font-weight: 700;
+  }
+
+  .form-v10-content .form-detail .form-left {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 100%;
+  }
+  .form-v10-content .form-detail .form-left h2 {
+    color: #2271dd;
+  }
+  .form-v10-content .form-detail .form-right {
+    width: 100%;
+    background: var(--primary-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .form-v10-content .form-detail .form-right h2 {
+    color: #fff;
+  }
+  .form-v10-content .form-detail .form-group {
+    display: flex;
+    display: -webkit-flex;
+  }
+  .form-v10-content .form-detail .form-row {
+    position: relative;
+    margin-bottom: 24px;
+    padding-left: 60px;
+    padding-right: 50px;
+  }
+  .form-v10-content .form-detail .form-left .form-group .form-row.form-row-1 {
+    width: 50%;
+    padding: 0 12px 0 60px;
+  }
+  .form-v10-content .form-detail .form-left .form-group .form-row.form-row-2 {
+    width: 50%;
+    padding: 0 50px 0 12px;
+  }
+  .form-v10-content .form-detail .form-left .form-group .form-row.form-row-3 {
+    width: 73%;
+    padding: 0 12px 0 60px;
+  }
+  .form-v10-content .form-detail .form-left .form-group .form-row.form-row-4 {
+    width: 50%;
+    padding: 0 50px 0 12px;
+  }
+  .form-v10-content .form-detail .form-right .form-group .form-row.form-row-1 {
+    width: 50%;
+    padding: 0 12px 0 60px;
+  }
+  .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 {
+    width: 100%;
+    padding: 0 50px 0 12px;
+  }
+  .form-v10-content .form-detail select,
+  .form-v10-content .form-detail input {
+    width: 100%;
+    padding: 11.5px 15px 15px 15px;
+    border: 1px solid transparent;
+    background: transparent;
+    appearance: unset;
+    -moz-appearance: unset;
+    -webkit-appearance: unset;
+    -o-appearance: unset;
+    -ms-appearance: unset;
+    outline: none;
+    -moz-outline: none;
+    -webkit-outline: none;
+    -o-outline: none;
+    -ms-outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+  }
+  .form-v10-content .form-detail select {
+    background: 0 0;
+    position: relative;
+    z-index: 9;
+    cursor: pointer;
+  }
+  .form-v10-content .form-detail .form-left select {
+    color: #666;
+  }
+  .form-v10-content .form-detail .form-right select {
+    color: #f2f2f2;
+  }
+  .form-v10-content .form-detail .select-btn {
+    z-index: 0;
+    position: absolute;
+    top: 30%;
+    right: 11.5%;
+    font-size: 18px;
+  }
+  .form-v10-content .form-detail .form-left .select-btn {
+    color: #666;
+  }
+  .form-v10-content .form-detail .form-right .select-btn {
+    color: #f2f2f2;
+  }
+  .form-v10-content .form-detail .form-group .form-row.form-row-4 .select-btn {
+    top: 20%;
+    right: 26%;
+  }
+  .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 .select-btn {
+    top: 20%;
+    right: 19%;
+  }
+  .form-v10-content .form-detail .form-left input {
+    color: #000;
+  }
+  .form-v10-content .form-detail .form-right input {
+    color: #fff;
+  }
+  .form-v10-content .form-detail .form-left input,
+  .form-v10-content .form-detail .form-left select {
+    border-bottom: 1px solid #ccc;
+  }
+  .form-v10-content .form-detail .form-left input:focus,
+  .form-v10-content .form-detail .form-left select:focus {
+    border-bottom: 1px solid #999;
+  }
+  .form-v10-content .form-detail .form-right input,
+  .form-v10-content .form-detail .form-right select {
+    border-bottom: 1px solid;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+  .form-v10-content .form-detail .form-right input:focus,
+  .form-v10-content .form-detail .form-right select:focus {
+    border-bottom: 1px solid #ccc;
+  }
+  .form-v10-content .form-detail .form-right select option {
+    background: #4835d4;
+  }
+  .form-v10-content .form-detail .form-checkbox {
+    margin-top: 37px;
+    padding: 0 50px 0 60px;
+    position: relative;
+  }
+  .form-v10-content .form-detail .form-checkbox input {
+    position: absolute;
+    opacity: 0;
+  }
+  .form-v10-content .form-detail .form-checkbox .checkmark {
+    position: absolute;
+    top: 1px;
+    left: 60px;
+    height: 15px;
+    width: 15px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+  }
+  .form-v10-content .form-detail .form-checkbox .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 3px;
+    height: 8px;
+    border: 1px solid #fff;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    display: none;
+  }
+  .form-v10-content .form-detail .form-checkbox input:checked ~ .checkmark::after {
+    display: block;
+  }
+  .form-v10-content .form-detail .form-checkbox p {
+    margin-left: 34px;
+    color: #e5e5e5;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .form-v10-content .form-detail .form-checkbox .text {
+    font-weight: 400;
+    color: #fff;
+    text-decoration: underline;
+  }
+  .form-v10-content .form-detail .form-right .form-row-last {
+    padding-left: 60px;
+    margin: 44px 0 10px;
+  }
+  .form-v10-content .form-detail .form-right .register {
+    background: #fff;
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+    -o-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+    -ms-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0px 6px 17px 0px rgba(0, 0, 0, 0.15);
+    width: 180px;
+    border: none;
+    margin: 6px 0 50px 0px;
+    cursor: pointer;
+    color: #333;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .form-v10-content .form-detail .form-right .register:hover {
+    background: #ccc;
+  }
+  .form-v10-content .form-detail .form-right .form-row-last input {
+    padding: 12.5px;
+  }
+  .form-v10-content .form-detail .form-left input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #666;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-left input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #666;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-left input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #666;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-left input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #666;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-right input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #f2f2f2;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-right input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #f2f2f2;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-right input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #f2f2f2;
+    font-size: 16px;
+  }
+  .form-v10-content .form-detail .form-right input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #f2f2f2;
+    font-size: 16px;
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 1199px) {
+    .form-v10-content {
+      margin: 95px 20px;
     }
-    
-    @media only screen and (max-width: 740px){
-        margin-top: 15%;
+  }
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    .form-v10-content .form-detail .form-group {
+      flex-direction: column;
+      -o-flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -webkit-flex-direction: column;
     }
-    @media only screen and (max-width: 320px){
-        margin-top: 20%;
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-1,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-2,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-3,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-4,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-1,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 {
+      width: auto;
+      padding: 0 50px 0 60px;
     }
-
-    .credential-open {
-        height: 200px;
-        margin: 10px 5%;
-        padding: 0px 20px 25px 0px;
-        border: 1px solid lightgrey;
-        border-radius: 10px;
-        color: white;
-        position: relative;
-        overflow: auto;
-        box-shadow: 2px 2px 2px lightgrey;
-        background: var(--primary-color);
-      }
-
-      .information {
-        margin: 10px 5%;
-        padding: 0 20px 25px;
-        border: 1px solid lightgrey;
-        border-radius: 10px;
-        color: white;
-        position: relative;
-        height: 70px;
-        overflow: hidden;
-        box-shadow: 2px 2px 2px lightgrey;
-        background: var(--primary-color);
-        display: none;
-
-        @media only screen and (max-width: 580px){ 
-            display: block;
-        }
-      }
-
-      .expandable {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        font-size: 12px;
-        color: grey;
-        cursor: pointer;
-        transform: translate(-50%);
-        background-color: white;
-        padding: 2px 5px;
-        border-radius: 10px;
-        margin-bottom: 5px;
-      }
-
-      .special-para{
-        pargin-top: 2px;
-        margin-bottom: 2px
-      }
-      #top-para{
-          margin-top: 10px;
-      }
-
-      .open{
-          display: block;
-          margin-top: 10px;
-          margin-bottom: 50px;
-      }
-      .close{
-          display: none;
-      }
-
-    @media only screen and (max-width: 580px){
-        display: flex;
-        flex-direction: column;
+    .form-v10-content .form-detail .select-btn,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-4 .select-btn,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 .select-btn {
+      right: 15%;
     }
-
-    .button {
-        border: 2px solid forestgreen;
-        color: black;
-        padding: 4px 7px;
-        width: 100px;
-        text-align: center;
-        text-decoration: none;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        background: white;
-        border-radius: 7px;
+  }
+  @media screen and (max-width: 767px) {
+    .form-v10-content .form-detail {
+      flex-direction: column;
+      -o-flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -webkit-flex-direction: column;
     }
-    .button:hover{
-        background-color: forestgreen;
-        color: white;
+    .form-v10-content .form-detail .form-right {
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 10px;
     }
-
-    .right-side{
-        width: 50%;
-        padding: 20px 2px 5px 2px;
-        text-align: center;
-        border-radius: 0px 20px 20px 0px;
-        background: white;
-        box-shadow: 5px 3px 5px lightgrey;
-        border: 1px solid grey;
-
-        h4{
-            margin-top: 10%;
-            margin-bottom: 5%;
-            text-align: center
-            color: var(--primary-color);
-
-
-        }
-        #credential-form{
-            margin-top: 5%;
-            padding-top: 4%;
-
-            input{
-                margin: 2px;
-                border-radius: 5px;
-                width: 70%;
-                outline: none !important;
-                border: 1px solid grey;
-
-                ::placeholder {
-                    font-size: 12px;
-                  }
-            } 
-            input:focus {
-                border:1px solid forestgreen;
-                box-shadow: 0 0 10px forestgreen;
-            }
-
-            #input-file{
-                border: none;
-            }
-        }
-        .error-para{
-            color: red;
-            font-size: 14px;
-        }
-
-        @media only screen and (max-width: 580px){ 
-            width: 95%;
-            margin: 10px auto;
-            border-radius: 20px 20px 20px 20px;
-
-            h4{
-                margin-top: 5%;
-                margin-bottom: 5%;
-            }
-
-            #credential-form{
-                margin-top: 5%;
-                padding-top: 3%;
-            }
-        }
-
+    .form-v10-content .form-detail .form-left {
+      padding-bottom: 50px;
     }
-    .left-side{
-        width: 50%;
-        background: var(--primary-color);
-        color: white;
-        padding: 5px;
-        border-radius: 20px 0px 0px 20px;
-
-        h2{
-            margin-top: 10%;
-            margin-bottom: 10%;
-        }
-
-        .information-content{
-            text-align: center;
-            padding: 10px;
-        }
-        .signIn-link{
-            color: white;
-            pointer: cursor;
-        }
-
-        @media only screen and (max-width: 580px){ 
-            display: none;
-        }
+  }
+  @media screen and (max-width: 575px) {
+    .form-v10-content .form-detail .form-group {
+      flex-direction: column;
+      -o-flex-direction: column;
+      -ms-flex-direction: column;
+      -moz-flex-direction: column;
+      -webkit-flex-direction: column;
     }
-
-}
+    .form-v10-content .form-detail .form-row,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-1,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-2,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-3,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-4,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-1,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 {
+      width: auto;
+      padding: 0 30px;
+    }
+    .form-v10-content .form-detail .select-btn,
+    .form-v10-content .form-detail .form-left .form-group .form-row.form-row-4 .select-btn,
+    .form-v10-content .form-detail .form-right .form-group .form-row.form-row-2 .select-btn {
+      right: 15%;
+    }
+    .form-v10-content .form-detail h2 .prerequisites-paragraph {
+      padding: 33px 30px 0px 30px;
+    }
+    .form-v10-content .form-detail .form-checkbox {
+      padding: 0 30px;
+    }
+    .form-v10-content .form-detail .form-checkbox .checkmark {
+      left: 30px;
+    }
+    .form-v10-content .form-detail .form-right .form-row-last {
+      padding-left: 0;
+      text-align: center;
+      margin: 44px 0 30px;
+    }
+  }
 `;

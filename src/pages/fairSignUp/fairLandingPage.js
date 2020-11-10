@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import Button from '../../components/button';
 import Timer from '../../components/timer';
@@ -20,7 +20,7 @@ import profile3 from '../../assets/images/profile-3.jpg';
 const fairLandingPage = (props) => {
 
   const id = props.match.params.id;
-  console.log(id)
+
   return (
     <StyledDiv>
       <div className="container-fluid">
@@ -37,7 +37,7 @@ const fairLandingPage = (props) => {
             <div>
               <h3 className="banner-heading">Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
-              <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
+              <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
               <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
             </div>
           </div>
@@ -202,7 +202,7 @@ const fairLandingPage = (props) => {
                 <p>Exploring Digitalization in Oil & Gas</p>
               </div>
               <div className="col-lg-6">
-                <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
+                <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
                 <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
               </div>
             </div>

@@ -9,14 +9,19 @@ export default function AllFairs(props) {
 
     const headers = getUserToken();
 
+    const errorAlert = (message) => {
+        toast.error(message, { autoClose: 5000 }, {
+            position: toast.POSITION.TOP_LEFT
+        });
+    }
+
     useEffect(() => {
         coopLagApi.get(`/fairs`, { headers })
             .then(response => {
-                console.log(response.data.data)
                 setFairs(response.data.data);
             })
             .catch(error => {
-                console.error(error);
+                errorAlert(error.response.data.message);
             });
 
     }, [props.match.params.id]);
@@ -46,27 +51,24 @@ export default function AllFairs(props) {
 const StyledDiv = styled.div`
 text-align: center;
 margin-top: 0;
-padding-top: 10%;
+padding-top: 5%;
 padding-bottom: 2%;
 background: var(--primary-color);
 
 @media only screen and (max-width: 800px){
-    padding-top: 15%;
+    padding-top: 10%;
 }
 @media only screen and (max-width: 550px){ 
-    padding-top: 20%;
+    padding-top: 12%;
     h1{
         font-size: 35px;
     }
 }
 @media only screen and (max-width: 440px){ 
-    padding-top: 25%;
+    padding-top: 15%;
     h1{
         font-size: 30px;
     }
-}
-@media only screen and (max-width: 380px){ 
-    padding-top: 30%;
 }
 
     #title{

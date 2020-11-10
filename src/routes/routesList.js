@@ -41,12 +41,12 @@ export const routesList = [
   {
     path: '/requiredfiles/:id',
     component: Fileupload,
-    layout: MainLayouts,
+    layout: FairLayout,
   },
   {
     path: '/allfairs',
     component: AllFairs,
-    layout: MainLayouts,
+    layout: FairLayout,
   },
   {
     path: '/dashboard',
