@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import styled from "styled-components";
 import { useForm } from "react-hook-form"
@@ -9,15 +9,28 @@ import { coopLagApi } from "../../services/services"
 export default function RequiredFiles(props) {
     const { register, handleSubmit, errors } = useForm()
     const [clickAction, setclickAction] = useState(true)
+    // const [upload, setUpload] = useState([])
 
+    const fair_id = props.match.params.id
 
     const Clicked = () => {
         setclickAction(!clickAction)
     }
 
+    // useEffect(() => {
+    //     const id2 = props.match.params.id;
+
+    //     coopLagApi .get(`/fairs/${fair_id}/requirements/${requirements_id}`)
+    //       .then(response => {
+    //         setFamily(response.data.members);
+    //       })
+    //       .catch(error => {
+    //         console.error(error);
+    //       });
+
+    //   }, [props.match.params.id]);
+
     const onSubmit = (data) => {
-        const fair_id = props.match.params.id
-        console.log(fair_id)
         const headers = getUserToken();
 
         coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data,

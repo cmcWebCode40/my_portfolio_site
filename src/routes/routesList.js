@@ -40,14 +40,13 @@ export const routesList = [
   },
   {
     path: '/requiredfiles/:id',
-    // path: '/requiredfiles',
     component: Fileupload,
     layout: MainLayouts,
   },
   {
     path: '/allfairs',
     component: AllFairs,
-    layout: DashboardLayout,
+    layout: MainLayouts,
   },
   {
     path: '/dashboard',
