@@ -15,7 +15,10 @@ function Navbar() {
                 <span className="font-weight-bolder text-success">Square</span>
               </a>
             </div>
-            <div className="collapse navbar-collapse">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <div className="col col-lg-auto m-auto">
                 <ul className="navbar-nav">
                   <li className="px-3 font-weight-bolder custom_nav-link"><NavLink to="/">Home</NavLink></li>
@@ -24,17 +27,14 @@ function Navbar() {
                   <li className="px-3 font-weight-bolder custom_nav-link">Pricing</li>
                 </ul>
               </div>
+              <div className="register-login">
+                <div className="px-4 mb-n3">
+                  <NavLink to="/register"><Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign Up</Button></NavLink>
+                </div>
+                <div className="px-4 mb-n3">
+                  <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
+                </div>
             </div>
-            <div className="register-login">
-              <div>
-                <NavLink to="/register"><span id="register">Sign up</span></NavLink>
-              </div>
-              <div >
-                <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
-              </div>
-              {/* <div className="col-lg-1">
-                <NavLink to="/sign-in"><Button label="Sign In" /></NavLink>
-              </div> */}
             </div>
           </div>
         </div>

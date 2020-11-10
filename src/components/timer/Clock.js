@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import styled from "styled-components";
-var moment = require("moment");
+import styled from 'styled-components';
+var moment = require('moment');
 moment().format();
 
 class Clock extends Component {
@@ -11,7 +11,7 @@ class Clock extends Component {
       days: 0,
       hours: 0,
       minutes: 0,
-      seconds: 0
+      seconds: 0,
     };
   }
 
@@ -21,7 +21,7 @@ class Clock extends Component {
   }
 
   leadingZero(num) {
-    return num < 10 ? "0" + num : num;
+    return num < 10 ? '0' + num : num;
   }
 
   getTimeUntil(deadline) {
@@ -36,7 +36,7 @@ class Clock extends Component {
       days: days,
       hours: hours,
       minutes: minutes,
-      seconds: seconds
+      seconds: seconds,
     });
   }
 
@@ -45,10 +45,18 @@ class Clock extends Component {
     return (
       <ClockWrapper>
         <div className="clock">
-          <div>{this.leadingZero(this.state.days)} <div className="time-name">days</div></div>
-          <div>{this.leadingZero(this.state.hours)} <div className="time-name">hours</div></div>
-          <div>{this.leadingZero(this.state.minutes)} <div className="time-name">minutes</div></div>
-          <div>{this.leadingZero(this.state.seconds)} <div className="time-name">seconds</div></div>
+          <div>
+            {this.leadingZero(this.state.days)} <div className="time-name">days</div>
+          </div>
+          <div>
+            {this.leadingZero(this.state.hours)} <div className="time-name">hours</div>
+          </div>
+          <div>
+            {this.leadingZero(this.state.minutes)} <div className="time-name">minutes</div>
+          </div>
+          <div>
+            {this.leadingZero(this.state.seconds)} <div className="time-name">seconds</div>
+          </div>
         </div>
       </ClockWrapper>
     );
