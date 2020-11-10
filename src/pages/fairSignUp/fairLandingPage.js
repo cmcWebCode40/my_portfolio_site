@@ -17,7 +17,10 @@ import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
-const fairLandingPage = () => {
+const fairLandingPage = (props) => {
+
+  const id = props.match.params.id;
+
   return (
     <StyledDiv>
       <div className="container-fluid">
@@ -34,8 +37,7 @@ const fairLandingPage = () => {
             <div>
               <h3 className="banner-heading">Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
-              {/* <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large"><Link to={`/requiredfiles/${id}`}>Sign Up</Link></Button> */}
-              <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
+              <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
               <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
             </div>
           </div>
@@ -200,7 +202,7 @@ const fairLandingPage = () => {
                 <p>Exploring Digitalization in Oil & Gas</p>
               </div>
               <div className="col-lg-6">
-                <Link to="/requiredfiles"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign Up</Button></Link>
+                <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
                 <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
               </div>
             </div>

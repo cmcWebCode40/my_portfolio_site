@@ -30,6 +30,7 @@ const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
 const Fileupload = lazy(() => import("../pages/fairSignUp/RequiredCredentials"))
 const fairLandingPage = lazy(() => import('../pages/fairSignUp/fairLandingPage'));
+const AllFairs = lazy(() => import("../pages/fairSignUp/AllFairsPage"))
 
 export const routesList = [
   {
@@ -38,9 +39,13 @@ export const routesList = [
     layout: MainLayouts,
   },
   {
-    // path: '/requiredfiles/:id',
-    path: '/requiredfiles',
+    path: '/requiredfiles/:id',
     component: Fileupload,
+    layout: FairLayout,
+  },
+  {
+    path: '/allfairs',
+    component: AllFairs,
     layout: FairLayout,
   },
   {
@@ -120,7 +125,7 @@ export const routesList = [
     layout: MainLayouts,
   },
   {
-    path: '/fair-landing-page',
+    path: '/fair-landing-page/:id',
     component: fairLandingPage,
     layout: FairLayout,
   },
