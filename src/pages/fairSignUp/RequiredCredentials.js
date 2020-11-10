@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import styled from "styled-components";
-import axios from "axios";
 import { useForm } from "react-hook-form"
 import { getUserToken } from '../../utils/functions/userAuth';
 import { coopLagApi } from "../../services/services"
@@ -11,16 +10,14 @@ export default function RequiredFiles(props) {
     const { register, handleSubmit, errors } = useForm()
     const [clickAction, setclickAction] = useState(true)
 
-    // const test_id1 = useParams.id
-    // const test_id2 = props.match.params.id
-    // console.log(test_id)
 
     const Clicked = () => {
         setclickAction(!clickAction)
     }
 
     const onSubmit = (data) => {
-        const fair_id = `5f9032692bb0c600179cea69`
+        const fair_id = props.match.params.id
+        console.log(fair_id)
         const headers = getUserToken();
 
         coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data,
