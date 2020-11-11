@@ -5,14 +5,15 @@ import { Link } from 'react-router-dom';
 import { RequestLoaderIcon } from '../../Loaders/Loader';
 import theme from '../../../theme/theme';
 import useApi from '../../../hooks/Api/useApi';
+import { EmptyList } from '../../emptylist/EmptyList';
 
-const TableWrapper = styled.div`
+const TableWrapper = styled.table`
 box-shadow:${() => theme.styles.boxShadow};
 ;
-border-radius:${() => theme.styles.borderRadius};
-.cursor-btn{
-  cursor:pointer;
-}
+  border-radius:${() => theme.styles.borderRadius};
+  .cursor-btn{
+    cursor:pointer;
+  }
 
 `;
 
@@ -24,7 +25,7 @@ const Table = (props) => {
   } = useApi();
 
   return (
-    <TableWrapper className="container table-responsive">
+    <div className="">
       {error && (
       <div className={error.class} role="alert">
         {error.message}
@@ -38,14 +39,14 @@ const Table = (props) => {
       />
       )}
       {data.length ? (
-        <table className="table table-hover">
+        <TableWrapper className="table table-hover">
           <thead className="thead-light">
             <tr>
               <th scope="col">S/N</th>
               <th scope="col">Name</th>
               <th scope="col">Payments Options</th>
               <th scope="col">Fair type</th>
-              <th scope="col">Teams</th>
+              {/* <th scope="col">Teams</th> */}
               <th scope="col">Start date</th>
               <th scope="col">End date</th>
               <th scope="col">Details</th>
@@ -58,7 +59,7 @@ const Table = (props) => {
                 <td>{item.name}</td>
                 <td>{item.payment_options.length}</td>
                 <td>{item.fair_type}</td>
-                <td>{item.team}</td>
+                {/* <td>{item.team}</td> */}
                 <td>{moment(item.start_date).format('L')}</td>
                 <td>{moment(item.end_date).format('L')}</td>
                 <td>
@@ -72,15 +73,11 @@ const Table = (props) => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </TableWrapper>
       ) : (
-        <RequestLoaderIcon
-          size="3x"
-          label="Please wait"
-          className="text-primary bg-mid-gray"
-        />
+        <EmptyList text="No Fairs" />
       )}
-    </TableWrapper>
+    </div>
 
   );
 };
