@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import Button from '../components/button';
+import { Link } from 'react-router-dom';
 import testImg from '../components/landingpage/assets/00.webp';
 import kpmg from '../components/landingpage/assets/kpmg.png';
 import gtb from '../components/landingpage/assets/gtb.jpg';
@@ -27,7 +26,12 @@ const Home = () => {
             <p>Create a virtual exhibition fair in less than 5 minutes.</p>
             <div className="row">
               <div className="col-lg-4">
-                <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Create Fair</Button>
+                <Link
+                  to="/fair/dashboard-overview"
+                  className="btn btn-primary btn-lg"
+                >
+                  Create Fair
+                </Link>
               </div>
             </div>
           </div>
