@@ -31,7 +31,7 @@ const MainWrapper = styled.div`
   display: block;
   height: 100vh;
   background-color: '#333';
-  /* width:100%; */
+  width: 100%;
   overflow: hidden;
   background: url(${vendorImg});
   background-size: cover;
@@ -42,7 +42,8 @@ const MainWrapper = styled.div`
   }
 
   .vendor-shop-tab-desktop {
-    max-width: 300px;
+    width: 400px;
+    min-height: 600px;
   }
 
   @media ${(props) => props.theme.mediaQueries.medium} {
@@ -50,6 +51,7 @@ const MainWrapper = styled.div`
     background-image: none;
     #mobile {
       display: block;
+      width: 100%;
     }
     #desktop {
       display: none;
