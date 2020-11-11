@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const STYLES = ['btn--primary', 'btn--outline'];
+const STYLES = ['btn-primary', 'btn-outline'];
 
-const SIZES = ['btn--medium', 'btn--large'];
+const SIZES = ['btn-medium', 'btn-large'];
 
 const Button = ({
   children,
@@ -18,13 +18,16 @@ const Button = ({
 
   return (
     <StyledDiv>
-      <button className={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
+      <button
+        className={`btn ${checkButtonStyle} ${checkButtonSize} m-1`}
+        onClick={onClick}
+        type={type}
+      >
         {children}
       </button>
     </StyledDiv>
-  )
-  
-}
+  );
+};
 
 export default Button;
 
