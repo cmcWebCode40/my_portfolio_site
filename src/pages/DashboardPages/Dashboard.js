@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Route, NavLink } from "react-router-dom"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import ManageFair from "./Manage-Fair/ManageFair";
 import FairEvent from "./FairEvents/FairEvent";
 import CreateShops from "./Shops/CreateShops";
 import Construction from "./ConstructionPage";
+import Nav from "./MobileNav";
 
 
 function Dashboard() {
@@ -16,7 +15,6 @@ function Dashboard() {
             <div className="sidebar-div">
                 <div className="fair-name-bar">
                     <h5 className="co-op">Coop<span id="co-Lag">LAG</span></h5>
-                    <div className="font-bar"><FontAwesomeIcon icon={faBars} size="2x" /></div>
                 </div>
                 <div className="side-bar">
                     <p className="side-bar-header" id="fair-par">FAIR</p>
@@ -47,7 +45,7 @@ function Dashboard() {
                     <div className="dropdown" id="Sidebar-dropdown-div">
                         <p className="dropdown-toggle side-bar-par" type="" id="dropdownMenuButton" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Manage Fair Page
+                            Fair Page
                         </p>
                         <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li className="dropdown-item">
@@ -183,6 +181,9 @@ function Dashboard() {
                 </div>
             </div>
             <div className="Manage-body">
+                <div className="fair-name-bar-2">
+                    <Nav />
+                </div>
                 <Route exact path="/dashboard" component={ManageFair} />
                 <Route exact path="/dashboard/shops" component={CreateShops} />
                 <Route exact path="/dashboard/fairevents" component={FairEvent} />
@@ -200,21 +201,31 @@ const StyledDiv = styled.div`
     justify-content: space-between;
     background: #F8F8FF;
 
+    .fair-name-bar-2{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        box-shadow: 1px 3px 5px #e0e0e0;
+        padding: 3px 0px;
+        background: white;
+        height: 45px;
+    }
+
     .sidebar-div{
         background: white;
         width: 20%;
 
         .fair-name-bar{
-            display: flex;
-            justify-content: space-between;
-            flex-direction: row;
             box-shadow: 1px 3px 5px #e0e0e0;
-            padding: 3px 10px;
+            padding: 3px 5px;
             height: 45px;
+            text-align: left
+            align-content: center;
         }
 
         .co-op{
-            margin-left: 10px;
+            padding-top: 5px;
+            margin-left: 5px;
         }
         #co-Lag{
             font-weight: bold;
@@ -235,7 +246,7 @@ const StyledDiv = styled.div`
         }
 
         .side-bar-header{
-            margin: 20px 20px 10px 2px;
+            margin: 20px 20px 10px 0px;
             color: grey;
             text-align: left;
         } 
@@ -244,23 +255,32 @@ const StyledDiv = styled.div`
             cursor: pointer;
             color: royalblue;
             margin-top: 8px;
-            margin-left: 20px;
+            margin-left: 5%;
         }
+
         #fair-par{
-            margin-left:20px;
+            margin-left:5%;
         }
+
+        @media only screen and (max-width: 700px){
+            display: none;
+          }
 
     }
 
     .Manage-body{
         width: 80%;
+
+        @media only screen and (max-width: 700px){
+            width: 98%;
+          }
     }
 
     ul {
 
         list-style-type: none;
         margin: 0;
-        padding-left: 20px;
+        padding-left: 5%;
     
         li{
             padding: 3px 0;

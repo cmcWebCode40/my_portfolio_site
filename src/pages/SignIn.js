@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
+import { toast } from 'react-toastify';
+import { coopLagApi } from '../services/services';
 import {
   PLATFORM_ADMIN,
   saveAuthToken,
@@ -17,6 +18,23 @@ export default function UserSignIn({ history }) {
 
   const [signIn, setSignIn] = useState(credentials);
 
+  const warning = () => {
+    toast.warn('All inputs details are required', { autoClose: 6000 }, {
+      position: toast.POSITION.BOTTOM_LEFT
+    });
+  };
+
+  const errormessage = (message) => {
+    toast.error(message, { autoClose: 7000 }, {
+      position: toast.POSITION.TOP_LEFT
+    });
+  };
+  const information = () => {
+    toast.info('Please Holdon, Submitting Details! ....', { autoClose: 4000 }, {
+      position: toast.POSITION.BOTTOM_CENTER
+    });
+  };
+
   const handleChange = (e) => {
     e.persist();
     setSignIn({
@@ -27,20 +45,26 @@ export default function UserSignIn({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
-      .then((res) => {
-        const { data } = res.data;
-        saveUserDetails(data);
-        saveAuthToken(data.token);
-        setIsUserAuth(!isUserAuth);
-        if (data.role === PLATFORM_ADMIN) {
-          history.replace('/dashboard');
-        } else {
-          history.replace('/fair/dashboard-overview');
-        }
-      })
-      .catch(() => { });
+    if (signIn.email === '' || signIn.password === '') {
+      warning();
+    } else {
+      information();
+      coopLagApi.post('/users/login', signIn)
+        .then((res) => {
+          const { data } = res.data;
+          setIsUserAuth(!isUserAuth);
+          saveUserDetails(data);
+          saveAuthToken(data.token);
+          if (data.role === PLATFORM_ADMIN) {
+            history.replace('/dashboard');
+          } else {
+            history.replace('/fair/dashboard-overview');
+          }
+        })
+        .catch((error) => {
+          errormessage(error.response.data.message);
+        });
+    }
   };
   return (
     <StyledDiv>
@@ -48,11 +72,11 @@ export default function UserSignIn({ history }) {
         <h3 className="Details">Sign In</h3>
         <div className="input-field">
           <label htmlFor="name">Email</label>
-          <input type="email" name="email" onChange={handleChange} value={signIn.email} required />
+          <input type="email" name="email" onChange={handleChange} value={signIn.email} />
         </div>
         <div className="input-field">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" onChange={handleChange} value={signIn.password} required />
+          <input type="password" name="password" onChange={handleChange} value={signIn.password} />
         </div>
         <div>
           <button className="button-submit">Sign In</button>

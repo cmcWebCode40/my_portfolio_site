@@ -8,6 +8,7 @@ import MainLayouts from '../layouts/mainLayout/MainLayout';
 import VendorLayouts from '../layouts/vendorLayout/VendorLayout';
 import DashboardLayout from '../layouts/DashboardLayout/DashboardLayouts';
 import DashBoardLayoutFair from '../layouts/dashboard/Dashboard';
+import FairLayout from '../layouts/fairLayout/FairLayout';
 
 const Home = lazy(() => import('../pages/Home'));
 const CreateFair = lazy(() => import('../pages/createfair/CreateFair'));
@@ -27,12 +28,25 @@ const Register = lazy(() => import('../pages/Register'));
 const VerificationRequest = lazy(() => import('../pages/VerificationRequest'));
 const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation'));
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
+const Fileupload = lazy(() => import("../pages/fairSignUp/RequiredCredentials"))
+const fairLandingPage = lazy(() => import('../pages/fairSignUp/fairLandingPage'));
+const AllFairs = lazy(() => import("../pages/fairSignUp/AllFairsPage"))
 
 export const routesList = [
   {
     path: '/',
     component: Home,
     layout: MainLayouts,
+  },
+  {
+    path: '/requiredfiles/:id',
+    component: Fileupload,
+    layout: FairLayout,
+  },
+  {
+    path: '/allfairs',
+    component: AllFairs,
+    layout: FairLayout,
   },
   {
     path: '/dashboard',
@@ -109,6 +123,11 @@ export const routesList = [
     path: '/verify-request',
     component: VerificationRequest,
     layout: MainLayouts,
+  },
+  {
+    path: '/fair-landing-page/:id',
+    component: fairLandingPage,
+    layout: FairLayout,
   },
 
 ];
