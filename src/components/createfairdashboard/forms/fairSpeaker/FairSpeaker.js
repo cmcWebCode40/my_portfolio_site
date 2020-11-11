@@ -35,7 +35,10 @@ const FairWrapper = styled.div`
 
 `;
 
-const SpeakerFair = ({ activeStep, setActiveStep, fairId }) => {
+const SpeakerFair = ({
+  activeStep, setActiveStep, fairId, setreload,
+  setOpenAdd
+}) => {
   const [formValues, setFormValues] = useState('');
   const [banner, setBanner] = useState({ files: '' });
   const [error, setError] = useState('');
@@ -69,6 +72,10 @@ const SpeakerFair = ({ activeStep, setActiveStep, fairId }) => {
 
     try {
       await coopLagApi.post(`/fairs/${fairId}/speakers`, formData, { headers });
+      if (setreload) {
+        setreload(true);
+        setOpenAdd(false);
+      }
       setActiveStep(activeStep + 1);
     } catch (error) {
       if (error && error.response) {

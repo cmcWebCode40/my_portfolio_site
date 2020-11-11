@@ -50,7 +50,10 @@ const FairWrapper = styled.div`
 
 `;
 
-const Vendor = ({ activeStep, setActiveStep, fairId }) => {
+const Vendor = (props) => {
+  const {
+    activeStep, setActiveStep, fairId, setreload, type, item
+  } = props;
   const [formValues, setFormValues] = useState('');
   const [partners] = useState([]);
   const {
@@ -59,6 +62,19 @@ const Vendor = ({ activeStep, setActiveStep, fairId }) => {
     postData,
     postResponseData
   } = useApi();
+
+  useEffect(() => {
+    if (item) {
+      const {
+        name,
+        description,
+      } = item;
+      setFormValues({
+        name,
+        description,
+      });
+    }
+  });
 
   if (postResponseData) {
     toast.success(postResponseData.message, { toastId: 'fair' });
@@ -78,13 +94,13 @@ const Vendor = ({ activeStep, setActiveStep, fairId }) => {
       requirements: [{ name, description }]
     };
     const postValues = {
-      url: `/fairs/${fairId}/requirements`,
-      data
+      url: `/fairs/${fairId}/requirements/${item ? item._id : ''}`,
+      data,
+      type
     };
     await postData(postValues);
-    if (activeStep) {
-      setActiveStep(activeStep + 1);
-    }
+    if (activeStep) setActiveStep(activeStep + 1);
+    if (setreload) setreload(true);
   };
 
   useEffect(() => {
@@ -114,27 +130,35 @@ const Vendor = ({ activeStep, setActiveStep, fairId }) => {
                 type="text"
                 placeholder="Name"
                 name="name"
+                defaultValue={formValues.name || ''}
                 onChange={handleChange}
                 required
               />
             </div>
             <div>
               <div>
-                <textarea type="text" placeholder="description" name="description" onChange={handleChange} rows="7" required />
+                <textarea
+                  type="text"
+                  placeholder="description"
+                  name="description"
+                  defaultValue={formValues.description || ''}
+                  onChange={handleChange}
+                  rows="7"
+                  required
+                />
               </div>
             </div>
             <div className="col-md-12 my-3">
               <div className="row">
                 <div className="col">
-                  <button disabled={loading} className="btn btn-primary" type="submit">
+                  <button
+                    disabled={loading}
+                    className="btn btn-primary"
+                    type="submit"
+                  >
                     Submit
                   </button>
                 </div>
-                {/* <div className="col">
-                  <button onClick={moveToNext} className="btn btn-primary" type="submit">
-                    Continue
-                  </button>
-                </div> */}
               </div>
             </div>
           </div>

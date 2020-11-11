@@ -108,7 +108,6 @@ const CreateFairView = () => {
         </div>
       </ModalDialog>
       <div>
-        {/* <Table /> */}
         <Overview />
       </div>
     </div>

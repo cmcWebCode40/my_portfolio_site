@@ -3,12 +3,15 @@ import { Route, Redirect } from 'react-router-dom';
 import { authContextApi } from '../context/authContext';
 import { getUserToken } from '../utils/functions/userAuth';
 
-const PrivateRoute = ({ layout: Layout, component: Component, ...rest }) => {
+const PrivateRoute = (props) => {
+  const {
+    layout: Layout,
+    component: Component, ...rest
+  } = props;
   const { isUserAuth, } = useContext(authContextApi);
   const isLoggedIn = getUserToken();
 
   useEffect(() => {
-
   }, [isUserAuth]);
 
   return (

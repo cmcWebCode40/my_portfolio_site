@@ -27,7 +27,7 @@ const Home = () => {
             <p>Create a virtual exhibition fair in less than 5 minutes.</p>
             <div className="row">
               <div className="col-lg-4">
-              <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Create Fair</Button>
+                <Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Create Fair</Button>
               </div>
             </div>
           </div>

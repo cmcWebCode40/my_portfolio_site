@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom"
-import Button from '../../button';
+import { NavLink, useHistory } from 'react-router-dom';
+import Button from '../button';
+import { getUserData, logoutUser } from '../../../utils/functions/userAuth';
+import { authContextApi } from '../../../context/authContext';
 
 function Navbar() {
+  const [loading, setloading] = useState(false);
+  const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
+  const currentUser = getUserData('firstname');
+  const history = useHistory();
+
+  useEffect(() => {
+
+  }, [isUserAuth]);
+
   return (
     <StyledDiv>
       <div className="header  shadow-sm">
@@ -35,6 +46,48 @@ function Navbar() {
                   <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
                 </div>
             </div>
+<<<<<<< HEAD
+            <div className="register-login">
+              <div>
+                {currentUser
+                  ? (
+                    <span
+                      className="font-weight-bold "
+                    >
+                      {currentUser}
+                    </span>
+                  )
+                  : (
+                    <NavLink to="/register">
+                      <span id="register">Sign up</span>
+                    </NavLink>
+                  )}
+              </div>
+              <div>
+                {currentUser
+                  ? (
+                    <button
+                      disabled={!!loading}
+                      type="button"
+                      onClick={() => {
+                        setloading(true);
+                        logoutUser(history);
+                        setIsUserAuth(!isUserAuth);
+                        setloading(false);
+                      }}
+                      className="btn mx-2 btn-outline-primary"
+                    >
+                      Logout
+                    </button>
+                  )
+                  : (
+                    <NavLink to="/login">
+                      <Button label="Sign In" />
+                    </NavLink>
+                  )}
+              </div>
+=======
+>>>>>>> 3f29d477553dc78f500c3748162aefbd1ba99b27
             </div>
           </div>
         </div>
@@ -51,6 +104,13 @@ const StyledDiv = styled.div`
   z-index:999;
   background: white;
   margin: 0 0 2rem 0;
+
+
+  .icon{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    height:100vh
+  }
 
   .logo-box {
     font-size: 30px;

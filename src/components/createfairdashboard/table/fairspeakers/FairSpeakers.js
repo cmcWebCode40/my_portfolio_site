@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FilePond } from 'react-filepond';
-import { toast } from 'react-toastify';
 import { RequestLoaderIcon } from '../../../Loaders/Loader';
 import useApi from '../../../../hooks/Api/useApi';
 
@@ -49,7 +48,6 @@ const FairSpeaker = ({
     getData,
     error,
     postData,
-    postResponseData
   } = useApi();
 
   // if (postResponseData) {
@@ -58,7 +56,7 @@ const FairSpeaker = ({
 
   useEffect(() => {
     getData(`/fairs/${fairId}/speakers/${speakerId}`);
-  }, []);
+  }, [fairId]);
 
   useEffect(() => {
     if (data) {

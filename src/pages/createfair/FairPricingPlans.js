@@ -67,8 +67,8 @@ const FairWrapper = styled.div`
 
 const FairPricing = ({ match }) => {
   const [formValues, setFormValues] = useState('');
-  const [data, setData] = useState('');
-  const [reload, setreload] = useState('');
+  const [/* data */, setData] = useState('');
+  const [reload] = useState('');
   const [formValuesNumber, setFormValuesNumber] = useState(0);
   const [error, setError] = useState('');
   const [partners, setPartners] = useState([]);
@@ -232,7 +232,7 @@ const FairPricing = ({ match }) => {
             <div>
               <div className="label-ad">
                 <label className="ad-label" htmlFor="ads_per_booth">
-                  Booth Ad Price
+                  Booth Ad
                   {' '}
                   <input
                     id="ads_per_booth"
