@@ -43,7 +43,7 @@ const Navbar = () => {
         {navRoutes.map((route) => (
           <ListItem key={route.title}>
             <a className="nav-link active" href={route.path}>
-              <FontAwesomeIcon icon={route.icon} className="icon" />
+              <FontAwesomeIcon icon={route.icon} className="icon mx-auto mb-2" />
               {route.title}
             </a>
           </ListItem>
@@ -65,10 +65,8 @@ const Nav = styled.nav.attrs({
   padding: 0.2rem;
   width: 70%;
   max-width: 70%;
-  /* margin:5rem 5rem; */
 
   .icon {
-    margin: 0 0 0 0.4rem;
     color: ${(props) => props.theme.colors.gray};
     display: block;
   }
@@ -84,10 +82,9 @@ const Nav = styled.nav.attrs({
 `;
 
 const ListItem = styled.nav.attrs({
-  className: 'nav-item ',
+  className: 'nav-item border-right border-left my-2 px-4',
 })`
-  padding: 0.1rem 0.6rem;
-  margin: 0.3rem 1rem;
+  // padding: 0.1rem 0.9rem;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
