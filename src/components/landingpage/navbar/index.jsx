@@ -81,7 +81,7 @@ function Navbar() {
                     )
                     : (
                       <NavLink to="/login">
-                        <Button label="Sign In" />
+                        <Button>Sign In</Button>
                       </NavLink>
                     )}
                 </div>
