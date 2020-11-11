@@ -31,9 +31,9 @@ export default function UserSignIn({ history }) {
       .post('https://cooplagfair.herokuapp.com/api/v1/users/login', signIn)
       .then((res) => {
         const { data } = res.data;
-        setIsUserAuth(!isUserAuth);
         saveUserDetails(data);
         saveAuthToken(data.token);
+        setIsUserAuth(!isUserAuth);
         if (data.role === PLATFORM_ADMIN) {
           history.replace('/dashboard');
         } else {

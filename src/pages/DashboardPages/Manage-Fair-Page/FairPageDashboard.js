@@ -1,48 +1,48 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import styled from 'styled-components';
-import LogoPage from './LogoPage';
+import React from "react";
+import { Route } from "react-router-dom";
+import styled from "styled-components";
+import LogoPage from "./LogoPage";
 
 export default function FairPageDashboard() {
-  return (
-    <StyledDiv>
-      <div className="logo-side-body">
-        <div className="logo-sidenav-div" id="active-logo-page">
-          <span className="logo-sidenav-span">Change Logo</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Page Name</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Menu</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Slider</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Slider Content</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Sponsors</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">About Us</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Speakers</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Pricing</span>
-        </div>
-        <div className="logo-sidenav-div">
-          <span className="logo-sidenav-span">Footer</span>
-        </div>
-      </div>
-      <div className="manage-fairpage-main-content">
-        <Route exact path="/dashboard-fairpage" component={LogoPage} />
-      </div>
-    </StyledDiv>
-  );
+    return (
+        <StyledDiv>
+            <div className="logo-side-body">
+                <div className="logo-sidenav-div" id="active-logo-page">
+                    <span className="logo-sidenav-span">Change Logo</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Page Name</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Menu</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Slider</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Slider Content</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Sponsors</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">About Us</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Speakers</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Pricing</span>
+                </div>
+                <div className="logo-sidenav-div">
+                    <span className="logo-sidenav-span">Footer</span>
+                </div>
+            </div>
+            <div className="manage-fairpage-main-content">
+                <Route exact path="/dashboard-fairpage" component={LogoPage} />
+            </div>
+        </StyledDiv>
+    )
 }
 
 const StyledDiv = styled.div`
