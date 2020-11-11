@@ -38,14 +38,14 @@ function Navbar() {
                   <li className="px-3 font-weight-bolder custom_nav-link">Pricing</li>
                 </ul>
               </div>
-              <div className="register-login">
+              {/* <div className="register-login">
                 <div className="px-4 mb-n3">
                   <NavLink to="/register"><Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign Up</Button></NavLink>
                 </div>
                 <div className="px-4 mb-n3">
                   <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
                 </div>
-              </div>
+              </div> */}
               <div className="register-login">
                 <div>
                   {currentUser
