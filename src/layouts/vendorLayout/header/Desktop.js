@@ -5,23 +5,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Desktop = () => {
   return (
     <Row>
-      <div className="col p-2">
+      <div className="col px-lg-5 py-lg-3 px-4 py-2 my-auto">
         <h2>
           Coop
           <strong>LAG</strong>
         </h2>
       </div>
-      <div id="banner" className="col p-2 bg-primary text-white bold">
+      <div id="banner" className="col px-lg-5 py-lg-3 my-auto bg-primary text-white bold">
         <h2>Banners</h2>
       </div>
-      <div id="cart" className="">
-        <a className="nav-link text-dark" href="##">
+      <div id="cart" className="ml-auto my-auto">
+        <a className="nav-link text-dark" href="#">
           <FontAwesomeIcon
             style={{ display: 'block' }}
             icon={['fa', 'shopping-cart']}
             color="#555"
           />
-          Carts
+          Cart
         </a>
       </div>
     </Row>
@@ -39,7 +39,7 @@ const Row = styled.nav.attrs({
   }
   #cart {
     display: none;
-    float: right;
+    // float: right;
     position: relative;
     right: 0;
     margin: 0.3rem 0.6rem;
