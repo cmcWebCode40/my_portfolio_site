@@ -18,11 +18,11 @@ const VendorShopTabs = () => {
       <div className="panel-heading">
         <div className="panel-title">
           <List className="nav nav-tabs">
-            <a href="#1" data-toggle="tab" className="active">
-              <li>Visitors</li>
+            <a href="#1" data-toggle="tab" className="active col-6">
+              <li className="text-center">Visitors</li>
             </a>
-            <a href="#2" data-toggle="tab">
-              <li>Shop</li>
+            <a href="#2" data-toggle="tab" className=" col-6">
+              <li className="text-center">Shop</li>
             </a>
           </List>
         </div>
@@ -63,6 +63,11 @@ const TabWrapper = styled.div.attrs({
   min-height: 400px;
   margin-top: 3rem;
   margin-bottom: 3rem;
+
+  a {
+    color: ${(props) => props.theme.colors.gray};
+    text-decoration: none;
+  }
 `;
 
 const Divider = styled.hr`
@@ -74,11 +79,12 @@ const Divider = styled.hr`
 const List = styled.ul.attrs({
   // className: 'nav nav-pills',
 })`
-  justify-content: center;
+  // justify-content: center;
   color: ${(props) => props.theme.colors.gray};
   display: flex;
   align-content: center;
   border-radius: 3rem;
+  overflow: hidden;
   width: 70%;
   margin: auto;
   border: 3px solid ${(props) => props.theme.colors.gray};
@@ -86,7 +92,7 @@ const List = styled.ul.attrs({
     background: ${(props) => props.theme.colors.gray};
     padding: 0rem 0;
     color: ${(props) => props.theme.colors.whiteColor};
-    border-radius: 3rem;
+    overflow: hidden;
     border: none;
 
     a {
