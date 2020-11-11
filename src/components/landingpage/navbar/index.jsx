@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { NavLink, useHistory } from 'react-router-dom';
-import Button from '../button';
 import { getUserData, logoutUser } from '../../../utils/functions/userAuth';
 import { authContextApi } from '../../../context/authContext';
+import Button from '../../button';
 
 function Navbar() {
   const [loading, setloading] = useState(false);
@@ -27,7 +27,7 @@ function Navbar() {
               </a>
             </div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <div className="col col-lg-auto m-auto">
@@ -45,49 +45,47 @@ function Navbar() {
                 <div className="px-4 mb-n3">
                   <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
                 </div>
-            </div>
-<<<<<<< HEAD
-            <div className="register-login">
-              <div>
-                {currentUser
-                  ? (
-                    <span
-                      className="font-weight-bold "
-                    >
-                      {currentUser}
-                    </span>
-                  )
-                  : (
-                    <NavLink to="/register">
-                      <span id="register">Sign up</span>
-                    </NavLink>
-                  )}
               </div>
-              <div>
-                {currentUser
-                  ? (
-                    <button
-                      disabled={!!loading}
-                      type="button"
-                      onClick={() => {
-                        setloading(true);
-                        logoutUser(history);
-                        setIsUserAuth(!isUserAuth);
-                        setloading(false);
-                      }}
-                      className="btn mx-2 btn-outline-primary"
-                    >
-                      Logout
-                    </button>
-                  )
-                  : (
-                    <NavLink to="/login">
-                      <Button label="Sign In" />
-                    </NavLink>
-                  )}
+              <div className="register-login">
+                <div>
+                  {currentUser
+                    ? (
+                      <span
+                        className="font-weight-bold "
+                      >
+                        {currentUser}
+                      </span>
+                    )
+                    : (
+                      <NavLink to="/register">
+                        <span id="register">Sign up</span>
+                      </NavLink>
+                    )}
+                </div>
+                <div>
+                  {currentUser
+                    ? (
+                      <button
+                        disabled={!!loading}
+                        type="button"
+                        onClick={() => {
+                          setloading(true);
+                          logoutUser(history);
+                          setIsUserAuth(!isUserAuth);
+                          setloading(false);
+                        }}
+                        className="btn mx-2 btn-outline-primary"
+                      >
+                        Logout
+                      </button>
+                    )
+                    : (
+                      <NavLink to="/login">
+                        <Button label="Sign In" />
+                      </NavLink>
+                    )}
+                </div>
               </div>
-=======
->>>>>>> 3f29d477553dc78f500c3748162aefbd1ba99b27
             </div>
           </div>
         </div>
