@@ -82,9 +82,8 @@ const Nav = styled.nav.attrs({
 `;
 
 const ListItem = styled.nav.attrs({
-  className: 'nav-item border-right border-left my-2 px-4',
+  className: 'nav-item border-right border-left my-lg-2 px-lg-4 h-100',
 })`
-  // padding: 0.1rem 0.9rem;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
@@ -102,9 +101,9 @@ const List = styled.nav.attrs({
 })`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 1rem;
   @media ${(props) => props.theme.mediaQueries.medium} {
-    margin: -1rem 0 0.4rem 0;
-    padding: 0rem;
-    /* height:3rem; */
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
   }
 `;
