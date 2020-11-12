@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from 'react-router-dom';
+import { getUserData, logoutUser } from '../../../utils/functions/userAuth';
+import { authContextApi } from '../../../context/authContext';
 import Button from '../../button';
 
 function Navbar() {
+  const [loading, setloading] = useState(false);
+  const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
+  const currentUser = getUserData('firstname');
+  const history = useHistory();
+
+  useEffect(() => {
+
+  }, [isUserAuth]);
+
   return (
     <StyledDiv>
       <div className="header  shadow-sm">
@@ -16,7 +27,7 @@ function Navbar() {
               </a>
             </div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <div className="col col-lg-auto m-auto">
@@ -27,14 +38,54 @@ function Navbar() {
                   <li className="px-3 font-weight-bolder custom_nav-link">Pricing</li>
                 </ul>
               </div>
-              <div className="register-login">
+              {/* <div className="register-login">
                 <div className="px-4 mb-n3">
                   <NavLink to="/register"><Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign Up</Button></NavLink>
                 </div>
                 <div className="px-4 mb-n3">
                   <NavLink to="/login"><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Sign In</Button></NavLink>
                 </div>
-            </div>
+              </div> */}
+              <div className="register-login">
+                <div>
+                  {currentUser
+                    ? (
+                      <span
+                        className="font-weight-bold "
+                      >
+                        {currentUser}
+                      </span>
+                    )
+                    : (
+                      <NavLink to="/register">
+                        <span id="register">Sign up</span>
+                      </NavLink>
+                    )}
+                </div>
+                <div>
+                  {currentUser
+                    ? (
+                      <button
+                        disabled={!!loading}
+                        type="button"
+                        onClick={() => {
+                          setloading(true);
+                          logoutUser(history);
+                          setIsUserAuth(!isUserAuth);
+                          setloading(false);
+                        }}
+                        className="btn mx-2 btn-outline-primary"
+                      >
+                        Logout
+                      </button>
+                    )
+                    : (
+                      <NavLink to="/login">
+                        <Button>Sign In</Button>
+                      </NavLink>
+                    )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -51,6 +102,13 @@ const StyledDiv = styled.div`
   z-index:999;
   background: white;
   margin: 0 0 2rem 0;
+
+
+  .icon{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    height:100vh
+  }
 
   .logo-box {
     font-size: 30px;

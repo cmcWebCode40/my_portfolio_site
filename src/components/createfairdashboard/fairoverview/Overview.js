@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { errorHandler } from '../../../error/ErrorHandler';
 import useApi from '../../../hooks/Api/useApi';
-import { coopLagApi } from '../../../services/services';
-import { getUserToken } from '../../../utils/authToken';
 import Table from '../table/Table';
 
 const TabWrapper = styled.div.attrs({

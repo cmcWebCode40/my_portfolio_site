@@ -1,21 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import theme from '../../theme/theme';
 import { RequestLoaderIcon } from '../../components/Loaders/Loader';
 import ModalDialog from '../../components/modal/Modal';
 import FairSpeaker from '../../components/createfairdashboard/table/fairspeakers/FairSpeakers';
 import AddFairSpeaker from '../../components/createfairdashboard/forms/fairSpeaker/FairSpeaker';
 import useApi from '../../hooks/Api/useApi';
+import { EmptyList } from '../../components/emptylist/EmptyList';
 
-const TableWrapper = styled.div`
-box-shadow:${() => theme.styles.boxShadow};
-;
-border-radius:${() => theme.styles.borderRadius};
-.cursor-btn{
-  cursor:pointer;
-}
+const TableWrapper = styled.table`
+  box-shadow:${() => theme.styles.boxShadow};
+  ;
+  border-radius:${() => theme.styles.borderRadius};
+  .cursor-btn{
+    cursor:pointer;
+  }
+
+  .img-thumb{
+    height: 2rem;
+    width: 2rem;
+    border-radius: .3rem
+  }
 
 `;
 
@@ -23,7 +32,10 @@ const Table = ({ match }) => {
   const [speakerId, setSpeakerId] = useState('');
   const [open, setOpen] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
+  const [link, setLink] = useState('');
+  const [linkOpen, setLinkOpen] = useState('');
   const [reload, setreload] = useState('');
+  const [copy, setCopy] = useState(false);
   const {
     data, error, loading, getData
   } = useApi();
@@ -43,12 +55,15 @@ const Table = ({ match }) => {
 
   return (
     <>
-      <button type="button" className="btn btn-sm btn-primary" onClick={onOpenModalAdd}>
-        Add Fair Speakers
-        <FontAwesomeIcon icon={['fa', 'plus-circle']} className="text-white" />
-        {' '}
-      </button>
       <div className="container table-responsive">
+        <button
+          type="button"
+          className="btn btn-sm btn-primary"
+          onClick={onOpenModalAdd}
+        >
+          Add Fair Speakers
+          <FontAwesomeIcon icon={['fa', 'plus-circle']} className="text-white" />
+        </button>
         <ModalDialog open={open} setOpen={setOpen}>
           <FairSpeaker
             reload={reload}
@@ -57,9 +72,32 @@ const Table = ({ match }) => {
             speakerId={speakerId}
           />
         </ModalDialog>
+        <ModalDialog open={linkOpen} setOpen={setLinkOpen}>
+          <div className="my-5">
+            <h5 className="text-primary my-2">Copy your link</h5>
+            <input
+              type="text"
+              value={link}
+              readOnly
+              className="p-1 bg-light"
+            />
+            <CopyToClipboard
+              text="item.facebook"
+              onCopy={() => setCopy(!copy)}
+            >
+              <button type="button" className="btn btn-outline-success">
+                {copy
+                  ? 'Copied!' : 'Copy'}
+              </button>
+            </CopyToClipboard>
+          </div>
+
+        </ModalDialog>
         <ModalDialog open={openAdd} setOpen={setOpenAdd}>
           <AddFairSpeaker
             fairId={fairId}
+            setreload={setreload}
+            setOpenAdd={setOpenAdd}
           />
         </ModalDialog>
         {error && (
@@ -96,36 +134,53 @@ const Table = ({ match }) => {
                   <th scope="row">{index + 1}</th>
                   <td>
                     <img
-                      height="70"
-                      className="img-thumbnail"
+                      className="img-thumb"
                       src={item.photoUrl}
                       alt={item.name}
                     />
-
                   </td>
                   <td>{item.title}</td>
                   <td>{item.name}</td>
                   <td>{item.profession}</td>
                   <td title={item.facebook}>
-                    facebook
-                    {/* <CopyToClipboard
-
-text={`${process.env.REACT_APP_HOST_CLIENT}/customer/
-account/register?referralId=${referralId}`}
-              onCopy={() => setcopy(!copy)}
-            >
-              <Button
-                variant="outlined"
-                size="small"
-                className={classes.Btn}
-                color="secondary"
-              >
-                {copy ? 'Copied!' : 'Copy'}
-              </Button>
-            </CopyToClipboard> */}
+                    <FontAwesomeIcon
+                      size="1x"
+                      className="text-primary"
+                      onClick={() => {
+                        setLinkOpen(true);
+                        setLink(item.facebook);
+                      }}
+                      icon={faFacebook}
+                    />
                   </td>
-                  <td title={item.linkedIn}>{item.linkedIn}</td>
-                  <td title={item.instagram}>{item.instagram}</td>
+                  <td
+                    title={item.linkedIn}
+                  >
+                    <FontAwesomeIcon
+                      className="text-primary"
+                      size="1x"
+                      onClick={() => {
+                        setLinkOpen(true);
+                        setLink(item.linkedIn);
+                      }}
+                      icon={faLinkedin}
+                    />
+
+                  </td>
+                  <td
+                    title={item.instagram}
+                  >
+                    <FontAwesomeIcon
+                      size="1x"
+                      className="text-danger"
+                      onClick={() => {
+                        setLinkOpen(true);
+                        setLink(item.instagram);
+                      }}
+                      icon={faInstagram}
+                    />
+
+                  </td>
                   <td>
                     <span
                       aria-hidden
@@ -143,11 +198,7 @@ account/register?referralId=${referralId}`}
             </tbody>
           </TableWrapper>
         ) : (
-          <RequestLoaderIcon
-            size="3x"
-            label="Please wait"
-            className="text-primary bg-mid-gray"
-          />
+          <EmptyList />
         )}
       </div>
     </>

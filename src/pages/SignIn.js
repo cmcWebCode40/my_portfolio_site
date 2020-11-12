@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
-import { coopLagApi } from "../services/services"
+import { coopLagApi } from '../services/services';
 import {
   PLATFORM_ADMIN,
   saveAuthToken,
@@ -19,18 +19,18 @@ export default function UserSignIn({ history }) {
   const [signIn, setSignIn] = useState(credentials);
 
   const warning = () => {
-    toast.warn("All inputs details are required", { autoClose: 6000 }, {
+    toast.warn('All inputs details are required', { autoClose: 6000 }, {
       position: toast.POSITION.BOTTOM_LEFT
     });
-  }
+  };
 
   const errormessage = (message) => {
     toast.error(message, { autoClose: 7000 }, {
       position: toast.POSITION.TOP_LEFT
     });
-  }
+  };
   const information = () => {
-    toast.info("Please Holdon, Submitting Details! ....", { autoClose: 4000 }, {
+    toast.info('Please Holdon, Submitting Details! ....', { autoClose: 4000 }, {
       position: toast.POSITION.BOTTOM_CENTER
     });
   };
@@ -45,10 +45,10 @@ export default function UserSignIn({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (signIn.email === "" || signIn.password === "") {
-      warning()
+    if (signIn.email === '' || signIn.password === '') {
+      warning();
     } else {
-      information()
+      information();
       coopLagApi.post('/users/login', signIn)
         .then((res) => {
           const { data } = res.data;
@@ -62,7 +62,7 @@ export default function UserSignIn({ history }) {
           }
         })
         .catch((error) => {
-          errormessage(error.response.data.message)
+          errormessage(error.response.data.message);
         });
     }
   };
