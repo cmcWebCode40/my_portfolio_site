@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import imageLogo from '../../assets/images/eventlanding.PNG';
-import ToggleSwitch from '../../components/toggleSwitch/ToggleSwitch';
 import EventTabMobile from './EventTabMobile';
 import EventTabs from './EventTabs';
 
@@ -40,16 +39,11 @@ const Event = () => {
 
           <div>
             <img src={imageLogo} alt="Landing Page" />
+            <div></div>
           </div>
         </div>
         <div className="col mx-3">
           <EventTabs />
-          <ToggleSwitch
-            selected={selected}
-            toggleSelected={() => {
-              setSelected(!selected);
-            }}
-          />
         </div>
       </div>
     </EventWrapper>
