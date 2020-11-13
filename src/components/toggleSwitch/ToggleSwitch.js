@@ -8,7 +8,7 @@ function ToggleSwitch({ rounded = false }) {
   });
   return (
     <StyledDiv>
-      <label className="switch">
+      <label className="switch my-auto mx-2">
         <input type="checkbox" />
         <span className={sliderCX} />
       </label>
@@ -22,8 +22,8 @@ const StyledDiv = styled.div`
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 50px;
+    height: 24px;
   }
 
   .switch input {
@@ -48,8 +48,8 @@ const StyledDiv = styled.div`
   .slider:before {
     position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
+    height: 16px;
+    width: 16px;
     left: 4px;
     bottom: 4px;
     background-color: #fff;
@@ -65,7 +65,7 @@ const StyledDiv = styled.div`
   }
 
   .slider.rounded {
-    border-radius: 34px !important;
+    border-radius: 24px !important;
   }
 
   .slider.rounded:before {
