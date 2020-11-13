@@ -12,35 +12,26 @@ export default function RequiredFiles(props) {
   const fair_id = props.match.params.id;
 
   const errorAlert = (message) => {
-    toast.error(
-      message,
-      { autoClose: 5000 },
-      {
-        position: toast.POSITION.TOP_LEFT,
-      }
-    );
-  };
+    toast.error(message, { autoClose: 5000 }, {
+      position: toast.POSITION.TOP_LEFT
+    });
+  }
+
   const onSubmit = (data) => {
     const headers = getUserToken();
 
-    coopLagApi
-      .post(`/fairs/${fair_id}/vendor-credentials`, data, {
-        headers,
-      })
+    coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data, {
+      headers,
+    })
       .then((res) => {
-        console.log(res);
-        // const { data, status } = res.data;
-        // if (status === 'success') {
-        //   saveVendorDetails(data);
-        //     history.replace('/vendorprofile');
-        // }else {
-        //     history.replace('/....');
-        // }
+        const { data } = res.data;
+        props.history.replace(`/vendorprofile/${data.vendor}`);
       })
       .catch((error) => {
         errorAlert(error.response.data.message);
       });
   };
+
   return (
     <StyledDiv>
       <div className="page-content">
