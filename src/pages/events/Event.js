@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import imageLogo from '../../assets/images/eventlanding.PNG';
+import ToggleSwitch from '../../components/toggleSwitch/ToggleSwitch';
 import EventTabMobile from './EventTabMobile';
 import EventTabs from './EventTabs';
 
@@ -19,7 +20,6 @@ const EventWrapper = styled.div`
 `;
 
 const Event = () => {
-  const [selected, setSelected] = useState(false);
   return (
     <EventWrapper>
       <div id="mobile">
@@ -36,10 +36,11 @@ const Event = () => {
           <button type="button" className="btn btn-outline-dark m-2 ">
             Networking
           </button>
-
+          <div>
+            <ToggleSwitch rounded={true} />
+          </div>
           <div>
             <img src={imageLogo} alt="Landing Page" />
-            <div></div>
           </div>
         </div>
         <div className="col mx-3">
