@@ -1,4 +1,6 @@
 import Cookies from 'universal-cookie';
+import { errorHandler } from '../../error/ErrorHandler';
+import { coopLagApi } from '../../services/services';
 
 const cookies = new Cookies();
 
@@ -42,6 +44,16 @@ const clearUserBrowserStore = () => {
   cookies.remove('vcn_usr:auth');
 };
 
+const logoutUser = async (history) => {
+  try {
+    await coopLagApi.get('/logout', { headers: getUserToken() });
+    clearUserBrowserStore();
+    history.push('/login');
+  } catch (error) {
+    errorHandler(error);
+  }
+};
+
 /**
  *
  * SAVE VCN USER DATA IN BROWSER STORAGE....
@@ -59,6 +71,8 @@ const saveUserDetails = (newUser) => {
 };
 
 const saveAuthToken = (token) => {
+  // const timestamp = new Date().getTime(); // current time
+  // const expires = timestamp + (60 * 60 * 24 * 1000 * 1);
   cookies.set('vcn_usr:auth', `${token}`, { path: '/' });
 };
 
@@ -68,6 +82,7 @@ export {
   USER,
   getUserToken,
   getUserData,
+  logoutUser,
   clearUserBrowserStore,
   saveUserDetails,
   saveAuthToken,

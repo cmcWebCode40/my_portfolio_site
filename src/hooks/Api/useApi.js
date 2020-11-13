@@ -13,7 +13,7 @@ const useApi = () => {
   const handleError = (error) => {
     if (error && error.response) {
       const { data } = errorHandler(error);
-      setError({ message: data.message, class: 'alert alert-danger' });
+      setError({ message: data ? data.message : 'something went wrong', class: 'alert alert-danger' });
     } else {
       setError('something went wrong');
     }
@@ -23,7 +23,9 @@ const useApi = () => {
     setloading(true);
     try {
       const res = await coopLagApi.get(url, { headers });
-      setdata(res.data.data);
+      if (res.data) {
+        setdata(res.data.data);
+      }
       // console.log(res.data.data.topics);
     } catch (error) {
       handleError(error);

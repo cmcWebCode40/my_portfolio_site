@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import LogoPage from './LogoPage';
-import Nav from "./FairPageMobile"
+import Nav from './FairPageMobile';
 
 export default function FairPageDashboard() {
   return (

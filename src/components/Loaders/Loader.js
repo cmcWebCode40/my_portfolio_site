@@ -14,8 +14,15 @@ export const RequestLoaderIcon = ({
   size, className, label, styles
 }) => {
   return (
-    <span style={defaultStyles} className="d-block bg-white p-3">
-      <FontAwesomeIcon icon={['fa', 'spinner']} spin size={size} color="#333" className={className} styles={styles} />
+    <span style={styles} className="d-block bg-white p-3">
+      <FontAwesomeIcon
+        icon={['fa', 'spinner']}
+        spin
+        size={size}
+        color="#333"
+        className={className}
+        // style={styles}
+      />
       <span>{label}</span>
     </span>
   );
