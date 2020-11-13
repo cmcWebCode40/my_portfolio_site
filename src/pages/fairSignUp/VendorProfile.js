@@ -45,10 +45,10 @@ export default function VendorProfile(props) {
                             <p id="edit-icon"><span>Edit profile <FontAwesomeIcon icon={faUserEdit} id="edited" /></span></p>
                         </div>
                         <div className="reg-fairs">
-                            <h5>Fairs Registered in</h5>
                             <hr></hr>
+                            <h5>Fairs Registered in</h5>
                             {info.fairs.map(fair => (
-                                <div key={fair}>
+                                <div key={fair} id="fairs">
                                     <p>{fair}</p>
                                 </div>
                             ))}
@@ -86,13 +86,10 @@ const StyledDiv = styled.div`
         border: 2px solid var(--primary-color);
         border-radius: 5px;
 
-        hr{
-            background: var(--primary-color);
-        }
-
         @media only screen and (max-width: 860px){
             display: flex;
             flex-direction: column;
+
         } 
     }
 
@@ -106,6 +103,7 @@ const StyledDiv = styled.div`
             min-width: 250px;
             width: 95%;
             margin: auto;
+            padding-bottom: 5px;  
         } 
         
 
@@ -127,6 +125,8 @@ const StyledDiv = styled.div`
             border-bottom: none;
             text-align: right;
             cursor: pointer;
+            margin-botton: 5px;
+            padding-bottom: 5px;  
 
             span{
                 font-size: 12px;
@@ -154,24 +154,47 @@ const StyledDiv = styled.div`
         text-align: center;
         margin: auto;
 
+        
+        @media only screen and (max-width: 860px){
+            text-align: left;
+            width: 100%;
+         } 
+
         hr{
-            width: 300px;
-            margin-bottom: 10px;
-            border-top: 1px solid LightGray;
+            display: none;
+
+            @media only screen and (max-width: 860px){
+                display: block;
+                margin-bottom: 20px;
+                margin-top: -5px;
+                border-top: 2px solid grey;
+            }
+        }
+     
+        h5{
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 3px dashed lightgrey;
+            padding-bottom: 10px;
+
+            
+            @media only screen and (max-width: 860px){
+    
+                h5{
+                    margin-left: 20px;
+                }
+            } 
+        }
+        #fairs{
+            cursor: pointer;
+            padding-top: 5px;
+            border-radius: 10px;
+            margin: 1px;
+        }
+        #fairs:hover{
+            color: white;
+            background: forestgreen;
         }
 
-        @media only screen and (max-width: 860px){
-           text-align: left;
-           width: 100%;
-
-           h5{
-               margin-left: 30px;
-           }
-
-           hr{
-               width: 80%;
-               text-align: left;
-           }
-        } 
     }
 `;
