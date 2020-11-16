@@ -34,8 +34,8 @@ const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
 const Fileupload = lazy(() => import('../pages/fairSignUp/RequiredCredentials'));
 const fairLandingPage = lazy(() => import('../pages/fairSignUp/fairLandingPage'));
-const AllFairs = lazy(() => import("../pages/fairSignUp/AllFairsPage"));
-const VendorProfile = lazy(() => import("../pages/fairSignUp/VendorProfile"))
+const AllFairs = lazy(() => import('../pages/fairSignUp/AllFairsPage'));
+const VendorProfile = lazy(() => import('../pages/fairSignUp/VendorProfile'));
 
 export const routesList = [
   {
