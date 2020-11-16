@@ -5,6 +5,7 @@ import imageLogo from '../../assets/images/eventlanding.PNG';
 import view from '../../assets/images/view.svg';
 import clap from '../../assets/images/clap-hands.svg';
 import help from '../../assets/images/help.svg';
+import arrow from '../../assets/images/up-arrow.svg';
 import ToggleSwitch from '../../components/toggleSwitch/ToggleSwitch';
 import EventTabMobile from './EventTabMobile';
 import EventTabs from './EventTabs';
@@ -39,7 +40,9 @@ const Event = () => {
             </div>
             <div className="right-side ml-3">
               <div>
-                <div>arrow</div>
+                <div className="mx-auto px-1">
+                  <img src={arrow} className="eye-image mx-2" />
+                </div>
                 <div className="icon-box">
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
@@ -50,7 +53,9 @@ const Event = () => {
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                 </div>
-                <div>arrow</div>
+                <div className="mx-auto px-1 down-arrow">
+                  <img src={arrow} className="eye-image mx-2" />
+                </div>
               </div>
               <div>
                 <img src={view} className="eye-image" />
@@ -118,5 +123,9 @@ const EventWrapper = styled.div`
   .eye-image {
     width: 30px;
     height: auto;
+  }
+
+  .down-arrow {
+    transform: rotate(180deg);
   }
 `;
