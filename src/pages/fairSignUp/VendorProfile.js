@@ -38,7 +38,7 @@ export default function VendorProfile(props) {
 
   return (
     <StyledDiv>
-      <div className="vendor-profile container-fluid mx-auto">
+      <div className="vendor-profile container mx-auto">
         {profile.map((info) => (
           <div key={info._id} className="profile row py-5 px-3">
             <div className="identity col-lg-6 mx-auto shadow p-5 mb-5">
@@ -99,6 +99,7 @@ const StyledDiv = styled.div`
     border-radius: 20px;
     max-width: 400px;
     width: 100%;
+    border: 1px solid var(--primary-color);
   }
 
   .profile-pic {
