@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import imageLogo from '../../assets/images/eventlanding.PNG';
+import view from '../../assets/images/view.svg';
+import clap from '../../assets/images/clap-hands.svg';
+import help from '../../assets/images/help.svg';
 import ToggleSwitch from '../../components/toggleSwitch/ToggleSwitch';
 import EventTabMobile from './EventTabMobile';
 import EventTabs from './EventTabs';
@@ -50,6 +53,21 @@ const Event = () => {
                 <div>arrow</div>
               </div>
               <div>
+                <img src={view} className="eye-image" />
+                <br />
+                1000
+              </div>
+              <div>
+                <img src={clap} className="eye-image" />
+                <br />
+                321
+              </div>
+              <div>
+                <img src={help} className="eye-image" />
+                <br />
+                12
+              </div>
+              <div>
                 <FontAwesomeIcon className="icon" icon={['fa', 'eye']} />
               </div>
             </div>
@@ -95,5 +113,10 @@ const EventWrapper = styled.div`
   .icon {
     display: block;
     margin: 5px;
+  }
+
+  .eye-image {
+    width: 30px;
+    height: auto;
   }
 `;
