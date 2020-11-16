@@ -53,21 +53,21 @@ const Event = () => {
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                 </div>
-                <div className="mx-auto px-1 down-arrow">
+                <div className="mx-auto pl-3 down-arrow">
                   <img src={arrow} className="eye-image mx-2" />
                 </div>
               </div>
-              <div>
+              <div className="px-3">
                 <img src={view} className="eye-image" />
                 <br />
                 1000
               </div>
-              <div>
+              <div className="px-3">
                 <img src={clap} className="eye-image" />
                 <br />
                 321
               </div>
-              <div>
+              <div className="px-3">
                 <img src={help} className="eye-image" />
                 <br />
                 12
