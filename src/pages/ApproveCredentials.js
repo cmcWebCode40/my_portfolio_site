@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { coopLagApi } from '../services/services';
 import { getUserToken } from '../utils/functions/userAuth';
 import { toast } from 'react-toastify';
 
-export default function ApproveCredentials(props) {
+export default function ApproveCredentials() {
     const [credentials, setCredentials] = useState([])
 
-    const user_id = `5f9ca3ecca44fd0017507b53`;
-
+    const fair_id = `5f9ca3ecca44fd0017507b53`;
     const headers = getUserToken();
 
     const errorAlert = (message) => {
@@ -23,14 +23,14 @@ export default function ApproveCredentials(props) {
 
     useEffect(() => {
         coopLagApi
-            .get(`/fairs/${user_id}/vendor-credentials`, { headers })
+            .get(`/fairs/${fair_id}/vendor-credentials`, { headers })
             .then((response) => {
                 setCredentials(response.data.data);
             })
             .catch((error) => {
                 errorAlert(error.response.data.message);
             });
-    }, [user_id]);
+    }, [fair_id]);
 
     return credentials.length < 1 ? (<StyledDiv><h3>Loading....</h3></StyledDiv>) : (
         <StyledDiv>
@@ -38,9 +38,10 @@ export default function ApproveCredentials(props) {
             <div className="cards-div">
                 {credentials.map((data) => (
                     <div key={data._id} className="vendor-card">
-                        <p>Vendor's Name: {data.vendorName}</p>
-                        <p>Approved?: {data.approved}</p>
-                        <p>Fair: {data.fair}</p>
+                        <Link to={`/approvecredential/credentials/${data._id}?fair_id=${fair_id}&user_id=${data.vendor}`}>
+                            <p>Vendor's Name: {data.vendorName}</p>
+                            <p>Approved?: {data.approved}</p>
+                        </Link>
                     </div>
                 ))}
             </div>
@@ -67,6 +68,10 @@ const StyledDiv = styled.div`
         padding: 10px 5px;
         margin: 10px 5px;
         cursor: pointer;
+
+        a{
+            text-decoration: none;
+        }
     }
     .vendor-card:hover{
         background: lightgrey;
