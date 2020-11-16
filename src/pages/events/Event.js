@@ -34,6 +34,10 @@ const Event = () => {
               <div className="event-options mt-2 w-50 mx-auto">
                 <span className="my-auto">Ask questions </span>
                 <ToggleSwitch rounded={true} />
+                <span>
+                  <img src={clap} className="eye-image" />
+                </span>
+                <span className="m-2">Clap</span>
                 <span>Audio </span>
                 <ToggleSwitch rounded={true} />
               </div>
