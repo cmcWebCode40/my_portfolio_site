@@ -11,9 +11,9 @@ const Desktop = () => {
           <strong>LAG</strong>
         </h2>
       </div>
-      <div id="banner" className="col px-lg-5 py-lg-3 my-auto bg-primary text-white bold">
+      {/* <div id="banner" className="col px-lg-5 py-lg-3 my-auto bg-primary text-white bold">
         <h2>Banners</h2>
-      </div>
+      </div> */}
       <div id="cart" className="ml-auto my-auto">
         <a className="nav-link text-dark" href="#">
           <FontAwesomeIcon

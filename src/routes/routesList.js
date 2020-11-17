@@ -39,6 +39,7 @@ const VendorProfile = lazy(() => import("../pages/fairSignUp/VendorProfile"))
 const ApproveCredentials = lazy(() => import("../pages/ApproveCredentials"))
 const Credentials = lazy(() => import("../pages/SinlgeCredential"))
 
+
 export const routesList = [
   {
     path: '/',

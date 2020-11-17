@@ -4,20 +4,19 @@ import shellLogo from '../../../assets/images/shelllogo.png';
 import ADImg from '../../../assets/images/adcarousel.PNG';
 
 const HotDealsWrapper = styled.div`
-
-  img{
-    width:auto;
+  img {
+    width: auto;
   }
-  .image-2{
-    height:20rem;
-    border-radius:${(props) => props.theme.styles.borderRadius}
+  .image-2 {
+    height: 20rem;
+    border-radius: ${(props) => props.theme.styles.borderRadius};
   }
 
   @media ${(props) => props.theme.mediaQueries.medium} {
-    .image-2{
-      height:7rem;
+    .image-2 {
+      height: 7rem;
     }
-   }
+  }
 `;
 
 const HotDeals = ({ title }) => {

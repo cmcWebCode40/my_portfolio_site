@@ -12,17 +12,22 @@ export default function RequiredFiles(props) {
   const fair_id = props.match.params.id;
 
   const errorAlert = (message) => {
-    toast.error(message, { autoClose: 5000 }, {
-      position: toast.POSITION.TOP_LEFT
-    });
-  }
+    toast.error(
+      message,
+      { autoClose: 5000 },
+      {
+        position: toast.POSITION.TOP_LEFT,
+      }
+    );
+  };
 
   const onSubmit = (data) => {
     const headers = getUserToken();
 
-    coopLagApi.post(`/fairs/${fair_id}/vendor-credentials`, data, {
-      headers,
-    })
+    coopLagApi
+      .post(`/fairs/${fair_id}/vendor-credentials`, data, {
+        headers,
+      })
       .then((res) => {
         const { data } = res.data;
         props.history.replace(`/vendorprofile/${data.vendor}`);
@@ -138,6 +143,19 @@ export default function RequiredFiles(props) {
                   id="input-file"
                 />
                 {errors.requirements && <p className="error-para">Please upload an image</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="number"
+                  multiple
+                  name="delivery_duration"
+                  ref={register({ required: true })}
+                  id="delivery-duration"
+                  placeholder="Delivery Duration in digits"
+                />
+                {errors.requirements && (
+                  <p className="error-para">Please specify a delivery duration</p>
+                )}
               </div>
               <div className="form-checkbox">
                 <label className="container">
