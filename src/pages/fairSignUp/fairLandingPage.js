@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom"
-
+import { useForm } from 'react-hook-form';
 import Button from '../../components/button';
 import Timer from '../../components/timer';
 import CheckMarkSuccess from '../../components/checkMark/checkMarkSuccess';
@@ -16,10 +16,45 @@ import total from '../../assets/images/total.png';
 import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
+import { getUserToken } from '../../utils/functions/userAuth';
+import { coopLagApi } from '../../services/services';
+import { toast } from 'react-toastify';
 
-const fairLandingPage = (props) => {
+const FairLandingPage = (props) => {
+  const { register, handleSubmit, errors } = useForm();
 
+  const errorAlert = (message) => {
+    toast.error(
+      message,
+      { autoClose: 5000 },
+      {
+        position: toast.POSITION.TOP_LEFT,
+      }
+    );
+  };
+
+  const headers = getUserToken();
   const id = props.match.params.id;
+
+  const PlanSubmit = (plans) => {
+
+    const plan_id = "5fa010a0af6ccf0017e5c380"
+    console.log(plans)
+
+    coopLagApi
+      .post(`/fairs/${id}/plans/${plan_id}/purchase`, plans, {
+        headers,
+      })
+      .then((res) => {
+        const { data } = res.data;
+        console.log(data)
+        // props.history.replace(`/vendorprofile/${data.vendor}`);
+      })
+      .catch((error) => {
+        errorAlert(error.response.data.message);
+      });
+
+  }
 
   return (
     <StyledDiv>
@@ -38,7 +73,7 @@ const fairLandingPage = (props) => {
               <h3 className="banner-heading">Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
               <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
-              <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+              <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Enter Fair</Button>
             </div>
           </div>
           <div className="w-100 container p-5">
@@ -109,7 +144,7 @@ const fairLandingPage = (props) => {
             <h3 className="container pb-5">Pricing</h3>
           </div>
           <div className="row mx-auto">
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Starter</div>
               <div className="price-offerings">
                 <div className="row">
@@ -136,7 +171,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="price">$1,000</div>
             </div>
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Business</div>
               <div className="price-offerings">
                 <div className="row">
@@ -163,7 +198,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="price">$5,000</div>
             </div>
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Professional</div>
               <div className="price-offerings">
                 <div className="row">
@@ -193,6 +228,33 @@ const fairLandingPage = (props) => {
           </div>
         </section>
 
+        <div class="modal fade" id="special-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Enter Email Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <input
+                  type="text"
+                  name="email"
+                  id="email-input"
+                  ref={register({ required: true })}
+                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                  placeholder="Your Business Email here"
+                />
+                {errors.email && <p className="error-para">Business email is required</p>}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onClick={handleSubmit(PlanSubmit)}>Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Section 5 */}
         <section className="row pre-footer-section mx-auto">
           <div className="container">
@@ -203,7 +265,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="col-lg-6">
                 <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
-                <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+                <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Enter Fair</Button>
               </div>
             </div>
           </div>
@@ -213,9 +275,27 @@ const fairLandingPage = (props) => {
   );
 };
 
-export default fairLandingPage;
+export default FairLandingPage;
 
 const StyledDiv = styled.div`
+
+    #email-input{
+      width: 70%;
+      border: 1px solid lightgrey;
+      border-radius: 10px;
+    }
+
+    #email-input:focus {
+      border: 1.5px solid forestgreen;
+      outline: none;
+    }
+
+    .error-para {
+      color: #efefef;
+      font-style: italic;
+      font-size: 12px;
+    }
+
     img {
       width: 100%;
     }
@@ -298,6 +378,7 @@ const StyledDiv = styled.div`
       width: 100%;
       background-color: var(--tint);
       border-radius: 20px;
+      cursor: pointer;
     }
 
     @media screen and (min-width: 920px) {

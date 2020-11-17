@@ -39,6 +39,8 @@ const VendorProfile = lazy(() => import("../pages/fairSignUp/VendorProfile"))
 const ApproveCredentials = lazy(() => import("../pages/ApproveCredentials"))
 const Credentials = lazy(() => import("../pages/SinlgeCredential"))
 
+const PaystackPay = lazy(() => import("../pages/Payment/Paystack"))
+
 
 export const routesList = [
   {
@@ -114,6 +116,12 @@ export const routesList = [
   {
     path: '/dashboard/construction',
     component: DashboardPages,
+    layout: DashboardLayout,
+  },
+
+  {
+    path: '/payment/paystack',
+    component: PaystackPay,
     layout: DashboardLayout,
   },
 
