@@ -132,8 +132,9 @@ const SpeakerFair = ({
                   onChange={handleChange}
                   rows="2"
                   required
-                  type="url"
+                
                   id="url"
+                  type="url"
                   placeholder="https://example.com"
                   pattern="https://.*"
                   size="30"
