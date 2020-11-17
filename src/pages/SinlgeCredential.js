@@ -62,22 +62,24 @@ export default function SingleCredentials({ history, match }) {
 
     return (
         <StyledDiv>
-            <h3>Vendor Credentials!</h3>
+            <h3>Vendors Credentials!</h3>
             <div className="cards-div">
                 {credentialsInfo.map((data) => (
                     <div key={data._id} className="vendor-card">
                         <p>Vendor's Name: {data.vendorName}</p>
                         {data.credentials.map(credential => (
                             <div key={credential._id}>
-                                <p>{credential.name}</p>
-                                <img src={credential.value} alt="images" />
+                                <p>File name: {credential.name}</p>
+                                <div className="image-div">
+                                    <img src={credential.value} alt="images" />
+                                </div>
                             </div>
                         ))}
                     </div>
                 ))}
                 <div className="btns-div">
-                    <button onClick={() => approval(true)}>Approved</button>
-                    <button onClick={() => approval(false)}>Rejected</button>
+                    <span id="approved" onClick={() => approval(true)}>Approved</span>
+                    <span id="rejected" onClick={() => approval(false)}>Rejected</span>
                 </div>
             </div>
         </StyledDiv>
@@ -92,17 +94,41 @@ h3{
 }
 
 .btns-div{
-    // display: flex;
-    // justify-content: spaced-evenly;
-    // flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    #approved{
+        color: white;
+        background: var(--primary);
+        margin-right: 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #rejected{
+        color: white;
+        background: red;
+        margin-left: 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+img{
+    width: 400px;
+    height: 300px;
 }
 
 .vendor-card{
     border: 2px dashed grey;
     border-radius: 10px;
     padding: 10px 5px;
-    margin: 10px 5px;
+    margin: 5% auto 2%;
     cursor: pointer;
+    width: 450px;
+    text-align: center;
 
     a{
         text-decoration: none;
