@@ -1,176 +1,189 @@
-import React from "react";
-import { Link } from "react-router-dom"
-import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { getUserToken } from '../../utils/functions/userAuth';
 import { coopLagApi } from '../../services/services';
 
 export default function RequiredFiles(props) {
-    const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
-    const fair_id = props.match.params.id
+  const fair_id = props.match.params.id;
 
-    const errorAlert = (message) => {
-        toast.error(message, { autoClose: 5000 }, {
-            position: toast.POSITION.TOP_LEFT
-        });
-    }
-    const onSubmit = (data) => {
-        const headers = getUserToken();
+  const errorAlert = (message) => {
+    toast.error(
+      message,
+      { autoClose: 5000 },
+      {
+        position: toast.POSITION.TOP_LEFT,
+      }
+    );
+  };
 
-        coopLagApi
-            .post(`/fairs/${fair_id}/vendor-credentials`, data, {
-                headers,
-            })
-            .then((res) => {
-                console.log(res);
-                // const { data, status } = res.data;
-                // if (status === 'success') {
-                //   saveVendorDetails(data);
-                //     history.replace('/vendorprofile');
-                // }else {
-                //     history.replace('/....');
-                // }
-            })
-            .catch((error) => {
-                errorAlert(error.response.data.message);
-            });
-    };
-    return (
-        <StyledDiv>
-            <div className="page-content">
-                <div className="form-v10-content">
-                    <form className="form-detail" method="post" id="myform" onSubmit={handleSubmit(onSubmit)}>
-                        <div className="form-left">
-                            <h2>Prerequisites</h2>
-                            <p className="prerequisites-paragraph">
-                                To use this form, you must already be a registered user.{' '}
-                                <div>
-                                    Register{' '}
-                                    <Link to="/register" className="signIn-link">
-                                        Here
+  const onSubmit = (data) => {
+    const headers = getUserToken();
+
+    coopLagApi
+      .post(`/fairs/${fair_id}/vendor-credentials`, data, {
+        headers,
+      })
+      .then((res) => {
+        const { data } = res.data;
+        props.history.replace(`/vendorprofile/${data.vendor}`);
+      })
+      .catch((error) => {
+        errorAlert(error.response.data.message);
+      });
+  };
+
+  return (
+    <StyledDiv>
+      <div className="page-content">
+        <div className="form-v10-content">
+          <form className="form-detail" method="post" id="myform" onSubmit={handleSubmit(onSubmit)}>
+            <div className="form-left">
+              {/* <h2>Prerequisites</h2> */}
+              <p className="prerequisites-paragraph">
+                You must be a registered user to use this form.{' '}
+                <div>
+                  Register{' '}
+                  <Link to="/register" className="signIn-link">
+                    Here
                   </Link>
-                                </div>
-                            </p>
-                            <p className="prerequisites-paragraph">
-                                Already have an account?{' '}
-                                <div>
-                                    Login{' '}
-                                    <Link to="/register" className="signIn-link">
-                                        Here
+                </div>
+              </p>
+              <p className="prerequisites-paragraph">
+                Already have an account?{' '}
+                <div>
+                  Login{' '}
+                  <Link to="/register" className="signIn-link">
+                    Here
                   </Link>
-                                </div>
-                            </p>
-                        </div>
-                        <div className="form-right">
-                            <h2>Business Details</h2>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_name"
-                                    className="company"
-                                    id="company"
-                                    placeholder="Name of Business"
-                                    ref={register({ required: true })}
-                                />
-                                {errors.business_name && <p className="error-para">Business name is required</p>}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_address"
-                                    className="company"
-                                    id="company"
-                                    placeholder="Business Address"
-                                    ref={register({ required: true })}
-                                />
-                                {errors.business_address && (
-                                    <p className="error-para">Business address is required</p>
-                                )}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_city"
-                                    className="company"
-                                    id="company"
-                                    placeholder="City"
-                                    ref={register({ required: true })}
-                                />
-                                {errors.business_city && <p className="error-para">Please input your city</p>}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_state"
-                                    className="company"
-                                    id="company"
-                                    placeholder="State"
-                                    ref={register({ required: true })}
-                                />
-                                {errors.business_state && <p className="error-para">Please put in your state</p>}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_tel"
-                                    className="phone"
-                                    id="phone"
-                                    placeholder="Phone Number"
-                                    ref={register({ required: true })}
-                                />
-                                {errors.business_tel && <p className="error-para">Phone number is required</p>}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="text"
-                                    name="business_email"
-                                    id="your_email"
-                                    className="input-text"
-                                    ref={register({ required: true })}
-                                    pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
-                                    placeholder="Your Email"
-                                />
-                                {errors.business_email && <p className="error-para">Business email is required</p>}
-                            </div>
-                            <div className="form-row">
-                                <input
-                                    type="file"
-                                    multiple
-                                    name="requirements"
-                                    ref={register({ required: true })}
-                                    id="input-file"
-                                />
-                                {errors.requirements && <p className="error-para">Please upload an image</p>}
-                            </div>
-                            <div className="form-checkbox">
-                                <label className="container">
-                                    <p>
-                                        I accept the{' '}
-                                        <a href="#" className="text">
-                                            Terms and Conditions
+                </div>
+              </p>
+            </div>
+            <div className="form-right">
+              <h2>Business Details</h2>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_name"
+                  className="company"
+                  id="company"
+                  placeholder="Name of Business"
+                  ref={register({ required: true })}
+                />
+                {errors.business_name && <p className="error-para">Business name is required</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_address"
+                  className="company"
+                  id="company"
+                  placeholder="Business Address"
+                  ref={register({ required: true })}
+                />
+                {errors.business_address && (
+                  <p className="error-para">Business address is required</p>
+                )}
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_city"
+                  className="company"
+                  id="company"
+                  placeholder="City"
+                  ref={register({ required: true })}
+                />
+                {errors.business_city && <p className="error-para">Please input your city</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_state"
+                  className="company"
+                  id="company"
+                  placeholder="State"
+                  ref={register({ required: true })}
+                />
+                {errors.business_state && <p className="error-para">Please put in your state</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_tel"
+                  className="phone"
+                  id="phone"
+                  placeholder="Phone Number"
+                  ref={register({ required: true })}
+                />
+                {errors.business_tel && <p className="error-para">Phone number is required</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="text"
+                  name="business_email"
+                  id="your_email"
+                  className="input-text"
+                  ref={register({ required: true })}
+                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
+                  placeholder="Your Email"
+                />
+                {errors.business_email && <p className="error-para">Business email is required</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="file"
+                  multiple
+                  name="requirements"
+                  ref={register({ required: true })}
+                  id="input-file"
+                />
+                {errors.requirements && <p className="error-para">Please upload an image</p>}
+              </div>
+              <div className="form-row">
+                <input
+                  type="number"
+                  multiple
+                  name="delivery_duration"
+                  ref={register({ required: true })}
+                  id="delivery-duration"
+                  placeholder="Delivery Duration in digits"
+                />
+                {errors.requirements && (
+                  <p className="error-para">Please specify a delivery duration</p>
+                )}
+              </div>
+              <div className="form-checkbox">
+                <label className="container">
+                  <p>
+                    I accept the{' '}
+                    <a href="#" className="text">
+                      Terms and Conditions
                     </a>{' '}
                     of your fair.
                   </p>
-                                    <input type="checkbox" name="checkbox" />
-                                    <span className="checkmark"></span>
-                                </label>
-                            </div>
-                            <div className="form-row-last">
-                                <input
-                                    type="submit"
-                                    name="register"
-                                    className="register"
-                                    value="Register for Fair"
-                                />
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                  <input type="checkbox" name="checkbox" />
+                  <span className="checkmark"></span>
+                </label>
+              </div>
+              <div className="form-row-last">
+                <input
+                  type="submit"
+                  name="register"
+                  className="register"
+                  value="Register for Fair"
+                />
+              </div>
             </div>
-        </StyledDiv>
-    );
+          </form>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

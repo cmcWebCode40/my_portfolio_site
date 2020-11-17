@@ -112,7 +112,7 @@ export default function UserSignUp({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (signUp.phoneNumber === "" || signUp.email === "" || signUp.firstname === "" || signUp.lastname == "" || signUp.username === "" || signUp.password === "") {
+    if (signUp.phoneNumber === "" || signUp.email === "" || signUp.firstname === "" || signUp.lastname === "" || signUp.username === "" || signUp.password === "") {
       warning()
     } else {
       information()

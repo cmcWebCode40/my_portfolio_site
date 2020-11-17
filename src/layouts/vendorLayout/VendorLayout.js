@@ -6,9 +6,9 @@ import Footer from './footer/Footer';
 import Navbar from './navbar/Navbar';
 
 const MainWrapper = styled.div`
-  background-color:${(props) => props.theme.colors.light};
+  background-color: ${(props) => props.theme.colors.light};
   @media ${(props) => props.theme.mediaQueries.medium} {
-    background-color:${(props) => props.theme.colors.whiteColor};
+    background-color: ${(props) => props.theme.colors.whiteColor};
   }
 `;
 
