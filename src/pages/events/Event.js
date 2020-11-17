@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import imageLogo from '../../assets/images/eventlanding.PNG';
+import view from '../../assets/images/view.svg';
+import clap from '../../assets/images/clap-hands.svg';
+import help from '../../assets/images/help.svg';
+import arrow from '../../assets/images/up-arrow.svg';
 import ToggleSwitch from '../../components/toggleSwitch/ToggleSwitch';
 import EventTabMobile from './EventTabMobile';
 import EventTabs from './EventTabs';
@@ -30,13 +34,19 @@ const Event = () => {
               <div className="event-options mt-2 w-50 mx-auto">
                 <span className="my-auto">Ask questions </span>
                 <ToggleSwitch rounded={true} />
+                <span>
+                  <img src={clap} className="eye-image" />
+                </span>
+                <span className="m-2">Clap</span>
                 <span>Audio </span>
                 <ToggleSwitch rounded={true} />
               </div>
             </div>
             <div className="right-side ml-3">
               <div>
-                <div>arrow</div>
+                <div className="mx-auto px-1">
+                  <img src={arrow} className="eye-image mx-2" />
+                </div>
                 <div className="icon-box">
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
@@ -47,7 +57,24 @@ const Event = () => {
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                 </div>
-                <div>arrow</div>
+                <div className="mx-auto pl-3 down-arrow">
+                  <img src={arrow} className="eye-image mx-2" />
+                </div>
+              </div>
+              <div className="px-3">
+                <img src={view} className="eye-image" />
+                <br />
+                1000
+              </div>
+              <div className="px-3">
+                <img src={clap} className="eye-image" />
+                <br />
+                321
+              </div>
+              <div className="px-3">
+                <img src={help} className="eye-image" />
+                <br />
+                12
               </div>
               <div>
                 <FontAwesomeIcon className="icon" icon={['fa', 'eye']} />
@@ -95,5 +122,14 @@ const EventWrapper = styled.div`
   .icon {
     display: block;
     margin: 5px;
+  }
+
+  .eye-image {
+    width: 30px;
+    height: auto;
+  }
+
+  .down-arrow {
+    transform: rotate(180deg);
   }
 `;
