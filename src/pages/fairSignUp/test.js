@@ -8,11 +8,11 @@ import { coopLagApi } from '../../services/services';
 
 import gtb from '../../assets/images/gtb.jpg';
 
-export default function VendorProfile(props) {
+export default function VendorProfile({ match }) {
   const [profile, setProfile] = useState([]);
 
   const headers = getUserToken();
-  const vendor_id = props.match.params.id;
+  const vendor_id = match.params.id;
 
   const errorAlert = (message) => {
     toast.error(
@@ -34,7 +34,7 @@ export default function VendorProfile(props) {
       .catch((error) => {
         errorAlert(error.response.data.message);
       });
-  }, [props.match.params.id]);
+  }, [match.params.id]);
 
   return (
     <StyledDiv>
@@ -43,7 +43,7 @@ export default function VendorProfile(props) {
           <div key={info._id} className="profile">
             <div className="identity">
               <div>
-                <img src={gtb} />
+                <img alt="tags" src={gtb} />
               </div>
               <p>
                 <span>Name: </span>
@@ -55,7 +55,10 @@ export default function VendorProfile(props) {
               </p>
               <p>
                 <span>Location (city, State): </span>
-                {info.business_city}, {info.business_state}
+                {info.business_city}
+                ,
+                {' '}
+                {info.business_state}
               </p>
               <p>
                 <span>Phone: </span>
@@ -67,12 +70,14 @@ export default function VendorProfile(props) {
               </p>
               <p id="edit-icon">
                 <span>
-                  Edit profile <FontAwesomeIcon icon={faUserEdit} id="edited" />
+                  Edit profile
+                  {' '}
+                  <FontAwesomeIcon icon={faUserEdit} id="edited" />
                 </span>
               </p>
             </div>
             <div className="reg-fairs">
-              <hr></hr>
+              <hr />
               <h5>Fairs Registered in</h5>
               {info.fairs.map((fair) => (
                 <div key={fair} id="fairs">

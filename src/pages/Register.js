@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
-import { coopLagApi } from "../services/services"
 import { toast } from 'react-toastify';
+import { coopLagApi } from '../services/services';
 import { authContextApi } from '../context/authContext';
 import {
   PLATFORM_ADMIN,
@@ -52,6 +52,7 @@ const StyledDiv = styled.div`
 
   label {
     font-size: .6rem;
+    display:block
   }
 
   .input-field {
@@ -84,20 +85,19 @@ export default function UserSignUp({ history }) {
   const [signUp, setSignUp] = useState(credentials);
   const { isUserAuth, setIsUserAuth } = useContext(authContextApi);
 
-
   const warning = () => {
-    toast.warn("All inputs details are required", { autoClose: 6000 }, {
+    toast.warn('All inputs details are required', { autoClose: 6000 }, {
       position: toast.POSITION.BOTTOM_LEFT
     });
-  }
+  };
 
   const errormessage = (message) => {
     toast.error(message, { autoClose: 7000 }, {
       position: toast.POSITION.TOP_LEFT
     });
-  }
+  };
   const information = () => {
-    toast.info("Please Holdon, Submitting Details! ....", { autoClose: 4000 }, {
+    toast.info('Please Holdon, Submitting Details! ....', { autoClose: 4000 }, {
       position: toast.POSITION.BOTTOM_CENTER
     });
   };
@@ -112,10 +112,10 @@ export default function UserSignUp({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (signUp.phoneNumber === "" || signUp.email === "" || signUp.firstname === "" || signUp.lastname === "" || signUp.username === "" || signUp.password === "") {
-      warning()
+    if (signUp.phoneNumber === '' || signUp.email === '' || signUp.firstname === '' || signUp.lastname === '' || signUp.username === '' || signUp.password === '') {
+      warning();
     } else {
-      information()
+      information();
       coopLagApi.post('/users/register', signUp)
         .then((res) => {
           const { data, status } = res.data;
@@ -132,46 +132,63 @@ export default function UserSignUp({ history }) {
           }
         })
         .catch((error) => {
-          errormessage(error.response.data.message)
+          errormessage(error.response.data.message);
         });
     }
-
   };
   return (
     <StyledDiv>
       <form onSubmit={handleSubmit} className="form">
         <h3 className="Details">Create Account</h3>
         <div className="input-field">
-          <label htmlFor="name">Full Name</label>
-          <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} />
+          <label htmlFor="name">
+            Full Name
+            <input type="text" name="username" placeholder=" Enter Username" onChange={handleChange} value={signUp.username} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="name">First Name</label>
-          <br />
-          <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} />
+          <label htmlFor="name">
+            First Name
+            <br />
+            <input type="text" name="firstname" onChange={handleChange} value={signUp.firstname} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="name">Last Name</label>
-          <br />
-          <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} />
+          <label htmlFor="name">
+            Last Name
+            <br />
+            <input type="text" name="lastname" onChange={handleChange} value={signUp.lastname} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="password">Create Password</label>
-          <br />
-          <input type="password" name="password" onChange={handleChange} value={signUp.password} />
+          <label htmlFor="password">
+            Create Password
+            <br />
+            <input type="password" name="password" onChange={handleChange} value={signUp.password} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="name">Email</label>
-          <br />
-          <input type="email" name="email" onChange={handleChange} value={signUp.email} />
+          <label htmlFor="name">
+            Email
+            <br />
+            <input type="email" name="email" onChange={handleChange} value={signUp.email} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="name">Phone Number</label>
-          <br />
-          <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} />
+          <label htmlFor="name">
+            Phone Number
+            <br />
+            <input type="text" name="phoneNumber" onChange={handleChange} value={signUp.phoneNumber} />
+          </label>
         </div>
         <div>
-          <button className="button-submit">Create Account</button>
+          <button
+            type="submit"
+            className="button-submit"
+          >
+            Create Account
+
+          </button>
         </div>
       </form>
     </StyledDiv>

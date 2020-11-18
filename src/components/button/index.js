@@ -7,10 +7,10 @@ const SIZES = ['btn-medium', 'btn-large'];
 
 const Button = ({
   children,
-  type,
+  // type: buttonType,
   onClick,
   buttonStyle,
-  buttonSize
+  buttonSize,
 }) => {
   const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 
@@ -21,7 +21,7 @@ const Button = ({
       <button
         className={`btn ${checkButtonStyle} ${checkButtonSize} m-1`}
         onClick={onClick}
-        type={type}
+        type="button"
       >
         {children}
       </button>
@@ -29,42 +29,47 @@ const Button = ({
   );
 };
 
+Button.defaultProp = {
+  buttonType: 'button',
+};
+
 export default Button;
 
 const StyledDiv = styled.div`
-.btn {
-  padding: 8px 20px;
-  margin-bottom: 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  max-width: 200px;
-}
+  .btn {
+    padding: 8px 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+  }
 
-.btn--primary {
-  background-color: var(--primary-color);
-  color: var(--tint);
-  border: 1px solid var(--primary-color);
-}
+  .btn--primary {
+    background-color: var(--primary-color);
+    color: var(--tint);
+    border: 1px solid var(--primary-color);
+  }
 
-.btn--outline {
-  background-color: transparent;
-  color: var(--primary-color);
-  padding: 8px 20px;
-  border: 1px solid var(--primary-color);
-  transition: var(--transition);
-}
+  .btn--outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    padding: 8px 20px;
+    border: 1px solid var(--primary-color);
+    transition: var(--transition);
+  }
 
-.btn--medium {
-  padding: 8px 20px;
-  font-size: 20px;
-}
+  .btn--medium {
+    padding: 8px 20px;
+    font-size: 20px;
+  }
 
-.btn--medium:hover, .btn--large:hover {
-  background: var(--primary-color);
-  color: var(--tint);
-  transition: var(--transition);
-}
+  .btn--medium:hover,
+  .btn--large:hover {
+    background: var(--primary-color);
+    color: var(--tint);
+    transition: var(--transition);
+  }
 `;

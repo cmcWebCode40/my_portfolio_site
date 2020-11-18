@@ -1,23 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-
+import React from 'react';
+import styled from 'styled-components';
 
 export default function Construction() {
-   return (
-      <StyeldDiv>
-         <div className="manage-body">
-            <div className="manage-body-content">
-               <div className="manage-fair">
-                  <h5 className="manage">New Title</h5>
-                  <span className="manage-span">+ New </span>
-               </div>
-               <div>
-                  <h1>Oop!.... Still Under Construction.</h1>
-               </div>
-            </div>
-         </div>
-      </StyeldDiv>
-   )
+  return (
+    <StyeldDiv>
+      <div className="manage-body">
+        <div className="manage-body-content">
+          <div className="manage-fair">
+            <h5 className="manage">New Title</h5>
+            <span className="manage-span">+ New </span>
+          </div>
+          <div>
+            <h1>Oop!.... Still Under Construction.</h1>
+          </div>
+        </div>
+      </div>
+    </StyeldDiv>
+  );
 }
 
 const StyeldDiv = styled.div`

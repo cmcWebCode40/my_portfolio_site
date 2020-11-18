@@ -1,49 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RequestLoaderIcon } from '../../../Loaders/Loader';
 import theme from '../../../../theme/theme';
-import { errorHandler } from '../../../../error/ErrorHandler';
-import { coopLagApi } from '../../../../services/services';
-import { getUserToken } from '../../../../utils/functions/userAuth';
+
 import FairPlan from './editModal/FairPlans';
 import ModalDialog from '../../../modal/Modal';
 import { EmptyList } from '../../../emptylist/EmptyList';
+import useApi from '../../../../hooks/Api/useApi';
 
 const TableWrapper = styled.table`
-  box-shadow:${() => theme.styles.boxShadow};
-    border-radius:${() => theme.styles.borderRadius};
-    .cursor-btn{
-      cursor:pointer;
-    }
-
+  box-shadow: ${() => theme.styles.boxShadow};
+  border-radius: ${() => theme.styles.borderRadius};
+  .cursor-btn {
+    cursor: pointer;
+  }
 `;
 
 const FairPreset = ({ match }) => {
-  const [error, setError] = useState('');
+  const { fairId } = match.params;
   const [open, setOpen] = useState(false);
   const [openId, setOpenId] = useState(false);
-  const [loading, setloading] = useState(false);
-  const [data, setData] = useState([]);
   const [singleData, setSingleData] = useState('');
-  const [reload, setreload] = useState(false);
-  const headers = getUserToken();
-  const { fairId } = match.params;
-
-  const getAllFairs = async () => {
-    setloading(true);
-    try {
-      const res = await coopLagApi.get(`/fairs/${fairId}/preset-plans`, { headers });
-      setData(res.data.data);
-    } catch (error) {
-      if (error && error.response) {
-        const { data } = errorHandler(error);
-        setError({ message: data.message, class: 'alert alert-danger' });
-      }
-    }
-    setloading(false);
-  };
+  const {
+    data, error, loading, refetch: reload, setRefech: setreload
+  } = useApi(
+    `/fairs/${fairId}/preset-plans`
+  );
 
   const setSingleItem = (item) => {
     setSingleData(item);
@@ -52,56 +36,28 @@ const FairPreset = ({ match }) => {
 
   const onOpenModal = () => setOpen(true);
 
-  useEffect(() => {
-    getAllFairs();
-  }, [reload]);
-
   return (
     <div className="container">
-      <button
-        type="button"
-        className="btn btn-primary"
-        onClick={onOpenModal}
-      >
+      <button type="button" className="btn btn-primary" onClick={onOpenModal}>
         Add Plans
         {' '}
-        <FontAwesomeIcon
-          icon={['fa', 'plus-circle']}
-          className="text-white"
-        />
+        <FontAwesomeIcon icon={['fa', 'plus-circle']} className="text-white" />
         {' '}
       </button>
-      <ModalDialog
-        open={open}
-        setOpen={setOpen}
-      >
+      <ModalDialog open={open} setOpen={setOpen}>
         <FairPlan fairId={fairId} />
       </ModalDialog>
-      <ModalDialog
-        open={openId}
-        setOpen={setOpenId}
-      >
+      <ModalDialog open={openId} setOpen={setOpenId}>
         <span className="text-primary text-center h4">Edit Fair Plans</span>
-        <FairPlan
-          fairId={fairId}
-          setreload={setreload}
-          singleData={singleData}
-        />
+        <FairPlan fairId={fairId} setreload={setreload} reload={reload} singleData={singleData} />
       </ModalDialog>
       {error && (
-      <div
-        className={error.class}
-        role="alert"
-      >
-        {error.message}
-      </div>
-      ) }
+        <div className={error.class} role="alert">
+          {error.message}
+        </div>
+      )}
       {loading && (
-      <RequestLoaderIcon
-        size="3x"
-        label="Please wait"
-        className="text-primary bg-mid-gray"
-      />
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
       )}
       {data.length ? (
         <TableWrapper className="table table-hover mt-2">
@@ -136,7 +92,6 @@ const FairPreset = ({ match }) => {
         <EmptyList text="No Fair Preset" />
       )}
     </div>
-
   );
 };
 

@@ -67,7 +67,7 @@ const Cart = () => {
                       />
                     </div>
                     <div className="my-2 mx-3 cart-caption">
-                      <h5>42" Television</h5>
+                      <h5>42&quot; Television</h5>
                       <p>N42,000</p>
                     </div>
                   </div>
@@ -92,7 +92,8 @@ const Cart = () => {
                     />
                   </button>
                   <div className="mt-3">
-                    <span className="text-primary">Discount</span>{' '}
+                    <span className="text-primary">Discount</span>
+                    {' '}
                     <span className="discount">12%</span>
                   </div>
                 </div>

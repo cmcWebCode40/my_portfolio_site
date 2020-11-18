@@ -11,11 +11,8 @@ import './sass/main.scss';
 import './libs';
 
 const App = () => {
-  const kvjsdvsdv = 'rerkjgeblkblk';
-
   return (
     <ThemeProvider theme={theme}>
-      sdjcks'sdskjd
       <UserAuthProvider>
         <Provider store={store}>
           <Routes />

@@ -1,68 +1,72 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 
 function Nav() {
-    const [isSidebarOpen, setisSidebarOpen] = useState(false);
+  const [isSidebarOpen, setisSidebarOpen] = useState(false);
 
-    const handleMenuButton = () => {
-        setisSidebarOpen(!isSidebarOpen)
-    };
-    const autocloseMenu = () => {
-        setTimeout(() => {
-            setisSidebarOpen(!isSidebarOpen)
-        }, 5000)
-    }
-    return (
-        <StyledDiv>
-            <div className="menu-button" onClick={handleMenuButton}><FontAwesomeIcon icon={faBars} size="2x" /></div>
-            <nav className={`nav ${isSidebarOpen ? 'show' : ''}`}>
-                <div className="mobile-header">
-                    <div >
-                        <h5>Coop<span id="Cooplag">LAG</span></h5>
-                    </div>
-                    <div id="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
-                </div>
-                <div className="menu-items" onClick={autocloseMenu}>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Change Logo</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Page Name</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Menu</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Slider</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Slider Content</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Sponsors</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">About Us</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Speakers</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Pricing</span>
-                    </div>
-                    <div className="menu-list">
-                        <span className="logo-sidenav-span">Footer</span>
-                    </div>
-                </div>
-            </nav>
-        </StyledDiv>
+  const handleMenuButton = () => {
+    setisSidebarOpen(!isSidebarOpen);
+  };
+  const autocloseMenu = () => {
+    setTimeout(() => {
+      setisSidebarOpen(!isSidebarOpen);
+    }, 5000);
+  };
+  return (
+    <StyledDiv>
+      <div aria-hidden className="menu-button" onClick={handleMenuButton}><FontAwesomeIcon icon={faBars} size="2x" /></div>
+      <nav className={`nav ${isSidebarOpen ? 'show' : ''}`}>
+        <div className="mobile-header">
+          <div>
+            <h5>
+              Coop
+              <span id="Cooplag">LAG</span>
+            </h5>
+          </div>
+          <div aria-hidden id="close" onClick={handleMenuButton}>
+            {' '}
+            <FontAwesomeIcon icon={faTimes} size="1x" />
+          </div>
+        </div>
+        <div aria-hidden className="menu-items" onClick={autocloseMenu}>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Change Logo</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Page Name</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Menu</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Slider</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Slider Content</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Sponsors</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">About Us</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Speakers</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Pricing</span>
+          </div>
+          <div className="menu-list">
+            <span className="logo-sidenav-span">Footer</span>
+          </div>
+        </div>
+      </nav>
+    </StyledDiv>
 
-    )
+  );
 }
-
 
 export default Nav;
 
@@ -150,4 +154,4 @@ display: none;
     width: 50px;
   }
 
-`
+`;

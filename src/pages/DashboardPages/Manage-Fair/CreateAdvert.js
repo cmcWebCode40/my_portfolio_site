@@ -1,60 +1,61 @@
-import React from "react";
-import styled from "styled-components";
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import styled from 'styled-components';
 
 export default function CreateAdvert() {
-    return (
-        <StyledDiv>
-            <div className="advert">
-                <h5 className="advert-cat">Advert Settings</h5>
-            </div>
-            <form id="advert-form">
-                <div>
-                    <label className="advert-labels">Ads Per Booth</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-labels">Ads Per Stories</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-labels">Ads Per Banner</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-labels">Stage Ads</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-labels">Booth Position</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div className="advert-price-range-div">
-                    <div>
-                        <div><label id="advert-price-range-label">Price</label></div>
-                        <input placeholder=" Enter Amount" id="advert-price-input" />
-                    </div>
-                    <div>
-                        <div><label id="advert-price-range-label">Range</label></div>
-                        <input placeholder=" Enter Booth Number Range" id="advert-range-input" />
-                    </div>
-                    <div><span className="span-advert-cat">+ New Category</span></div>
-                </div>
-                <div>
-                    <label className="advert-label">Pane Page Ads</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-label">Lead Generations</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <div>
-                    <label className="advert-label">Attendants</label>
-                    <input placeholder=" Enter Amount" id="advert-input" />
-                </div>
-                <button>Submit</button>
-            </form>
-        </StyledDiv>
-    )
+  return (
+    <StyledDiv>
+      <div className="advert">
+        <h5 className="advert-cat">Advert Settings</h5>
+      </div>
+      <form id="advert-form">
+        <div>
+          <label className="advert-labels">Ads Per Booth</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-labels">Ads Per Stories</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-labels">Ads Per Banner</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-labels">Stage Ads</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-labels">Booth Position</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div className="advert-price-range-div">
+          <div>
+            <div><label id="advert-price-range-label">Price</label></div>
+            <input placeholder=" Enter Amount" id="advert-price-input" />
+          </div>
+          <div>
+            <div><label id="advert-price-range-label">Range</label></div>
+            <input placeholder=" Enter Booth Number Range" id="advert-range-input" />
+          </div>
+          <div><span className="span-advert-cat">+ New Category</span></div>
+        </div>
+        <div>
+          <label className="advert-label">Pane Page Ads</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-label">Lead Generations</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <div>
+          <label className="advert-label">Attendants</label>
+          <input placeholder=" Enter Amount" id="advert-input" />
+        </div>
+        <button type="button">Submit</button>
+      </form>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

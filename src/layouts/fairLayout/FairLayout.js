@@ -18,4 +18,3 @@ MainLayout.prototype = {
 };
 
 export default MainLayout;
-

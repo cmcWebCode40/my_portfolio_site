@@ -8,11 +8,11 @@ import { coopLagApi } from '../../services/services';
 
 import profile_picture from '../../assets/images/profile-1.jpg';
 
-export default function VendorProfile(props) {
+export default function VendorProfile({ match }) {
   const [profile, setProfile] = useState([]);
 
   const headers = getUserToken();
-  const vendor_id = props.match.params.id;
+  const vendor_id = match.params.id;
 
   const errorAlert = (message) => {
     toast.error(
@@ -34,7 +34,7 @@ export default function VendorProfile(props) {
       .catch((error) => {
         errorAlert(error.response.data.message);
       });
-  }, [props.match.params.id]);
+  }, [match.params.id]);
 
   return (
     <StyledDiv>
@@ -43,7 +43,7 @@ export default function VendorProfile(props) {
           <div key={info._id} className="profile row py-5 px-3">
             <div className="identity col-lg-6 mx-auto shadow p-5 mb-5">
               <div className="profile-pic mx-auto">
-                <img src={profile_picture} />
+                <img alt="tags" src={profile_picture} />
               </div>
               <div className="profile-detail-box mx-auto text-center p-4">
                 <p className="profile-detail vendor-name">
@@ -56,7 +56,10 @@ export default function VendorProfile(props) {
                 </p>
                 <p className="profile-detail">
                   <span className="profile-detail-caption">Location: </span>
-                  {info.business_city}, {info.business_state}
+                  {info.business_city}
+                  ,
+                  {' '}
+                  {info.business_state}
                 </p>
                 <p className="profile-detail">
                   <span className="profile-detail-caption">Phone: </span>
@@ -70,7 +73,9 @@ export default function VendorProfile(props) {
               <div className="edit-profile text-center">
                 <p id="edit-icon" className="pt-3">
                   <span>
-                    Edit profile <FontAwesomeIcon icon={faUserEdit} id="edited" />
+                    Edit profile
+                    {' '}
+                    <FontAwesomeIcon icon={faUserEdit} id="edited" />
                   </span>
                 </p>
               </div>

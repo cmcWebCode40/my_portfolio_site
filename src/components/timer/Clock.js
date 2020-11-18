@@ -1,7 +1,10 @@
+/*eslint-disable*/
 import React, { Component } from 'react';
 
 import styled from 'styled-components';
-var moment = require('moment');
+
+const moment = require('moment');
+
 moment().format();
 
 class Clock extends Component {
@@ -21,7 +24,7 @@ class Clock extends Component {
   }
 
   leadingZero(num) {
-    return num < 10 ? '0' + num : num;
+    return num < 10 ? `0${num}` : num;
   }
 
   getTimeUntil(deadline) {
@@ -33,10 +36,10 @@ class Clock extends Component {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
 
     this.setState({
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
+      days,
+      hours,
+      minutes,
+      seconds,
     });
   }
 
@@ -46,16 +49,24 @@ class Clock extends Component {
       <ClockWrapper>
         <div className="clock">
           <div>
-            {this.leadingZero(this.state.days)} <div className="time-name">days</div>
+            {this.leadingZero(this.state.days)}
+            {' '}
+            <div className="time-name">days</div>
           </div>
           <div>
-            {this.leadingZero(this.state.hours)} <div className="time-name">hours</div>
+            {this.leadingZero(this.state.hours)}
+            {' '}
+            <div className="time-name">hours</div>
           </div>
           <div>
-            {this.leadingZero(this.state.minutes)} <div className="time-name">minutes</div>
+            {this.leadingZero(this.state.minutes)}
+            {' '}
+            <div className="time-name">minutes</div>
           </div>
           <div>
-            {this.leadingZero(this.state.seconds)} <div className="time-name">seconds</div>
+            {this.leadingZero(this.state.seconds)}
+            {' '}
+            <div className="time-name">seconds</div>
           </div>
         </div>
       </ClockWrapper>

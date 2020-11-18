@@ -13,7 +13,9 @@ const VendorShopTabs = () => {
   return (
     <TabWrapper>
       <h4 className="text-center py-3">
-        <strong>Vendor's</strong> Shop
+        <strong>Vendor&apos;s</strong>
+        {' '}
+        Shop
       </h4>
       <div className="panel-heading">
         <div className="panel-title">

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { errorHandler } from '../error/ErrorHandler';
 
-function UserVerificationConfirmation(props) {
+function UserVerificationConfirmation() {
   const contact_information = {
     name: '',
   };
@@ -28,15 +29,12 @@ function UserVerificationConfirmation(props) {
       .post('https://cooplagfair.herokuapp.com/api/v1/users/verification/verify-account', message)
       .then((res) => {
         if (res.data.status === 'Success') {
-          console.log(res.data);
           setsubmitAction(!submitAction);
           setsuccessAction(!successAction);
-        } else {
-          console.log(`${res}from res..`);
         }
       })
       .catch((error) => {
-        console.log(`${error} From error..`);
+        errorHandler(error);
       });
   };
 
@@ -52,7 +50,6 @@ function UserVerificationConfirmation(props) {
             <p><span>Your account has been successfully verified.</span></p>
           </div>
           <div>
-            <label />
             <input name="name" type="text" placeholder="Please Enter Verification Code" onChange={handleChange} value={message.name} required />
           </div>
           <div className="btn-field">

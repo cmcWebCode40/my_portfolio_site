@@ -15,7 +15,7 @@ const Desktop = () => {
         <h2>Banners</h2>
       </div> */}
       <div id="cart" className="ml-auto my-auto">
-        <a className="nav-link text-dark" href="#">
+        <a className="nav-link text-dark" href="##">
           <FontAwesomeIcon
             style={{ display: 'block' }}
             icon={['fa', 'shopping-cart']}

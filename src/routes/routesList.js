@@ -21,12 +21,8 @@ const VendorLandingPage = lazy(() => import('../pages/vendorshop/Vendor'));
 const EventSchedule = lazy(() => import('../pages/events/Event'));
 const BoothView = lazy(() => import('../pages/boothview/BoothView'));
 const CartView = lazy(() => import('../pages/cartView/CartView'));
-const ManageFairSidebar = lazy(() =>
-  import('../pages/DashboardPages/Manage-Fair/ManageFairSideBar')
-);
-const FairPageDashboard = lazy(() =>
-  import('../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard')
-);
+const ManageFairSidebar = lazy(() => import('../pages/DashboardPages/Manage-Fair/ManageFairSideBar'));
+const FairPageDashboard = lazy(() => import('../pages/DashboardPages/Manage-Fair-Page/FairPageDashboard'));
 const SignIn = lazy(() => import('../pages/SignIn'));
 const Register = lazy(() => import('../pages/Register'));
 const VerificationRequest = lazy(() => import('../pages/VerificationRequest'));
@@ -34,11 +30,10 @@ const VerificationConfirm = lazy(() => import('../pages/VerificationConfirmation
 const DashboardPages = lazy(() => import('../pages/DashboardPages/Dashboard'));
 const Fileupload = lazy(() => import('../pages/fairSignUp/RequiredCredentials'));
 const fairLandingPage = lazy(() => import('../pages/fairSignUp/fairLandingPage'));
-const AllFairs = lazy(() => import("../pages/fairSignUp/AllFairsPage"));
-const VendorProfile = lazy(() => import("../pages/fairSignUp/VendorProfile"))
-const ApproveCredentials = lazy(() => import("../pages/ApproveCredentials"))
-const Credentials = lazy(() => import("../pages/SinlgeCredential"))
-
+const AllFairs = lazy(() => import('../pages/fairSignUp/AllFairsPage'));
+const VendorProfile = lazy(() => import('../pages/fairSignUp/VendorProfile'));
+const ApproveCredentials = lazy(() => import('../pages/ApproveCredentials'));
+const Credentials = lazy(() => import('../pages/SinlgeCredential'));
 
 export const routesList = [
   {

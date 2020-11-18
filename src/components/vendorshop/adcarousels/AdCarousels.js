@@ -9,7 +9,7 @@ import styled from 'styled-components';
 const AdCarousels = ({ images }) => {
   return (
     <div className="my-4">
-      {/* <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
           {images.map((index) => (
             <li
@@ -33,7 +33,7 @@ const AdCarousels = ({ images }) => {
             </div>
           ))}
         </CarouselInner>
-      </div> */}
+      </div>
     </div>
   );
 };

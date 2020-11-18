@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import styled from 'styled-components';
@@ -29,17 +29,17 @@ const TableWrapper = styled.table`
 `;
 
 const Table = ({ match }) => {
+  const { fairId } = match.params;
   const [speakerId, setSpeakerId] = useState('');
   const [open, setOpen] = useState(false);
   const [openAdd, setOpenAdd] = useState(false);
   const [link, setLink] = useState('');
   const [linkOpen, setLinkOpen] = useState('');
-  const [reload, setreload] = useState('');
   const [copy, setCopy] = useState(false);
   const {
-    data, error, loading, getData
-  } = useApi();
-  const { fairId } = match.params;
+    data, error, loading, setRefech: setreload,
+    refetch: reload
+  } = useApi(`/fairs/${fairId}/speakers`);
 
   const onOpenModal = (id) => {
     setSpeakerId(id);
@@ -48,10 +48,6 @@ const Table = ({ match }) => {
   const onOpenModalAdd = () => {
     setOpenAdd(true);
   };
-
-  useEffect(() => {
-    getData(`/fairs/${fairId}/speakers`);
-  }, [reload]);
 
   return (
     <>

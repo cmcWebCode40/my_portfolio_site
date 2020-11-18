@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Card from 'react-bootstrap/Card';
 import { getUserToken } from '../../utils/functions/userAuth';
 import { coopLagApi } from '../../services/services';
-import Card from 'react-bootstrap/Card';
 
-export default function AllFairs(props) {
+export default function AllFairs({ match }) {
   const [fairs, setFairs] = useState([]);
-
+  const { id } = match.params;
   const headers = getUserToken();
 
   const errorAlert = (message) => {
@@ -23,18 +23,20 @@ export default function AllFairs(props) {
 
   useEffect(() => {
     coopLagApi
-      .get(`/fairs`, { headers })
+      .get('/fairs', { headers })
       .then((response) => {
         setFairs(response.data.data);
       })
       .catch((error) => {
         errorAlert(error.response.data.message);
       });
-  }, [props.match.params.id]);
+  }, [id]);
 
   return (
     <StyledDiv>
-      <h2 id="title">Explore All Fairs</h2> <hr />
+      <h2 id="title">Explore All Fairs</h2>
+      {' '}
+      <hr />
       <div className="container">
         <div className="fairs-div row mx-auto">
           {fairs.map((fair) => (
@@ -61,7 +63,9 @@ export default function AllFairs(props) {
                     <Card.Title>{fair.name}</Card.Title>
                     <Card.Text>
                       Some quick example text to build on the card title and make up the bulk of the
-                      card's content. <i>{fair.about_event}</i>
+                      card&apos;s content.
+                      {' '}
+                      <i>{fair.about_event}</i>
                     </Card.Text>
                   </Card.Body>
                 </Card>
