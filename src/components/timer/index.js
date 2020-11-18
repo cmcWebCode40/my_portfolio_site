@@ -1,18 +1,21 @@
-import React, { Component } from "react";
-import Clock from "./Clock";
-import styled from "styled-components";
-import moment from "moment";
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-access-state-in-setstate */
+import React, { Component } from 'react';
+import styled from 'styled-components';
+// import moment from 'moment';
+import Clock from './Clock';
 
 class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deadline: "November 30, 2020",
-      newDeadline: ""
+      deadline: 'November 30, 2020',
+      newDeadline: ''
     };
   }
 
   changeDeadline() {
+    // eslint-disable-next-line react/destructuring-assignment
     this.setState({ deadline: this.state.newDeadline });
   }
 

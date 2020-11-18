@@ -1,42 +1,41 @@
-import React from "react";
-import styled from "styled-components"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
-import Nav from "../MobileNav";
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 export default function ManageFair() {
-    return (
-        <StyledDiv>
-            <div className="manage-body">
-                <div className="manage-body-content">
-                    <div className="manage-fair">
-                        <h5 className="manage">Manage Fair</h5>
-                        <span className="manage-span">+ New Fair</span>
-                    </div>
-                    <div className="table-header-div">
-                        <span id="trash"></span>
-                        <div className="table-header">
-                            <span className="span-fair">Fair</span>
-                            <span className="span-columns-date">Date Created</span>
-                            <span className="span-columns-status">Status</span>
-                            <span className="span-columns-package">Package</span>
-                            <span className="span-edit">....</span>
-                        </div>
-                    </div>
-                    <div className="table-header-div">
-                        <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-fair" id="manage-span-content">Cooplag 2020</span>
-                            <span className="span-columns-date" id="manage-span-content">01/09/2020 9:40am</span>
-                            <span className="span-columns-status" id="manage-span-content">active</span>
-                            <span className="span-columns-package" id="manage-span-content">Standard</span>
-                            <span className="span-edit" id="manage-span-content">Edit</span>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <StyledDiv>
+      <div className="manage-body">
+        <div className="manage-body-content">
+          <div className="manage-fair">
+            <h5 className="manage">Manage Fair</h5>
+            <span className="manage-span">+ New Fair</span>
+          </div>
+          <div className="table-header-div">
+            <span id="trash" />
+            <div className="table-header">
+              <span className="span-fair">Fair</span>
+              <span className="span-columns-date">Date Created</span>
+              <span className="span-columns-status">Status</span>
+              <span className="span-columns-package">Package</span>
+              <span className="span-edit">....</span>
             </div>
-        </StyledDiv>
-    )
+          </div>
+          <div className="table-header-div">
+            <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-fair" id="manage-span-content">Cooplag 2020</span>
+              <span className="span-columns-date" id="manage-span-content">01/09/2020 9:40am</span>
+              <span className="span-columns-status" id="manage-span-content">active</span>
+              <span className="span-columns-package" id="manage-span-content">Standard</span>
+              <span className="span-edit" id="manage-span-content">Edit</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

@@ -1,12 +1,16 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Footer = () => {
   return (
     <StyledDiv>
-      <footer className="py-4">Powered by <span>FairSquare  &copy; 2020</span></footer>
+      <footer className="py-4">
+        Powered by
+        {' '}
+        <span>FairSquare  &copy; 2020</span>
+      </footer>
     </StyledDiv>
-  )
+  );
 };
 
 export default Footer;

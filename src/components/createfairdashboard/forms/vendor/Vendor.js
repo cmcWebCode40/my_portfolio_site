@@ -5,76 +5,67 @@ import { RequestLoaderIcon } from '../../../Loaders/Loader';
 import useApi from '../../../../hooks/Api/useApi';
 
 const FairWrapper = styled.div`
-
-.block-2{
-  div{
-    margin:1rem 0;
+  .block-2 {
+    div {
+      margin: 1rem 0;
+    }
   }
- 
-}
-  .checkbox{
-    margin-top:1rem;
-    label{
-      display:grid;
-      grid-template-columns:.2fr 3fr;
-      span{
-        margin:-.4rem 0 0 .3rem;
+  .checkbox {
+    margin-top: 1rem;
+    label {
+      display: grid;
+      grid-template-columns: 0.2fr 3fr;
+      span {
+        margin: -0.4rem 0 0 0.3rem;
       }
     }
   }
   form {
-    input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .8rem 2rem;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+    input,
+    select,
+    textarea {
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
+      padding: 0.8rem 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      &::focus {
+        border: 1px solid ${(props) => props.theme.colors.primary};
       }
     }
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0.4rem;
       }
     }
   }
-
 `;
 
 const Vendor = (props) => {
   const {
-    activeStep, setActiveStep, fairId, setreload, type, item
+    reload, setreload, setOpen, fairId, type, item
   } = props;
   const [formValues, setFormValues] = useState('');
   const [partners] = useState([]);
-  const {
-    loading,
-    error,
-    postData,
-    postResponseData
-  } = useApi();
+  const { loading, postData, postResponseData } = useApi();
 
   useEffect(() => {
     if (item) {
-      const {
-        name,
-        description,
-      } = item;
+      const { name, description } = item;
       setFormValues({
         name,
         description,
       });
     }
-  });
+  }, [item]);
 
   if (postResponseData) {
     toast.success(postResponseData.message, { toastId: 'fair' });
@@ -86,43 +77,34 @@ const Vendor = (props) => {
 
   const createFairHandler = async (e) => {
     e.preventDefault();
-    const {
-      name,
-      description,
-    } = formValues;
+    const { name, description } = formValues;
     const data = {
-      requirements: [{ name, description }]
+      requirements: [{ name, description }],
     };
     const postValues = {
       url: `/fairs/${fairId}/requirements/${item ? item._id : ''}`,
       data,
-      type
+      type,
     };
     await postData(postValues);
-    if (activeStep) setActiveStep(activeStep + 1);
-    if (setreload) setreload(true);
+    if (type === 'patch') {
+      toast.success('Fair successfully edited');
+    }
+    if (setreload && reload && setOpen) {
+      setOpen(false);
+      setreload(true);
+      toast.success('Fair successfully created');
+    }
   };
 
-  useEffect(() => {
-
-  }, [partners]);
+  useEffect(() => {}, [partners]);
 
   return (
     <FairWrapper>
       {loading && (
-      <RequestLoaderIcon
-        size="3x"
-        label="Please wait"
-        className="text-primary bg-mid-gray"
-      />
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
       )}
-      <form onSubmit={(createFairHandler)}>
-        {error && (
-        <div className={error.class} role="alert">
-          {error.message}
-        </div>
-        )}
-
+      <form onSubmit={createFairHandler}>
         <div className="row">
           <div className="col-md-12 form-div">
             <div>
@@ -151,11 +133,7 @@ const Vendor = (props) => {
             <div className="col-md-12 my-3">
               <div className="row">
                 <div className="col">
-                  <button
-                    disabled={loading}
-                    className="btn btn-primary"
-                    type="submit"
-                  >
+                  <button disabled={loading} className="btn btn-primary" type="submit">
                     Submit
                   </button>
                 </div>

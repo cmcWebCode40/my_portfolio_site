@@ -57,12 +57,10 @@ export default function UserVerificationRequest(props) {
         if (res.data.status === 'success') {
           props.history.replace('/verify');
         } else {
-          console.log(res.data);
           errorAction();
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         errorTimer();
       });
   };
@@ -77,11 +75,12 @@ export default function UserVerificationRequest(props) {
           <p><span>Oops! Something went wrong. Please, try again.</span></p>
         </div>
         <div className="input-field">
-          <label htmlFor="Phone Number" />
-          <input type="text" name="phoneNumber" placeholder="Enter Resgistered Phone Number (+2348000000001)" onChange={handleChange} value={verifyInfo.phoneNumber} required />
+          <label htmlFor="Phone Number">
+            <input type="text" name="phoneNumber" placeholder="Enter Resgistered Phone Number (+2348000000001)" onChange={handleChange} value={verifyInfo.phoneNumber} required />
+          </label>
         </div>
         <div className="input-field">
-          <button className="button-submit">Submit</button>
+          <button type="button" className="button-submit">Submit</button>
         </div>
       </form>
     </StyledDiv>

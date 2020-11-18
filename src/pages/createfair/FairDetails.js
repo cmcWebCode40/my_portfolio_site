@@ -8,6 +8,7 @@ import { errorHandler } from '../../error/ErrorHandler';
 import { coopLagApi } from '../../services/services';
 import { RequestLoaderIcon } from '../../components/Loaders/Loader';
 import { maxImageSize } from '../../constant/ImageSize';
+import useApi from '../../hooks/Api/useApi';
 
 const FairWrapper = styled.div`
 
@@ -56,10 +57,8 @@ const FairWrapper = styled.div`
 const FairDetails = ({ match }) => {
   const [partners] = useState([]);
   const [banner, setBanner] = useState({ files: '' });
-  const [data, setData] = useState('');
   const [error, setError] = useState('');
   const [loading, setloading] = useState(false);
-  const [reload, setreload] = useState('');
   const [checkboxValues, setcheckboxValues] = useState({
     paystack: false,
     fusepay: false,
@@ -75,6 +74,12 @@ const FairDetails = ({ match }) => {
   });
   const headers = getUserToken();
   const { fairId } = match.params;
+  const {
+    data,
+    loading: waiting,
+    refetch: reload,
+    setRefech: setreload
+  } = useApi(`/fairs/${fairId}`);
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -140,7 +145,7 @@ const FairDetails = ({ match }) => {
     try {
       const res = await coopLagApi.patch(`/fairs/${fairId}`, formData, { headers });
       toast.success(res.data.message);
-      setreload(res);
+      setreload(!reload);
     } catch (error) {
       if (error && error.response) {
         const { data } = errorHandler(error);
@@ -160,37 +165,13 @@ const FairDetails = ({ match }) => {
     setcheckboxValues({ ...checkboxValues, [e.target.name]: e.target.checked });
   };
 
-  const getAllFairs = async () => {
-    setloading(true);
-    try {
-      const res = await coopLagApi.get(
-        `/fairs/${fairId}`,
-        { headers }
-      );
-      setData(res.data.data);
-    } catch (error) {
-      if (error && error.response) {
-        const { data } = errorHandler(error);
-        setError({
-          message: data.message,
-          class: 'alert alert-danger'
-        });
-      }
-    }
-    setloading(false);
-  };
-
-  useEffect(() => {
-    getAllFairs();
-  }, [reload]);
-
   useEffect(() => {
 
   }, [partners]);
 
   return (
     <FairWrapper>
-      {loading && (
+      {(loading || waiting) && (
       <RequestLoaderIcon
         size="3x"
         label="Please wait"
@@ -205,7 +186,6 @@ const FairDetails = ({ match }) => {
               {error.message}
             </div>
             ) }
-
             <div className="row">
               <div className="col-md-6 form-div">
                 <div>

@@ -4,39 +4,26 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { RequestLoaderIcon } from '../../Loaders/Loader';
 import theme from '../../../theme/theme';
-import useApi from '../../../hooks/Api/useApi';
 import { EmptyList } from '../../emptylist/EmptyList';
 
 const TableWrapper = styled.table`
-box-shadow:${() => theme.styles.boxShadow};
-;
-  border-radius:${() => theme.styles.borderRadius};
-  .cursor-btn{
-    cursor:pointer;
+  box-shadow: ${() => theme.styles.boxShadow};
+  border-radius: ${() => theme.styles.borderRadius};
+  .cursor-btn {
+    cursor: pointer;
   }
-
 `;
 
-const Table = (props) => {
-  const { data, loading: waiting } = props;
-  const {
-    error,
-    loading,
-  } = useApi();
-
+const Table = ({ loading, data, error }) => {
   return (
     <div className="">
       {error && (
-      <div className={error.class} role="alert">
-        {error.message}
-      </div>
-      ) }
-      {(loading || waiting) && (
-      <RequestLoaderIcon
-        size="3x"
-        label="Please wait"
-        className="text-primary bg-mid-gray"
-      />
+        <div className={error.class} role="alert">
+          {error.message}
+        </div>
+      )}
+      {loading && (
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
       )}
       {data.length ? (
         <TableWrapper className="table table-hover">
@@ -78,7 +65,6 @@ const Table = (props) => {
         <EmptyList text="No Fairs" />
       )}
     </div>
-
   );
 };
 

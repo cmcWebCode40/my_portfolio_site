@@ -1,85 +1,97 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 
 function Nav() {
-    const [isSidebarOpen, setisSidebarOpen] = useState(false);
+  const [isSidebarOpen, setisSidebarOpen] = useState(false);
 
-    const handleMenuButton = () => {
-        setisSidebarOpen(!isSidebarOpen)
-    };
-    const autocloseMenu = () => {
-        setTimeout(() => {
-            setisSidebarOpen(!isSidebarOpen)
-        }, 5000)
-    }
-    return (
-        <StyledDiv>
-            <div className="menu-button" onClick={handleMenuButton}><FontAwesomeIcon icon={faBars} size="2x" /></div>
-            <nav className={`nav ${isSidebarOpen ? 'show' : ''}`}>
-                <div className="mobile-header">
-                    <div >
-                        <h5>Coop<span id="Cooplag">LAG</span></h5>
-                    </div>
-                    <div id="close" onClick={handleMenuButton}> <FontAwesomeIcon icon={faTimes} size="1x" /></div>
-                </div>
-                <div className="menu-items" onClick={autocloseMenu}>
-                    <p className="create-titles">Status</p>
-                    <div className="create-sidenav-div">
-                        <span>Active</span>
-                        <span className="logo-sidenav-span">Published</span>
-                    </div>
-                    <div className="menu-list">
-                        <p className="create-titles">Fair</p>
-                        <div className="create-sidenav-div">
-                            <span className="logo-sidenav-span">Cooplag 2020</span>
-                        </div>
-                    </div>
-                    <div className="menu-list">
-                        <p className="create-titles">Date Created</p>
-                        <div className="create-sidenav-div">
-                            <span className="logo-sidenav-span">01/09/2020 9:40am</span>
-                        </div>
-                    </div>
-                    <div className="menu-list">
-                        <p className="create-titles">Package</p>
-                        <div className="create-sidenav-div">
-                            <span className="logo-sidenav-span">Standard</span>
-                        </div>
-                    </div>
-                    <div className="menu-list">
-                        <p className="create-titles">Template</p>
-                        <div className="create-sidenav-div">
-                            <span className="logo-sidenav-span">Outdoor#20</span>
-                        </div>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink to="/dashboard-managefair/speaker" className="logo-sidenav-span"><span>Create Speakers</span></NavLink>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink to="/dashboard-managefair/vendor" className="logo-sidenav-span"><span>Setup Vendor's Signup</span></NavLink>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink to="/dashboard-managefair/booth" className="logo-sidenav-span"><span>Booth Setting</span></NavLink>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink to="/dashboard-managefair/advert" className="logo-sidenav-span"><span>Advert Setting</span></NavLink>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink to="/dashboard-managefair/construction" className="logo-sidenav-span"><span>Raffle</span></NavLink>
-                    </div>
-                    <div className="menu-list">
-                        <NavLink exact to="/dashboard-managefair" className="logo-sidenav-span"><span>Manage Events</span></NavLink>
-                    </div>
-                </div>
-            </nav>
-        </StyledDiv>
+  const handleMenuButton = () => {
+    setisSidebarOpen(!isSidebarOpen);
+  };
+  const autocloseMenu = () => {
+    setTimeout(() => {
+      setisSidebarOpen(!isSidebarOpen);
+    }, 5000);
+  };
+  return (
+    <StyledDiv>
+      <div
+        aria-hidden
+        className="menu-button"
+        onClick={handleMenuButton}
+      >
+        <FontAwesomeIcon icon={faBars} size="2x" />
 
-    )
+      </div>
+      <nav className={`nav ${isSidebarOpen ? 'show' : ''}`}>
+        <div className="mobile-header">
+          <div>
+            <h5>
+              Coop
+              <span id="Cooplag">LAG</span>
+            </h5>
+          </div>
+          <div aria-hidden id="close" onClick={handleMenuButton}>
+            {' '}
+            <FontAwesomeIcon icon={faTimes} size="1x" />
+          </div>
+        </div>
+        <div aria-hidden className="menu-items" onClick={autocloseMenu}>
+          <p className="create-titles">Status</p>
+          <div className="create-sidenav-div">
+            <span>Active</span>
+            <span className="logo-sidenav-span">Published</span>
+          </div>
+          <div className="menu-list">
+            <p className="create-titles">Fair</p>
+            <div className="create-sidenav-div">
+              <span className="logo-sidenav-span">Cooplag 2020</span>
+            </div>
+          </div>
+          <div className="menu-list">
+            <p className="create-titles">Date Created</p>
+            <div className="create-sidenav-div">
+              <span className="logo-sidenav-span">01/09/2020 9:40am</span>
+            </div>
+          </div>
+          <div className="menu-list">
+            <p className="create-titles">Package</p>
+            <div className="create-sidenav-div">
+              <span className="logo-sidenav-span">Standard</span>
+            </div>
+          </div>
+          <div className="menu-list">
+            <p className="create-titles">Template</p>
+            <div className="create-sidenav-div">
+              <span className="logo-sidenav-span">Outdoor#20</span>
+            </div>
+          </div>
+          <div className="menu-list">
+            <NavLink to="/dashboard-managefair/speaker" className="logo-sidenav-span"><span>Create Speakers</span></NavLink>
+          </div>
+          <div className="menu-list">
+            <NavLink to="/dashboard-managefair/vendor" className="logo-sidenav-span"><span>Setup Vendor&lsquo;s Signup</span></NavLink>
+          </div>
+          <div className="menu-list">
+            <NavLink to="/dashboard-managefair/booth" className="logo-sidenav-span"><span>Booth Setting</span></NavLink>
+          </div>
+          <div className="menu-list">
+            <NavLink to="/dashboard-managefair/advert" className="logo-sidenav-span"><span>Advert Setting</span></NavLink>
+          </div>
+          <div className="menu-list">
+            <NavLink to="/dashboard-managefair/construction" className="logo-sidenav-span"><span>Raffle</span></NavLink>
+          </div>
+          <div className="menu-list">
+            <NavLink exact to="/dashboard-managefair" className="logo-sidenav-span"><span>Manage Events</span></NavLink>
+          </div>
+        </div>
+      </nav>
+    </StyledDiv>
+
+  );
 }
-
 
 export default Nav;
 
@@ -179,4 +191,4 @@ display: none;
     display: block;
   }
 
-`
+`;

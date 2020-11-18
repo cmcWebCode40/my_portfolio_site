@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components"
-
+import React from 'react';
+import styled from 'styled-components';
 
 export default function CreateRaffle() {
-    return (
-        <StyledDiv>
-            <div className="event">
-                <h5 className="event-cat">Raffle Events</h5>
-                <span className="event-span">+ New Event</span>
-            </div>
-            <div className="event-header-div">
-                <h1>Oop!.... Still Under Construction.</h1>
-            </div>
-        </StyledDiv>
-    )
+  return (
+    <StyledDiv>
+      <div className="event">
+        <h5 className="event-cat">Raffle Events</h5>
+        <span className="event-span">+ New Event</span>
+      </div>
+      <div className="event-header-div">
+        <h1>Oop!.... Still Under Construction.</h1>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

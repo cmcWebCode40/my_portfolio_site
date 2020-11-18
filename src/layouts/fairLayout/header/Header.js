@@ -8,10 +8,13 @@ const Header = () => {
         <div className="container-fluid">
           <div className="row navbar navbar-expand-lg navbar-light p-lg-4">
             <div className="navbar-brand logo-box">
-              <a href="/fair-landing-page" className="logo-link mr-auto ml-lg-5">Coop<span className="font-weight-bolder text-uppercase">lag</span></a>
+              <a href="/fair-landing-page" className="logo-link mr-auto ml-lg-5">
+                Coop
+                <span className="font-weight-bolder text-uppercase">lag</span>
+              </a>
             </div>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon" />
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <div className="col col-lg-auto ml-auto">

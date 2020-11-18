@@ -6,8 +6,9 @@ import UserAuthProvider from './context/authContext';
 import store from './redux/store';
 import Routes from './routes/Routes';
 import theme from './theme/theme';
-import './libs/imageUploader';
-import 'react-toastify/dist/ReactToastify.css';
+import './icons/fontawesome';
+import './sass/main.scss';
+import './libs';
 
 const App = () => {
   return (
@@ -15,10 +16,8 @@ const App = () => {
       <UserAuthProvider>
         <Provider store={store}>
           <Routes />
-          <ToastContainer
-            hideProgressBar
-            autoClose
-          />
+
+          <ToastContainer hideProgressBar autoClose />
         </Provider>
       </UserAuthProvider>
     </ThemeProvider>

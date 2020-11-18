@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 export default function LogoPage() {
-    return (
-        <StyledDiv>
-            <div className="logo">
-                <h5 className="logo-cat">Logo</h5>
-                <span className="logo-new-span">+ New Event</span>
-            </div>
-        </StyledDiv>
-    )
+  return (
+    <StyledDiv>
+      <div className="logo">
+        <h5 className="logo-cat">Logo</h5>
+        <span className="logo-new-span">+ New Event</span>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

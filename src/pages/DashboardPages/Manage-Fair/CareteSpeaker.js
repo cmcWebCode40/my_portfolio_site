@@ -1,66 +1,65 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
-
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 export default function CreateSpeaker() {
-    return (
-        <StyledDiv>
-            <div className="speaker-body">
-                <div className="speaker">
-                    <h5 className="speaker-cat">Speakers Category</h5>
-                    <span className="speaker-span">+ New Category</span>
-                </div>
-                <div className="create-inner-div">
-                    <div className="speaker-header-div">
-                        <span id="trash-speaker"></span>
-                        <div className="table-header">
-                            <span className="span-create">Category</span>
-                            <span className="span-create-columns">Status</span>
-                            <span className="span-create-edit">....</span>
-                        </div>
-                    </div>
-                    <div className="speaker-header-div">
-                        <div id="trash-speaker"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-create" id="speaker-span-content">Parallel Session</span>
-                            <span className="span-create-columns" id="speaker-span-content">active</span>
-                            <span className="span-create-edit" id="speaker-span-content">Edit</span>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <StyledDiv>
+      <div className="speaker-body">
+        <div className="speaker">
+          <h5 className="speaker-cat">Speakers Category</h5>
+          <span className="speaker-span">+ New Category</span>
+        </div>
+        <div className="create-inner-div">
+          <div className="speaker-header-div">
+            <span id="trash-speaker" />
+            <div className="table-header">
+              <span className="span-create">Category</span>
+              <span className="span-create-columns">Status</span>
+              <span className="span-create-edit">....</span>
             </div>
-            <div className="speaker-body">
-                <div className="speaker">
-                    <h5 className="speaker-cat">All Speakers</h5>
-                    <span className="speaker-span">+ New Speaker</span>
-                </div>
-                <div className="create-inner-div-2">
-                    <div className="speaker-header-div">
-                        <span id="trash-speaker"></span>
-                        <div className="table-header">
-                            <p className="span-create-2">Name</p>
-                            <p className="span-create-email">Email</p>
-                            <p className="span-create-pass">Password</p>
-                            <p className="span-create-columns">Staus</p>
-                            <p className="span-create-role">Role</p>
-                        </div>
-                    </div>
-                    <div className="speaker-header-div">
-                        <div id="trash-speaker"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-create-2" id="speaker-span-content">Charlse Avis</span>
-                            <span className="span-create-email" id="speaker-span-content">charlseavis@gmail</span>
-                            <span className="span-create-pass" id="speaker-span-content">********</span>
-                            <span className="span-create-columns" id="speaker-span-content">active</span>
-                            <span className="span-create-role" id="speaker-span-content">Pannel Session</span>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div className="speaker-header-div">
+            <div id="trash-speaker"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-create" id="speaker-span-content">Parallel Session</span>
+              <span className="span-create-columns" id="speaker-span-content">active</span>
+              <span className="span-create-edit" id="speaker-span-content">Edit</span>
             </div>
-        </StyledDiv>
-    )
+          </div>
+        </div>
+      </div>
+      <div className="speaker-body">
+        <div className="speaker">
+          <h5 className="speaker-cat">All Speakers</h5>
+          <span className="speaker-span">+ New Speaker</span>
+        </div>
+        <div className="create-inner-div-2">
+          <div className="speaker-header-div">
+            <span id="trash-speaker" />
+            <div className="table-header">
+              <p className="span-create-2">Name</p>
+              <p className="span-create-email">Email</p>
+              <p className="span-create-pass">Password</p>
+              <p className="span-create-columns">Staus</p>
+              <p className="span-create-role">Role</p>
+            </div>
+          </div>
+          <div className="speaker-header-div">
+            <div id="trash-speaker"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-create-2" id="speaker-span-content">Charlse Avis</span>
+              <span className="span-create-email" id="speaker-span-content">charlseavis@gmail</span>
+              <span className="span-create-pass" id="speaker-span-content">********</span>
+              <span className="span-create-columns" id="speaker-span-content">active</span>
+              <span className="span-create-role" id="speaker-span-content">Pannel Session</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`
