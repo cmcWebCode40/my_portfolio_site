@@ -5,7 +5,6 @@ import { coopLagApi } from '../../services/services';
 import { getUserToken } from '../../utils/functions/userAuth';
 
 const useApi = (url) => {
-  const cookies = new Cookies();
   const [data, setdata] = useState([]);
   const [postResponseData, setPostResponseData] = useState('');
   const [error, setError] = useState('');
@@ -47,6 +46,7 @@ const useApi = (url) => {
   useEffect(() => {
     // const auth = getUserToken();
     const getData = async () => {
+      const cookies = new Cookies();
       const token = cookies.get('vcn_usr:auth', { path: '/' });
       setloading(true);
       try {
