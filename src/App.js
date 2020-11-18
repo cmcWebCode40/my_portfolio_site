@@ -12,7 +12,7 @@ import './libs';
 
 const App = () => {
   const kvjsdvsdv = 'rerkjgeblkblk';
-  const kvjsdv334sdv = 'rerkjgeblkblk';
+
   return (
     <ThemeProvider theme={theme}>
       sdjcks'sdskjd
