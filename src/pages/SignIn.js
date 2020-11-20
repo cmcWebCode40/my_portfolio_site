@@ -71,15 +71,19 @@ export default function UserSignIn({ history }) {
       <form onSubmit={handleSubmit} className="form">
         <h3 className="Details">Sign In</h3>
         <div className="input-field">
-          <label htmlFor="name">Email</label>
-          <input type="email" name="email" onChange={handleChange} value={signIn.email} />
+          <label htmlFor="name">
+            Email
+            <input type="email" name="email" onChange={handleChange} value={signIn.email} />
+          </label>
         </div>
         <div className="input-field">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" onChange={handleChange} value={signIn.password} />
+          <label htmlFor="password">
+            Password
+            <input type="password" name="password" onChange={handleChange} value={signIn.password} />
+          </label>
         </div>
         <div>
-          <button className="button-submit">Sign In</button>
+          <button type="submit" className="button-submit">Sign In</button>
         </div>
       </form>
     </StyledDiv>
@@ -130,6 +134,7 @@ const StyledDiv = styled.div`
 
   label {
     font-size: .6rem;
+    display:block
   }
 
   .input-field {

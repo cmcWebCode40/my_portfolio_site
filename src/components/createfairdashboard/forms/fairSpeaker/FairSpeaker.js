@@ -8,36 +8,36 @@ import { errorHandler } from '../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`
   form {
-    input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .8rem 2rem;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+    input,
+    select,
+    textarea {
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
+      padding: 0.8rem 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      &::focus {
+        border: 1px solid ${(props) => props.theme.colors.primary};
       }
     }
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0.4rem;
       }
     }
   }
-
 `;
 
 const SpeakerFair = ({
-  activeStep, setActiveStep, fairId, setreload,
-  setOpenAdd
+  activeStep, setActiveStep, fairId, setreload, setOpenAdd
 }) => {
   const [formValues, setFormValues] = useState('');
   const [banner, setBanner] = useState({ files: '' });
@@ -51,13 +51,7 @@ const SpeakerFair = ({
   const createFairHandler = async (e) => {
     e.preventDefault();
     const {
-      name,
-      title,
-      facebook,
-      linkedIn,
-      instagram,
-      profession,
-      topics
+      name, title, facebook, linkedIn, instagram, profession, topics
     } = formValues;
     const formData = new FormData();
     formData.append('profilePicture', banner.files.file);
@@ -94,24 +88,20 @@ const SpeakerFair = ({
 
   return (
     <FairWrapper>
-      {loading && <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />}
-      <form onSubmit={(createFairHandler)}>
+      {loading && (
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
+      )}
+      <form onSubmit={createFairHandler}>
         {error && (
-        <div className={error.class} role="alert">
-          {error.message}
-        </div>
-        ) }
+          <div className={error.class} role="alert">
+            {error.message}
+          </div>
+        )}
 
         <div className="row">
           <div className="col-md-6 form-div">
             <div>
-              <input
-                type="text"
-                placeholder="Name"
-                name="name"
-                required
-                onChange={handleChange}
-              />
+              <input type="text" placeholder="Name" name="name" required onChange={handleChange} />
             </div>
             <div>
               <textarea
@@ -132,15 +122,13 @@ const SpeakerFair = ({
                   onChange={handleChange}
                   rows="2"
                   required
-                  type="url"
                   id="url"
+                  type="url"
                   placeholder="https://example.com"
                   pattern="https://.*"
                   size="30"
                 />
-
               </label>
-
             </div>
             <div>
               <label htmlFor="linkedIn">
@@ -157,9 +145,7 @@ const SpeakerFair = ({
                   pattern="https://.*"
                   size="30"
                 />
-
               </label>
-
             </div>
             <div>
               <label htmlFor="instagram">
@@ -181,10 +167,24 @@ const SpeakerFair = ({
           </div>
           <div className="col-md-6 form-div">
             <div>
-              <textarea type="text" placeholder="profession" name="profession" onChange={handleChange} rows="2" required />
+              <textarea
+                type="text"
+                placeholder="profession"
+                name="profession"
+                onChange={handleChange}
+                rows="2"
+                required
+              />
             </div>
             <div>
-              <textarea type="text" placeholder="Topic" name="topics" onChange={handleChange} rows="2" required />
+              <textarea
+                type="text"
+                placeholder="Topic"
+                name="topics"
+                onChange={handleChange}
+                rows="2"
+                required
+              />
             </div>
             <div className="filepond-image1">
               <FilePond
@@ -202,7 +202,11 @@ const SpeakerFair = ({
           </div>
         </div>
         <div className="col-md-12 my-3">
-          <button disabled={loading} className="btn btn-primary" type="submit">
+          <button
+            disabled={loading}
+            className="btn btn-primary"
+            type="submit"
+          >
             Submit
           </button>
         </div>

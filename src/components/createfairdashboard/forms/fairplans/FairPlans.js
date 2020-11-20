@@ -8,51 +8,50 @@ import { getUserToken } from '../../../../utils/functions/userAuth';
 import { errorHandler } from '../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`
-
-.block-2{
-  div{
-    margin:1rem 0;
+  .block-2 {
+    div {
+      margin: 1rem 0;
+    }
   }
- 
-}
-  .checkbox{
-    margin-top:1rem;
-    label{
-      display:grid;
-      grid-template-columns:.2fr 3fr;
-      span{
-        margin:-.4rem 0 0 .3rem;
+  .checkbox {
+    margin-top: 1rem;
+    label {
+      display: grid;
+      grid-template-columns: 0.2fr 3fr;
+      span {
+        margin: -0.4rem 0 0 0.3rem;
       }
     }
   }
   form {
     /* display:grid;
     grid-template-columns:1fr 1fr; */
-    input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .8rem 2rem;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+    input,
+    select,
+    textarea {
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
+      padding: 0.8rem 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      &::focus {
+        border: 1px solid ${(props) => props.theme.colors.primary};
       }
     }
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0.4rem;
       }
     }
   }
-
 `;
 
 const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
@@ -67,7 +66,7 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
     pane_page_ad: false,
     story_ad: false,
     stage_ad: false,
-    lead_generation: false
+    lead_generation: false,
   });
 
   const headers = getUserToken();
@@ -97,7 +96,7 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
       booth_size,
       name,
       // price_currency,
-      booth_position
+      booth_position,
     } = formValues;
 
     const {
@@ -114,7 +113,7 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
       pane_page_ad,
       stage_ad,
       story_ad,
-      lead_generation
+      lead_generation,
     } = checkboxValues;
 
     const data = {
@@ -149,36 +148,34 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
     setloading(false);
   };
 
-  useEffect(() => {
-
-  }, [partners]);
+  useEffect(() => {}, [partners]);
 
   return (
     <FairWrapper>
-      {loading && <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />}
-      <form onSubmit={(createFairHandler)}>
+      {loading && (
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
+      )}
+      <form onSubmit={createFairHandler}>
         {error && (
-        <div className={error.class} role="alert">
-          {error.message}
-        </div>
-        ) }
+          <div className={error.class} role="alert">
+            {error.message}
+          </div>
+        )}
 
         <div className="row">
           <div className="col-md-6 form-div">
             <div>
-              <input
-                type="text"
-                placeholder="Name"
-                name="name"
-                onChange={handleChange}
-                required
-              />
+              <input type="text" placeholder="Name" name="name" onChange={handleChange} required />
             </div>
             <div>
-              <select required placeholder="Category" name="category" onChange={handleChange} id="category-id">
-                <option value="">
-                  Category
-                </option>
+              <select
+                required
+                placeholder="Category"
+                name="category"
+                onChange={handleChange}
+                id="category-id"
+              >
+                <option value="">Category</option>
                 {fairPlanCategory.map((fair) => (
                   <option key={fair} value={fair}>
                     {fair}
@@ -224,7 +221,6 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
                 required
               />
             </div>
-
           </div>
           <div className="col-md-6 block-2">
             <div>
@@ -264,27 +260,16 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
                   required
                 />
               </label>
-
             </div>
             <div className="checkbox">
               <label htmlFor="booth_ad">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckbox}
-                  name="booth_ad"
-                  id="booth_ad"
-                />
+                <input type="checkbox" onChange={handleCheckbox} name="booth_ad" id="booth_ad" />
                 <span>Booth Ad</span>
               </label>
             </div>
             <div className="checkbox">
               <label htmlFor="banner_ad">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckbox}
-                  name="banner_ad"
-                  id="banner_ad"
-                />
+                <input type="checkbox" onChange={handleCheckbox} name="banner_ad" id="banner_ad" />
                 <span>Banner Ad</span>
               </label>
             </div>
@@ -312,27 +297,16 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
             </div>
             <div className="checkbox">
               <label htmlFor="story_ad">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckbox}
-                  name="story_ad"
-                  id="story_ad"
-                />
+                <input type="checkbox" onChange={handleCheckbox} name="story_ad" id="story_ad" />
                 <span>Story Ad</span>
               </label>
             </div>
             <div className="checkbox">
               <label htmlFor="stage_ad">
-                <input
-                  type="checkbox"
-                  onChange={handleCheckbox}
-                  name="stage_ad"
-                  id="stage_ad"
-                />
+                <input type="checkbox" onChange={handleCheckbox} name="stage_ad" id="stage_ad" />
                 <span>Stage Ad</span>
               </label>
             </div>
-
           </div>
           <div className="col-md-12 my-3">
             <table className="table table-striped">
@@ -346,13 +320,8 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
                 {partners.map((person) => (
                   <tr key={person}>
                     <td>{person}</td>
-                    <td
-                      aria-hidden="true"
-                    >
-                      <FontAwesomeIcon
-                        icon={['fa', 'trash']}
-                        className="alert-danger"
-                      />
+                    <td aria-hidden="true">
+                      <FontAwesomeIcon icon={['fa', 'trash']} className="alert-danger" />
                     </td>
                   </tr>
                 ))}
@@ -372,7 +341,6 @@ const FairPlan = ({ activeStep, setActiveStep, fairId }) => {
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </form>

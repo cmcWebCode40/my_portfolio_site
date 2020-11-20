@@ -7,34 +7,34 @@ import useApi from '../../../../hooks/Api/useApi';
 const FairWrapper = styled.div`
   form {
     label {
-      input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .6rem;
-      text-align:center;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+      input,
+      select,
+      textarea {
+        border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+        background-color: ${(props) => props.theme.colors.light};
+        padding: 0.6rem;
+        text-align: center;
+        width: 100%;
+        outline: none;
+        border: none;
+        &::focus {
+          border: 1px solid ${(props) => props.theme.colors.primary};
+        }
       }
     }
-    }
-  
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
         /* margin:1rem .4rem ; */
       }
     }
   }
-
 `;
 
 const FairSpeaker = ({
@@ -43,20 +43,14 @@ const FairSpeaker = ({
   const [formValues, setFormValues] = useState('');
   const [banner, setBanner] = useState({ files: '' });
   const {
-    data,
-    loading,
-    getData,
-    error,
-    postData,
-  } = useApi();
+    data, loading, setRefech, refetch, error, postData
+  } = useApi(
+    `/fairs/${fairId}/speakers/${speakerId}`
+  );
 
   // if (postResponseData) {
   //   toast.success(postResponseData.message, { toastId: 'fair' });
   // }
-
-  useEffect(() => {
-    getData(`/fairs/${fairId}/speakers/${speakerId}`);
-  }, [fairId]);
 
   useEffect(() => {
     if (data) {
@@ -67,7 +61,7 @@ const FairSpeaker = ({
         linkedIn: data.linkedIn,
         instagram: data.instagram,
         profession: data.profession,
-        topics: data.topics
+        topics: data.topics,
       });
     }
   }, [data]);
@@ -78,13 +72,7 @@ const FairSpeaker = ({
   const createFairHandler = async (e) => {
     e.preventDefault();
     const {
-      name,
-      title,
-      facebook,
-      linkedIn,
-      instagram,
-      profession,
-      topics
+      name, title, facebook, linkedIn, instagram, profession, topics
     } = formValues;
     const formData = new FormData();
     formData.append('profilePicture', banner.files.file);
@@ -99,10 +87,11 @@ const FairSpeaker = ({
     const postValues = {
       url: `/fairs/${fairId}/speakers/${speakerId}`,
       type: 'patch',
-      data: formData
+      data: formData,
     };
     await postData(postValues);
     await setreload(!reload);
+    setRefech(!refetch);
   };
 
   const setBannerHandler = (fileItems) => {
@@ -115,23 +104,15 @@ const FairSpeaker = ({
     return (
       <FairWrapper>
         {loading && (
-        <RequestLoaderIcon
-          size="3x"
-          label="Please wait"
-          className="text-primary bg-mid-gray"
-        />
+          <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
         )}
-        <h4
-          className="text-primary text-center"
-        >
-          Edit Speaker Details
-        </h4>
-        <form onSubmit={(createFairHandler)}>
+        <h4 className="text-primary text-center">Edit Speaker Details</h4>
+        <form onSubmit={createFairHandler}>
           {error && (
-          <div className={error.class} role="alert">
-            {error.message}
-          </div>
-          ) }
+            <div className={error.class} role="alert">
+              {error.message}
+            </div>
+          )}
           <div className="row">
             <div className="col-md-6 form-div">
               <div>
@@ -147,9 +128,7 @@ const FairSpeaker = ({
                     required
                     onChange={handleChange}
                   />
-
                 </label>
-
               </div>
               <div>
                 <label htmlFor="title">
@@ -163,9 +142,7 @@ const FairSpeaker = ({
                     onChange={handleChange}
                     required
                   />
-
                 </label>
-
               </div>
               <div>
                 <label htmlFor="facebook">
@@ -182,9 +159,7 @@ const FairSpeaker = ({
                     pattern="https://.*"
                     size="30"
                   />
-
                 </label>
-
               </div>
               <div>
                 <label htmlFor="linkedIn">
@@ -201,9 +176,7 @@ const FairSpeaker = ({
                     pattern="https://.*"
                     size="30"
                   />
-
                 </label>
-
               </div>
               <div>
                 <label htmlFor="instagram">
@@ -220,9 +193,7 @@ const FairSpeaker = ({
                     pattern="https://.*"
                     size="30"
                   />
-
                 </label>
-
               </div>
             </div>
             <div className="col-md-6 form-div">
@@ -239,7 +210,6 @@ const FairSpeaker = ({
                     required
                   />
                 </div>
-
               </label>
 
               <div>
@@ -270,19 +240,11 @@ const FairSpeaker = ({
                   labelMaxFileSize="Maximum file size is 500KB"
                 />
               </div>
-              <img
-                className="img-thumbnail w-25"
-                src={data.photoUrl}
-                alt={data.name}
-              />
+              <img className="img-thumbnail w-25" src={data.photoUrl} alt={data.name} />
             </div>
           </div>
           <div className="col-md-12 my-3">
-            <button
-              disabled={loading}
-              className="btn btn-primary"
-              type="submit"
-            >
+            <button disabled={loading} className="btn btn-primary" type="submit">
               Submit
             </button>
           </div>

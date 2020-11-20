@@ -2,69 +2,70 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import { PaystackButton } from "react-paystack";
 
+// This is only a test run page ...//
 
 export default function PatstackPay() {
 
-    const publicKey = "pk_test_29bf5bcfda75d34a0b289494b6286f00f4e57cd4"
-    const amount = 1000000
-    const [email, setEmail] = useState("")
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
-    const componentProps = {
-        email,
-        amount,
-        metadata: {
-            name,
-            phone,
-        },
-        publicKey,
-        text: "Pay Now",
-        onSuccess: () =>
-            alert("Thanks for doing business with us! Come back soon!!"),
-        onClose: () => alert("Wait! Don't leave :("),
-    }
-    return (
-        <StyledDiv>
-            <div className="App">
-                <div className="container">
-                    <div className="item">
-                        <img
-                            className="item-image"
-                            src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-                            alt="product"
-                        />
-                        <div className="item-details">
-                            <p>Coco Oil</p>
-                            <p>{amount}</p>
-                        </div>
-                    </div>
-                    <div className="checkout-form">
-                        <form>
-                            <label>Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                onChange={(e) => setName(e.target.value)}
-                            />
-                            <label>Email</label>
-                            <input
-                                type="text"
-                                id="email"
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <label>Phone</label>
-                            <input
-                                type="text"
-                                id="phone"
-                                onChange={(e) => setPhone(e.target.value)}
-                            />
-                        </form>
-                        <PaystackButton {...componentProps} />
-                    </div>
-                </div>
+  const publicKey = "pk_test_29bf5bcfda75d34a0b289494b6286f00f4e57cd4"
+  const amount = 1000000
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+  const componentProps = {
+    email,
+    amount,
+    metadata: {
+      name,
+      phone,
+    },
+    publicKey,
+    text: "Pay Now",
+    onSuccess: () =>
+      alert("Thanks for doing business with us! Come back soon!!"),
+    onClose: () => alert("Wait! Don't leave :("),
+  }
+  return (
+    <StyledDiv>
+      <div className="App">
+        <div className="container">
+          <div className="item">
+            <img
+              className="item-image"
+              src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+              alt="product"
+            />
+            <div className="item-details">
+              <p>Coco Oil</p>
+              <p>{amount}</p>
             </div>
-        </StyledDiv>
-    )
+          </div>
+          <div className="checkout-form">
+            <form>
+              <label>Name</label>
+              <input
+                type="text"
+                id="name"
+                onChange={(e) => setName(e.target.value)}
+              />
+              <label>Email</label>
+              <input
+                type="text"
+                id="email"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <label>Phone</label>
+              <input
+                type="text"
+                id="phone"
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </form>
+            <PaystackButton {...componentProps} />
+          </div>
+        </div>
+      </div>
+    </StyledDiv>
+  )
 }
 
 const StyledDiv = styled.div`

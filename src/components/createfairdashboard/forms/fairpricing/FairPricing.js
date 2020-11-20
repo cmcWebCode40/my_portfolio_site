@@ -8,61 +8,61 @@ import { getUserToken } from '../../../../utils/functions/userAuth';
 import { errorHandler } from '../../../../error/ErrorHandler';
 
 const FairWrapper = styled.div`
-  .ad-label{
-    margin:'4rem';
+  .ad-label {
+    margin: '4rem';
   }
 
-  .label-ad{
-    display:flex;
-    & >*{
-      margin: 0rem .3rem ;
+  .label-ad {
+    display: flex;
+    & > * {
+      margin: 0rem 0.3rem;
     }
   }
 
-  .block-2{
-    div{
-      margin:1rem 0;
+  .block-2 {
+    div {
+      margin: 1rem 0;
     }
-  
   }
-  .checkbox{
-    margin-top:1rem;
-    label{
-      display:grid;
-      grid-template-columns:.2fr 3fr;
-      span{
-        margin:-.4rem 0 0 .3rem;
+  .checkbox {
+    margin-top: 1rem;
+    label {
+      display: grid;
+      grid-template-columns: 0.2fr 3fr;
+      span {
+        margin: -0.4rem 0 0 0.3rem;
       }
     }
   }
   form {
     /* display:grid;
     grid-template-columns:1fr 1fr; */
-    input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .8rem 2rem;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+    input,
+    select,
+    textarea {
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
+      padding: 0.8rem 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      &::focus {
+        border: 1px solid ${(props) => props.theme.colors.primary};
       }
     }
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0.4rem;
       }
     }
   }
-
 `;
 
 const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
@@ -80,7 +80,10 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
     if (position && price) {
       setPartners([...partners, { position, price: Number(price) }]);
     } else {
-      return setError({ message: 'you cant not partners with same name', class: 'alert alert-danger' });
+      return setError({
+        message: 'you cant not partners with same name',
+        class: 'alert alert-danger',
+      });
     }
   };
   const handleChange = (e) => {
@@ -104,7 +107,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
       lead_generation,
 
       price_per_product,
-
     } = formValues;
     const {
       ads_per_booth,
@@ -119,29 +121,29 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
       ads_per_story_price,
       price_per_visitor,
       price_squared_meter,
-      price_per_booth_attendant
+      price_per_booth_attendant,
     } = formValuesNumber;
 
     const booth_ad = {
       ads_per_booth,
-      price: ads_per_booth_price
+      price: ads_per_booth_price,
     };
     const banner_ad = {
       ads_per_banner,
-      price: ads_per_banner_price
+      price: ads_per_banner_price,
     };
     const pane_page_ad = {
       ads_per_pane,
-      price: ads_per_pane_price
+      price: ads_per_pane_price,
     };
 
     const stage_ad = {
       ads_per_stage,
-      price: ads_per_stage_price
+      price: ads_per_stage_price,
     };
     const story_ad = {
       ads_per_story,
-      price: ads_per_story_price
+      price: ads_per_story_price,
     };
 
     const data = {
@@ -155,7 +157,7 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
       price_per_product,
       booth_position: partners,
       price_per_booth_attendant,
-      price_squared_meter
+      price_squared_meter,
     };
 
     setloading(true);
@@ -169,18 +171,18 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
     setloading(false);
   };
 
-  useEffect(() => {
-
-  }, [partners]);
+  useEffect(() => {}, [partners]);
 
   return (
     <FairWrapper>
-      {loading && <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />}
-      <form onSubmit={(createFairHandler)}>
+      {loading && (
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
+      )}
+      <form onSubmit={createFairHandler}>
         {error && (
-        <div className={error.class} role="alert">
-          {error.message}
-        </div>
+          <div className={error.class} role="alert">
+            {error.message}
+          </div>
         )}
         <div className="row">
           <div className="col-md-6 form-div">
@@ -192,9 +194,7 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                 onChange={handleChange}
                 id="category-id"
               >
-                <option value="">
-                  Category
-                </option>
+                <option value="">Category</option>
                 {fairPlanCategory.map((fair) => (
                   <option key={fair} value={fair}>
                     {fair}
@@ -233,7 +233,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
                 <label className="ad-label" htmlFor="ads_per_booth_price">
                   Price
@@ -245,10 +244,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
               </div>
-
             </div>
             <div>
               <div className="label-ad">
@@ -262,7 +259,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
                 <label className="ad-label" htmlFor="ads_per_banner_price">
                   Price
@@ -274,10 +270,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
               </div>
-
             </div>
 
             <div>
@@ -292,7 +286,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
                 <label className="ad-label" htmlFor="ads_per_pane_price">
                   Price
@@ -304,10 +297,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
               </div>
-
             </div>
             <div>
               <div className="label-ad">
@@ -321,7 +312,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
                 <label className="ad-label" htmlFor="ads_per_stage_price">
                   Price
@@ -333,10 +323,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
               </div>
-
             </div>
             <div>
               <div className="label-ad">
@@ -350,7 +338,6 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
                 <label className="ad-label" htmlFor="ads_per_story_price">
                   Price
@@ -362,10 +349,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                     onChange={handleChangeNumber}
                     required
                   />
-
                 </label>
               </div>
-
             </div>
             <div>
               <input
@@ -398,10 +383,14 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
             </div>
             <div className="row">
               <div className="col">
-                <select required placeholder="Position" name="position" onChange={handlePostion} id="category-id">
-                  <option value="">
-                    Choose Postion
-                  </option>
+                <select
+                  required
+                  placeholder="Position"
+                  name="position"
+                  onChange={handlePostion}
+                  id="category-id"
+                >
+                  <option value="">Choose Postion</option>
                   {fairPosition.map((fair) => (
                     <option key={fair} value={fair}>
                       {fair}
@@ -437,13 +426,8 @@ const FairPricing = ({ activeStep, setActiveStep, fairId }) => {
                   <tr key={booth.price}>
                     <td>{booth.position}</td>
                     <td>{booth.price}</td>
-                    <td
-                      aria-hidden="true"
-                    >
-                      <FontAwesomeIcon
-                        icon={['fa', 'trash']}
-                        className="alert-danger"
-                      />
+                    <td aria-hidden="true">
+                      <FontAwesomeIcon icon={['fa', 'trash']} className="alert-danger" />
                     </td>
                   </tr>
                 ))}

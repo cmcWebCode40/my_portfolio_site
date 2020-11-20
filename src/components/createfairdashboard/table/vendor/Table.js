@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,23 +15,18 @@ const TableWrapper = styled.table`
 `;
 
 const VendorSetting = ({ match }) => {
+  const { fairId } = match.params;
   const [open, setOpen] = useState(false);
   const [edit, setEdit] = useState(false);
   const [item, setItem] = useState('');
-  const [/* reload */, setreload] = useState('');
   const {
     data,
-    getData,
     error,
-    loading
-  } = useApi();
-  const { fairId } = match.params;
+    loading,
+    setRefech: setreload
+  } = useApi(`/fairs/${fairId}/requirements`);
 
   const onOpenModal = () => setOpen(true);
-
-  useEffect(() => {
-    getData(`/fairs/${fairId}/requirements`);
-  }, [fairId]);
 
   return (
     <>

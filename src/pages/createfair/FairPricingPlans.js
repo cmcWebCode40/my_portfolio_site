@@ -6,6 +6,7 @@ import { errorHandler } from '../../error/ErrorHandler';
 import { coopLagApi } from '../../services/services';
 import { RequestLoaderIcon } from '../../components/Loaders/Loader';
 import { fairPosition } from '../../utils/list/createfair';
+// import useApi from '../../hooks/Api/useApi';
 
 const FairWrapper = styled.div`
   .ad-label{
@@ -67,8 +68,6 @@ const FairWrapper = styled.div`
 
 const FairPricing = ({ match }) => {
   const [formValues, setFormValues] = useState('');
-  const [/* data */, setData] = useState('');
-  const [reload] = useState('');
   const [formValuesNumber, setFormValuesNumber] = useState(0);
   const [error, setError] = useState('');
   const [partners, setPartners] = useState([]);
@@ -76,6 +75,7 @@ const FairPricing = ({ match }) => {
   const [loading, setloading] = useState(false);
   const headers = getUserToken();
   const { fairId } = match.params;
+  // const  = useApi(`/fairs/${fairId}/fair-pricing`);
 
   const addPosition = () => {
     const { position, price } = partnerValue;
@@ -170,30 +170,6 @@ const FairPricing = ({ match }) => {
     }
     setloading(false);
   };
-
-  const getAllFairs = async () => {
-    setloading(true);
-    try {
-      const res = await coopLagApi.get(
-        `/fairs/${fairId}/fair-pricing`,
-        { headers }
-      );
-      setData(res.data.data);
-    } catch (error) {
-      if (error && error.response) {
-        const { data } = errorHandler(error);
-        setError({
-          message: data.message,
-          class: 'alert alert-danger'
-        });
-      }
-    }
-    setloading(false);
-  };
-
-  useEffect(() => {
-    getAllFairs();
-  }, [reload]);
 
   useEffect(() => {
 

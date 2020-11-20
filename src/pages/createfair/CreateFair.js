@@ -8,6 +8,7 @@ import Vendor from '../../components/createfairdashboard/forms/vendor/Vendor';
 import ModalDialog from '../../components/modal/Modal';
 import Overview from '../../components/createfairdashboard/fairoverview/Overview';
 import { getUserData } from '../../utils/functions/userAuth';
+import useApi from '../../hooks/Api/useApi';
 
 function getSteps() {
   return [' Information', ' Pricing', ' Speaker', ' Plans', 'Vendor Setting'];
@@ -18,6 +19,13 @@ const CreateFairView = () => {
   const [fairId, setFairId] = useState(true);
   const [activeStep, setActiveStep] = useState(0);
   const useName = getUserData('firstname');
+  const {
+    data,
+    error,
+    loading,
+    refetch: reload,
+    setRefech: setreload
+  } = useApi('/fairs');
 
   const allSteps = getSteps();
   function getStepContent(stepIndex) {
@@ -59,6 +67,9 @@ const CreateFairView = () => {
           <Vendor
             activeStep={activeStep}
             setActiveStep={setActiveStep}
+            setOpen={setOpen}
+            setreload={setreload}
+            reload={reload}
           />
         );
       default:
@@ -108,7 +119,13 @@ const CreateFairView = () => {
         </div>
       </ModalDialog>
       <div>
-        <Overview />
+        <Overview
+          data={data}
+          error={error}
+          loading={loading}
+          reload={reload}
+          setreload={setreload}
+        />
       </div>
     </div>
   );

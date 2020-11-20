@@ -4,11 +4,11 @@ import cx from 'classnames';
 
 function ToggleSwitch({ rounded = false }) {
   const sliderCX = cx('slider', {
-    rounded: rounded,
+    rounded,
   });
   return (
     <StyledDiv>
-      <label className="switch my-auto mx-2">
+      <label htmlFor="check" className="switch my-auto mx-2">
         <input type="checkbox" />
         <span className={sliderCX} />
       </label>

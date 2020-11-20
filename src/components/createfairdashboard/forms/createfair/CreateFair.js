@@ -12,31 +12,32 @@ const FairWrapper = styled.div`
   form {
     /* display:grid;
     grid-template-columns:1fr 1fr; */
-    input,select,textarea {
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};;
-      background-color:${(props) => props.theme.colors.light};
-      padding: .8rem 2rem;
-      width:100%;
-      outline:none;
-      border:none;
-      &::focus{
-        border:1px solid ${(props) => props.theme.colors.primary};
+    input,
+    select,
+    textarea {
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
+      padding: 0.8rem 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      &::focus {
+        border: 1px solid ${(props) => props.theme.colors.primary};
       }
     }
 
-    .filepond-image{
-      padding:5rem ;
-      width:100%;
-      border-radius:${(props) => props.theme.styles.borderRadiusRounded};
-      background-color:${(props) => props.theme.colors.light};
+    .filepond-image {
+      padding: 5rem;
+      width: 100%;
+      border-radius: ${(props) => props.theme.styles.borderRadiusRounded};
+      background-color: ${(props) => props.theme.colors.light};
     }
-    .form-div{
+    .form-div {
       div {
-        margin:1rem .4rem ;
+        margin: 1rem 0.4rem;
       }
     }
   }
-
 `;
 
 const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
@@ -66,7 +67,7 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
       name,
       // payment_options,
       start_date,
-      total_expected_vendors
+      total_expected_vendors,
     } = formValues;
     const formData = new FormData();
     formData.append('banner', banner.files.file);
@@ -111,7 +112,10 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
     if (partnerValue) {
       const checkValue = partners.find((person) => person === partnerValue);
       if (checkValue) {
-        return setError({ message: 'you cant not partners with same name', class: 'alert alert-danger' });
+        return setError({
+          message: 'you cant not partners with same name',
+          class: 'alert alert-danger',
+        });
       }
       setPartners([...partners, partnerValue]);
     }
@@ -122,42 +126,53 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
     setPartners(filteredItem);
   };
 
-  useEffect(() => {
-
-  }, [partners]);
+  useEffect(() => {}, [partners]);
 
   return (
     <FairWrapper>
-      {loading && <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />}
-      <form onSubmit={(createFairHandler)}>
+      {loading && (
+        <RequestLoaderIcon size="3x" label="Please wait" className="text-primary bg-mid-gray" />
+      )}
+      <form onSubmit={createFairHandler}>
         {error && (
-        <div className={error.class} role="alert">
-          {error.message}
-        </div>
-        ) }
+          <div className={error.class} role="alert">
+            {error.message}
+          </div>
+        )}
 
         <div className="row">
           <div className="col-md-6 form-div">
             <div>
+              <input type="text" placeholder="Name" name="name" required onChange={handleChange} />
+            </div>
+            <div>
               <input
                 type="text"
-                placeholder="Name"
-                name="name"
-                required
+                placeholder="Choose fair theme"
+                name="fair_env"
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
-              <input type="text" placeholder="Choose fair theme" name="fair_env" onChange={handleChange} required />
+              <textarea
+                type="text"
+                placeholder="Name"
+                name="about_event"
+                onChange={handleChange}
+                rows="7"
+                required
+              />
             </div>
             <div>
-              <textarea type="text" placeholder="Name" name="about_event" onChange={handleChange} rows="7" required />
-            </div>
-            <div>
-              <select required placeholder="fair type" name="fair_type" onChange={handleChange} id="fair_type-id">
-                <option value="">
-                  Choose fair type
-                </option>
+              <select
+                required
+                placeholder="fair type"
+                name="fair_type"
+                onChange={handleChange}
+                id="fair_type-id"
+              >
+                <option value="">Choose fair type</option>
                 {fairType.map((fair) => (
                   <option key={fair} value={fair}>
                     {fair}
@@ -166,10 +181,14 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
               </select>
             </div>
             <div>
-              <select onChange={handleChange} required placeholder="payment options" name="payment_options" id="payment_options-id">
-                <option value="">
-                  Choose  Payment Options
-                </option>
+              <select
+                onChange={handleChange}
+                required
+                placeholder="payment options"
+                name="payment_options"
+                id="payment_options-id"
+              >
+                <option value="">Choose Payment Options</option>
                 {paymentOptions.map((payment) => (
                   <option key={payment} value={payment}>
                     {payment}
@@ -178,8 +197,15 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
               </select>
             </div>
             <div>
-              <input onChange={(e) => setPartnersValue(e.target.value)} type="text" placeholder="Partners" required />
-              <button onClick={addPartners} className="btn btn-primary my-2 w-100" type="button">Add</button>
+              <input
+                onChange={(e) => setPartnersValue(e.target.value)}
+                type="text"
+                placeholder="Partners"
+                required
+              />
+              <button onClick={addPartners} className="btn btn-primary my-2 w-100" type="button">
+                Add
+              </button>
             </div>
             <table className="table table-striped">
               <thead className="thead-inverse">
@@ -192,21 +218,13 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
                 {partners.map((person) => (
                   <tr key={person}>
                     <td>{person}</td>
-                    <td
-                      aria-hidden="true"
-                      onClick={() => handleDelete(person)}
-                    >
-                      <FontAwesomeIcon
-                        icon={['fa', 'trash']}
-                        className="alert-danger"
-                      />
+                    <td aria-hidden="true" onClick={() => handleDelete(person)}>
+                      <FontAwesomeIcon icon={['fa', 'trash']} className="alert-danger" />
                     </td>
                   </tr>
                 ))}
-
               </tbody>
             </table>
-
           </div>
           <div className="col-md-6 form-div">
             <div className="filepond-image1">
@@ -237,10 +255,14 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
               />
             </div>
             <div>
-              <select required placeholder="Category" onChange={handleChange} name="category" id="category-id">
-                <option value="">
-                  Choose category
-                </option>
+              <select
+                required
+                placeholder="Category"
+                onChange={handleChange}
+                name="category"
+                id="category-id"
+              >
+                <option value="">Choose category</option>
                 {category.map((list) => (
                   <option key={list} value={list}>
                     {list}
@@ -249,7 +271,13 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
               </select>
             </div>
             <div>
-              <input type="number" onChange={handleChange} name="total_expected_vendors" placeholder="Total expected vendor" required />
+              <input
+                type="number"
+                onChange={handleChange}
+                name="total_expected_vendors"
+                placeholder="Total expected vendor"
+                required
+              />
             </div>
             <div>
               <input
@@ -261,7 +289,13 @@ const CreateFair = ({ activeStep, setActiveStep, setFairId }) => {
               />
             </div>
             <div>
-              <input type="date" onChange={handleChange} name="end_date" placeholder="End date" required />
+              <input
+                type="date"
+                onChange={handleChange}
+                name="end_date"
+                placeholder="End date"
+                required
+              />
             </div>
           </div>
         </div>

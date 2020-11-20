@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+import Cookies from 'universal-cookie';
 import { errorHandler } from '../../error/ErrorHandler';
 import { coopLagApi } from '../../services/services';
 import { getUserToken } from '../../utils/functions/userAuth';
 
-const useApi = () => {
+const useApi = (url) => {
   const [data, setdata] = useState([]);
   const [postResponseData, setPostResponseData] = useState('');
   const [error, setError] = useState('');
+  const [refetch, setRefech] = useState(true);
   const [loading, setloading] = useState(false);
   const headers = getUserToken();
 
@@ -17,20 +19,6 @@ const useApi = () => {
     } else {
       setError('something went wrong');
     }
-  };
-
-  const getData = async (url) => {
-    setloading(true);
-    try {
-      const res = await coopLagApi.get(url, { headers });
-      if (res.data) {
-        setdata(res.data.data);
-      }
-      // console.log(res.data.data.topics);
-    } catch (error) {
-      handleError(error);
-    }
-    setloading(false);
   };
 
   const deleteItem = async (url) => {
@@ -56,14 +44,32 @@ const useApi = () => {
     setloading(false);
   };
   useEffect(() => {
-
-  }, [postResponseData]);
+    // const auth = getUserToken();
+    const getData = async () => {
+      const cookies = new Cookies();
+      const token = cookies.get('vcn_usr:auth', { path: '/' });
+      setloading(true);
+      try {
+        const res = await coopLagApi.get(url, { headers: { Authorization: `Bearer ${token}` } });
+        if (res.data) {
+          setdata(res.data.data);
+        }
+        // console.log(res.data.data.topics);
+      } catch (error) {
+        handleError(error);
+      }
+      setloading(false);
+    };
+    getData();
+  }, [postResponseData, refetch, url]);
 
   return {
     error,
     data,
     loading,
-    getData,
+    // getData,
+    refetch,
+    setRefech,
     postData,
     postResponseData,
     deleteItem

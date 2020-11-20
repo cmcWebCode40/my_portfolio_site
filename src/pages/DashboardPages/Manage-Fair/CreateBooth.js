@@ -1,50 +1,49 @@
-import React from "react"
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
-
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 export default function CreateBooth() {
-    return (
-        <StyledDiv>
-            <div className="booth">
-                <h5 className="booth-cat">Booth Category</h5>
-                <span className="booth-span">+ New Category</span>
-            </div>
-            <div className="booth-header-div">
-                <span className="trash-booth"></span>
-                <div className="table-header">
-                    <span className="span-booth">Category</span>
-                    <span className="span-both-fee">Fee</span>
-                    <span className="span-booth-feat">Feature</span>
-                    <span className="span-columns-stats">Status</span>
-                    <span className="span-booth-edit">....</span>
-                </div>
-            </div>
-            <div className="booth-inner-div" id="title-content-div">
-                <div className="booth-header-div">
-                    <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                    <div className="table-header">
-                        <span className="span-booth" id="booth-span-content">Basic</span>
-                        <span className="span-both-fee" id="booth-span-content">$1000</span>
-                        <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
-                        <span className="span-columns-stats" id="booth-span-content">Active</span>
-                        <span className="span-booth-edit" id="booth-span-content">Edit</span>
-                    </div>
-                </div>
-                <div className="booth-header-div">
-                    <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                    <div className="table-header">
-                        <span className="span-booth" id="booth-span-content">Basic</span>
-                        <span className="span-both-fee" id="booth-span-content">$1000</span>
-                        <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
-                        <span className="span-columns-stats" id="booth-span-content">Active</span>
-                        <span className="span-booth-edit" id="booth-span-content">Edit</span>
-                    </div>
-                </div>
-            </div>
-        </StyledDiv>
-    )
+  return (
+    <StyledDiv>
+      <div className="booth">
+        <h5 className="booth-cat">Booth Category</h5>
+        <span className="booth-span">+ New Category</span>
+      </div>
+      <div className="booth-header-div">
+        <span className="trash-booth" />
+        <div className="table-header">
+          <span className="span-booth">Category</span>
+          <span className="span-both-fee">Fee</span>
+          <span className="span-booth-feat">Feature</span>
+          <span className="span-columns-stats">Status</span>
+          <span className="span-booth-edit">....</span>
+        </div>
+      </div>
+      <div className="booth-inner-div" id="title-content-div">
+        <div className="booth-header-div">
+          <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
+          <div className="table-header">
+            <span className="span-booth" id="booth-span-content">Basic</span>
+            <span className="span-both-fee" id="booth-span-content">$1000</span>
+            <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
+            <span className="span-columns-stats" id="booth-span-content">Active</span>
+            <span className="span-booth-edit" id="booth-span-content">Edit</span>
+          </div>
+        </div>
+        <div className="booth-header-div">
+          <div className="trash-booth"><FontAwesomeIcon icon={faTrashAlt} /></div>
+          <div className="table-header">
+            <span className="span-booth" id="booth-span-content">Basic</span>
+            <span className="span-both-fee" id="booth-span-content">$1000</span>
+            <span className="span-booth-feat" id="booth-span-content">Edit Features</span>
+            <span className="span-columns-stats" id="booth-span-content">Active</span>
+            <span className="span-booth-edit" id="booth-span-content">Edit</span>
+          </div>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

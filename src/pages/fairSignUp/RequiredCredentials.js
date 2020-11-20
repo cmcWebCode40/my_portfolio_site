@@ -6,10 +6,10 @@ import { toast } from 'react-toastify';
 import { getUserToken } from '../../utils/functions/userAuth';
 import { coopLagApi } from '../../services/services';
 
-export default function RequiredFiles(props) {
+export default function RequiredFiles({ history, match }) {
   const { register, handleSubmit, errors } = useForm();
 
-  const fair_id = props.match.params.id;
+  const fair_id = match.params.id;
 
   const errorAlert = (message) => {
     toast.error(
@@ -30,7 +30,7 @@ export default function RequiredFiles(props) {
       })
       .then((res) => {
         const { data } = res.data;
-        props.history.replace(`/vendorprofile/${data.vendor}`);
+        history.replace(`/vendorprofile/${data.vendor}`);
       })
       .catch((error) => {
         errorAlert(error.response.data.message);
@@ -45,18 +45,22 @@ export default function RequiredFiles(props) {
             <div className="form-left">
               {/* <h2>Prerequisites</h2> */}
               <p className="prerequisites-paragraph">
-                You must be a registered user to use this form.{' '}
+                You must be a registered user to use this form.
+                {' '}
                 <div>
-                  Register{' '}
+                  Register
+                  {' '}
                   <Link to="/register" className="signIn-link">
                     Here
                   </Link>
                 </div>
               </p>
               <p className="prerequisites-paragraph">
-                Already have an account?{' '}
+                Already have an account?
+                {' '}
                 <div>
-                  Login{' '}
+                  Login
+                  {' '}
                   <Link to="/register" className="signIn-link">
                     Here
                   </Link>
@@ -158,16 +162,18 @@ export default function RequiredFiles(props) {
                 )}
               </div>
               <div className="form-checkbox">
-                <label className="container">
+                <label htmlFor="checkbox" className="container">
                   <p>
-                    I accept the{' '}
-                    <a href="#" className="text">
+                    I accept the
+                    {' '}
+                    <a href="##" className="text">
                       Terms and Conditions
-                    </a>{' '}
+                    </a>
+                    {' '}
                     of your fair.
                   </p>
                   <input type="checkbox" name="checkbox" />
-                  <span className="checkmark"></span>
+                  <span className="checkmark" />
                 </label>
               </div>
               <div className="form-row-last">

@@ -1,69 +1,72 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
-
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 export default function CreateShops() {
-    return (
-        <StyledDiv>
-            <div className="manage-body">
-                <div className="manage-body-content">
-                    <div className="manage-fair">
-                        <h5 className="manage">Shops</h5>
-                        <span className="manage-span">+ New Category</span>
-                    </div>
-                    <div className="shop-header-div-title">
-                        <span id="trash"></span>
-                        <div className="shop-header-title">
-                            <span className="shop-cat-title">Category</span>
-                            <span className="shop-brand-title">Brand</span>
-                        </div>
-                    </div>
-                    <div className="shop-header-div">
-                        <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="shop-header">
-                            <span className="shop-cat" id="manage-span-content">Electronics</span>
-                            <span className="shop-brand" id="manage-span-content">LG</span>
-                            <span className="shop-manage">Manage</span>
-                        </div>
-                    </div>
-                    <div className="upload">
-                        <span className="single">Single Upload</span><span className="Bulk">Bulk Upload</span>
-                        <p className="upload-par"><span className="download-excel">Download</span> Excel Template for Bulk
-                            Upload
-                        </p>
-                    </div>
-                    <div className="shop-header-item-div">
-                        <span id="trash"></span>
-                        <div className="item-header">
-                            <span className="item-prod">Product</span>
-                            <span className="item-QA">QA</span>
-                            <span className="item-price">Price</span>
-                            <span className="item-disc">Discount</span>
-                            <span className="item-desc">Description</span>
-                            <span className="item-media">Media</span>
-                            <span className="item-edit">....</span>
-                        </div>
-                    </div>
-                    <div className="shop-table-holder">
-                        <div className="shop-header-item-div">
-                            <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                            <div className="item-header">
-                                <span className="item-prod" id="shop-content">42"TV</span>
-                                <span className="item-QA" id="shop-content">22</span>
-                                <span className="item-price" id="shop-content">NGN 32,000</span>
-                                <span className="item-disc" id="shop-content">5%</span>
-                                <span className="item-desc" id="shop-content">Black 42" LG with one year...</span>
-                                <span id="item-media-2">Manage</span>
-                                <span className="item-edit" id="shop-content">Edit</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <StyledDiv>
+      <div className="manage-body">
+        <div className="manage-body-content">
+          <div className="manage-fair">
+            <h5 className="manage">Shops</h5>
+            <span className="manage-span">+ New Category</span>
+          </div>
+          <div className="shop-header-div-title">
+            <span id="trash" />
+            <div className="shop-header-title">
+              <span className="shop-cat-title">Category</span>
+              <span className="shop-brand-title">Brand</span>
             </div>
-        </StyledDiv >
-    )
+          </div>
+          <div className="shop-header-div">
+            <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="shop-header">
+              <span className="shop-cat" id="manage-span-content">Electronics</span>
+              <span className="shop-brand" id="manage-span-content">LG</span>
+              <span className="shop-manage">Manage</span>
+            </div>
+          </div>
+          <div className="upload">
+            <span className="single">Single Upload</span>
+            <span className="Bulk">Bulk Upload</span>
+            <p className="upload-par">
+              <span className="download-excel">Download</span>
+              {' '}
+              Excel Template for Bulk
+              Upload
+            </p>
+          </div>
+          <div className="shop-header-item-div">
+            <span id="trash" />
+            <div className="item-header">
+              <span className="item-prod">Product</span>
+              <span className="item-QA">QA</span>
+              <span className="item-price">Price</span>
+              <span className="item-disc">Discount</span>
+              <span className="item-desc">Description</span>
+              <span className="item-media">Media</span>
+              <span className="item-edit">....</span>
+            </div>
+          </div>
+          <div className="shop-table-holder">
+            <div className="shop-header-item-div">
+              <div id="trash"><FontAwesomeIcon icon={faTrashAlt} /></div>
+              <div className="item-header">
+                <span className="item-prod" id="shop-content">42&rdquo;TV</span>
+                <span className="item-QA" id="shop-content">22</span>
+                <span className="item-price" id="shop-content">NGN 32,000</span>
+                <span className="item-disc" id="shop-content">5%</span>
+                <span className="item-desc" id="shop-content">Black 42&rdquo; LG with one year...</span>
+                <span id="item-media-2">Manage</span>
+                <span className="item-edit" id="shop-content">Edit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

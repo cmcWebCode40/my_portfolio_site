@@ -64,7 +64,7 @@ const FairLandingPage = (props) => {
         <section className="row">
           <div className="col-lg-8">
             <div className="banner-section-image-box mx-auto">
-              <img src={testImg} />
+              <img alt="virtual-fair" src={testImg} />
             </div>
           </div>
           <div className="col-lg-4">
@@ -79,11 +79,11 @@ const FairLandingPage = (props) => {
           <div className="w-100 container p-5">
             <h4>Sponsors & Partners</h4>
             <div className="partner-images">
-              <div className="partner-image-box mr-lg-5"><img src={kpmg} /></div>
-              <div className="partner-image-box mr-lg-5"><img src={nlng} /></div>
-              <div className="partner-image-box mr-lg-5"><img src={total} /></div>
-              <div className="partner-image-box mr-lg-5"><img src={gtb} /></div>
-              <div className="partner-image-box mr-lg-5"><img src={shell} /></div>
+              <div className="partner-image-box mr-lg-5"><img alt="virtual-fair" src={kpmg} /></div>
+              <div className="partner-image-box mr-lg-5"><img alt="virtual-fair" src={nlng} /></div>
+              <div className="partner-image-box mr-lg-5"><img alt="virtual-fair" src={total} /></div>
+              <div className="partner-image-box mr-lg-5"><img alt="virtual-fair" src={gtb} /></div>
+              <div className="partner-image-box mr-lg-5"><img alt="virtual-fair" src={shell} /></div>
             </div>
           </div>
         </section>
@@ -92,12 +92,14 @@ const FairLandingPage = (props) => {
         <section className="row about-section">
           <div className="about-section-title mx-auto text-center order-lg-last col-lg-4">
             <h3>About CoopLAG</h3>
-            <div className="about-section-image-box p-5 mx-auto"><img src={cooplag} /></div>
+            <div className="about-section-image-box p-5 mx-auto"><img alt="virtual-fair" src={cooplag} /></div>
           </div>
           <div className="about-section-content p-5 col-lg-8">
             <p>
-              Nulla est occaecat aliqua enim occaecat cupidatat. Eu quis consectetur magna ex duis commodo labore magna minim minim. Laborum cupidatat esse enim laboris reprehenderit est ipsum sunt Lorem anim incididunt dolor. Sit ex quis dolor id voluptate non eiusmod dolor sunt adipisicing excepteur exercitation.
-              Culpa pariatur ullamco culpa culpa cillum nulla nulla aliqua quis proident elit magna incididunt. Sunt quis mollit do cillum ullamco consectetur sit duis magna qui ut adipisicing. Ex Lorem eu non laborum occaecat sit incididunt laborum. Aliqua incididunt Lorem aliqua pariatur. Incididunt magna consectetur Lorem aliquip aliquip commodo et voluptate ea consectetur exercitation. Duis fugiat ex cillum magna aliqua magna veniam.
+              Nulla est occaecat aliqua enim occaecat
+              cupidatat. Eu quis consectetur magna ex duis commodo labore magna
+              minim minim. Laborum cupidatat esse enim laboris reprehenderit
+              est ipsum suntLorem anim incididunt dolor. Sit ex quis dolor id voluptat
             </p>
           </div>
         </section>
@@ -109,7 +111,7 @@ const FairLandingPage = (props) => {
           </div>
           <div className="row mx-auto">
             <div className="speaker-box col-lg-4">
-              <div className="speaker-image"><img src={profile1} /></div>
+              <div className="speaker-image"><img alt="virtual-fair" src={profile1} /></div>
               <div className="speaker-details">
                 <h4>Andy Crestodina</h4>
                 <p className="speaker-position">Founder & Strategic Director</p>
@@ -118,7 +120,7 @@ const FairLandingPage = (props) => {
               </div>
             </div>
             <div className="speaker-box col-lg-4">
-              <div className="speaker-image"><img src={profile3} /></div>
+              <div className="speaker-image"><img alt="virtual-fair" src={profile3} /></div>
               <div className="speaker-details">
                 <h4>Ardath Albee</h4>
                 <p className="speaker-position">CEO</p>
@@ -127,7 +129,7 @@ const FairLandingPage = (props) => {
               </div>
             </div>
             <div className="speaker-box col-lg-4">
-              <div className="speaker-image"><img src={profile2} /></div>
+              <div className="speaker-image"><img alt="virtual-fair" src={profile2} /></div>
               <div className="speaker-details">
                 <h4>Jay Acunzo</h4>
                 <p className="speaker-position">VP of Marketing</p>
@@ -148,25 +150,32 @@ const FairLandingPage = (props) => {
               <div className="pricing-category">Starter</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMarkSuccess /></div>
+                  <div>Booth</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMarkSuccess /></div>
+                  <div>Ads</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMarkSuccess /></div>
+                  <div>Vendors</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMarkSuccess /></div>
+                  <div>Speakers</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMarkSuccess /></div>
+                  <div>Products</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMarkCancel /></div>
+                  <div>Logistics</div>
+                  <div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
+                  <div>Booth Template</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$1,000</div>
@@ -175,25 +184,32 @@ const FairLandingPage = (props) => {
               <div className="pricing-category">Business</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMarkSuccess /></div>
+                  <div>Booth</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMarkSuccess /></div>
+                  <div>Ads</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMarkSuccess /></div>
+                  <div>Vendors</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMarkSuccess /></div>
+                  <div>Speakers</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMarkSuccess /></div>
+                  <div>Products</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMarkCancel /></div>
+                  <div>Logistics</div>
+                  <div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
+                  <div>Booth Template</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$5,000</div>
@@ -202,25 +218,32 @@ const FairLandingPage = (props) => {
               <div className="pricing-category">Professional</div>
               <div className="price-offerings">
                 <div className="row">
-                  <div>Booth</div><div><CheckMarkSuccess /></div>
+                  <div>Booth</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Ads</div><div><CheckMarkSuccess /></div>
+                  <div>Ads</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Vendors</div><div><CheckMarkSuccess /></div>
+                  <div>Vendors</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Speakers</div><div><CheckMarkSuccess /></div>
+                  <div>Speakers</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Products</div><div><CheckMarkSuccess /></div>
+                  <div>Products</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
                 <div className="row">
-                  <div>Logistics</div><div><CheckMarkCancel /></div>
+                  <div>Logistics</div>
+                  <div><CheckMarkCancel /></div>
                 </div>
                 <div className="row">
-                  <div>Booth Template</div><div><CheckMarkSuccess /></div>
+                  <div>Booth Template</div>
+                  <div><CheckMarkSuccess /></div>
                 </div>
               </div>
               <div className="price">$15,000</div>
@@ -232,13 +255,16 @@ const FairLandingPage = (props) => {
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Enter Email Address</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Make Pyaments to the Account Below</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <input
+                <p>Bank Name: XYZ Bank</p>
+                <p>Account Name: Adamu Obi kunle</p>
+                <p>Acount Num: 1234567890</p>
+                {/* <input
                   type="text"
                   name="email"
                   id="email-input"
@@ -246,7 +272,7 @@ const FairLandingPage = (props) => {
                   pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
                   placeholder="Your Business Email here"
                 />
-                {errors.email && <p className="error-para">Business email is required</p>}
+                {errors.email && <p className="error-para">Business email is required</p>} */}
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" onClick={handleSubmit(PlanSubmit)}>Submit</button>

@@ -1,96 +1,107 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-regular-svg-icons"
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 export default function CreateVendor() {
-    return (
-        <StyledDiv>
-            <div className="vendor-body">
-                <div className="vendor">
-                    <h5 className="vendor-cat">Vendor's Category</h5>
-                    <span className="vendor-span">+ New Category</span>
-                </div>
-                <div className="vendor-header-div">
-                    <span id="trash-vendor"></span>
-                    <div className="table-header">
-                        <span className="span-create-vend">Category</span>
-                        <span className="span-create-columns-2">Fee</span>
-                        <span className="span-create-edit-2">Feature</span>
-                        <span className="span-create-columns">Staus</span>
-                        <span className="span-create-edit">....</span>
-                    </div>
-                </div>
-                <div className="create-inner-div-2" id="title-content-div">
-                    <div className="vendor-header-div">
-                        <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-create-vend" id="vendor-span-content">Basic</span>
-                            <span className="span-create-columns-2" id="vendor-span-content">$1000</span>
-                            <span className="span-create-edit-2" id="vendor-span-content">Edit Features</span>
-                            <span className="span-create-columns" id="vendor-span-content">Active</span>
-                            <span className="span-create-edit" id="vendor-span-content">Edit</span>
-                        </div>
-                    </div>
-                    <div className="vendor-header-div">
-                        <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-create-vend" id="vendor-span-content">Classic</span>
-                            <span className="span-create-columns-2" id="vendor-span-content">$5000</span>
-                            <span className="span-create-edit-2" id="vendor-span-content">Edit Features</span>
-                            <span className="span-create-columns" id="vendor-span-content">Active</span>
-                            <span className="span-create-edit" id="vendor-span-content">Edit</span>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <StyledDiv>
+      <div className="vendor-body">
+        <div className="vendor">
+          <h5 className="vendor-cat">Vendor&apos;s Category</h5>
+          <span className="vendor-span">+ New Category</span>
+        </div>
+        <div className="vendor-header-div">
+          <span id="trash-vendor" />
+          <div className="table-header">
+            <span className="span-create-vend">Category</span>
+            <span className="span-create-columns-2">Fee</span>
+            <span className="span-create-edit-2">Feature</span>
+            <span className="span-create-columns">Staus</span>
+            <span className="span-create-edit">....</span>
+          </div>
+        </div>
+        <div className="create-inner-div-2" id="title-content-div">
+          <div className="vendor-header-div">
+            <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-create-vend" id="vendor-span-content">Basic</span>
+              <span className="span-create-columns-2" id="vendor-span-content">$1000</span>
+              <span className="span-create-edit-2" id="vendor-span-content">Edit Features</span>
+              <span className="span-create-columns" id="vendor-span-content">Active</span>
+              <span className="span-create-edit" id="vendor-span-content">Edit</span>
             </div>
-            <div className="vendor-body">
-                <div className="vendor">
-                    <h5 className="vendor-cat">Vendor's Signup Link</h5>
-                    <span className="vendor-span">+ New Link</span>
-                </div>
-                <div className="create-inner-div-2">
-                    <div className="vendor-header-div-vend">
-                        <span id="trash-vendor"></span>
-                        <div className="table-header">
-                            <span className="span-create-2">Link</span>
-                            <span className="span-create-email">Form Template</span>
-                        </div>
-                    </div>
-                    <div className="vendor-header-div-vend">
-                        <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
-                        <div className="table-header">
-                            <span className="span-create-2 link" id="vendor-span-content">www.linktoanywhere.com</span>
-                            <span className="span-create-email" id="vendor-span-content">Form 1</span>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div className="vendor-header-div">
+            <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-create-vend" id="vendor-span-content">Classic</span>
+              <span className="span-create-columns-2" id="vendor-span-content">$5000</span>
+              <span className="span-create-edit-2" id="vendor-span-content">Edit Features</span>
+              <span className="span-create-columns" id="vendor-span-content">Active</span>
+              <span className="span-create-edit" id="vendor-span-content">Edit</span>
             </div>
-            <div className="vendor-body">
-                <div className="vendor">
-                    <h5 className="vendor-cat">Form Template</h5>
-                    <span className="vendor-span">+ New Form</span>
-                </div>
-                <div className="vend-form-body">
-                    <form className="vend-form">
-                        <div className="vend-name"><label>Form Name</label></div>
-                        <input id="vend-input" />
-                        <div id="vend-form-label"><label>Field Title</label></div>
-                        <div className="select-addField">
-                            <select id="vend-select">
-                                <option>Select Input Type</option>
-                                <option value="Option One">Option One</option>
-                                <option value="Option Two">Option Two</option>
-                                <option value="Option Three">Option Three</option>
-                            </select>
-                            <p id="vend-form-par"> <span id="vend-plus">+ </span> Add Another Field</p>
-                        </div>
-                        <button>Submit</button>
-                    </form>
-                </div>
+          </div>
+        </div>
+      </div>
+      <div className="vendor-body">
+        <div className="vendor">
+          <h5 className="vendor-cat">Vendor&apos;s Signup Link</h5>
+          <span className="vendor-span">+ New Link</span>
+        </div>
+        <div className="create-inner-div-2">
+          <div className="vendor-header-div-vend">
+            <span id="trash-vendor" />
+            <div className="table-header">
+              <span className="span-create-2">Link</span>
+              <span className="span-create-email">Form Template</span>
             </div>
-        </StyledDiv>
-    )
+          </div>
+          <div className="vendor-header-div-vend">
+            <div id="trash-vendor"><FontAwesomeIcon icon={faTrashAlt} /></div>
+            <div className="table-header">
+              <span className="span-create-2 link" id="vendor-span-content">www.linktoanywhere.com</span>
+              <span className="span-create-email" id="vendor-span-content">Form 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="vendor-body">
+        <div className="vendor">
+          <h5 className="vendor-cat">Form Template</h5>
+          <span className="vendor-span">+ New Form</span>
+        </div>
+        <div className="vend-form-body">
+          <form className="vend-form">
+            <div className="vend-name">
+              <label htmlFor="vend-input">
+                Form Name
+                <input id="vend-input" />
+              </label>
+            </div>
+
+            <div id="vend-form-label"><label>Field Title</label></div>
+            <div className="select-addField">
+              <select id="vend-select">
+                <option>Select Input Type</option>
+                <option value="Option One">Option One</option>
+                <option value="Option Two">Option Two</option>
+                <option value="Option Three">Option Three</option>
+              </select>
+              <p id="vend-form-par">
+                {' '}
+                <span id="vend-plus">+ </span>
+                {' '}
+                Add Another Field
+              </p>
+            </div>
+            <button type="button">Submit</button>
+          </form>
+        </div>
+      </div>
+    </StyledDiv>
+  );
 }
 
 const StyledDiv = styled.div`

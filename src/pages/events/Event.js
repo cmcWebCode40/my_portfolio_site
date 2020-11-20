@@ -27,25 +27,25 @@ const Event = () => {
           <button type="button" className="btn btn-outline-dark m-2 ">
             Networking
           </button>
-          <div></div>
+          <div />
           <div className="event-box-div">
             <div className="left-side">
-              <img src={imageLogo} alt="Landing Page" />
+              <img alt="events" src={imageLogo} />
               <div className="event-options mt-2 w-50 mx-auto">
                 <span className="my-auto">Ask questions </span>
-                <ToggleSwitch rounded={true} />
+                <ToggleSwitch rounded />
                 <span>
-                  <img src={clap} className="eye-image" />
+                  <img alt="events" src={clap} className="eye-image" />
                 </span>
                 <span className="m-2">Clap</span>
                 <span>Audio </span>
-                <ToggleSwitch rounded={true} />
+                <ToggleSwitch rounded />
               </div>
             </div>
             <div className="right-side ml-3">
               <div>
                 <div className="mx-auto px-1">
-                  <img src={arrow} className="eye-image mx-2" />
+                  <img alt="events" src={arrow} className="eye-image mx-2" />
                 </div>
                 <div className="icon-box">
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
@@ -58,21 +58,21 @@ const Event = () => {
                   <FontAwesomeIcon className="icon" icon={['fa', 'user-circle']} size="3x" />
                 </div>
                 <div className="mx-auto pl-3 down-arrow">
-                  <img src={arrow} className="eye-image mx-2" />
+                  <img alt="events" src={arrow} className="eye-image mx-2" />
                 </div>
               </div>
               <div className="px-3">
-                <img src={view} className="eye-image" />
+                <img alt="events" src={view} className="eye-image" />
                 <br />
                 1000
               </div>
               <div className="px-3">
-                <img src={clap} className="eye-image" />
+                <img alt="events" src={clap} className="eye-image" />
                 <br />
                 321
               </div>
               <div className="px-3">
-                <img src={help} className="eye-image" />
+                <img alt="events" src={help} className="eye-image" />
                 <br />
                 12
               </div>
