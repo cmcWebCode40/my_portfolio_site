@@ -25,6 +25,7 @@ export default function AllFairs({ match }) {
     coopLagApi
       .get('/fairs', { headers })
       .then((response) => {
+        console.log(response.data.data)
         setFairs(response.data.data);
       })
       .catch((error) => {
