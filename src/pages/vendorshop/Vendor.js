@@ -12,6 +12,14 @@ const Vendor = () => {
   return (
     <MainWrapper>
       <div id="desktop" className="row">
+        <div className="pl-5 pt-2">
+          <iframe
+            width="1024"
+            height="640"
+            allowfullscreen
+            src="https://cdn.soft8soft.com/AROAJSY2GOEHMOFUVPIOE:83c599106f/applications/Cooplac_Recept/Cooplac_Recept.html"
+          ></iframe>
+        </div>
         <div className="ml-auto vendor-shop-tab-desktop mr-5">
           <VendorShopTabs />
         </div>
