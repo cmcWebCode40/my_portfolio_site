@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from "react-router-dom"
-import { useForm } from 'react-hook-form';
 import Button from '../../components/button';
 import Timer from '../../components/timer';
 import CheckMarkSuccess from '../../components/checkMark/checkMarkSuccess';
@@ -16,45 +15,11 @@ import total from '../../assets/images/total.png';
 import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
-import { getUserToken } from '../../utils/functions/userAuth';
-import { coopLagApi } from '../../services/services';
-import { toast } from 'react-toastify';
+
 
 const FairLandingPage = (props) => {
-  const { register, handleSubmit, errors } = useForm();
 
-  const errorAlert = (message) => {
-    toast.error(
-      message,
-      { autoClose: 5000 },
-      {
-        position: toast.POSITION.TOP_LEFT,
-      }
-    );
-  };
-
-  const headers = getUserToken();
   const id = props.match.params.id;
-
-  const PlanSubmit = (plans) => {
-
-    const plan_id = "5fa010a0af6ccf0017e5c380"
-    console.log(plans)
-
-    coopLagApi
-      .post(`/fairs/${id}/plans/${plan_id}/purchase`, plans, {
-        headers,
-      })
-      .then((res) => {
-        const { data } = res.data;
-        console.log(data)
-        // props.history.replace(`/vendorprofile/${data.vendor}`);
-      })
-      .catch((error) => {
-        errorAlert(error.response.data.message);
-      });
-
-  }
 
   return (
     <StyledDiv>
@@ -264,18 +229,6 @@ const FairLandingPage = (props) => {
                 <p>Bank Name: XYZ Bank</p>
                 <p>Account Name: Adamu Obi kunle</p>
                 <p>Acount Num: 1234567890</p>
-                {/* <input
-                  type="text"
-                  name="email"
-                  id="email-input"
-                  ref={register({ required: true })}
-                  pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}"
-                  placeholder="Your Business Email here"
-                />
-                {errors.email && <p className="error-para">Business email is required</p>} */}
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onClick={handleSubmit(PlanSubmit)}>Submit</button>
               </div>
             </div>
           </div>
@@ -304,23 +257,6 @@ const FairLandingPage = (props) => {
 export default FairLandingPage;
 
 const StyledDiv = styled.div`
-
-    #email-input{
-      width: 70%;
-      border: 1px solid lightgrey;
-      border-radius: 10px;
-    }
-
-    #email-input:focus {
-      border: 1.5px solid forestgreen;
-      outline: none;
-    }
-
-    .error-para {
-      color: #efefef;
-      font-style: italic;
-      font-size: 12px;
-    }
 
     img {
       width: 100%;

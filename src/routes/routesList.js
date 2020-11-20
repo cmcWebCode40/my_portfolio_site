@@ -34,7 +34,7 @@ const AllFairs = lazy(() => import("../pages/fairSignUp/AllFairsPage"));
 const VendorProfile = lazy(() => import("../pages/fairSignUp/VendorProfile"))
 const ApproveCredentials = lazy(() => import("../pages/ApproveCredentials"))
 const Credentials = lazy(() => import("../pages/SinlgeCredential"))
-
+const UsersLandingPage = lazy(() => import("../pages/fairSignUp/UserLandingPage"))
 const PaystackPay = lazy(() => import("../pages/Payment/Paystack"))
 
 
@@ -144,6 +144,11 @@ export const routesList = [
   {
     path: '/fair-landing-page/:id',
     component: fairLandingPage,
+    layout: FairLayout,
+  },
+  {
+    path: '/user-landing-page',
+    component: UsersLandingPage,
     layout: FairLayout,
   },
   {
