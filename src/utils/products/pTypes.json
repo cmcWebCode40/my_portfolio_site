@@ -1,0 +1,18 @@
+
+[
+  {
+    "type": "Paystack",
+    "image": "../../assets/images/paystack.png"
+  },
+  {
+    "type": "Fuse Pay",
+    "image": "../assets/images/coopeast.jpeg"
+  },
+  {
+    "type": "Coop East",
+    "image": "/assets/images/coopeast.jpeg"
+  }
+]
+
+
+
