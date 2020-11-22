@@ -22,13 +22,15 @@
     "sourceType": "module"
   },
   "rules": {
+    "camelcase":"off",
+    "additional-rule": "off",
     "no-console": "warn",
     "arrow-body-style": "off",
-    "linebreak-style": "off",
     "comma-dangle": "off",
+    "linebreak-style": "off",
+    "consistent-return": "off",
+    "no-plusplus": "off",
     "no-unused-vars": "warn",
-    "camelcase":"off",
-    "consistent-return":"off",
     "no-underscore-dangle": "off",
     "import/no-named-as-default-member": "off",
     "import/no-extraneous-dependencies": "off",

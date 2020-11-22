@@ -9,6 +9,8 @@ const TableWrapper = styled.div`
   .cursor-btn{
     cursor:pointer;
   }
+  display:flex;
+  flex-flow:column nowrap;
 
   p{
     font-size:1.2rem;
@@ -22,18 +24,19 @@ export const EmptyList = ({
   text,
   imageFile,
   height,
+  style,
 }) => {
   return (
-    <TableWrapper>
+    <TableWrapper style={style}>
       <div className="my-auto">
         <img
-          className=""
+          className="py-4"
           height={height}
           src={imageFile}
           alt="Empty List"
         />
+        <p>{text}</p>
       </div>
-      <p>{text}</p>
     </TableWrapper>
   );
 };

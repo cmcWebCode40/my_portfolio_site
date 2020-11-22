@@ -142,6 +142,7 @@ const activeStyles = {
 };
 const DashBoardLayout = ({ children }) => {
   const params = useParams();
+
   const toggleModal = () => {
     const wrapper = document.querySelector('#wrapper');
     wrapper.classList.toggle('toggled');

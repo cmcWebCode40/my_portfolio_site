@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import { configureStore } from '@reduxjs/toolkit';
 
-import rootReducer from '../slicers/example';
+import rootReducer from '../slicers';
 
 const store = configureStore({
   reducer: rootReducer,

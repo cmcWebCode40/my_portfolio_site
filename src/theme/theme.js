@@ -5,6 +5,7 @@ const theme = {
     danger: 'red',
     bodyDark: '#7a92d6',
     light: '#ddd',
+    black: '#000',
     textColor: '#333',
     whiteColor: '#fff',
   },
