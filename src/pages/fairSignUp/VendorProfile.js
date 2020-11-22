@@ -29,12 +29,13 @@ export default function VendorProfile({ match }) {
       .get(`/vendors/${vendor_id}/vendor-profile`, { headers })
       .then((response) => {
         const { data } = response.data;
+        console.log(data)
         setProfile([data]);
       })
       .catch((error) => {
         errorAlert(error.response.data.message);
       });
-  }, [match.params.id]);
+  }, [vendor_id]);
 
   return (
     <StyledDiv>

@@ -35,6 +35,7 @@
     "react-hook-form": "^6.9.6",
     "react-lightgallery": "^0.9.0",
     "react-multi-carousel": "^2.5.5",
+    "react-paystack": "^3.0.2",
     "react-redux": "^7.2.1",
     "react-responsive-modal": "^5.2.0",
     "react-router-dom": "^5.2.0",

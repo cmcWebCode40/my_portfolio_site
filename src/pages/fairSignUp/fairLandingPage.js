@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom"
 import Button from '../../components/button';
 import Timer from '../../components/timer';
 import CheckMarkSuccess from '../../components/checkMark/checkMarkSuccess';
@@ -17,8 +16,10 @@ import profile1 from '../../assets/images/profile-1.jpg';
 import profile2 from '../../assets/images/profile-2.jpg';
 import profile3 from '../../assets/images/profile-3.jpg';
 
-const fairLandingPage = (props) => {
-  const { id } = props.match.params;
+
+const FairLandingPage = (props) => {
+
+  const id = props.match.params.id;
 
   return (
     <StyledDiv>
@@ -37,7 +38,7 @@ const fairLandingPage = (props) => {
               <h3 className="banner-heading">Welcome to Cooplag</h3>
               <p>Exploring Digitalization in Oil & Gas</p>
               <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
-              <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+              <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Enter Fair</Button>
             </div>
           </div>
           <div className="w-100 container p-5">
@@ -110,7 +111,7 @@ const fairLandingPage = (props) => {
             <h3 className="container pb-5">Pricing</h3>
           </div>
           <div className="row mx-auto">
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Starter</div>
               <div className="price-offerings">
                 <div className="row">
@@ -144,7 +145,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="price">$1,000</div>
             </div>
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Business</div>
               <div className="price-offerings">
                 <div className="row">
@@ -178,7 +179,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="price">$5,000</div>
             </div>
-            <div className="pricing-box col-lg-3 mx-auto my-4">
+            <div className="pricing-box col-lg-3 mx-auto my-4" data-toggle="modal" data-target="#special-modal">
               <div className="pricing-category">Professional</div>
               <div className="price-offerings">
                 <div className="row">
@@ -215,6 +216,24 @@ const fairLandingPage = (props) => {
           </div>
         </section>
 
+        <div class="modal fade" id="special-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Make Pyaments to the Account Below</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Bank Name: XYZ Bank</p>
+                <p>Account Name: Adamu Obi kunle</p>
+                <p>Acount Num: 1234567890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Section 5 */}
         <section className="row pre-footer-section mx-auto">
           <div className="container">
@@ -225,7 +244,7 @@ const fairLandingPage = (props) => {
               </div>
               <div className="col-lg-6">
                 <Link to={`/requiredfiles/${id}`}><Button className="btns" buttonStyle="btn--primary" buttonSize="btn--large">Vendor SignUp</Button></Link>
-                <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Sign In</Button>
+                <Button className="btns" buttonStyle="btn--outline" buttonSize="btn--large">Enter Fair</Button>
               </div>
             </div>
           </div>
@@ -235,10 +254,11 @@ const fairLandingPage = (props) => {
   );
 };
 
-export default fairLandingPage;
+export default FairLandingPage;
 
 const StyledDiv = styled.div`
-    img  {
+
+    img {
       width: 100%;
     }
 
@@ -320,6 +340,7 @@ const StyledDiv = styled.div`
       width: 100%;
       background-color: var(--tint);
       border-radius: 20px;
+      cursor: pointer;
     }
 
     @media screen and (min-width: 920px) {

@@ -67,6 +67,8 @@ const ProductDetails = lazy(() => import('../pages/ecommerce/ProductDetails'));
 const ShoppingPage = lazy(() => import('../pages/ecommerce/Ecommerce'));
 const ShoppingCart = lazy(() => import('../pages/ecommerce/cart/Cart'));
 const CheckoutCart = lazy(() => import('../pages/ecommerce/checkout/Checkout'));
+const UsersLandingPage = lazy(() => import('../pages/fairSignUp/UserLandingPage'));
+const PaystackPay = lazy(() => import('../pages/Payment/Paystack'));
 
 export const routesList = [
   {
@@ -161,6 +163,12 @@ export const routesList = [
   },
 
   {
+    path: '/payment/paystack',
+    component: PaystackPay,
+    layout: DashboardLayout,
+  },
+
+  {
     path: '/register',
     component: Register,
     layout: MainLayouts,
@@ -183,6 +191,11 @@ export const routesList = [
   {
     path: '/fair-landing-page/:id',
     component: fairLandingPage,
+    layout: FairLayout,
+  },
+  {
+    path: '/user-landing-page',
+    component: UsersLandingPage,
     layout: FairLayout,
   },
   {
