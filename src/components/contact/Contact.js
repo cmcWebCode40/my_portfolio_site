@@ -10,6 +10,7 @@ const Contact = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem('user_test', 'Wildcard_Application')
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
