@@ -1,32 +1,13 @@
 import React from 'react';
 import Typed from 'react-typed';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import Buttons from '../../shared/buttons/Button';
 import '../../images/available.svg';
-import { useHistory } from 'react-router-dom';
 
 const Home = () => {
 	const textLines = [`Frontend Developer`, `Project Manager`];
-	const history = useHistory()
-
-	const userObj ={
-		name:'mike',
-		isActive:true,
-	}
-
-	const cookieAuth ='232930icnw2309D2039CHIWENEDKCNDKSJNC230F923CENWEKNSCDN20390C29EWNDCI23F8239FWCEIONCSDJNKCNSD09C02JECWENSKC'
-	var queryString = Object.keys(userObj).map((key) => {
-    return encodeURIComponent(key) + '=' + encodeURIComponent(userObj[key])
-}).join('&')
-
 
 	return (
 		<div className='home'>
-			<button onClick={()=>{
-					history.push(`/contact?${queryString}&auth=${cookieAuth}`)
-			}}>
-				ROUTE ME
-			</button>
 			<div className='content '>
 				<h2>
 					Hello
@@ -49,7 +30,7 @@ const Home = () => {
 				<button style={{ border: 'none', background: 'transparent' }}>
 					<a
 						className='btn btn-pri'
-						href='https://drive.google.com/file/d/1EBsSPodj2dVEO1Kw57sv9vFEmHUaUvdb/view?usp=sharing'
+						href='https://drive.google.com/file/d/1p8c6ngIL2XyGgiPkB5BqaNnyIgysuPnF/view?usp=sharing'
 						download='michael_CV'
 						target='_blanck'
 						rel='noreferrer noopener'>
