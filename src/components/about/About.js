@@ -19,17 +19,12 @@ const About = () => {
           <div>
             <h4>Profile</h4>
             <p>
-              I'm a{" "}
-              <strong style={{ color: "#58c376" }}>frontend Developer</strong>{" "}
-              and also a guy who is so much passionate about 
-              <strong style={{ color: "#58c376" }}> Project Management,</strong>{" "}
+              I'm a <strong style={{ color: "#58c376" }}>Frontend Developer</strong> proficient with javaScript programming language I also have proven experience in creating, designing, and deploying web and progressive web(PWA) applications in a test-driven environment.
               <br />
-              I build web Apps (Client-side) and very much interested in delivering good user experience(UX) for clients, i also love
-              learning new technologies and working with teams.
-             <em> "one of my personal goal is to put smile on people's face using
-              softwares". </em>
+              I basically use <strong style={{ color: "#58c376" }}>React js & Typescript</strong>  for web development. <br />
+              I'm Currently Learning/exploring the blockchain development
               <br />
-              At my spare time i do music (A Pianoist) .
+              At my spare time i do music (A Pianist) .
             </p>
           </div>
         </div>
@@ -90,6 +85,14 @@ const About = () => {
                 height="35"
                 width="35"
                 alt="react"
+              />
+            </div>
+            <div>
+              <img
+                src="https://res.cloudinary.com/cmcwebcode/image/upload/v1618786756/redux_image_zhk5em.png"
+                height="35"
+                width="35"
+                alt="redux"
               />
             </div>
             <div>

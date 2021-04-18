@@ -31,7 +31,7 @@ const Footer = () => {
           <FontAwesomeIcon icon={faFacebook} color="white" size="3x" />
         </a>
         <a
-          href="https://twitter.com/cmcWebCode?s=07"
+          href="https://twitter.com/cmcWebCode"
           className="twitter social"
           target="_blanck"
         >
@@ -46,7 +46,7 @@ const Footer = () => {
           <FontAwesomeIcon color="white" icon={faGithub} size="3x" />
         </a>
         <a
-          href="https://www.linkedin.com/in/michael-infinity-467360a8/"
+          href="https://www.linkedin.com/in/chinweike-michael-chinonso-467360a8/"
           color="white"
           className="instagram social"
           target="_blanck"

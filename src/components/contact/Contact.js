@@ -10,14 +10,14 @@ const Contact = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('user_test', 'Wildcard_Application')
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...userData })
     })
       .then(() => {
-        alert(`Thank you ${userData.name} will get back to you at once 😊 you can as well DM via the social link 👇`);
+        alert(`Thank you ${userData.name}
+         will get back to you at once 😊 you can as well DM via the social link 👇`);
         setUserData({ name: "", subject: "", message: "" })
       })
       .catch(error => alert(error));
